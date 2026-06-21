@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!-- ============================================================
-     ★ここだけ設定してください★
-     下の <html ... data-api-url="..."> の "" の中に GASの /exec URL を貼ります。
-     ============================================================ -->
+<!-- GAS URL setting below -->
 <html lang="ja" data-api-url="https://script.google.com/macros/s/AKfycbzzRfW419IKvKBIGtOjihhshYfd8jGPv8vCMWlJjE2w0b1tRWfYPyfWsGAP2_KJ2hWd/exec">
 <head>
 <meta charset="UTF-8">
@@ -965,48 +962,78 @@ const VOICE_SAMPLE = {
   sections: [
     {
       no:'01', title:'創業のきっかけや感じる課題',
-      body:`この企業は、創業者が日常業務や生活の中で感じた具体的な課題を起点に生まれた。対象とする業務領域は社会的な必要性が高い一方で、<strong>紙・手作業・非効率・レガシーシステムからの移行の遅れ</strong>といった構造的な課題が残っている。こうした「多くの人が関わるのに非効率が温存されている巨大な領域」をデジタル化し、業務の入り口を押さえるプロダクトとして立ち上がった。（※サンプル表示。今後コメントシートD〜T列から各社の内容を表示します）`,
+      body:`SmartHRは、創業者・宮田昇始氏が妊娠中のパートナーが産休・育休関連の紙書類に向き合う姿を見た実体験を起点に生まれた。社会保障制度は本来人々を支える仕組みでありながら、申請や届け出が複雑で従業員・企業双方に大きな負担がかかっている。背景には、<strong>労働人口の減少・働き方の多様化・人的資本開示への対応・レガシーシステムからの移行といったバックオフィスDXの遅れ</strong>という構造的課題が同時進行している現状がある。SmartHRは「すべての働く人に関わるが、紙・手作業・非効率が残る巨大な業務領域」をクラウド化し、人事労務の入り口を押さえるプロダクトとして立ち上がった。`,
       sources:[
-        {title:'コーポレートサイト（事業紹介）', url:'#'},
-        {title:'創業ストーリー記事', url:'#'},
+        {title:`事業から見るSmartHR`, url:`https://smarthr.co.jp/about/business/`},
+        {title:`SmartHR 10th Anniversary`, url:`https://smarthr.jp/smarthr-10th-anniversary/`},
+        {title:`シリーズE資金調達プレスリリース`, url:`https://smarthr.co.jp/news/press/27110/`},
+        {title:`SmartHRがARR150億円を突破`, url:`https://smarthr.co.jp/news/info/26682/`},
+        {title:`SmartHRが7年連続シェアNo.1を獲得`, url:`https://prtimes.jp/main/html/rd/p/000000432.000015987.html`},
       ],
     },
     {
       no:'02', title:'サービスの内容や特徴',
-      body:`主力プロダクトは、対象業務をクラウド化して大幅な工数削減を実現する。業務効率化の過程で<strong>データが自然に蓄積</strong>され、そのデータを分析・改善・意思決定に活用できる点が特徴。導入初期はコスト削減・効率化で価値を出し、その後はデータ活用・追加機能・関連領域への拡張へと価値が積み上がる構造を持ち、<strong>単一プロダクトからマルチプロダクトへ</strong>と進化している。（※サンプル表示）`,
+      body:`SmartHRは、入社手続き・雇用契約・年末調整・給与明細などをクラウドでペーパーレス化し、<strong>1,000名規模で合計工数約88%削減</strong>を実現する人事労務SaaS。業務効率化の過程で従業員データが自然に蓄積され、そのデータを人事評価・配置・サーベイ・人的資本開示に活用できる点が特徴。労務管理を起点に、タレントマネジメント・従業員データベース・給与計算・採用管理・ID管理・アプリストア「SmartHR Plus」などへ提供領域を広げ、<strong>単一プロダクトからマルチプロダクトへと進化</strong>している。`,
       sources:[
-        {title:'サービスサイト', url:'#'},
-        {title:'プロダクト紹介資料', url:'#'},
+        {title:`SmartHRサービスサイト`, url:`https://smarthr.jp/`},
+        {title:`SmartHRタレントマネジメント`, url:`https://smarthr.jp/talent-management/`},
+        {title:`事業から見るSmartHR`, url:`https://smarthr.co.jp/about/business/`},
+        {title:`SmartHRが「人的資本経営プラットフォーム」へ進化`, url:`https://smarthr.jp/release/20250603_jigyousenryaku/`},
       ],
     },
     {
       no:'03', title:'マーケットの規模感や概況、自社の優位性',
-      body:`対象市場は大きく、すでに一定の顧客基盤を獲得している一方で<strong>開拓余地も大きい</strong>。市場地位を支えるのは、参入障壁の高いコア機能の先行実装、業務フローへの組み込みによる<strong>高いスイッチングコスト</strong>、外部サービスとの広い連携、そして現場の担当者まで含めた広い利用接点といった自社ならではの優位性である。（※サンプル表示）`,
+      body:`SmartHRは登録社数<strong>80,000社以上</strong>を突破し、<strong>2025年5月時点でARRが200億円</strong>を超え、労務管理クラウド市場で<strong>7年連続シェアNo.1</strong>（2026年度も8年連続を見込む）を獲得。一方で日本には<strong>330万社を超える企業</strong>があり開拓余地は大きく、2030年には売上1,000億円を目標に掲げる、成長余地の大きいレイターステージSaaSである。この市場地位を支えるのが、<strong>行政電子申請連携など参入障壁の高いコア機能の先行実装</strong>、<strong>業務フローに組み込まれ従業員データが蓄積される高いスイッチングコスト</strong>、<strong>120以上の外部サービス連携</strong>、そして<strong>従業員自身も使う広い企業内接点</strong>という自社ならではの優位性である。`,
       sources:[
-        {title:'市場シェア・実績の発表', url:'#'},
-        {title:'事業戦略の説明資料', url:'#'},
+        {title:`事業から見るSmartHR`, url:`https://smarthr.co.jp/about/business/`},
+        {title:`SmartHRが7年連続シェアNo.1を獲得`, url:`https://prtimes.jp/main/html/rd/p/000000432.000015987.html`},
+        {title:`SmartHRが「人的資本経営プラットフォーム」へ進化`, url:`https://smarthr.jp/release/20250603_jigyousenryaku/`},
+        {title:`SmartHRサービスビジョン`, url:`https://smarthr.jp/about/service-vision/`},
+        {title:`SmartHRサービスサイト`, url:`https://smarthr.jp/`},
       ],
     },
     {
       no:'04', title:'今後の事業展望やつくりたい世界観',
-      body:`明確なミッションを掲げ、単なる業務効率化にとどまらず、データ活用を通じてよりよい意思決定・組織運営につなげる世界を目指している。今後は、基幹領域への進化、AIによる効率化・高度化、隣接領域への拡張を注力ポイントとし、調達した資金を新プロダクト開発・営業マーケティング拡大・M&A・新技術投資などに充てる方針を示している。（※サンプル表示）`,
+      body:`SmartHRは「<strong>労働にまつわる社会課題をなくし、誰もがその人らしく働ける社会をつくる</strong>」をミッションに掲げ、管理部門だけでなく現場の管理職や従業員も含めた"働くみんなが使いやすい"システム（サービスビジョン「worker-friendly」）を志向している。今後は「<strong>人的資本経営プラットフォーム</strong>」への進化を掲げ、①クラウド人事給与基幹システムへの進化、②AIによる業務効率化と人的資本経営の推進、③HR SaaS以外の領域への拡張を注力ポイントとする。シリーズEの資金は新プロダクト開発・S&M拡大・M&A・AI等の新技術投資に充てられる。`,
       sources:[
-        {title:'事業戦略プレスリリース', url:'#'},
-        {title:'資金調達リリース', url:'#'},
+        {title:`SmartHRが「人的資本経営プラットフォーム」へ進化`, url:`https://smarthr.jp/release/20250603_jigyousenryaku/`},
+        {title:`シリーズE資金調達プレスリリース`, url:`https://smarthr.co.jp/news/press/27110/`},
+        {title:`事業から見るSmartHR`, url:`https://smarthr.co.jp/about/business/`},
+        {title:`私たちについて — SmartHR`, url:`https://smarthr.co.jp/about/`},
+        {title:`SmartHRサービスビジョン`, url:`https://smarthr.jp/about/service-vision/`},
+        {title:`10周年記念プレスリリース`, url:`https://smarthr.jp/release/20250623_10thanniversary/`},
       ],
     },
   ],
-  // 05 投資家からの期待の声
   investors:[
     {
-      name:'リード投資家', person:'担当パートナー', round:'直近ラウンド リード',
-      txt:`「この企業は、対象領域における<strong>革新的な手段</strong>を提供してきた。市場のデジタル化が進む中で優位なポジションにあり、グローバルな知見を活かした成長に期待している。」（※サンプル表示）`,
-      sources:[{title:'資金調達プレスリリース', url:'#'}],
+      name:"Ontario Teachers' Pension Plan",
+      person:"Olivia Steedman（Executive Managing Director, Teachers' Venture Growth）",
+      round:"Series E リード (2024年)",
+      txt:`「SmartHRは、企業規模を問わず、従業員の<strong>労務管理とタレントマネジメントを改善する革新的な手段</strong>を提供してきた。日本企業がデジタルトランスフォーメーションを進める中で、SmartHRは労務管理を中心とした幅広いニーズを支援できる優位なポジションにある。グローバルな知見を活かし、成長に向けた価値共創を期待している。」`,
+      sources:[
+        {title:`シリーズEプレスリリース`, url:`https://smarthr.co.jp/news/press/27110/`},
+        {title:`Ontario Teachers' / KKR共同発表`, url:`https://www.otpp.com/en-ca/about-us/news-and-insights/2024/kkr-and-teachers-venture-growth-lead-us-140-million-series-e-round-in-leading-japanese-cloud-native-human-resources-software-platform-smarthr/`},
+      ],
     },
     {
-      name:'既存投資家', person:'担当パートナー', round:'継続投資',
-      txt:`「市場全体での高いシェア、戦略的なプラットフォーム拡張、経営陣の実行力を高く評価している。構造的な追い風を背景に、<strong>長い成長余地</strong>がある。」（※サンプル表示）`,
-      sources:[{title:'過去ラウンドのリリース', url:'#'}],
+      name:"KKR",
+      person:"Mukul Chawla（Partner and Head of Growth Equity, Asia Pacific）",
+      round:"Series E 共同リード (2024年)",
+      txt:`「SmartHRは<strong>日本を代表するHR SaaSプラットフォームの一つ</strong>であり、デジタル化とクラウド普及を通じて国内の労働生産性向上に重要な役割を果たしている。KKRのテクノロジー・グロース投資戦略を通じ、グローバルな知見・ベストプラクティス・ネットワークを活用してSmartHRの次の成長フェーズを支援する。SmartHRは日本のニューエコノミーを象徴する企業。」`,
+      sources:[
+        {title:`シリーズEプレスリリース`, url:`https://smarthr.co.jp/news/press/27110/`},
+      ],
+    },
+    {
+      name:"Light Street Capital",
+      person:"Gaurav Gupta（Partner at Light Street Capital）",
+      round:"Series C〜E 継続投資",
+      txt:`「SmartHRを<strong>日本企業における人事データベース</strong>として評価。市場全体および大企業における高いシェア、労務管理から人材マネジメントへの戦略的なプラットフォーム拡張、経営陣の実行力を高く評価している。人口動態や規制変化を背景に、より多くの日本企業でSaaS型HRソリューションの導入が進む中、SmartHRには<strong>長い成長余地</strong>がある。」`,
+      sources:[
+        {title:`シリーズD資金調達プレスリリース`, url:`https://smarthr.jp/release/25704/`},
+        {title:`シリーズEプレスリリース`, url:`https://smarthr.co.jp/news/press/27110/`},
+      ],
     },
   ],
 };
