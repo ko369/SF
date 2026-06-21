@@ -30,7 +30,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13px;line-height:1.7}
 
-.frame{display:flex;flex-direction:column;height:100vh;overflow:hidden}
+.frame{flex:1;min-width:0;display:flex;flex-direction:column;height:100vh;overflow:hidden}
 
 /* TOP BAR */
 .topbar{background:var(--bg);border-bottom:1px solid var(--border);padding:9px 32px;display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text-mute);font-family:var(--mono);flex-shrink:0}
@@ -296,46 +296,45 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
 .news-wrap{padding:20px 24px 80px;min-height:100%}
 
 /* ═══════════════ 企業スイッチャー（下部固定） ═══════════════ */
-/* 企業ピッカー */
-.picker-fab{
-  position:fixed;left:50%;bottom:18px;transform:translateX(-50%);
-  z-index:50;display:flex;align-items:center;gap:8px;
-  background:rgba(8,17,30,.92);backdrop-filter:blur(8px);
-  border:1px solid rgba(255,255,255,.14);
-  color:#fff;font-family:var(--sans);font-size:13px;font-weight:600;
-  border-radius:100px;padding:11px 20px;cursor:pointer;
-  box-shadow:0 6px 24px rgba(0,0,0,.28);transition:all .15s;
+/* 左サイドバー（企業一覧） */
+.app{display:flex;height:100vh;overflow:hidden}
+.sidebar{
+  width:260px;flex-shrink:0;display:flex;flex-direction:column;
+  background:var(--bg);border-right:1px solid var(--border);
+  height:100vh;
 }
-.picker-fab:hover{background:rgba(8,17,30,1);transform:translateX(-50%) translateY(-1px)}
-.picker-fab-ico{font-size:13px}
-.picker-overlay{
-  position:fixed;inset:0;z-index:200;display:none;
-  background:rgba(8,17,30,.45);backdrop-filter:blur(3px);
-  align-items:flex-start;justify-content:center;padding:8vh 16px;
+.sb-head{padding:16px 16px 12px;border-bottom:1px solid var(--border);flex-shrink:0}
+.sb-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:10px}
+.sb-title span{color:var(--text-mute);font-weight:500;font-family:var(--mono);font-size:11px}
+.sb-search{
+  width:100%;border:1px solid var(--border);border-radius:8px;
+  padding:9px 11px;font-size:13px;font-family:var(--sans);outline:none;background:#fff;
 }
-.picker-overlay.open{display:flex}
-.picker-panel{
-  width:100%;max-width:520px;background:var(--bg-card,#fff);
-  border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.3);
-  overflow:hidden;display:flex;flex-direction:column;max-height:80vh;
+.sb-search:focus{border-color:var(--blue)}
+.sb-list{flex:1;overflow-y:auto;padding:6px}
+.sb-item{
+  display:flex;align-items:stretch;gap:0;padding:0;border-radius:8px;cursor:pointer;
+  margin-bottom:2px;overflow:hidden;border:1px solid transparent;transition:background .12s;
 }
-.picker-head{display:flex;align-items:center;gap:8px;padding:14px 16px;border-bottom:1px solid var(--border,#E2E5EA)}
-.picker-search{
-  flex:1;border:1px solid var(--border,#E2E5EA);border-radius:8px;
-  padding:10px 12px;font-size:14px;font-family:var(--sans);outline:none;
+.sb-item:hover{background:var(--bg-deep)}
+.sb-item.active{background:var(--blue-l);border-color:var(--blue)}
+.sb-item-bar{width:4px;flex-shrink:0;border-radius:2px;margin:8px 0}
+.sb-item-body{flex:1;min-width:0;padding:9px 10px 9px 8px}
+.sb-item-name{font-size:13px;font-weight:700;color:var(--text);line-height:1.4;margin-bottom:3px}
+.sb-item.active .sb-item-name{color:var(--blue)}
+.sb-item-sub{font-size:11px;color:var(--text-mute);font-family:var(--mono);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sb-item-tag{display:inline-block;font-size:9.5px;color:var(--text-sub);background:var(--bg-deep);border:1px solid var(--border-sub);border-radius:4px;padding:1px 6px;margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.sb-empty{padding:30px 16px;text-align:center;color:var(--text-mute);font-size:12px}
+/* ハンバーガー（モバイル時のみ表示） */
+.sb-toggle{display:none;border:none;background:none;font-size:16px;color:var(--text-mute);cursor:pointer;padding:0 8px 0 0;margin-right:2px}
+.sb-backdrop{display:none;position:fixed;inset:0;background:rgba(8,17,30,.4);z-index:99}
+.sb-backdrop.open{display:block}
+@media(max-width:760px){
+  .sidebar{position:fixed;left:0;top:0;z-index:100;transform:translateX(-100%);transition:transform .2s;box-shadow:0 0 40px rgba(0,0,0,.25)}
+  .sidebar.open{transform:translateX(0)}
+  .sb-toggle{display:inline-block}
 }
-.picker-search:focus{border-color:var(--blue,#1A5EC2)}
-.picker-close{border:none;background:none;font-size:16px;color:var(--text-mute,#717A86);cursor:pointer;padding:6px 8px}
-.picker-count{padding:8px 16px;font-size:11px;color:var(--text-mute,#717A86);border-bottom:1px solid var(--border-sub,#EDEFF2)}
-.picker-list{overflow-y:auto;padding:6px}
-.picker-item{
-  display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;cursor:pointer;
-}
-.picker-item:hover{background:var(--bg-deep,#F5F5F5)}
-.picker-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
-.picker-item-name{font-size:13px;font-weight:600;color:var(--text,#16202E)}
-.picker-item-sub{font-size:11px;color:var(--text-mute,#717A86)}
-.picker-empty{padding:30px;text-align:center;color:var(--text-mute,#717A86);font-size:12px}
+
 
 /* ═══════════════ レスポンシブ（〜640px） ═══════════════ */
 @media (max-width:640px){
@@ -441,8 +440,17 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
 </style>
 </head>
 <body>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="sb-head">
+    <div class="sb-title">企業一覧 <span id="sb-count">—</span></div>
+    <input type="text" id="sb-search" class="sb-search" placeholder="企業名を検索…" oninput="filterSidebar()" autocomplete="off">
+  </div>
+  <div class="sb-list" id="sb-list"></div>
+</aside>
 <div class="frame">
 <div class="topbar">
+  <button class="sb-toggle" id="sb-toggle" onclick="toggleSidebar()" aria-label="企業一覧">☰</button>
   <a href="#">トップ</a><span>›</span>
   <span class="topbar-name" id="topbar-name">—</span>
 </div>
@@ -546,21 +554,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
   </div>
 </div><!-- /.content-area -->
 </div><!-- /.frame -->
+</div><!-- /.app -->
 
-<!-- 企業ピッカー（検索つき） -->
-<button class="picker-fab" id="picker-fab" onclick="openPicker()">
-  <span class="picker-fab-ico">🔍</span><span id="picker-fab-label">企業を選ぶ</span>
-</button>
-<div class="picker-overlay" id="picker-overlay" onclick="if(event.target===this)closePicker()">
-  <div class="picker-panel">
-    <div class="picker-head">
-      <input type="text" id="picker-search" class="picker-search" placeholder="企業名・業種で検索…" oninput="filterPicker()" autocomplete="off">
-      <button class="picker-close" onclick="closePicker()">✕</button>
-    </div>
-    <div class="picker-count" id="picker-count"></div>
-    <div class="picker-list" id="picker-list"></div>
-  </div>
-</div>
+<div class="sb-backdrop" id="sb-backdrop" onclick="toggleSidebar()"></div>
 
 <script>
 // ════════════════════════════════════════════════
@@ -1052,34 +1048,54 @@ async function loadCompanyIndex() {
 
 function dotColor(c){ return c && /^#/.test(c) ? c : 'var(--slate,#5A6A80)'; }
 
-function renderPickerList(filter) {
-  const list = document.getElementById('picker-list');
-  const cnt = document.getElementById('picker-count');
+function renderSidebar(filter) {
+  const list = document.getElementById('sb-list');
+  const cnt = document.getElementById('sb-count');
   const q = (filter || '').trim().toLowerCase();
   const items = COMPANY_INDEX.filter(c =>
     !q || (c.name||'').toLowerCase().includes(q) || (c.summary||'').toLowerCase().includes(q) || (c.sector1||'').toLowerCase().includes(q)
   );
-  cnt.textContent = `${items.length} 社`;
-  if (!items.length) { list.innerHTML = `<div class="picker-empty">該当する企業がありません</div>`; return; }
-  list.innerHTML = items.slice(0, 300).map(c => `
-    <div class="picker-item" onclick="pickCompany('${c.company_id}')">
-      <span class="picker-dot" style="background:${dotColor(c.color)}"></span>
-      <div>
-        <div class="picker-item-name">${c.name||c.company_id}</div>
-        <div class="picker-item-sub">${[c.sector1, c.summary].filter(Boolean).join(' · ').slice(0,60)}</div>
+  if (cnt) cnt.textContent = `${items.length}社`;
+  if (!list) return;
+  if (!items.length) { list.innerHTML = `<div class="sb-empty">該当する企業がありません</div>`; return; }
+  list.innerHTML = items.slice(0, 400).map(c => {
+    const sub = [c.founded ? `設立 ${c.founded}` : ''].filter(Boolean).join(' · ');
+    const tag = c.sector1 || c.summary || '';
+    return `<div class="sb-item${c.company_id===currentId?' active':''}" data-id="${c.company_id}" onclick="pickCompany('${c.company_id}')">
+      <span class="sb-item-bar" style="background:${dotColor(c.color)}"></span>
+      <div class="sb-item-body">
+        <div class="sb-item-name">${c.name||c.company_id}</div>
+        ${sub?`<div class="sb-item-sub">${sub}</div>`:''}
+        ${tag?`<div class="sb-item-tag">${tag.slice(0,18)}</div>`:''}
       </div>
-    </div>`).join('') + (items.length > 300 ? `<div class="picker-empty">他 ${items.length-300} 社… 検索で絞り込んでください</div>` : '');
+    </div>`;
+  }).join('') + (items.length > 400 ? `<div class="sb-empty">他 ${items.length-400} 社… 検索で絞り込んでください</div>` : '');
 }
 
-function openPicker(){ document.getElementById('picker-overlay').classList.add('open'); const s=document.getElementById('picker-search'); s.value=''; renderPickerList(''); setTimeout(()=>s.focus(),50); }
-function closePicker(){ document.getElementById('picker-overlay').classList.remove('open'); }
-function filterPicker(){ renderPickerList(document.getElementById('picker-search').value); }
+function filterSidebar(){ renderSidebar(document.getElementById('sb-search').value); }
+
+function setSidebarActive(id){
+  document.querySelectorAll('.sb-item').forEach(el=>{
+    el.classList.toggle('active', el.dataset.id===id);
+  });
+}
+
+// モバイル用：サイドバー開閉
+function toggleSidebar(){
+  const sb=document.getElementById('sidebar');
+  const bd=document.getElementById('sb-backdrop');
+  const open=sb.classList.toggle('open');
+  bd.classList.toggle('open', open);
+}
+
 async function pickCompany(id){
-  closePicker();
   await loadCompany(id);
-  const c = DB[id];
-  const lbl = document.getElementById('picker-fab-label');
-  if (lbl && c) lbl.textContent = c.name;
+  setSidebarActive(id);
+  // モバイルでは選択後に閉じる
+  if (window.matchMedia('(max-width:760px)').matches) {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('sb-backdrop').classList.remove('open');
+  }
 }
 
 // ── 初期化：一覧を読み、先頭（またはSmartHR）を表示 ──
@@ -1090,11 +1106,34 @@ async function pickCompany(id){
     const sm = COMPANY_INDEX.find(c => /smarthr/i.test(c.name||'') || /smarthr/i.test(c.company_id||''));
     firstId = sm ? sm.company_id : COMPANY_INDEX[0].company_id;
   }
+  renderSidebar('');
   await loadCompany(firstId);
   const c = DB[firstId];
-  const lbl = document.getElementById('picker-fab-label');
-  if (lbl && c) lbl.textContent = c.name;
+  setSidebarActive(firstId);
+
+  // データ源にまったく接続できていない場合、設定方法を案内する
+  if (!COMPANY_INDEX.length && !c) {
+    showSetupNotice();
+  }
 })();
+
+function showSetupNotice(){
+  if (document.getElementById('setup-notice')) return;
+  const apiSet = !!(document.documentElement.dataset.apiUrl || window.STARTUPFILE_API_URL);
+  const div = document.createElement('div');
+  div.id = 'setup-notice';
+  div.style.cssText = 'position:fixed;left:50%;top:80px;transform:translateX(-50%);z-index:300;max-width:600px;width:calc(100% - 32px);background:#fff;border:1px solid #E2E5EA;border-left:4px solid #E8632B;border-radius:10px;box-shadow:0 12px 40px rgba(0,0,0,.18);padding:18px 20px;font-family:var(--sans),sans-serif;color:#16202E;line-height:1.7;font-size:13px';
+  div.innerHTML = `
+    <div style="font-weight:700;font-size:14px;margin-bottom:6px">⚠ データに接続できていません</div>
+    <div>サイトの枠は表示できていますが、企業データの取得先が設定されていません。次のいずれかが必要です。</div>
+    <ul style="margin:10px 0 4px;padding-left:18px">
+      <li style="margin-bottom:6px"><b>方法①（推奨）</b>：GASを設定し、このHTML冒頭の <code style="background:#F1F3F5;padding:1px 5px;border-radius:4px">data-api-url=""</code> に <code style="background:#F1F3F5;padding:1px 5px;border-radius:4px">/exec</code> URLを貼る。${apiSet ? '<br><span style="color:#137333">→ URLは設定済みのようです。GASの公開設定（アクセス＝全員）とURL末尾(/exec)をご確認ください。</span>' : '<br><span style="color:#B42318">→ 現在URLは未設定です。</span>'}</li>
+      <li>方法②：<code style="background:#F1F3F5;padding:1px 5px;border-radius:4px">data/</code> フォルダ（企業JSON）も同じ場所に置く。</li>
+    </ul>
+    <div style="margin-top:8px;font-size:12px;color:#717A86">詳しくは同梱の SETUP_GAS.md / GITHUB実装ガイド.md をご覧ください。</div>
+    <button onclick="this.parentElement.remove()" style="position:absolute;top:12px;right:14px;border:none;background:none;font-size:16px;color:#9AA3AE;cursor:pointer">✕</button>`;
+  document.body.appendChild(div);
+}
 (function(){
   const btn = document.querySelector('.accordion-trigger');
   if (btn) toggleAcc(btn);
