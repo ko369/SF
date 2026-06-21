@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <!-- ============================================================
      ★ここだけ設定してください★
-     下の <html ... data-api-url="..."> の "" の中に、
-     GASで発行したウェブアプリURL（末尾が /exec のもの）を貼り付けます。
-     例: data-api-url="https://script.google.com/macros/s/AKfyc..../exec"
-     空のままだと「データが表示されない」状態になります。
+     下の <html ... data-api-url="..."> の "" の中に GASの /exec URL を貼ります。
      ============================================================ -->
 <html lang="ja" data-api-url="https://script.google.com/macros/s/AKfycbzzRfW419IKvKBIGtOjihhshYfd8jGPv8vCMWlJjE2w0b1tRWfYPyfWsGAP2_KJ2hWd/exec">
 <head>
@@ -58,6 +55,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
 
 /* ACCORDION */
 .accordion-trigger{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;border-top:1px solid var(--border-sub);padding:9px 0;cursor:pointer}
+.accordion-trigger:hover .accordion-title{color:var(--text)}
 .accordion-chevron{font-size:11px;color:var(--text-mute);transition:transform .22s;display:inline-block}
 .accordion-chevron.open{transform:rotate(180deg)}
 .accordion-body{overflow:hidden;max-height:0;transition:max-height .35s ease,opacity .25s;opacity:0}
@@ -357,6 +355,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
   .tl-wrap{padding:18px 16px 96px}
   .voice-wrap{padding:18px 16px 96px}
   .news-wrap{padding:18px 14px 96px}
+  .v-hdr{padding:16px 16px 14px}
   /* 参考ソース表は横スクロール可能に */
   .ref-accordion-body.open{overflow-x:auto}
   .ref-table{min-width:560px}
@@ -383,6 +382,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
 
 #smnews /* header */
 .top{background:var(--ink);color:#fff;padding:18px 28px}
+#smnews .top h1{font-size:18px;font-weight:800;letter-spacing:-.01em}
 #smnews .btn{display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:12px;font-weight:600;padding:8px 14px;border-radius:100px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:#fff;cursor:pointer;transition:all .14s}
 #smnews .btn:hover{background:rgba(255,255,255,.16)}
 #smnews .btn .ic{width:14px;height:14px}
@@ -432,7 +432,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
 @keyframes sk{0%{background-position:200% 0}100%{background-position:-200% 0}}
 #smnews .disclaimer{max-width:1500px;margin:0 auto;padding:0 28px 50px;font-size:11px;color:var(--mute);line-height:1.8}
 #smnews .disclaimer strong{color:var(--sub)}
-@media(max-width:640px){#smnews .board, #smnews .disclaimer{padding-left:16px;padding-right:16px}#smnews .col-body{grid-template-columns:1fr}#smnews .col-body .item:nth-child(2){border-top:1px solid var(--border-sub)}}
+@media(max-width:640px){#smnews .top, #smnews .legend, #smnews .board, #smnews .disclaimer{padding-left:16px;padding-right:16px}#smnews .col-body{grid-template-columns:1fr}#smnews .col-body .item:nth-child(2){border-top:1px solid var(--border-sub)}}
 
 </style>
 </head>
@@ -556,6 +556,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
 <div class="sb-backdrop" id="sb-backdrop" onclick="toggleSidebar()"></div>
 
 <script>
+// ════════════════════════════════════════════════
+// DB — Excelデータのみ使用
 // ════════════════════════════════════════════════
 // ════════════════════════════════════════════════
 // DB — data/{company}.json から動的に読み込む
@@ -953,46 +955,99 @@ function toggleAcc(btn) {
 // Voice — トピックス（スプレッドシート）から動的生成
 //  各見出しに該当typeのトピックスを振り分けて表示。静的データは持たない。
 // ════════════════════════════════════════════════
-const VOICE_CHAPTERS = [
-  { no:'01', title:'創業のきっかけ・感じる課題', types:['founder','turning'] },
-  { no:'02', title:'マーケット・事業',           types:['business'] },
-  { no:'03', title:'組織・働き方',               types:['org','workstyle'] },
-  { no:'04', title:'実績・外部評価',             types:['award'] },
-];
+// ════════════════════════════════════════════════
+// Voice — モック準拠の5見出し・段落形式
+//  ※現在は全社共通のサンプルを仮入れ。
+//    今後「コメント」シートの D列〜T列 から company 単位で参照する想定。
+//    VOICE_SAMPLE の各 section.body / section.sources がD〜T列に対応する。
+// ════════════════════════════════════════════════
+const VOICE_SAMPLE = {
+  sections: [
+    {
+      no:'01', title:'創業のきっかけや感じる課題',
+      body:`この企業は、創業者が日常業務や生活の中で感じた具体的な課題を起点に生まれた。対象とする業務領域は社会的な必要性が高い一方で、<strong>紙・手作業・非効率・レガシーシステムからの移行の遅れ</strong>といった構造的な課題が残っている。こうした「多くの人が関わるのに非効率が温存されている巨大な領域」をデジタル化し、業務の入り口を押さえるプロダクトとして立ち上がった。（※サンプル表示。今後コメントシートD〜T列から各社の内容を表示します）`,
+      sources:[
+        {title:'コーポレートサイト（事業紹介）', url:'#'},
+        {title:'創業ストーリー記事', url:'#'},
+      ],
+    },
+    {
+      no:'02', title:'サービスの内容や特徴',
+      body:`主力プロダクトは、対象業務をクラウド化して大幅な工数削減を実現する。業務効率化の過程で<strong>データが自然に蓄積</strong>され、そのデータを分析・改善・意思決定に活用できる点が特徴。導入初期はコスト削減・効率化で価値を出し、その後はデータ活用・追加機能・関連領域への拡張へと価値が積み上がる構造を持ち、<strong>単一プロダクトからマルチプロダクトへ</strong>と進化している。（※サンプル表示）`,
+      sources:[
+        {title:'サービスサイト', url:'#'},
+        {title:'プロダクト紹介資料', url:'#'},
+      ],
+    },
+    {
+      no:'03', title:'マーケットの規模感や概況、自社の優位性',
+      body:`対象市場は大きく、すでに一定の顧客基盤を獲得している一方で<strong>開拓余地も大きい</strong>。市場地位を支えるのは、参入障壁の高いコア機能の先行実装、業務フローへの組み込みによる<strong>高いスイッチングコスト</strong>、外部サービスとの広い連携、そして現場の担当者まで含めた広い利用接点といった自社ならではの優位性である。（※サンプル表示）`,
+      sources:[
+        {title:'市場シェア・実績の発表', url:'#'},
+        {title:'事業戦略の説明資料', url:'#'},
+      ],
+    },
+    {
+      no:'04', title:'今後の事業展望やつくりたい世界観',
+      body:`明確なミッションを掲げ、単なる業務効率化にとどまらず、データ活用を通じてよりよい意思決定・組織運営につなげる世界を目指している。今後は、基幹領域への進化、AIによる効率化・高度化、隣接領域への拡張を注力ポイントとし、調達した資金を新プロダクト開発・営業マーケティング拡大・M&A・新技術投資などに充てる方針を示している。（※サンプル表示）`,
+      sources:[
+        {title:'事業戦略プレスリリース', url:'#'},
+        {title:'資金調達リリース', url:'#'},
+      ],
+    },
+  ],
+  // 05 投資家からの期待の声
+  investors:[
+    {
+      name:'リード投資家', person:'担当パートナー', round:'直近ラウンド リード',
+      txt:`「この企業は、対象領域における<strong>革新的な手段</strong>を提供してきた。市場のデジタル化が進む中で優位なポジションにあり、グローバルな知見を活かした成長に期待している。」（※サンプル表示）`,
+      sources:[{title:'資金調達プレスリリース', url:'#'}],
+    },
+    {
+      name:'既存投資家', person:'担当パートナー', round:'継続投資',
+      txt:`「市場全体での高いシェア、戦略的なプラットフォーム拡張、経営陣の実行力を高く評価している。構造的な追い風を背景に、<strong>長い成長余地</strong>がある。」（※サンプル表示）`,
+      sources:[{title:'過去ラウンドのリリース', url:'#'}],
+    },
+  ],
+};
 
 function renderVoice(c) {
   const wrap = document.getElementById('voice-wrap-main');
   if (!wrap) return;
-  const topics = c.topics || [];
-  const used = new Set();
+  const v = VOICE_SAMPLE;
+
+  const mkSources = (srcs) => (srcs && srcs.length)
+    ? `<div class="v-sources">${srcs.map(s=>`<a class="v-src" href="${s.url||'#'}" target="_blank">📎 ${s.title} ↗</a>`).join('')}</div>`
+    : '';
+
   let html = '';
 
-  VOICE_CHAPTERS.forEach(ch => {
-    // 該当typeのトピックスを年降順で
-    const items = topics
-      .filter(t => ch.types.indexOf((t.type||'').split(',')[0].trim()) >= 0)
-      .sort((a,b) => (b.year||0) - (a.year||0));
-    if (!items.length) return; // 該当が無い見出しは出さない
-    items.forEach(t => used.add(t));
+  // 01〜04：段落セクション
+  v.sections.forEach(sec => {
     html += `
       <div class="voice-chapter">
-        <div class="sec-heading">${ch.no}　${ch.title}</div>
-        ${items.map(t => `
-          <div class="v-card">
-            <div class="v-card-meta">
-              ${t.year ? `<span class="v-badge">${t.year}</span>` : ''}
-              ${t.speaker ? `<span class="v-speaker-inline">${t.speaker}</span>` : ''}
-            </div>
-            <div class="v-card-title">${t.title || ''}</div>
-            <div class="v-card-body">${t.desc || ''}</div>
-            ${t.url ? `<div class="v-sources"><a class="v-src" href="${t.url}" target="_blank">📎 情報ソースを読む ↗</a></div>` : ''}
-          </div>`).join('')}
+        <div class="sec-heading">${sec.no}　${sec.title}</div>
+        <div class="v-card">
+          <div class="v-card-body">${sec.body}</div>
+        </div>
+        ${mkSources(sec.sources)}
       </div>`;
   });
 
-  if (!html) {
-    html = `<div class="voice-chapter"><div class="v-card"><div class="v-card-body" style="color:var(--text-mute)">この企業のトピックスはまだ登録されていません。</div></div></div>`;
+  // 05：投資家の声
+  if (v.investors && v.investors.length) {
+    html += `
+      <div class="voice-chapter">
+        <div class="sec-heading">05　投資家からの期待の声</div>
+        ${v.investors.map(vc=>`
+          <div class="v-card">
+            <div class="v-card-meta"><span class="v-badge">${vc.name}</span></div>
+            <div class="v-card-body">${vc.txt}<div class="v-speaker">— ${vc.person} · ${vc.round}</div></div>
+          </div>`).join('')}
+        ${mkSources(v.investors.flatMap(vc=>vc.sources||[]))}
+      </div>`;
   }
+
   wrap.innerHTML = html;
 }
 
