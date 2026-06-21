@@ -58,7 +58,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
 
 /* ACCORDION */
 .accordion-trigger{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;border-top:1px solid var(--border-sub);padding:9px 0;cursor:pointer}
-.accordion-trigger:hover .accordion-title{color:var(--text)}
 .accordion-chevron{font-size:11px;color:var(--text-mute);transition:transform .22s;display:inline-block}
 .accordion-chevron.open{transform:rotate(180deg)}
 .accordion-body{overflow:hidden;max-height:0;transition:max-height .35s ease,opacity .25s;opacity:0}
@@ -358,7 +357,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
   .tl-wrap{padding:18px 16px 96px}
   .voice-wrap{padding:18px 16px 96px}
   .news-wrap{padding:18px 14px 96px}
-  .v-hdr{padding:16px 16px 14px}
   /* 参考ソース表は横スクロール可能に */
   .ref-accordion-body.open{overflow-x:auto}
   .ref-table{min-width:560px}
@@ -385,7 +383,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
 
 #smnews /* header */
 .top{background:var(--ink);color:#fff;padding:18px 28px}
-#smnews .top h1{font-size:18px;font-weight:800;letter-spacing:-.01em}
 #smnews .btn{display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:12px;font-weight:600;padding:8px 14px;border-radius:100px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:#fff;cursor:pointer;transition:all .14s}
 #smnews .btn:hover{background:rgba(255,255,255,.16)}
 #smnews .btn .ic{width:14px;height:14px}
@@ -435,7 +432,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
 @keyframes sk{0%{background-position:200% 0}100%{background-position:-200% 0}}
 #smnews .disclaimer{max-width:1500px;margin:0 auto;padding:0 28px 50px;font-size:11px;color:var(--mute);line-height:1.8}
 #smnews .disclaimer strong{color:var(--sub)}
-@media(max-width:640px){#smnews .top, #smnews .legend, #smnews .board, #smnews .disclaimer{padding-left:16px;padding-right:16px}#smnews .col-body{grid-template-columns:1fr}#smnews .col-body .item:nth-child(2){border-top:1px solid var(--border-sub)}}
+@media(max-width:640px){#smnews .board, #smnews .disclaimer{padding-left:16px;padding-right:16px}#smnews .col-body{grid-template-columns:1fr}#smnews .col-body .item:nth-child(2){border-top:1px solid var(--border-sub)}}
 
 </style>
 </head>
@@ -559,8 +556,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
 <div class="sb-backdrop" id="sb-backdrop" onclick="toggleSidebar()"></div>
 
 <script>
-// ════════════════════════════════════════════════
-// DB — Excelデータのみ使用
 // ════════════════════════════════════════════════
 // ════════════════════════════════════════════════
 // DB — data/{company}.json から動的に読み込む
