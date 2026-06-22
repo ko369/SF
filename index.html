@@ -1302,21 +1302,22 @@ let FEED = [
 const esc = s => (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 const fmtDate = s => { if(!s) return ''; const d=new Date(s); return isNaN(d)? s : `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`; };
 
-// 基準日からの「○ヶ月前」境界を返す
-function monthsAgo(n){ const d=new Date(); d.setMonth(d.getMonth()-n); return d; }
+// 基準日から n 日前（0時）の境界を返す
+function daysAgo(n){ const d=new Date(); d.setHours(0,0,0,0); d.setDate(d.getDate()-n); return d; }
 
 // FEEDを期間ごとに振り分け（重複なし区間）。各カラム内は新しい順。
+//  日数基準：直近1ヶ月=過去30日 / 直近1年=31〜365日 / 直近3年=366〜1095日
 function bucketize(){
-  const b1 = monthsAgo(1);   // 1ヶ月前
-  const b12 = monthsAgo(12); // 1年前
-  const b36 = monthsAgo(36); // 3年前
+  const b30   = daysAgo(30);
+  const b365  = daysAgo(365);
+  const b1095 = daysAgo(1095);
   const buckets = {m1:[], y1:[], y3:[]};
   FEED.forEach(it=>{
     const d = new Date(it.date);
     if(isNaN(d)) return;
-    if(d >= b1)        buckets.m1.push(it);
-    else if(d >= b12)  buckets.y1.push(it);
-    else if(d >= b36)  buckets.y3.push(it);
+    if(d >= b30)         buckets.m1.push(it);
+    else if(d >= b365)   buckets.y1.push(it);
+    else if(d >= b1095)  buckets.y3.push(it);
   });
   // 各期間：ソースを均等に混ぜる（同一ソースが上位を独占しないように）
   buckets.m1 = balanceBySource(buckets.m1);
