@@ -1402,39 +1402,58 @@ window.toggleMore = toggleMore;
 // バッチ出力（data/{company}.json）の items を、ページ内の {date, src, title, url} 形へ変換。
 // JSON側 source キー → ページ側 src キーへマップ（収集元バッジに対応）。
 const SRC_MAP = { official:'official', prtimes:'pr', gnews:'gnews', blog:'blog', note:'note', ipforce:'ipforce', jglobal:'jglobal' };
-function adoptFeed(json){
-  if(!json || !Array.isArray(json.items)) return false;
-  FEED = json.items.map(it=>({
+function adoptFeed(arr){
+  if(!Array.isArray(arr)) return false;
+  const mapped = arr.map(it=>({
     date: it.date ? String(it.date).slice(0,10) : '',
     src:  SRC_MAP[it.source] || it.source || 'official',
     title: it.title || '',
     url:  it.url || '#',
   })).filter(x=>x.title && x.date);
+  if(!mapped.length) return false;
+  FEED = mapped;
   return true;
 }
 
-// data/{company}.json を取得。取得できなければ既定サンプルのまま（オフライン動作）。
-// 取得元は data/ 配下の相対パス（GitHub Pages等にページとdataを一緒に置く前提）。
+// ニュースを取得して表示用FEEDに差し替える。
+//  ① GAS方式（API_URL設定済み）→ ?news={id} で保存済みニュースを取得
+//  ② フォールバック：ローカル data/{id}.json（items形式）
+//  どちらも無ければ既定サンプルのまま（オフライン動作）
 async function loadFeedData(companyId){
-  const candidates = [
-    `data/${companyId}.json`,
-    `./data/${companyId}.json`,
-  ];
+  // ① GAS から保存済みニュース
+  if (typeof API_URL !== 'undefined' && API_URL) {
+    try{
+      const res = await fetch(`${API_URL}?news=${encodeURIComponent(companyId)}&t=${Date.now()}`, {cache:'no-store', redirect:'follow'});
+      if(res.ok){
+        const json = await res.json();
+        if(json && adoptFeed(json.news_items)){
+          markNewsLive_();
+          return true;
+        }
+      }
+    }catch(e){ /* フォールバックへ */ }
+  }
+  // ② ローカルJSON
+  const candidates = [`data/${companyId}.json`, `./data/${companyId}.json`];
   for(const url of candidates){
     try{
       const res = await fetch(url, {cache:'no-store'});
       if(!res.ok) continue;
       const json = await res.json();
-      if(adoptFeed(json)){
-        const dc = document.getElementById('disclaimer');
-        if(dc && json.updated_at){
-          dc.insertAdjacentHTML('afterbegin', `<div style="margin-bottom:8px;color:var(--green);font-weight:600">● 自動取得データ（最終更新 ${fmtDate(json.updated_at)}）</div>`);
-        }
+      if(adoptFeed(json.items)){
+        markNewsLive_(json.updated_at);
         return true;
       }
     }catch(e){ /* 次の候補へ */ }
   }
   return false; // フォールバック（サンプル表示）
+}
+
+function markNewsLive_(updatedAt){
+  const dc = document.getElementById('disclaimer');
+  if(!dc) return;
+  const label = updatedAt ? `（最終更新 ${fmtDate(updatedAt)}）` : '';
+  dc.insertAdjacentHTML('afterbegin', `<div style="margin-bottom:8px;color:var(--green);font-weight:600">● 自動取得データ${label}</div>`);
 }
 
 // ── 全体ロード ──
