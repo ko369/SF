@@ -1319,42 +1319,12 @@ function bucketize(){
     else if(d >= b365)   buckets.y1.push(it);
     else if(d >= b1095)  buckets.y3.push(it);
   });
-  // 各期間：ソースを均等に混ぜる（同一ソースが上位を独占しないように）
-  buckets.m1 = balanceBySource(buckets.m1);
-  buckets.y1 = balanceBySource(buckets.y1);
-  buckets.y3 = balanceBySource(buckets.y3);
+  // 各期間とも日付の新しい順に並べる
+  const byDateDesc = (a,b)=> new Date(b.date) - new Date(a.date);
+  buckets.m1.sort(byDateDesc);
+  buckets.y1.sort(byDateDesc);
+  buckets.y3.sort(byDateDesc);
   return buckets;
-}
-
-// ソース別にグループ化し、各グループ内は日付降順、
-// それを順繰り（ラウンドロビン）に1件ずつ取り出して混ぜる。
-// → 上位に複数ソースがバランスよく並ぶ。全体としては概ね新しい順を保つ。
-function balanceBySource(items){
-  if(items.length <= 1) return items.slice();
-  const groups = {};
-  items.forEach(it=>{
-    const k = it.src || 'other';
-    (groups[k] = groups[k] || []).push(it);
-  });
-  // 各ソース内は新しい順
-  Object.values(groups).forEach(arr=> arr.sort((a,b)=> new Date(b.date)-new Date(a.date)));
-  // ソースの登場順は「各ソースの最新記事が新しい順」で決める
-  const keys = Object.keys(groups).sort((a,b)=>
-    new Date(groups[b][0].date) - new Date(groups[a][0].date)
-  );
-  // ラウンドロビンで1件ずつ取り出す
-  const out = [];
-  let added = true;
-  while(added){
-    added = false;
-    for(const k of keys){
-      if(groups[k].length){
-        out.push(groups[k].shift());
-        added = true;
-      }
-    }
-  }
-  return out;
 }
 
 function srcBadge(srcKey){
