@@ -1032,22 +1032,44 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
 <div class="content-area">
   <!-- ═══════════════ 注目ポイントタブ ═══════════════
        指示書の表示順：
-         1. 成長サマリー
-         2. 社員数・資金調達ミニグラフ
-         3. この企業を一言でいうと
-         4. Voice / 編集コメント
-         5. 関連する重要トピックス
-         6. 基本情報・公式リンク
-         7. データの出典
+         1. 基本情報・公式リンク
+         2. データの出典
+         3. 成長サマリー
+         4. 社員数・資金調達ミニグラフ
+         5. この企業を一言でいうと
+         6. Voice / 編集コメント
+         7. 関連する重要トピックス
        「この企業の見どころ」はタブの外（ヘッダー直下）に既存配置
   -->
   <div id="panel-voice" class="tab-panel active">
     <div class="voice-wrap" id="voice-wrap-main" style="padding-top:18px">
 
-      <!-- 1. 成長サマリー -->
+      <!-- 1. 基本情報・公式リンク -->
+      <div class="sec-heading">基本情報・公式リンク</div>
+      <div class="tl-company-section">
+        <div class="co-biz-desc" id="co-biz-desc"></div>
+        <div class="acc-categories" id="acc-body"></div>
+        <div class="co-links-wrap" id="co-links-wrap"></div>
+      </div>
+
+      <!-- 2. データの出典 -->
+      <div class="ref-section" style="margin-top:14px">
+        <button class="ref-accordion-trigger" onclick="toggleRefAcc(this)">
+          <span class="sec-heading">データの出典を見る</span>
+          <span class="ref-acc-chevron">▾</span>
+        </button>
+        <div class="ref-accordion-body">
+        <table class="ref-table">
+          <thead><tr><th>年</th><th>社員数</th><th>資金調達情報</th><th>投資家</th><th>ソース</th></tr></thead>
+          <tbody id="ref-tbody"></tbody>
+        </table>
+        </div>
+      </div>
+
+      <!-- 3. 成長サマリー -->
       <div class="growth-summary" id="growth-summary"></div>
 
-      <!-- 2. 社員数・資金調達ミニグラフ -->
+      <!-- 4. 社員数・資金調達ミニグラフ -->
       <div class="focus-mini-charts" id="focus-mini-charts">
         <div class="focus-mini-chart">
           <div class="focus-mini-chart-label">👥 社員数</div>
@@ -1063,30 +1085,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
         </div>
       </div>
 
-      <!-- 3〜5: 一言要約 / Voice / 関連トピックス はrenderFocus()が生成 -->
+      <!-- 5〜7: 一言要約 / Voice / 関連トピックス はrenderFocus()が生成 -->
       <div id="focus-dynamic"></div>
-
-      <!-- 6. 基本情報・公式リンク -->
-      <div class="sec-heading" style="margin-top:6px">基本情報・公式リンク</div>
-      <div class="tl-company-section">
-        <div class="co-biz-desc" id="co-biz-desc"></div>
-        <div class="acc-categories" id="acc-body"></div>
-        <div class="co-links-wrap" id="co-links-wrap"></div>
-      </div>
-
-      <!-- 7. データの出典 -->
-      <div class="ref-section" style="margin-top:14px">
-        <button class="ref-accordion-trigger" onclick="toggleRefAcc(this)">
-          <span class="sec-heading">データの出典を見る</span>
-          <span class="ref-acc-chevron">▾</span>
-        </button>
-        <div class="ref-accordion-body">
-        <table class="ref-table">
-          <thead><tr><th>年</th><th>社員数</th><th>資金調達情報</th><th>投資家</th><th>ソース</th></tr></thead>
-          <tbody id="ref-tbody"></tbody>
-        </table>
-        </div>
-      </div>
 
     </div>
   </div>
@@ -1679,8 +1679,8 @@ function hasVoiceData(c) {
 }
 
 function renderFocus(c) {
-  // 注：成長サマリー・ミニグラフ・基本情報・参考ソースはHTML側で静的配置済。
-  //     renderFocus() は「3. 一言要約 → 4. Voice/編集コメント → 5. 関連する重要トピックス」を #focus-dynamic に挿入する。
+  // 注：基本情報・データの出典・成長サマリー・ミニグラフはHTML側で静的配置済。
+  //     renderFocus() は「5. 一言要約 → 6. Voice/編集コメント → 7. 関連する重要トピックス」を #focus-dynamic に挿入する。
   const wrap = document.getElementById('focus-dynamic');
   if (!wrap) return;
 
