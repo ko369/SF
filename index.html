@@ -284,19 +284,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
   background:var(--co-color,#5BCFB7);
 }
 
-/* ═══════ 注目ポイント：見どころ・要約・トピックスピック ═══════ */
-.focus-summary{
-  background:linear-gradient(180deg,#FAFBFC,#fff);
-  border:1px solid var(--border);border-radius:var(--r);
-  padding:16px 18px;margin-bottom:18px;box-shadow:var(--shadow);
-  border-left:4px solid var(--co-color,var(--blue));
-}
-.focus-summary-label{
-  font-family:var(--mono);font-size:10.5px;font-weight:700;
-  color:var(--text-mute);letter-spacing:.06em;text-transform:uppercase;
-  margin-bottom:6px;
-}
-.focus-summary-body{font-size:13.5px;line-height:1.85;color:var(--text);font-weight:500}
+/* ═══════ 注目ポイント：トピックスピック ═══════ */
 
 /* 関連する重要トピックス（注目ポイント内） */
 .focus-picks{margin-top:8px}
@@ -364,6 +352,14 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
 .ref-acc-chevron.open{transform:rotate(180deg)}
 .ref-accordion-body{overflow:hidden;transition:max-height .28s ease,opacity .22s;max-height:0;opacity:0}
 .ref-accordion-body.open{max-height:800px;opacity:1}
+/* 見出し内インライン型トリガー（成長推移見出し内の「データの出典を見る」） */
+.ref-inline-trigger{
+  margin-left:auto;display:flex;align-items:center;gap:3px;
+  background:none;border:none;cursor:pointer;padding:0;
+  font-family:var(--sans);font-size:11.5px;font-weight:500;color:var(--text-mute);
+}
+.ref-inline-trigger:hover{color:var(--text-sub)}
+.ref-inline-trigger .ref-acc-chevron{margin-left:0}
 
 /* ═══════════════ ニュースタブ ═══════════════ */
 .news-wrap{padding:20px 24px 80px;min-height:100%}
@@ -1003,19 +999,23 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
 
 <div class="content-area">
   <!-- ═══════════════ 注目ポイントタブ ═══════════════
-       指示書の表示順：
-         1. 基本情報・公式リンク
-         2. この企業の見どころ
-         3. 社員数・資金調達ミニグラフ
-         4. データの出典
-         5. この企業を一言でいうと
-         6. Voice / 編集コメント
-         7. 関連する重要トピックス
+       表示順：
+         1. この企業の見どころ
+         2. 基本情報・公式リンク
+         3. 成長推移（社員数・資金調達グラフ）＋データの出典
+         4. Voice / 編集コメント
+         5. 関連する重要トピックス
   -->
   <div id="panel-voice" class="tab-panel active">
     <div class="voice-wrap" id="voice-wrap-main" style="padding-top:18px">
 
-      <!-- 1. 基本情報・公式リンク -->
+      <!-- 1. この企業の見どころ -->
+      <div class="co-highlights" id="co-highlights">
+        <div class="co-highlights-label">この企業の見どころ</div>
+        <ul class="co-highlights-list" id="co-highlights-list"></ul>
+      </div>
+
+      <!-- 2. 基本情報・公式リンク -->
       <div class="sec-heading">基本情報・公式リンク</div>
       <div class="tl-company-section">
         <div class="co-biz-desc" id="co-biz-desc"></div>
@@ -1023,13 +1023,13 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
         <div class="co-links-wrap" id="co-links-wrap"></div>
       </div>
 
-      <!-- 2. この企業の見どころ -->
-      <div class="co-highlights" id="co-highlights">
-        <div class="co-highlights-label">この企業の見どころ</div>
-        <ul class="co-highlights-list" id="co-highlights-list"></ul>
+      <!-- 3. 成長推移（社員数・資金調達グラフ）＋データの出典 -->
+      <div class="sec-heading" style="margin-top:14px">
+        成長推移
+        <button class="ref-inline-trigger" onclick="toggleRefAcc(this)">
+          データの出典を見る <span class="ref-acc-chevron">▾</span>
+        </button>
       </div>
-
-      <!-- 3. 社員数・資金調達ミニグラフ -->
       <div class="focus-mini-charts" id="focus-mini-charts">
         <div class="focus-mini-chart">
           <div class="focus-mini-chart-label">👥 社員数</div>
@@ -1044,14 +1044,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
           <div class="bar-chart" id="fund-chart"></div>
         </div>
       </div>
-
-      <!-- 4. データの出典 -->
-      <div class="ref-section" style="margin-top:14px">
-        <button class="ref-accordion-trigger" onclick="toggleRefAcc(this)">
-          <span class="sec-heading">データの出典を見る</span>
-          <span class="ref-acc-chevron">▾</span>
-        </button>
-        <div class="ref-accordion-body">
+      <div class="ref-section">
+        <div class="ref-accordion-body" id="ref-accordion-body">
         <table class="ref-table">
           <thead><tr><th>年</th><th>社員数</th><th>資金調達情報</th><th>投資家</th><th>ソース</th></tr></thead>
           <tbody id="ref-tbody"></tbody>
@@ -1059,7 +1053,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
         </div>
       </div>
 
-      <!-- 5〜7: 一言要約 / Voice / 関連トピックス はrenderFocus()が生成 -->
+      <!-- 4〜5: Voice / 関連トピックス はrenderFocus()が生成 -->
       <div id="focus-dynamic"></div>
 
     </div>
@@ -1497,7 +1491,8 @@ function render(id) {
 // UI HELPERS
 // ════════════════════════════════════════════════
 function toggleRefAcc(btn) {
-  const body = btn.nextElementSibling;
+  const body = document.getElementById('ref-accordion-body');
+  if (!body) return;
   const chev = btn.querySelector('.ref-acc-chevron');
   const open = body.classList.contains('open');
   body.classList.toggle('open', !open);
@@ -1650,8 +1645,8 @@ function hasVoiceData(c) {
 }
 
 function renderFocus(c) {
-  // 注：基本情報・成長サマリー・ミニグラフ・データの出典はHTML側で静的配置済。
-  //     renderFocus() は「5. 一言要約 → 6. Voice/編集コメント → 7. 関連する重要トピックス」を #focus-dynamic に挿入する。
+  // 注：基本情報・見どころ・成長推移グラフ・データの出典はHTML側で静的配置済。
+  //     renderFocus() は「Voice/編集コメント → 関連する重要トピックス」を #focus-dynamic に挿入する。
   const wrap = document.getElementById('focus-dynamic');
   if (!wrap) return;
 
@@ -1661,17 +1656,7 @@ function renderFocus(c) {
 
   let html = '';
 
-  // ── 3. この企業を一言でいうと（要約） ──
-  const oneLiner = buildOneLiner(c);
-  if (oneLiner) {
-    html += `
-      <div class="focus-summary" style="--co-color:${c.color||'var(--blue)'}">
-        <div class="focus-summary-label">この企業を一言でいうと</div>
-        <div class="focus-summary-body">${oneLiner}</div>
-      </div>`;
-  }
-
-  // ── 4. Voice / 編集コメント ──
+  // ── Voice / 編集コメント ──
   if (hasVoiceData(c)) {
     // 整備済み企業：本文を表示
     const v = VOICE_SAMPLE;
@@ -1706,7 +1691,7 @@ function renderFocus(c) {
       </div>`;
   }
 
-  // ── 5. 関連する重要トピックス（founder/turning/business を優先ピック） ──
+  // ── 関連する重要トピックス（founder/turning/business を優先ピック） ──
   const picks = pickImportantTopics(c, 5);
   if (picks.length) {
     html += `
@@ -1744,25 +1729,6 @@ function renderFocus(c) {
 // 軽量HTMLエスケープ（タイトル等のサニタイズ用）
 function escapeHtmlSafe(s){
   return String(s||'').replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
-}
-
-// 「この企業を一言でいうと」: ミッション or サマリー + 累計調達 + 直近年KPI から自動生成
-function buildOneLiner(c) {
-  if (!c) return '';
-  const parts = [];
-  if (c.mission) parts.push(c.mission);
-  else if (c.summary) parts.push(c.summary);
-
-  const sub = [];
-  if (c.founded) sub.push(`${c.founded}年創業`);
-  if (c.domain1) sub.push(c.domain1);
-  if (c.raised) sub.push(`累計調達${c.raised.split('(')[0].split('（')[0]}`);
-  if (c.emp && c.emp.length) {
-    const last = c.emp[c.emp.length-1];
-    sub.push(`社員数${last[1].toLocaleString()}名（${last[0]}年）`);
-  }
-  if (sub.length) parts.push(`<span style="font-family:var(--mono);font-size:11px;color:var(--text-mute);display:block;margin-top:6px">${sub.join(' / ')}</span>`);
-  return parts.join('');
 }
 
 // 重要トピックスを優先順位でピック
