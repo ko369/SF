@@ -258,17 +258,16 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
   font-weight:500;
 }
 
-/* ═══════ この企業の見どころ（ヘッダー下、タブ上） ═══════ */
+/* ═══════ この企業の見どころ（注目ポイントタブ内、白カード） ═══════ */
 .co-highlights{
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.10);
-  border-radius:var(--r);
-  padding:10px 14px 12px;
-  margin:0 0 14px;
+  display:none;
+  background:#fff;border:1px solid var(--border);border-radius:var(--r);
+  padding:10px 14px 12px;margin:14px 0 18px;
+  box-shadow:var(--shadow);
 }
 .co-highlights-label{
   font-family:var(--mono);font-size:10.5px;font-weight:600;
-  color:rgba(255,255,255,.55);letter-spacing:.06em;text-transform:uppercase;
+  color:var(--text-mute);letter-spacing:.06em;text-transform:uppercase;
   margin-bottom:6px;
 }
 .co-highlights-list{
@@ -276,7 +275,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
   display:flex;flex-direction:column;gap:3px;
 }
 .co-highlights-list li{
-  font-size:12.5px;line-height:1.7;color:rgba(255,255,255,.88);
+  font-size:12.5px;line-height:1.7;color:var(--text-sub);
   padding-left:13px;position:relative;
 }
 .co-highlights-list li::before{
@@ -284,27 +283,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
   width:5px;height:5px;border-radius:50%;
   background:var(--co-color,#5BCFB7);
 }
-
-/* ═══════ 成長サマリーカード（成長推移タブ上部） ═══════ */
-.growth-summary{
-  display:none;
-  background:#fff;border:1px solid var(--border);border-radius:var(--r);
-  padding:14px 16px 16px;margin:14px 0 18px;
-  box-shadow:var(--shadow);
-}
-.growth-summary.show{display:block}
-.growth-summary-label{
-  font-family:var(--mono);font-size:10.5px;font-weight:700;
-  color:var(--text-mute);letter-spacing:.06em;text-transform:uppercase;
-  margin-bottom:8px;
-}
-.growth-summary-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;
-}
-.gs-cell{padding:0 0 0 11px;border-left:3px solid var(--co-color,var(--blue))}
-.gs-cell-label{font-family:var(--mono);font-size:10.5px;color:var(--text-mute);margin-bottom:3px}
-.gs-cell-val{font-size:16px;font-weight:700;color:var(--text);line-height:1.4}
-.gs-cell-sub{font-family:var(--mono);font-size:10.5px;color:var(--teal);margin-top:2px}
 
 /* ═══════ 注目ポイント：見どころ・要約・トピックスピック ═══════ */
 .focus-summary{
@@ -1017,12 +995,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
   <div class="co-mission" id="co-mission"></div>
   <div class="co-overview" id="co-overview"></div>
 
-  <!-- この企業の見どころ（タブ上） -->
-  <div class="co-highlights" id="co-highlights" style="display:none">
-    <div class="co-highlights-label">この企業の見どころ</div>
-    <ul class="co-highlights-list" id="co-highlights-list"></ul>
-  </div>
-
   <div class="co-tabs">
     <button class="co-tab active" onclick="switchTab('voice',this)">注目ポイント</button>
     <button class="co-tab" onclick="switchTab('news',this)">タイムライン</button>
@@ -1033,13 +1005,12 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
   <!-- ═══════════════ 注目ポイントタブ ═══════════════
        指示書の表示順：
          1. 基本情報・公式リンク
-         2. 成長サマリー
+         2. この企業の見どころ
          3. 社員数・資金調達ミニグラフ
          4. データの出典
          5. この企業を一言でいうと
          6. Voice / 編集コメント
          7. 関連する重要トピックス
-       「この企業の見どころ」はタブの外（ヘッダー直下）に既存配置
   -->
   <div id="panel-voice" class="tab-panel active">
     <div class="voice-wrap" id="voice-wrap-main" style="padding-top:18px">
@@ -1052,8 +1023,11 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
         <div class="co-links-wrap" id="co-links-wrap"></div>
       </div>
 
-      <!-- 2. 成長サマリー -->
-      <div class="growth-summary" id="growth-summary"></div>
+      <!-- 2. この企業の見どころ -->
+      <div class="co-highlights" id="co-highlights">
+        <div class="co-highlights-label">この企業の見どころ</div>
+        <ul class="co-highlights-list" id="co-highlights-list"></ul>
+      </div>
 
       <!-- 3. 社員数・資金調達ミニグラフ -->
       <div class="focus-mini-charts" id="focus-mini-charts">
@@ -1396,9 +1370,6 @@ function render(id) {
     <div style="padding:10px 0 2px;border-top:1px solid rgba(0,0,0,.07);margin-top:4px;display:flex;gap:7px;flex-wrap:wrap">
     </div>
   `;
-
-  // 成長サマリー（社員数・資金調達の解釈テキスト）
-  renderGrowthSummary(c, lastEmp, lastFund);
 
   // Emp chart（データ欠損ガード）
   const empColor = c.color;
@@ -1829,8 +1800,8 @@ function renderHighlights(c, lastEmp, lastFund) {
   if (!wrap || !list) return;
   const items = [];
   // 1. 事業要約
-  if (c.summary) items.push(`<strong style="color:#fff">${c.summary}</strong>`);
-  else if (c.mission) items.push(`<strong style="color:#fff">${c.mission}</strong>`);
+  if (c.summary) items.push(`<strong style="color:var(--text)">${c.summary}</strong>`);
+  else if (c.mission) items.push(`<strong style="color:var(--text)">${c.mission}</strong>`);
   // 2. 累計調達 + ラウンド
   if (c.raised || c.rounds) {
     const r = (c.raised || '').split('(')[0].split('（')[0];
@@ -1871,61 +1842,6 @@ function renderHighlights(c, lastEmp, lastFund) {
   // 企業カラーをドットの色に
   wrap.style.setProperty('--co-color', c.color || '#5BCFB7');
   list.innerHTML = items.slice(0, 4).map(t => `<li>${t}</li>`).join('');
-}
-
-// ════════════════════════════════════════════════
-// 成長サマリー（成長推移タブ上部）
-// ════════════════════════════════════════════════
-function renderGrowthSummary(c, lastEmp, lastFund) {
-  const wrap = document.getElementById('growth-summary');
-  if (!wrap) return;
-  const cells = [];
-
-  // 設立
-  if (c.founded) {
-    const age = (new Date().getFullYear()) - c.founded;
-    cells.push({label:'設立', val:`${c.founded}年`, sub:`創業${age}年目`});
-  }
-  // 社員数推移
-  if (c.emp && c.emp.length >= 2) {
-    const first = c.emp[0];
-    const last = c.emp[c.emp.length-1];
-    const rate = last[1] / first[1];
-    cells.push({
-      label:'社員数推移',
-      val:`${first[1].toLocaleString()} → ${last[1].toLocaleString()}名`,
-      sub: rate >= 1.1 ? `${first[0]}→${last[0]} ×${rate.toFixed(1)}` : `${first[0]}→${last[0]}`
-    });
-  } else if (lastEmp) {
-    cells.push({label:'社員数', val:`${lastEmp[1].toLocaleString()}名`, sub:`${lastEmp[0]}年時点`});
-  }
-  // 累計調達
-  if (c.raised) {
-    cells.push({label:'累計調達額', val: c.raised.split('(')[0].split('（')[0], sub: lastFund ? `直近 ${lastFund.round}` : ''});
-  }
-  // 調達ラウンド数
-  if (c.fund && c.fund.length) {
-    cells.push({label:'調達回数', val:`${c.fund.length}回`, sub: lastFund ? `${lastFund.year}年が直近` : ''});
-  }
-
-  if (cells.length === 0) {
-    wrap.classList.remove('show');
-    return;
-  }
-  wrap.classList.add('show');
-  wrap.style.setProperty('--co-color', c.color || 'var(--blue)');
-  wrap.innerHTML = `
-    <div class="growth-summary-label">成長サマリー</div>
-    <div class="growth-summary-grid">
-      ${cells.map(x => `
-        <div class="gs-cell">
-          <div class="gs-cell-label">${x.label}</div>
-          <div class="gs-cell-val">${x.val}</div>
-          ${x.sub ? `<div class="gs-cell-sub">${x.sub}</div>` : ''}
-        </div>
-      `).join('')}
-    </div>
-  `;
 }
 
 function renderNews(id) {
