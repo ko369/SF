@@ -1033,9 +1033,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
   <!-- ═══════════════ 注目ポイントタブ ═══════════════
        指示書の表示順：
          1. 基本情報・公式リンク
-         2. データの出典
-         3. 成長サマリー
-         4. 社員数・資金調達ミニグラフ
+         2. 成長サマリー
+         3. 社員数・資金調達ミニグラフ
+         4. データの出典
          5. この企業を一言でいうと
          6. Voice / 編集コメント
          7. 関連する重要トピックス
@@ -1052,24 +1052,10 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
         <div class="co-links-wrap" id="co-links-wrap"></div>
       </div>
 
-      <!-- 2. データの出典 -->
-      <div class="ref-section" style="margin-top:14px">
-        <button class="ref-accordion-trigger" onclick="toggleRefAcc(this)">
-          <span class="sec-heading">データの出典を見る</span>
-          <span class="ref-acc-chevron">▾</span>
-        </button>
-        <div class="ref-accordion-body">
-        <table class="ref-table">
-          <thead><tr><th>年</th><th>社員数</th><th>資金調達情報</th><th>投資家</th><th>ソース</th></tr></thead>
-          <tbody id="ref-tbody"></tbody>
-        </table>
-        </div>
-      </div>
-
-      <!-- 3. 成長サマリー -->
+      <!-- 2. 成長サマリー -->
       <div class="growth-summary" id="growth-summary"></div>
 
-      <!-- 4. 社員数・資金調達ミニグラフ -->
+      <!-- 3. 社員数・資金調達ミニグラフ -->
       <div class="focus-mini-charts" id="focus-mini-charts">
         <div class="focus-mini-chart">
           <div class="focus-mini-chart-label">👥 社員数</div>
@@ -1082,6 +1068,20 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
           <div class="focus-mini-chart-val" id="fund-summary"></div>
           <div class="focus-mini-chart-sub" id="fund-sub"></div>
           <div class="bar-chart" id="fund-chart"></div>
+        </div>
+      </div>
+
+      <!-- 4. データの出典 -->
+      <div class="ref-section" style="margin-top:14px">
+        <button class="ref-accordion-trigger" onclick="toggleRefAcc(this)">
+          <span class="sec-heading">データの出典を見る</span>
+          <span class="ref-acc-chevron">▾</span>
+        </button>
+        <div class="ref-accordion-body">
+        <table class="ref-table">
+          <thead><tr><th>年</th><th>社員数</th><th>資金調達情報</th><th>投資家</th><th>ソース</th></tr></thead>
+          <tbody id="ref-tbody"></tbody>
+        </table>
         </div>
       </div>
 
@@ -1679,7 +1679,7 @@ function hasVoiceData(c) {
 }
 
 function renderFocus(c) {
-  // 注：基本情報・データの出典・成長サマリー・ミニグラフはHTML側で静的配置済。
+  // 注：基本情報・成長サマリー・ミニグラフ・データの出典はHTML側で静的配置済。
   //     renderFocus() は「5. 一言要約 → 6. Voice/編集コメント → 7. 関連する重要トピックス」を #focus-dynamic に挿入する。
   const wrap = document.getElementById('focus-dynamic');
   if (!wrap) return;
