@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>企業詳細 — DB版</title>
+<title>StartupFile — 日本のスタートアップの変化を発見する</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -253,6 +253,10 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
 }
 .topbar a{color:rgba(255,255,255,.5)}
 .topbar-name{color:rgba(255,255,255,.75) !important}
+.topbar-brand{
+  color:rgba(255,255,255,.85);
+  font-weight:500;
+}
 
 /* ═══════ この企業の見どころ（ヘッダー下、タブ上） ═══════ */
 .co-highlights{
@@ -316,14 +320,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
 }
 .focus-summary-body{font-size:13.5px;line-height:1.85;color:var(--text);font-weight:500}
 
-/* Voice未整備時 */
-.focus-empty{
-  background:#fff;border:1px dashed var(--border);border-radius:var(--r);
-  padding:24px;text-align:center;color:var(--text-mute);
-}
-.focus-empty-title{font-size:13px;font-weight:600;color:var(--text-sub);margin-bottom:6px}
-.focus-empty-sub{font-size:11.5px;line-height:1.7}
-
 /* 関連する重要トピックス（注目ポイント内） */
 .focus-picks{margin-top:8px}
 .focus-picks-label{
@@ -359,11 +355,12 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
 }
 
 /* ═══════ 案C: 成長推移／タイムライン両タブ グレー背景 ═══════ */
-#panel-tl,#panel-news{background:#F5F5F5}
-#panel-tl .tl-wrap,#panel-news .tl-wrap{background:transparent}
-#panel-tl .chart-card,#panel-tl .ref-table,#panel-tl .tl-item,
-#panel-news .chart-card,#panel-news .ref-table,#panel-news .tl-item{background:#fff}
-#panel-tl .sec-heading,#panel-news .sec-heading{background:transparent}
+#panel-news{background:#F5F5F5}
+#panel-news .tl-wrap{background:transparent}
+#panel-news .chart-card,
+#panel-news .ref-table,
+#panel-news .tl-item{background:#fff}
+#panel-news .sec-heading{background:transparent}
 
 /* ── 見出しスタイル: 濃いグレー ── */
 .sec-heading{
@@ -872,7 +869,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
           <h2 class="top-shelf-title">注目企業ピックアップ</h2>
           <span class="top-shelf-sub">編集部が選ぶ、いま見ておきたい企業</span>
         </div>
-        <a class="top-shelf-more" href="#">すべて見る →</a>
+        <a class="top-shelf-more" href="#" onclick="topComingSoon(event)">すべて見る →</a>
       </div>
       <div class="top-shelf-scroll" id="top-row-featured"></div>
     </section>
@@ -884,7 +881,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
           <h2 class="top-shelf-title" style="border-left-color:var(--teal)">資金調達で次のフェーズに入った企業</h2>
           <span class="top-shelf-sub">2025–2026年に10億円以上を調達した企業</span>
         </div>
-        <a class="top-shelf-more" href="#">すべて見る →</a>
+        <a class="top-shelf-more" href="#" onclick="topComingSoon(event)">すべて見る →</a>
       </div>
       <div class="top-shelf-scroll" id="top-row-funding"></div>
     </section>
@@ -896,7 +893,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
           <h2 class="top-shelf-title" style="border-left-color:var(--green)">社員数が伸びている企業</h2>
           <span class="top-shelf-sub">直近3年間の人員拡大 ─ StartupFile独自指標</span>
         </div>
-        <a class="top-shelf-more" href="#">すべて見る →</a>
+        <a class="top-shelf-more" href="#" onclick="topComingSoon(event)">すべて見る →</a>
       </div>
       <div class="top-shelf-scroll" id="top-row-growing"></div>
     </section>
@@ -908,7 +905,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
           <h2 class="top-shelf-title" style="border-left-color:var(--blue)">プロダクトづくりの裏側を読む</h2>
           <span class="top-shelf-sub">新サービス・新機能・AI活用などの直近事例</span>
         </div>
-        <a class="top-shelf-more" href="#">すべて見る →</a>
+        <a class="top-shelf-more" href="#" onclick="topComingSoon(event)">すべて見る →</a>
       </div>
       <div class="top-shelf-scroll" id="top-row-product"></div>
     </section>
@@ -920,7 +917,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
           <h2 class="top-shelf-title" style="border-left-color:var(--amber)">組織づくり・カルチャーを読む</h2>
           <span class="top-shelf-sub">採用・働き方・評価制度・組織設計の発信</span>
         </div>
-        <a class="top-shelf-more" href="#">すべて見る →</a>
+        <a class="top-shelf-more" href="#" onclick="topComingSoon(event)">すべて見る →</a>
       </div>
       <div class="top-shelf-scroll" id="top-row-org"></div>
     </section>
@@ -932,7 +929,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
           <h2 class="top-shelf-title" style="border-left-color:var(--red)">転換点を迎えた企業</h2>
           <span class="top-shelf-sub">ピボット・M&amp;A・上場・再編 ─ スタートアップのリアル</span>
         </div>
-        <a class="top-shelf-more" href="#">すべて見る →</a>
+        <a class="top-shelf-more" href="#" onclick="topComingSoon(event)">すべて見る →</a>
       </div>
       <div class="top-shelf-scroll" id="top-row-turning"></div>
     </section>
@@ -954,7 +951,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
           <h2 class="top-shelf-title" style="border-left-color:var(--purple)">会社紹介資料・カルチャーデックを読む</h2>
           <span class="top-shelf-sub">SpeakerDeck等で公開されている公式資料</span>
         </div>
-        <a class="top-shelf-more" href="#">すべて見る →</a>
+        <a class="top-shelf-more" href="#" onclick="topComingSoon(event)">すべて見る →</a>
       </div>
       <div class="top-shelf-scroll" id="top-row-deck"></div>
     </section>
@@ -1260,12 +1257,12 @@ async function fetchCompany(id) {
 // TYPE LABELS & COLORS
 // ════════════════════════════════════════════════
 const TYPE = {
-  founder:{label:'創業・CxO',cls:'tb-f',dot:'var(--blue)'},
-  business:{label:'事業',cls:'tb-b',dot:'var(--teal)'},
-  org:{label:'組織',cls:'tb-o',dot:'var(--amber)'},
-  workstyle:{label:'働き方',cls:'tb-w',dot:'var(--purple)'},
-  award:{label:'実績',cls:'tb-a',dot:'var(--green)'},
-  turning:{label:'逆境',cls:'tb-t',dot:'var(--red)'},
+  founder:{label:'創業・経営者',cls:'tb-f',dot:'var(--blue)'},
+  business:{label:'事業・プロダクト',cls:'tb-b',dot:'var(--teal)'},
+  org:{label:'組織づくり',cls:'tb-o',dot:'var(--amber)'},
+  workstyle:{label:'働き方・制度',cls:'tb-w',dot:'var(--purple)'},
+  award:{label:'実績・受賞',cls:'tb-a',dot:'var(--green)'},
+  turning:{label:'転換点・逆境',cls:'tb-t',dot:'var(--red)'},
 };
 
 // ════════════════════════════════════════════════
@@ -1353,24 +1350,31 @@ function render(id) {
   const hasBiz = perf.arr||perf.clients||perf.retention;
   const hasRep = perf.itreview||perf.boxil||perf.ittrend;
   const na = v => v ? `<span class="acc-val">${v}</span>` : `<span class="acc-val val-na">—</span>`;
+
+  // 基本情報・財務欄の安全表示用
+  const foundedText = c.founded ? `${c.founded}年` : '';
+  const fundCountText = (c.fund && c.fund.length) ? `${c.fund.length}ラウンド` : '';
+  const raisedText = c.raised ? c.raised.split('（')[0].split('(')[0] : '';
+  const latestAmountText = lastFund ? lastFund.amount : '';
+  const latestRoundText = lastFund ? lastFund.round : '';
   document.getElementById('acc-body').innerHTML = `
     <div class="acc-cat">
       <span class="acc-cat-label">基本</span>
       <div class="acc-rows">
-        <div class="acc-row"><span class="acc-key">設立年</span>${na(c.founded+'年')}</div>
+        <div class="acc-row"><span class="acc-key">設立年</span>${na(foundedText)}</div>
         <div class="acc-row"><span class="acc-key">所在地</span>${na(c.hq)}</div>
         <div class="acc-row"><span class="acc-key">証券コード</span>${na(c.code)}</div>
         <div class="acc-row"><span class="acc-key">事業区分１</span>${na(c.domain1)}</div>
         <div class="acc-row"><span class="acc-key">事業区分２</span>${na(c.domain2||'—')}</div>
-        <div class="acc-row"><span class="acc-key">調達ラウンド数</span>${na(c.fund.length+'ラウンド')}</div>
+        <div class="acc-row"><span class="acc-key">調達ラウンド数</span>${na(fundCountText)}</div>
       </div>
     </div>
     <div class="acc-cat">
       <span class="acc-cat-label">財務</span>
       <div class="acc-rows">
-        <div class="acc-row"><span class="acc-key">累計調達額</span>${na(c.raised.split('（')[0])}</div>
-        <div class="acc-row"><span class="acc-key">直近調達額</span>${na(c.fund.slice(-1)[0].amount)}</div>
-        <div class="acc-row"><span class="acc-key">直近ラウンド</span>${na(c.fund.slice(-1)[0].round)}</div>
+        <div class="acc-row"><span class="acc-key">累計調達額</span>${na(raisedText)}</div>
+        <div class="acc-row"><span class="acc-key">直近調達額</span>${na(latestAmountText)}</div>
+        <div class="acc-row"><span class="acc-key">直近ラウンド</span>${na(latestRoundText)}</div>
       </div>
     </div>
     ${hasBiz?`<div class="acc-cat">
@@ -1665,8 +1669,9 @@ const VOICE_SAMPLE = {
 
 // ════════════════════════════════════════════════
 // 注目ポイント（旧Voiceパネル）
-//   ・Voiceデータが整備済みの企業：要約＋5章本文＋重要トピックスピック
-//   ・未整備の企業：固定サンプルは出さず、「Voice準備中」と重要トピックスのみ表示
+//   ・Voiceデータが整備済みの企業：要約＋本文＋重要トピックスを表示
+//   ・未整備の企業：固定サンプルは出さず、控えめな「編集コメント準備中」表示にする
+//   ・成長サマリー、ミニグラフ、基本情報、参考ソースはHTML側に静的配置
 // ════════════════════════════════════════════════
 function hasVoiceData(c) {
   // 現状はSmartHRのみVOICE_SAMPLEを使う。今後はc.voice等を確認。
@@ -2048,13 +2053,6 @@ async function bootstrap(){
     setView('top');
     if (typeof initTop === 'function') await initTop();
   }
-}
-// 後段の<script>でinitTopが定義されてから走らせる
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', bootstrap);
-} else {
-  // すでにDOMが読み終わっていれば即起動
-  bootstrap();
 }
 
 // 詳細ビューの初期化
@@ -2464,7 +2462,8 @@ function topSectorShort(s){
 
 // 詳細ページへのリンク（同一HTML内ビュー切替）
 function topDetailLink(cid, tab){
-  return `?view=detail&id=${encodeURIComponent(cid)}${tab?`&tab=${tab}`:''}`;
+  const id = cid || 'c0001';
+  return `?view=detail&id=${encodeURIComponent(id)}${tab ? `&tab=${tab}` : ''}`;
 }
 // onclick用ヘルパ（情報ソースリンクと競合しないように）
 function topGoDetail(e, cid, tab){
@@ -2476,8 +2475,10 @@ function topGoDetail(e, cid, tab){
 
 function topRenderFeatured(items){
   const row = document.getElementById('top-row-featured');
-  row.innerHTML = items.map(it => `
-    <a class="top-card top-card-featured" href="${topDetailLink(it.cid, 'focus')}" style="--co-color:${topEscapeHtml(it.color)}">
+  row.innerHTML = items.map(it => {
+    const cid = it.cid || it.id || it.company_id;
+    return `
+    <a class="top-card top-card-featured" href="${topDetailLink(cid, 'focus')}" style="--co-color:${topEscapeHtml(it.color)}">
       <div class="top-card-bar"></div>
       <div class="top-card-body">
         <span class="tcf-badge">FEATURED</span>
@@ -2487,13 +2488,16 @@ function topRenderFeatured(items){
         <div class="tcf-reason"><span>注目理由</span> &nbsp; ${topEscapeHtml(it.reason)}</div>
       </div>
     </a>
-  `).join('');
+  `;
+  }).join('');
 }
 
 function topRenderFunding(items){
   const row = document.getElementById('top-row-funding');
-  row.innerHTML = items.map(it => `
-    <a class="top-card top-card-funding" href="${topDetailLink(it.cid, 'focus')}" style="--co-color:${topEscapeHtml(it.color)}">
+  row.innerHTML = items.map(it => {
+    const cid = it.cid || it.id || it.company_id;
+    return `
+    <a class="top-card top-card-funding" href="${topDetailLink(cid, 'focus')}" style="--co-color:${topEscapeHtml(it.color)}">
       <div class="top-card-bar"></div>
       <div class="top-card-body">
         <div class="tcn-meta">
@@ -2506,7 +2510,8 @@ function topRenderFunding(items){
         <div class="tcn-desc">${topEscapeHtml(topTrim(it.note, 60))}</div>
       </div>
     </a>
-  `).join('');
+  `;
+  }).join('');
 }
 
 function topRenderGrowing(items){
@@ -2514,8 +2519,9 @@ function topRenderGrowing(items){
   row.innerHTML = items.map(it => {
     const baseH = Math.max(6, Math.round(it.base_count / it.latest_count * 36));
     const latestH = 36;
+    const cid = it.cid || it.id || it.company_id;
     return `
-    <a class="top-card top-card-grow" href="${topDetailLink(it.cid, 'focus')}" style="--co-color:${topEscapeHtml(it.color)}">
+    <a class="top-card top-card-grow" href="${topDetailLink(cid, 'focus')}" style="--co-color:${topEscapeHtml(it.color)}">
       <div class="top-card-bar"></div>
       <div class="top-card-body">
         <div class="tcn-meta">
@@ -2545,10 +2551,11 @@ function topRenderTopicCards(rowId, items, badgeClass, badgeLabel){
   const row = document.getElementById(rowId);
   row.innerHTML = items.map(it => {
     const dateLabel = it.date ? it.date.slice(0,7).replace('-','.') : `${it.year}年`;
+    const cid = it.cid || it.id || it.company_id;
     return `
     <div class="top-card top-card-news" role="link" tabindex="0"
-         onclick="topGoDetail(event,'${topEscapeHtml(it.cid)}','timeline')"
-         onkeydown="if(event.key==='Enter')location.href=topDetailLink('${topEscapeHtml(it.cid)}','timeline')"
+         onclick="topGoDetail(event,'${topEscapeHtml(cid)}','timeline')"
+         onkeydown="if(event.key==='Enter')location.href=topDetailLink('${topEscapeHtml(cid)}','timeline')"
          style="--co-color:${topEscapeHtml(it.color)}">
       <div class="top-card-bar"></div>
       <div class="top-card-body">
@@ -2576,10 +2583,11 @@ function topRenderOrgCards(items){
     const isOrg = it.type === 'org';
     const badgeClass = isOrg ? 'b-org' : 'b-workstyle';
     const badgeLabel = isOrg ? '組織' : '働き方';
+    const cid = it.cid || it.id || it.company_id;
     return `
     <div class="top-card top-card-news" role="link" tabindex="0"
-         onclick="topGoDetail(event,'${topEscapeHtml(it.cid)}','timeline')"
-         onkeydown="if(event.key==='Enter')location.href=topDetailLink('${topEscapeHtml(it.cid)}','timeline')"
+         onclick="topGoDetail(event,'${topEscapeHtml(cid)}','timeline')"
+         onkeydown="if(event.key==='Enter')location.href=topDetailLink('${topEscapeHtml(cid)}','timeline')"
          style="--co-color:${topEscapeHtml(it.color)}">
       <div class="top-card-bar"></div>
       <div class="top-card-body">
@@ -2666,16 +2674,38 @@ function topSetSearch(q){
 function topDoSearch(){
   const q = document.getElementById('top-searchbox').value.trim();
   if(!q || !TOP_DATA) return;
-  const hit = TOP_DATA.companies.find(c =>
-    c.name.toLowerCase().includes(q.toLowerCase())
-  );
-  if(hit) location.href = topDetailLink(hit.id, 'focus');
-  else alert(`「${q}」で${TOP_DATA.companies.length}社から検索 — まだプロトタイプです`);
+
+  const qq = q.toLowerCase();
+
+  const hit = (TOP_DATA.companies || []).find(c => {
+    const fields = [
+      c.name,
+      c.company,
+      c.company_id,
+      c.id,
+      c.cid,
+      c.sector1,
+      c.sector2,
+      c.summary,
+      c.mission,
+      c.domain1,
+      c.domain2
+    ];
+    return fields.some(v => String(v || '').toLowerCase().includes(qq));
+  });
+
+  if(hit) {
+    const cid = hit.id || hit.company_id || hit.cid;
+    location.href = topDetailLink(cid, 'focus');
+  } else {
+    alert(`「${q}」で${(TOP_DATA.companies || []).length}社から検索 — 該当企業が見つかりませんでした`);
+  }
 }
 function topDiscoverRandom(){
-  if(!TOP_DATA) return;
+  if(!TOP_DATA || !TOP_DATA.companies || !TOP_DATA.companies.length) return;
   const c = TOP_DATA.companies[Math.floor(Math.random() * TOP_DATA.companies.length)];
-  location.href = topDetailLink(c.id, 'focus');
+  const cid = c.id || c.company_id || c.cid;
+  location.href = topDetailLink(cid, 'focus');
 }
 function topFilterBySector(name){
   if(!TOP_DATA) return;
@@ -2683,10 +2713,19 @@ function topFilterBySector(name){
   alert(`「${name}」で絞り込み — まだプロトタイプです（${n}社）`);
 }
 
+function topComingSoon(e){
+  if(e) e.preventDefault();
+  alert('一覧ページは準備中です');
+}
+
 async function initTop(){
-  // ① GAS方式（API_URL設定済み）→ ?toppage=1、② ローカル data/top.json
+  // ① GAS方式（API_URL設定済み）→ ?toppage=1
+  //    ※現時点ではGAS側未実装の場合があるため、主に data/top.json をフォールバックとして使用
+  // ② ローカル data/top.json
   const tries = [];
-  if (typeof API_URL !== 'undefined' && API_URL) tries.push(`${API_URL}?toppage=1&t=${Date.now()}`);
+  if (typeof API_URL !== 'undefined' && API_URL) {
+    tries.push(`${API_URL}?toppage=1&t=${Date.now()}`);
+  }
   tries.push('data/top.json');
   let loaded = false;
   for (const url of tries) {
@@ -2716,6 +2755,13 @@ async function initTop(){
   topRenderTopicCards('top-row-turning', TOP_DATA.shelves.turning, 'b-turning', '転換点');
   topRenderDeck(TOP_DATA.shelves.deck);
   topRenderSectors(TOP_DATA.shelves.sectors);
+}
+
+// すべての初期化関数が定義された後に起動する
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', bootstrap);
+} else {
+  bootstrap();
 }
 </script>
 
