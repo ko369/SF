@@ -8,372 +8,664 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
+/* =========================================================
+   StartupFile — dynamic implementation aligned to Pattern A
+   - Query route: ?view=detail&id=c0001&tab=focus
+   - No iframe / no static company cards
+   ========================================================= */
 :root{
-  --bg:#F4F1EA;--bg-soft:#F8F6F1;--surface:#fff;--surface-warm:#FFFDF8;--surface-cool:#F6F8FB;
+  --bg:#F4F1EA;--bg-soft:#F8F6F1;--surface:#FFFFFF;--surface-warm:#FFFDF8;--surface-cool:#F6F8FB;
   --ink:#102033;--text:#1D2A3A;--sub:#4C5B6E;--muted:#7A8494;
   --navy:#12345A;--navy-2:#0B223C;--navy-soft:#EAF0F7;
   --accent:#B58A4A;--accent-soft:#F2E6D2;--line:#DDE3EA;--line-soft:#ECEFF3;
-  --danger:#B42318;--ok:#0F7A64;--shadow-sm:0 2px 8px rgba(16,32,51,.045);--shadow-md:0 10px 26px rgba(16,32,51,.075);
+  --blue:#1A5EC2;--teal:#0F7A64;--amber:#A86010;--purple:#5A3FBF;--red:#C02020;--green:#1A7A3C;
+  --shadow-sm:0 2px 8px rgba(16,32,51,.045);--shadow-md:0 10px 26px rgba(16,32,51,.075);--shadow-lg:0 18px 42px rgba(16,32,51,.10);
   --radius-sm:8px;--radius:12px;--radius-lg:16px;--mono:'DM Mono',monospace;--sans:'Noto Sans JP',sans-serif;
 }
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#F8F6F1 0%,#F4F1EA 48%,#F1EEE7 100%);color:var(--ink);font-family:var(--sans);font-size:13px;line-height:1.72;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button,input{font-family:inherit}.mono{font-family:var(--mono)}
-.topbar{height:42px;position:sticky;top:0;z-index:80;display:flex;align-items:center;gap:16px;padding:0 30px;background:var(--navy-2);color:rgba(255,255,255,.68);border-bottom:1px solid rgba(255,255,255,.08);font-family:var(--mono);font-size:11px}.topbar strong{color:#fff;font-weight:600}.topbar .tagline{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.topbar nav{margin-left:auto;display:flex;align-items:center;gap:8px}.view-tab{border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);color:rgba(255,255,255,.76);border-radius:999px;padding:5px 12px;font-size:11px;font-weight:800;cursor:pointer}.view-tab.active{background:#fff;color:var(--navy-2)}
-.hero{position:relative;overflow:hidden;padding:44px 30px 36px;background:linear-gradient(135deg,#FFFDF8 0%,#F5F7FA 64%,#EEF3F8 100%);border-bottom:1px solid var(--line)}.hero:before{content:'';position:absolute;right:-120px;top:-160px;width:390px;height:390px;border-radius:50%;background:rgba(18,52,90,.07)}.hero-inner{position:relative;z-index:1;max-width:1280px;margin:0 auto}.eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--navy);font-weight:800;margin-bottom:10px}.hero h1{margin:0 0 13px;font-size:34px;line-height:1.32;letter-spacing:-.035em}.hero h1 em{font-style:normal;color:var(--navy);text-decoration:underline;text-decoration-thickness:6px;text-decoration-color:rgba(181,138,74,.20);text-underline-offset:-2px;text-decoration-skip-ink:none}.hero p{max-width:720px;margin:0;color:var(--sub);font-size:14px;line-height:1.95}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:9px 17px;border:1px solid transparent;font-size:12.5px;font-weight:800;cursor:pointer}.btn.primary{background:var(--navy);border-color:var(--navy);color:#fff;box-shadow:0 8px 18px rgba(18,52,90,.14)}.btn.secondary{background:rgba(255,255,255,.86);border-color:#CBD4DF;color:var(--navy)}.hero-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}.hero-tags button{background:rgba(255,255,255,.78);border:1px solid #D6DEE8;color:#4E5D72;border-radius:999px;padding:4px 10px;font-size:10.5px;font-weight:700;cursor:pointer}.hero-stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:26px;padding-top:20px;border-top:1px solid rgba(18,52,90,.10)}.hero-stat-label{font-family:var(--mono);font-size:10px;color:var(--muted);font-weight:800}.hero-stat-val{font-family:var(--mono);font-size:22px;color:var(--navy);font-weight:800;line-height:1.1;margin-top:3px}
-.main{max-width:1280px;margin:0 auto;padding:28px 30px 76px}.section{margin:0 0 42px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:16px;padding:0 2px 11px;border-bottom:1px solid var(--line-soft)}.section-title{margin:0;padding-left:12px;border-left:4px solid var(--navy);font-size:19px;line-height:1.35;font-weight:800;letter-spacing:-.02em;color:var(--ink)}.section-note{margin:5px 0 0 16px;color:var(--muted);font-size:12px;line-height:1.7}.subgroup{margin-top:18px}.subgroup + .subgroup{margin-top:28px}.subhead{display:flex;align-items:center;gap:9px;margin:0 0 10px;font-size:13px;font-weight:800;color:var(--ink);letter-spacing:-.01em}.subhead:before{content:'';width:7px;height:7px;border-radius:999px;background:var(--navy);flex:0 0 auto}.subhead small{font-size:11px;font-weight:600;color:var(--muted)}.shelf{display:flex;gap:10px;overflow-x:auto;overflow-y:hidden;padding:2px 2px 12px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}.shelf::-webkit-scrollbar{height:6px}.shelf::-webkit-scrollbar-thumb{background:#D2D8E0;border-radius:999px}
-.card{--card-line:var(--navy);background:#fff;border:1px solid var(--line);border-top:2px solid var(--card-line);border-radius:8px;padding:12px 14px 13px;min-height:152px;width:272px;min-width:272px;display:flex;flex-direction:column;box-shadow:none;overflow:hidden;cursor:pointer;scroll-snap-align:start;transition:border-color .14s,transform .14s,box-shadow .14s}.card:hover{transform:translateY(-1px);border-color:#C7D0DC;box-shadow:0 5px 16px rgba(16,32,51,.07)}.card-meta{display:flex;align-items:center;gap:8px;margin-bottom:8px;white-space:nowrap;min-width:0}.label{display:inline-flex;align-items:center;background:#F2F5F8;border-radius:4px;padding:3px 8px;font-size:10.5px;font-weight:800;color:#263548;line-height:1.1}.date{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.02em}.company{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:800;color:var(--ink);line-height:1.35;margin-bottom:5px;min-width:0}.dot{width:6px;height:6px;border-radius:50%;background:var(--card-line);flex:0 0 auto}.company span:last-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.card-title{font-size:12.8px;font-weight:800;color:var(--ink);line-height:1.56;margin:0 0 8px;letter-spacing:-.005em;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.card-desc{font-size:11.4px;color:var(--sub);line-height:1.65;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.card-foot{margin-top:auto;padding-top:12px;font-size:11px;color:var(--muted);display:flex;gap:10px;align-items:center}.card-foot a{color:var(--navy);font-weight:800}.metric-card{min-height:198px}.metric-main{display:flex;align-items:flex-end;gap:5px;color:var(--card-line);line-height:1;margin-bottom:4px}.metric-main strong{font-family:var(--mono);font-size:29px;line-height:1;color:var(--ok);letter-spacing:-.04em}.metric-main span{font-size:11px;color:var(--sub);font-weight:800;padding-bottom:1px}.period{font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:9px}.bars{background:#F8FAFC;border:1px solid var(--line-soft);border-radius:10px;padding:9px 10px 8px;margin:8px 0 10px;display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:12px;height:76px}.bar-wrap{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:58px;gap:4px}.bar{width:100%;max-width:86px;min-height:4px;background:var(--card-line);opacity:.22;border-radius:3px 3px 0 0}.bar.after{opacity:1}.bar-label{font-family:var(--mono);font-size:9.5px;color:var(--muted);line-height:1}.roundline{display:flex;align-items:center;gap:5px;margin:12px 0 10px}.roundline span{font-family:var(--mono);font-size:10px;font-weight:800;color:var(--card-line);border:1px solid var(--line);background:#fff;border-radius:999px;padding:3px 7px;white-space:nowrap}.roundline i{height:1px;flex:1;background:var(--line);min-width:8px}.empty{background:#fff;border:1px dashed var(--line);border-radius:12px;padding:20px;color:var(--muted);font-size:12px}.sector-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.sector{background:#fff;border:1px solid var(--line);border-radius:9px;padding:12px;cursor:pointer}.sector b{display:block;font-size:12.5px;margin-bottom:2px}.sector span{font-family:var(--mono);font-size:10px;color:var(--muted)}
-.detail-hero{padding:28px 30px 0;background:linear-gradient(135deg,#FFFDF8 0%,#F5F7FA 70%,#EEF3F8 100%);border-bottom:1px solid var(--line)}.detail-hero-inner{max-width:1280px;margin:0 auto}.breadcrumb{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-bottom:16px}.co-header{overflow:hidden;background:#fff;border:1px solid #D8CBB8;border-radius:12px;box-shadow:var(--shadow-md)}.co-header-accent{height:5px;background:var(--co-color,var(--navy))}.co-header-main{padding:20px 22px 18px}.co-name{font-size:17px;line-height:1.3;font-weight:800;letter-spacing:-.01em;color:var(--ink);margin:0 0 7px}.co-hook{font-size:27px;line-height:1.42;font-weight:800;letter-spacing:-.025em;margin:0 0 9px;max-width:980px}.co-overview{font-size:12.8px;line-height:1.85;max-width:920px;margin:0 0 12px;color:var(--sub)}.chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:rgba(255,255,255,.72);color:var(--sub);border-radius:999px;padding:5px 11px;font-size:11px;font-weight:700}.chip b{color:var(--navy);font-weight:800}.co-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:16px}.kpi{background:var(--surface-cool);border:1px solid var(--line);border-radius:10px;padding:12px}.kpi-label{font-family:var(--mono);font-size:10px;color:var(--muted);font-weight:800}.kpi-val{font-family:var(--mono);font-size:22px;font-weight:800;color:var(--navy);line-height:1;margin-top:4px}.tabs{display:flex;gap:8px;flex-wrap:wrap;padding:12px 22px;background:#F6F7F9;border-top:1px solid var(--line)}.tabs a{border:1px solid var(--line);background:#fff;color:var(--navy);border-radius:999px;padding:7px 12px;font-size:12px;font-weight:800}.workspace{max-width:1280px;margin:0 auto;padding:24px 30px 78px;display:grid;grid-template-columns:280px minmax(0,1fr);gap:20px}.sidebar{position:sticky;top:58px;align-self:start;padding:14px;background:var(--surface-warm);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-sm)}.sb-title{font-size:14px;font-weight:800;margin-bottom:10px}.sb-search{width:100%;border:1px solid var(--line);border-radius:999px;background:#fff;padding:8px 12px;outline:0;color:var(--ink);margin-bottom:10px}.sb-list{display:grid;gap:6px;max-height:calc(100vh - 170px);overflow:auto;padding-right:2px}.sb-item{display:block;border:1px solid transparent;border-left:3px solid transparent;border-radius:9px;padding:9px 10px;cursor:pointer}.sb-item.active{background:var(--navy-soft);border-color:#D3DCE8;border-left-color:var(--navy)}.sb-item:hover{background:#fff}.sb-item h4{font-size:12.5px;margin:0 0 2px}.sb-item p{font-size:10.8px;color:var(--muted);margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.detail-main{min-width:0}.detail-section{margin-bottom:28px}.detail-section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}.detail-section-title{margin:0;padding-left:10px;border-left:3px solid var(--navy);font-size:16px;font-weight:800}.summary-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:12px}.note,.reading-map,.table,.news-card,.topic-item,.material-card{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-sm)}.note{padding:16px;font-size:12.5px;color:var(--sub);line-height:1.85}.note strong{color:var(--ink)}.reading-map{padding:12px;display:grid;gap:8px}.map-row{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:9px 0;border-top:1px solid var(--line-soft)}.map-row:first-child{border-top:0}.map-row b{font-family:var(--mono);font-size:10px;color:var(--navy)}.map-row span{font-size:12px;color:var(--sub)}.materials-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.material-card{display:block;padding:12px}.material-card small{display:block;font-size:10px;font-weight:800;color:var(--accent)}.material-card b{display:block;font-size:12.5px;color:var(--ink);margin:4px 0 3px}.material-card span{display:block;margin-top:8px;font-size:10.5px;font-weight:800;color:var(--navy)}.charts{display:grid;grid-template-columns:1fr 1fr;gap:12px}.chart{background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px;box-shadow:var(--shadow-sm)}.chart-title{font-size:13px;font-weight:800;margin-bottom:10px}.bar-chart{height:110px;display:flex;align-items:flex-end;gap:5px}.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:4px}.bar-fill{width:100%;background:var(--co-color,var(--navy));border-radius:4px 4px 0 0;min-height:3px}.bar-year{font-family:var(--mono);font-size:10px;color:var(--muted)}.timeline{display:grid;gap:9px}.topic-item{display:grid;grid-template-columns:74px 110px 1fr 190px;gap:12px;align-items:start;padding:13px}.topic-item h3{font-size:13px;margin:0 0 4px}.topic-item p{font-size:11.5px;color:var(--sub);line-height:1.6;margin:0}.tl-date{font-family:var(--mono);font-size:10px;color:var(--muted);font-weight:800}.tl-cat{display:inline-flex;align-items:center;justify-content:center;border:1px solid #D6DEE8;background:var(--navy-soft);color:var(--navy);border-radius:999px;padding:4px 8px;font-family:var(--mono);font-size:10px;font-weight:800;text-align:center}.tl-src{font-size:11px;color:var(--navy);font-weight:800;background:#F7F8FA;border-radius:8px;padding:8px}.news-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.news-card{padding:13px 14px}.news-card .meta{display:flex;gap:8px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:7px}.news-card h3{font-size:13.5px;line-height:1.5;margin:0}.table{overflow:hidden}.table-row{display:grid;grid-template-columns:92px 120px 1fr 70px;gap:10px;padding:10px 12px;border-top:1px solid var(--line-soft);align-items:center}.table-row:first-child{border-top:0}.table-row b{font-family:var(--mono);font-size:10px;color:var(--muted)}.table-row span{font-size:11.5px;color:var(--sub)}.table-row a{font-size:11px;color:var(--navy);font-weight:800}.loading{padding:40px;text-align:center;color:var(--muted)}.error{margin:24px auto;max-width:860px;background:#fff;border:1px solid #F1C7C3;border-radius:12px;padding:18px;color:var(--danger);box-shadow:var(--shadow-sm)}.footer{text-align:center;font-family:var(--mono);font-size:11px;color:var(--muted);padding:28px}
-@media(max-width:1100px){.workspace{grid-template-columns:1fr}.sidebar{position:static}.co-kpis{grid-template-columns:repeat(2,1fr)}.summary-grid,.charts{grid-template-columns:1fr}.topic-item{grid-template-columns:74px 1fr}.tl-src{grid-column:2}.sector-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:760px){.topbar{padding:0 16px}.topbar .tagline{display:none}.hero,.detail-hero{padding:30px 16px 24px}.hero h1{font-size:26px}.co-hook{font-size:22px}.main,.workspace{padding:22px 16px 64px}.card{width:252px;min-width:252px}.materials-grid,.news-grid,.co-kpis,.sector-grid{grid-template-columns:1fr}.topic-item,.table-row,.map-row{grid-template-columns:1fr}.tl-src{grid-column:auto}.tabs a{flex:1;text-align:center}.hero-actions .btn{width:100%}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#F8F6F1 0%,#F4F1EA 44%,#F1EEE7 100%);color:var(--ink);font-family:var(--sans);font-size:13px;line-height:1.72;-webkit-font-smoothing:antialiased}a{text-decoration:none;color:inherit}button,input{font-family:inherit}.mono{font-family:var(--mono)}.view{display:none}.view.active{display:block}.hidden{display:none!important}
+.topbar{height:42px;position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:16px;padding:0 30px;background:var(--navy-2);color:rgba(255,255,255,.68);border-bottom:1px solid rgba(255,255,255,.08);font-family:var(--mono);font-size:11px}.topbar strong{color:#fff;font-weight:600}.topbar .tagline{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.topbar nav{margin-left:auto;display:flex;align-items:center;gap:8px}.topbar a{color:rgba(255,255,255,.72)}.topbar a:hover{color:#fff}.view-tab{border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);color:rgba(255,255,255,.76);border-radius:999px;padding:5px 12px;font-size:11px;font-weight:800;cursor:pointer}.view-tab.active{background:#fff;color:var(--navy-2)}
+/* Top hero */
+.hero{position:relative;overflow:hidden;padding:44px 30px 36px;background:linear-gradient(135deg,#FFFDF8 0%,#F5F7FA 64%,#EEF3F8 100%);border-bottom:1px solid var(--line)}.hero:before{content:'';position:absolute;right:-120px;top:-160px;width:390px;height:390px;border-radius:50%;background:rgba(18,52,90,.07)}.hero:after{content:'';position:absolute;left:42%;bottom:-190px;width:360px;height:360px;border-radius:50%;background:rgba(181,138,74,.08)}.hero-inner{position:relative;z-index:1;max-width:1280px;margin:0 auto;display:grid;grid-template-columns:minmax(0,820px);gap:34px;align-items:center}.eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--navy);font-weight:800;margin-bottom:10px}.hero h1{margin:0 0 13px;font-size:34px;line-height:1.32;letter-spacing:-.035em}.hero h1 em{font-style:normal;color:var(--navy);text-decoration:underline;text-decoration-thickness:6px;text-decoration-color:rgba(181,138,74,.20);text-underline-offset:-2px;text-decoration-skip-ink:none}.hero p{max-width:720px;margin:0;color:var(--sub);font-size:14px;line-height:1.95}.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:9px 17px;border:1px solid transparent;font-size:12.5px;font-weight:800;cursor:pointer}.btn.primary{background:var(--navy);border-color:var(--navy);color:#fff;box-shadow:0 8px 18px rgba(18,52,90,.14)}.btn.secondary{background:rgba(255,255,255,.86);border-color:#CBD4DF;color:var(--navy)}.hero-search-soft{display:flex;align-items:center;gap:10px;margin-top:18px;color:var(--muted);font-size:11.5px;flex-wrap:wrap}.soft-search{display:flex;min-width:320px;max-width:480px;flex:1;background:rgba(255,255,255,.90);border:1px solid #CBD4DF;border-radius:999px;overflow:hidden;box-shadow:var(--shadow-sm)}.soft-search input{flex:1;border:0;background:transparent;outline:0;padding:8px 12px 8px 15px;color:var(--ink)}.soft-search button{border:0;border-left:1px solid var(--line);background:#F5F7FA;color:var(--navy);font-weight:800;padding:0 13px;cursor:pointer}.hero-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:15px}.hero-tags button{background:rgba(255,255,255,.78);border:1px solid #D6DEE8;color:#4E5D72;border-radius:999px;padding:3px 9px;font-size:10.5px;font-weight:700;cursor:pointer}.hero-stats{display:flex;gap:32px;margin-top:28px;padding-top:22px;border-top:1px solid rgba(18,52,90,.10);flex-wrap:wrap}.hero-stat-label{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}.hero-stat-val{font-size:22px;font-weight:800;color:var(--navy);line-height:1.1;margin-top:4px}
+/* Pattern A top sections */
+.sf-top-main{max-width:1280px;margin:0 auto;padding:28px 30px 76px}.sf-top-section{margin:0 0 42px}.sf-top-section>.section-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:16px;padding:0 2px 11px;border-bottom:1px solid var(--line-soft)}.section-title{margin:0;padding-left:12px;border-left:4px solid var(--navy);font-size:19px;line-height:1.35;font-weight:800;letter-spacing:-.02em;color:var(--ink)}.sf-section-desc{margin:6px 0 0 16px;font-size:12.2px;line-height:1.7;color:var(--muted);letter-spacing:-.01em;max-width:680px}.more{font-size:11px;font-weight:800;color:var(--muted);white-space:nowrap}.more:hover{color:var(--navy)}.sf-card-group{margin-top:18px}.sf-card-group+.sf-card-group{margin-top:28px}.sf-subhead,.sf-mini-subhead{display:flex;align-items:center;gap:9px;font-size:13px;line-height:1.4;font-weight:800;margin:0 0 10px;color:var(--ink);letter-spacing:-.01em}.sf-subhead:before,.sf-mini-subhead:before{content:'';width:7px;height:7px;border-radius:999px;background:var(--navy);opacity:.9;flex:0 0 auto}.sf-subhead small{font-size:11px;font-weight:600;color:var(--muted);margin-left:2px}.sf-card-row{display:flex;gap:10px;overflow-x:auto;overflow-y:hidden;padding:2px 2px 12px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}.sf-card-row::-webkit-scrollbar{height:6px}.sf-card-row::-webkit-scrollbar-thumb{background:#D2D8E0;border-radius:999px}.sf-activity-card{--card-line:var(--navy);background:#fff;border:1px solid #DDE3EA;border-top:2px solid var(--card-line);border-radius:7px;padding:12px 14px 13px;min-height:152px;width:272px;min-width:272px;display:flex;flex-direction:column;box-shadow:none;overflow:hidden;cursor:pointer;transition:border-color .14s,transform .14s,box-shadow .14s;scroll-snap-align:start}.sf-activity-card:hover{transform:translateY(-1px);border-color:#C7D0DC;box-shadow:0 5px 16px rgba(16,32,51,.07)}.sf-card-meta{display:flex;align-items:center;gap:8px;margin-bottom:8px;white-space:nowrap;min-width:0}.sf-card-label{display:inline-flex;align-items:center;background:#F2F5F8;border-radius:4px;padding:3px 8px;font-size:10.5px;font-weight:800;color:#263548;line-height:1.1}.sf-card-date{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.02em}.sf-company{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:800;color:var(--ink);line-height:1.35;margin-bottom:5px;min-width:0}.sf-dot{width:6px;height:6px;border-radius:50%;background:var(--card-line);flex:0 0 auto}.sf-company span:last-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.sf-card-title{font-size:12.7px;font-weight:800;color:var(--ink);line-height:1.55;margin:0 0 8px;letter-spacing:-.005em;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.sf-card-desc{font-size:11.3px;color:var(--sub);line-height:1.65;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.sf-card-foot{margin-top:auto;padding-top:12px;font-size:11px;color:var(--muted);display:flex;gap:10px;align-items:center}.sf-card-foot a{color:var(--navy);font-weight:800;text-decoration:none}.sf-card-foot a:hover{text-decoration:underline}.sf-card-foot .muted{color:var(--muted)}.sf-story-card{min-height:166px;padding:14px 15px;background:linear-gradient(180deg,#fff 0%,#FFFDF8 100%)}.sf-story-card .sf-card-title{font-size:13px;line-height:1.62;-webkit-line-clamp:4}
+/* === stage tabs section: Pattern A / series focus === */
+.sf-stage-section{
+  margin:0 0 40px;
+  padding:20px;
+  border:1px solid var(--line-soft, #ECEFF3);
+  border-radius:24px;
+  background:
+    radial-gradient(circle at 8% 10%, rgba(18,52,90,.07), transparent 28%),
+    linear-gradient(135deg, #FFFDF9 0%, #F7FAFD 100%);
+  box-shadow:0 10px 28px rgba(16,32,51,.045);
+}
+.sf-stage-head{
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  align-items:flex-start;
+  margin-bottom:16px;
+}
+.sf-stage-kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:.06em;
+  color:var(--navy, #12345A);
+  font-weight:800;
+  margin-bottom:7px;
+}
+.sf-stage-kicker::before{
+  content:'';
+  width:6px;
+  height:6px;
+  border-radius:999px;
+  background:var(--accent, #B58A4A);
+}
+.sf-stage-title{
+  margin:0;
+  font-size:21px;
+  line-height:1.42;
+  letter-spacing:-.035em;
+  color:var(--ink, #102033);
+}
+.sf-stage-lead{
+  margin:6px 0 0;
+  font-size:12.5px;
+  line-height:1.75;
+  color:var(--sub, #4C5B6E);
+  max-width:680px;
+}
+.sf-stage-actions{
+  display:flex;
+  gap:8px;
+  flex:0 0 auto;
+}
+.sf-stage-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-height:34px;
+  border:1px solid #CBD4DF;
+  background:rgba(255,255,255,.78);
+  color:var(--navy, #12345A);
+  border-radius:999px;
+  padding:7px 14px;
+  font-size:11.5px;
+  font-weight:800;
+  box-shadow:var(--shadow-sm);
+  cursor:pointer;
+}
+.sf-stage-link:hover{background:#fff;border-color:#BFCADA;box-shadow:var(--shadow-md)}
+.sf-stage-tabs{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  overflow:hidden;
+  border:1px solid var(--line, #DDE3EA);
+  border-radius:16px 16px 0 0;
+  background:rgba(255,255,255,.78);
+}
+.sf-stage-tab{
+  position:relative;
+  appearance:none;
+  border:0;
+  border-left:1px solid var(--line-soft, #ECEFF3);
+  background:transparent;
+  color:var(--ink, #102033);
+  padding:12px 10px 11px;
+  cursor:pointer;
+  text-align:center;
+}
+.sf-stage-tab:first-child{border-left:0}
+.sf-stage-tab b{
+  display:block;
+  font-family:var(--mono);
+  font-size:12px;
+  font-weight:800;
+  line-height:1.1;
+  letter-spacing:-.02em;
+}
+.sf-stage-tab span{
+  display:block;
+  margin-top:5px;
+  font-size:10.5px;
+  line-height:1.2;
+  color:var(--muted, #7A8494);
+  font-weight:700;
+}
+.sf-stage-tab.active{
+  background:var(--navy-2, #0B223C);
+  color:#fff;
+  box-shadow:inset 0 -3px 0 rgba(181,138,74,.9);
+}
+.sf-stage-tab.active span{color:rgba(255,255,255,.70)}
+.sf-stage-panel{
+  border:1px solid var(--line, #DDE3EA);
+  border-top:0;
+  border-radius:0 0 18px 18px;
+  background:rgba(255,255,255,.92);
+  overflow:hidden;
+}
+.sf-stage-panel-inner{
+  display:grid;
+  grid-template-columns:240px minmax(0,1fr);
+  gap:18px;
+  padding:18px;
+}
+.sf-stage-intro{
+  border-right:1px solid var(--line-soft, #ECEFF3);
+  padding:4px 18px 4px 0;
+}
+.sf-stage-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-family:var(--mono);
+  font-size:10px;
+  font-weight:800;
+  color:var(--stage-color, var(--accent));
+  background:color-mix(in srgb, var(--stage-color, var(--accent)) 10%, white);
+  border:1px solid color-mix(in srgb, var(--stage-color, var(--accent)) 18%, #E6E9EE);
+  border-radius:999px;
+  padding:5px 9px;
+  margin-bottom:14px;
+}
+.sf-stage-intro h3{
+  margin:0 0 8px;
+  font-size:22px;
+  line-height:1.36;
+  letter-spacing:-.035em;
+  color:var(--ink, #102033);
+}
+.sf-stage-intro p{
+  margin:0;
+  font-size:12.2px;
+  line-height:1.8;
+  color:var(--sub, #4C5B6E);
+}
+.sf-stage-mini{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:16px;
+  font-size:11px;
+  color:var(--muted, #7A8494);
+}
+.sf-stage-mini strong{
+  font-family:var(--mono);
+  font-size:19px;
+  color:var(--stage-color, var(--navy));
+  line-height:1;
+}
+.sf-stage-card-row{
+  min-width:0;
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding:2px 2px 12px;
+  scroll-snap-type:x proximity;
+  -webkit-overflow-scrolling:touch;
+}
+.sf-stage-card-row::-webkit-scrollbar{height:6px}
+.sf-stage-card-row::-webkit-scrollbar-thumb{background:#D2D8E0;border-radius:999px}
+.sf-stage-company-card{
+  width:238px;
+  min-width:238px;
+  min-height:154px;
+  display:flex;
+  flex-direction:column;
+  scroll-snap-align:start;
+  border:1px solid var(--line-soft, #ECEFF3);
+  background:#fff;
+  border-radius:15px;
+  padding:14px;
+  box-shadow:0 7px 18px rgba(16,32,51,.055);
+  transition:transform .14s, box-shadow .14s, border-color .14s;
+}
+.sf-stage-company-card:hover{
+  transform:translateY(-1px);
+  box-shadow:var(--shadow-md);
+  border-color:#C8D2DE;
+}
+.sf-stage-logo-row{
+  display:block;
+  margin-bottom:10px;
+}
+.sf-stage-logo{
+  display:none;
+}
+.sf-stage-round{
+  display:inline-flex;
+  align-items:center;
+  align-self:flex-start;
+  font-family:var(--mono);
+  font-size:10px;
+  font-weight:800;
+  color:var(--stage-color, #12345A);
+  background:color-mix(in srgb, var(--stage-color, #12345A) 9%, white);
+  border:1px solid color-mix(in srgb, var(--stage-color, #12345A) 16%, #E6E9EE);
+  border-radius:999px;
+  padding:4px 8px;
+  white-space:nowrap;
+}
+.sf-stage-company-card h4{
+  margin:0 0 7px;
+  font-size:14px;
+  line-height:1.35;
+  color:var(--ink, #102033);
+  letter-spacing:-.01em;
+}
+.sf-stage-company-card p{
+  margin:0;
+  font-size:11.5px;
+  line-height:1.65;
+  color:var(--sub, #4C5B6E);
+  display:-webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.sf-stage-tags{
+  display:flex;
+  gap:5px;
+  flex-wrap:wrap;
+  margin-top:auto;
+  padding-top:13px;
+}
+.sf-stage-tags span{
+  display:inline-flex;
+  border:1px solid var(--line-soft, #ECEFF3);
+  background:#F8FAFC;
+  border-radius:999px;
+  padding:3px 8px;
+  font-size:10px;
+  line-height:1.1;
+  font-weight:800;
+  color:var(--sub, #4C5B6E);
+}
+.sf-stage-cta-card{
+  width:178px;
+  min-width:178px;
+  min-height:176px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+  gap:8px;
+  scroll-snap-align:start;
+  border:1px dashed #C7D1DD;
+  background:#F6F8FB;
+  border-radius:15px;
+  padding:14px;
+  color:var(--navy, #12345A);
+  cursor:pointer;
+}
+.sf-stage-cta-icon{
+  display:none;
+}
+.sf-stage-cta-card b{
+  font-size:12.5px;
+  line-height:1.55;
+}
+.sf-stage-cta-card span{
+  font-size:11px;
+  color:var(--muted, #7A8494);
+}
+@media(max-width:960px){
+  .sf-stage-head{display:block}
+  .sf-stage-actions{margin-top:12px}
+  .sf-stage-tabs{display:flex;overflow-x:auto;border-radius:16px 16px 0 0}
+  .sf-stage-tab{min-width:144px;flex:0 0 144px}
+  .sf-stage-panel-inner{grid-template-columns:1fr}
+  .sf-stage-intro{border-right:0;border-bottom:1px solid var(--line-soft, #ECEFF3);padding:0 0 15px}
+}
+@media(max-width:640px){
+  .sf-stage-section{padding:15px;border-radius:19px;margin-bottom:32px}
+  .sf-stage-title{font-size:18px}
+  .sf-stage-lead{font-size:11.8px}
+  .sf-stage-tabs{margin-left:-1px;margin-right:-1px}
+  .sf-stage-tab{min-width:132px;flex-basis:132px;padding:11px 8px}
+  .sf-stage-tab b{font-size:11px}
+  .sf-stage-tab span{font-size:10px}
+  .sf-stage-panel-inner{padding:14px}
+  .sf-stage-intro h3{font-size:18px}
+  .sf-stage-company-card{width:230px;min-width:230px;min-height:150px}
+}
+
+/* Growth cards */
+.sf-growth-card{min-height:198px;padding:13px 14px 12px}.sf-growth-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}.sf-growth-label{display:inline-flex;align-items:center;background:#F3F5F7;border-radius:4px;padding:2px 7px;font-size:10px;font-weight:800;color:#4B5563}.sf-growth-date{font-family:var(--mono);font-size:10px;color:var(--muted)}.sf-growth-metric{display:flex;align-items:flex-end;gap:5px;margin-bottom:4px}.sf-growth-metric strong{font-family:var(--mono);font-size:29px;line-height:1;color:var(--teal);letter-spacing:-.04em}.sf-growth-metric span{font-size:11px;color:var(--sub);font-weight:800;padding-bottom:1px}.sf-growth-period{font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:9px}.sf-growth-visual{background:#F8FAFC;border:1px solid var(--line-soft);border-radius:10px;padding:9px 10px 8px;margin:8px 0 10px}.sf-growth-bars{display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:12px;height:58px}.sf-growth-bar-wrap{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:58px;gap:4px}.sf-growth-bar{width:100%;max-width:86px;min-height:4px;background:var(--card-line);opacity:.22;border-radius:3px 3px 0 0}.sf-growth-bar.after{opacity:1}.sf-growth-bar-label{font-family:var(--mono);font-size:9.5px;line-height:1;color:var(--muted)}.sf-growth-company{font-size:12.2px;font-weight:800;display:flex;gap:6px;align-items:center;min-width:0}.sf-growth-company i{width:6px;height:6px;border-radius:999px;background:var(--card-line);flex:0 0 auto}.sf-funding-track{display:flex;align-items:center;gap:5px;margin:11px 0 10px}.sf-funding-step{font-family:var(--mono);font-size:10px;color:var(--sub);border:1px solid var(--line);border-radius:999px;padding:3px 7px;background:#fff}.sf-funding-line{height:1px;flex:1;background:var(--line)}.empty{background:#fff;border:1px dashed var(--line);border-radius:12px;padding:22px 18px;color:var(--muted);font-size:12px;line-height:1.7}
+/* Happiness block */
+.sf-happiness-section{margin:0 0 36px;padding:18px;border:1px solid var(--line-soft);border-radius:22px;background:radial-gradient(circle at 12% 12%, rgba(181,138,74,.10), transparent 32%),linear-gradient(135deg,#FFFDF9 0%,#F8FAFC 100%)}.sf-happiness-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-end;margin-bottom:14px}.sf-happiness-title{margin:0;font-size:20px;line-height:1.45;letter-spacing:-.03em;color:var(--ink)}.sf-happiness-lead{margin:5px 0 0;font-size:12.4px;line-height:1.75;color:var(--sub)}.sf-happiness-mark{flex:0 0 auto;font-family:var(--mono);font-size:11px;color:var(--muted);border:1px solid var(--line-soft);background:rgba(255,255,255,.72);border-radius:999px;padding:5px 10px}.sf-happiness-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.sf-happiness-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px;min-height:120px;cursor:pointer}.sf-happiness-card b{display:block;font-size:12.5px;line-height:1.5;margin-bottom:5px}.sf-happiness-card p{font-size:11.4px;line-height:1.65;color:var(--sub);margin:0}
+/* Detail page */
+.detail-page{background:#fff;min-height:100vh}.detail-hero-current{padding:26px 30px 0;background:linear-gradient(135deg,#FFFDF8 0%,#F5F7FA 70%,#EEF3F8 100%);border-bottom:1px solid var(--line)}.detail-hero-inner{max-width:1280px;margin:0 auto}.detail-breadcrumb{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-bottom:16px}.detail-breadcrumb a{color:var(--navy);font-weight:800}.co-header-card{overflow:hidden;border:1px solid #D8CBB8;border-radius:var(--radius);box-shadow:var(--shadow-lg);background:#fff}.co-header-accent{height:5px;background:var(--co-color,var(--navy))}.co-header-main{padding:20px 22px 18px}.co-header-topline{display:grid;grid-template-columns:1fr;gap:24px;align-items:start}.co-name-current{font-size:17px;line-height:1.3;font-weight:800;letter-spacing:-.01em;color:var(--ink);margin:0 0 7px}.co-hook-current{font-size:27px;line-height:1.42;font-weight:800;letter-spacing:-.025em;margin:0 0 9px;max-width:980px;color:var(--ink)}.co-overview-current{font-size:12.8px;line-height:1.85;max-width:920px;margin-bottom:12px;color:var(--sub)}.detail-one-line,.detail-storyline{margin:13px 0 12px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.68);max-width:920px}.detail-one-line-label,.detail-storyline-label{font-size:11px;font-weight:800;color:var(--navy);margin-bottom:4px}.detail-one-line-text,.detail-storyline-text{font-size:13px;line-height:1.75;color:var(--text);font-weight:600}.co-hero-chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}.co-hero-chips span{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:rgba(255,255,255,.72);color:var(--sub);border-radius:999px;padding:5px 11px;font-size:11px;font-weight:700}.co-hero-chips b{color:var(--navy);font-weight:800}.detail-first-materials{margin-top:14px;max-width:980px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.62);padding:12px}.detail-materials-head{display:flex;justify-content:space-between;align-items:baseline;gap:14px;margin-bottom:8px}.detail-materials-head h3{display:flex;align-items:center;gap:7px;font-size:13px;margin:0;color:var(--ink);font-weight:800}.detail-materials-head h3:before{content:'';width:7px;height:7px;border-radius:999px;background:var(--accent)}.detail-materials-head span{font-size:11px;color:var(--muted);font-weight:500}.detail-materials-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.detail-material-card{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);background:rgba(255,255,255,.78);border-radius:12px;padding:11px 12px}.detail-material-type{display:inline-flex;align-items:center;font-size:10px;font-weight:800;color:var(--accent)}.detail-material-card b{display:block;font-size:12.5px;color:var(--ink);margin:4px 0 3px}.detail-material-card p{margin:0;font-size:11.2px;line-height:1.55;color:var(--sub)}.detail-material-link{display:block;margin-top:8px;font-size:10.5px;font-weight:800;color:var(--navy)}.co-tabbar{display:flex;gap:8px;flex-wrap:wrap;padding:12px 22px;background:#F6F7F9;border-top:1px solid var(--line)}.co-tab{border:1px solid var(--line);background:#fff;color:var(--navy);border-radius:999px;padding:8px 13px;font-size:12px;font-weight:800;cursor:pointer}.co-tab.active{background:var(--navy);border-color:var(--navy);color:#fff}.detail-workspace{max-width:1280px;margin:0 auto;padding:24px 30px 78px;display:grid;grid-template-columns:280px minmax(0,1fr);gap:20px;background:#fff}.company-sidebar{position:sticky;top:58px;align-self:start;padding:14px;background:var(--surface-warm);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm)}.sb-title{font-size:14px;font-weight:800;margin-bottom:10px}.sb-count{font-family:var(--mono);font-size:11px;color:var(--muted);font-weight:500}.sb-search{width:100%;border:1px solid var(--line);border-radius:999px;background:#fff;padding:8px 12px;outline:0;color:var(--ink);margin-bottom:10px}.sb-list{display:grid;gap:6px;max-height:calc(100vh - 185px);overflow:auto}.sb-item{display:block;border:1px solid transparent;border-left:3px solid transparent;border-radius:9px;padding:9px 10px;cursor:pointer}.sb-item:hover{background:#fff;border-color:#D3DCE8}.sb-item.active{background:var(--navy-soft);border-color:#D3DCE8;border-left-color:var(--navy)}.sb-item h4{font-size:12.5px;margin:0 0 2px}.sb-item p{font-size:10.8px;color:var(--muted);margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.detail-frame{min-width:0;padding:0;margin:0}.detail-section{margin-bottom:28px}.detail-section-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:13px}.detail-section-title{margin:0;padding-left:11px;border-left:4px solid var(--navy);font-size:16px;font-weight:800;letter-spacing:-.01em;color:var(--ink)}.detail-card,.editor-note,.reading-map,.rich-kpi,.highlight-card,.chart-box,.voice-card,.quote-card,.tl-intro,.tl-item,.news-rich-item,.source-ledger-row,.link-card,.why-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm)}.rich-kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.rich-kpi{padding:15px;background:#fff}.rich-kpi .label{font-family:var(--mono);font-size:10px;color:var(--muted);font-weight:800}.rich-kpi .val{font-family:var(--mono);font-size:24px;font-weight:800;color:var(--navy);line-height:1;margin:4px 0}.rich-kpi .sub{font-size:11.2px;color:var(--sub);line-height:1.5}.co-highlights{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin:0 0 18px}.co-highlights-label{font-size:13px;font-weight:700;color:var(--text);padding:12px 14px 10px;border-bottom:1px solid var(--line-soft);line-height:1.45}.co-highlights-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0}.why-card{border:0;border-radius:0;min-height:104px;padding:12px 14px;box-shadow:none}.why-card:nth-child(2n){border-left:1px solid var(--line-soft)}.why-card:nth-child(n+3){border-top:1px solid var(--line-soft)}.why-card-head{display:flex;align-items:baseline;gap:7px;margin-bottom:5px}.why-card-kicker{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.02em;color:var(--muted);white-space:nowrap}.why-card-title{font-size:12.5px;font-weight:700;color:var(--text);line-height:1.45}.why-card-body{font-size:12.5px;font-weight:400;line-height:1.75;color:var(--sub)}.timeline-rich{display:grid;gap:9px}.tl-item{display:grid;grid-template-columns:78px 116px 1fr 200px;gap:12px;align-items:start;padding:13px}.tl-date{font-family:var(--mono);font-size:10px;color:var(--muted);font-weight:800}.tl-cat{display:inline-flex;align-items:center;justify-content:center;border:1px solid #D6DEE8;background:var(--navy-soft);color:var(--navy);border-radius:999px;padding:4px 8px;text-align:center;font-family:var(--mono);font-size:10px;font-weight:800}.tl-item h3{font-size:13px;margin:0 0 4px}.tl-item p{font-size:11.5px;color:var(--sub);line-height:1.6;margin:0}.tl-why{font-size:11px;color:var(--navy);line-height:1.55;background:#F7F8FA;border-radius:8px;padding:8px}.news-rich-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.news-rich-item{padding:13px 14px}.news-rich-item .meta{display:flex;justify-content:space-between;gap:8px;font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:7px}.news-rich-item h3{font-size:13.5px;line-height:1.5;margin:0 0 6px}.news-rich-item p{font-size:11.5px;color:var(--sub);line-height:1.65;margin:0}.source-ledger{display:grid;gap:8px}.source-ledger-row{display:grid;grid-template-columns:136px 1fr 120px;gap:12px;align-items:center;padding:11px 12px}.source-ledger-row .kind{font-family:var(--mono);font-size:10px;font-weight:800;color:var(--navy);letter-spacing:.04em}.source-ledger-row b{font-size:12px}.source-ledger-row p{font-size:11px;color:var(--sub);margin:2px 0 0;line-height:1.45}.source-ledger-row .trust{font-family:var(--mono);font-size:10px;color:var(--navy);font-weight:800;text-align:right}.link-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.link-card{display:block;padding:12px 13px}.link-card b{display:block;font-size:12.5px;margin-bottom:3px}.link-card span{font-size:11px;color:var(--sub)}.loading{max-width:900px;margin:60px auto;background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;color:var(--sub)}.error{max-width:900px;margin:60px auto;background:#fff;border:1px solid #F0C9C1;border-radius:14px;padding:24px;color:#8A1F11}.footer{text-align:center;font-family:var(--mono);font-size:11px;color:var(--muted);padding:28px}
+@media(max-width:1100px){.detail-workspace{grid-template-columns:1fr}.company-sidebar{position:static}.rich-kpi-grid{grid-template-columns:repeat(2,1fr)}.tl-item{grid-template-columns:72px 110px 1fr}.tl-why{grid-column:3}.sf-happiness-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:960px){.news-rich-grid{grid-template-columns:1fr}.link-grid{grid-template-columns:repeat(2,1fr)}.sector-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.detail-materials-grid,.rich-kpi-grid,.link-grid{grid-template-columns:1fr}.co-highlights-grid{grid-template-columns:1fr}.why-card:nth-child(2n){border-left:0}.why-card:nth-child(n+2){border-top:1px solid var(--line-soft)}}
+@media(max-width:640px){.topbar{padding:0 16px}.topbar .tagline{display:none}.view-tab{padding:4px 8px;font-size:10.5px}.hero,.detail-hero-current{padding:30px 16px 24px}.hero h1{font-size:25px}.co-hook-current{font-size:22px;line-height:1.45}.soft-search{min-width:0;width:100%}.hero-actions .btn{width:100%}.sf-top-main,.detail-workspace{padding:22px 16px 64px}.sf-top-section .section-title{font-size:17px}.sf-card-row>.sf-activity-card{width:252px;min-width:252px}.sf-happiness-grid{grid-template-columns:1fr}.sf-happiness-head{display:block}.sf-happiness-mark{display:inline-flex;margin-top:10px}.tl-item,.source-ledger-row{grid-template-columns:1fr}.source-ledger-row .trust{text-align:left}.tl-why{grid-column:auto}}
 </style>
 </head>
 <body>
 <header class="topbar">
-  <strong>StartupFile</strong>
-  <span class="tagline">日本のスタートアップの変化を発見する</span>
+  <a data-nav-top href="./"><strong>StartupFile</strong></a>
+  <span class="tagline" id="topbar-sub">日本のスタートアップの変化を、数字・出来事・資料から見る</span>
   <nav>
-    <button class="view-tab active" data-action="goTop">Top</button>
-    <button class="view-tab" data-action="focusSearch">Companies</button>
+    <a class="view-tab" id="tab-top" data-nav-top href="./">トップ</a>
+    <a class="view-tab" id="tab-detail" href="?view=detail&id=c0001">詳細</a>
   </nav>
 </header>
 <div id="app"><div class="loading">読み込み中...</div></div>
-<footer class="footer">StartupFile / Dynamic DB Prototype</footer>
+<footer class="footer">StartupFile / DB prototype</footer>
 <script>
 (function(){
 'use strict';
-
-var API_URL = window.STARTUPFILE_API_URL || document.documentElement.dataset.apiUrl || '';
-var STATE = { top:null, companies:[], companyMap:{}, companyCache:{}, currentId:null, search:'' };
-var $app = document.getElementById('app');
-
-function $(sel, root){ return (root || document).querySelector(sel); }
-function $all(sel, root){ return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
-function esc(v){ return String(v == null ? '' : v).replace(/[&<>'"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]; }); }
+const API_URL = document.documentElement.dataset.apiUrl || '';
+const STATE = { top:null, companies:[], companyCache:Object.create(null), currentId:null, currentTab:'focus', loading:false };
+const $ = (sel, root=document) => root.querySelector(sel);
+const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+const app = $('#app');
+function esc(v){ return String(v == null ? '' : v).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch])); }
 function clean(v){ return String(v == null ? '' : v).trim(); }
-function num(v){ var n = Number(v); return isFinite(n) ? n : null; }
-function color(v){ return /^#[0-9a-fA-F]{3,8}$/.test(clean(v)) ? v : '#12345A'; }
-function idOf(x){ return clean(x && (x.cid || x.company_id || x.id)); }
-function truncate(v,n){ v=clean(v); return v.length>n ? v.slice(0,n-1)+'…' : v; }
-function fmt(v, fallback){ v=clean(v); return v || (fallback || '—'); }
-function typeLabel(type){
-  var t = clean(type).split(',')[0];
-  var map = {business:'事業',product:'サービス',org:'組織',workstyle:'働き方',founder:'創業',turning:'転換点',award:'実績',case:'導入事例',customer:'顧客',management:'経営',partnership:'提携',alliance:'提携',culture:'カルチャー',value:'価値観',vision:'ビジョン'};
-  return map[t] || t || 'トピックス';
-}
-function apiUrl(params){
-  if(!API_URL) throw new Error('HTML の data-api-url に GAS の /exec URL を設定してください。');
-  var u = new URL(API_URL);
-  Object.keys(params || {}).forEach(function(k){ if(params[k] !== undefined && params[k] !== null && params[k] !== '') u.searchParams.set(k, params[k]); });
-  return u.toString();
-}
+function num(v){ const n = Number(String(v||'').replace(/,/g,'')); return Number.isFinite(n) ? n : null; }
+function color(v){ return /^#[0-9a-f]{3,8}$/i.test(clean(v)) ? clean(v) : '#12345A'; }
+function idOf(x){ return clean(x && (x.company_id || x.cid || x.id || x.biz_id)); }
+function first(){ for(let i=0;i<arguments.length;i++){ const v=arguments[i]; if(clean(v)) return v; } return ''; }
+function trim(s,n){ s=clean(s); return s.length>n ? s.slice(0,n)+'…' : s; }
+function dateLabel(v){ const s=clean(v); if(!s) return ''; const d=new Date(s); if(!isNaN(d)) return d.toISOString().slice(0,10).replace(/-/g,'.'); return s; }
+function shortDate(v){ const s=dateLabel(v); return s ? s.slice(0,10) : '—'; }
+function latestByYear(arr){ return (arr||[]).filter(Boolean).slice().sort((a,b)=>(num(a.year)||0)-(num(b.year)||0)).pop() || null; }
+function makeUrl(params){ const u = new URL(location.pathname, location.origin); Object.keys(params||{}).forEach(k=>{ if(params[k]!==undefined && params[k]!==null && params[k]!=='') u.searchParams.set(k, params[k]); }); return u.pathname + u.search; }
+function detailHref(id, tab){ return makeUrl({ view:'detail', id:id || 'c0001', tab:tab || 'focus' }); }
+function topHref(){ return location.pathname; }
 async function fetchJson(params){
-  var res = await fetch(apiUrl(params), {cache:'no-store'});
-  if(!res.ok) throw new Error('API error: '+res.status);
-  var json = await res.json();
+  if(!API_URL) throw new Error('data-api-url が未設定です');
+  const u = new URL(API_URL);
+  Object.keys(params||{}).forEach(k=>{ if(params[k]!==undefined && params[k]!==null) u.searchParams.set(k, params[k]); });
+  const res = await fetch(u.toString(), { cache:'no-store' });
+  if(!res.ok) throw new Error('API HTTP '+res.status);
+  const json = await res.json();
   if(json && json.error) throw new Error(json.error);
   return json;
 }
-function showError(err){
-  console.warn(err);
-  $app.innerHTML = '<div class="error"><b>読み込みに失敗しました。</b><br>'+esc(err && err.message || err)+'<br><br><span style="color:#4C5B6E">GASの公開設定、data-api-url、スプレッドシートのシート名を確認してください。</span></div>';
+async function loadTop(){
+  if(STATE.top) return STATE.top;
+  try{
+    STATE.top = await fetchJson({ toppage:1 });
+  }catch(e){
+    console.warn('[StartupFile] GAS toppage failed, trying local fallback', e);
+    const res = await fetch('data/top.json', {cache:'no-store'});
+    STATE.top = await res.json();
+  }
+  STATE.companies = Array.isArray(STATE.top.companies) ? STATE.top.companies : ((STATE.top.shelves && STATE.top.shelves.companies) || []);
+  return STATE.top;
 }
-function setTopActive(isTop){
-  $all('.view-tab').forEach(function(b){ b.classList.toggle('active', b.dataset.action === (isTop ? 'goTop' : 'focusSearch')); });
+async function loadCompany(id){
+  id = id || 'c0001';
+  if(STATE.companyCache[id]) return STATE.companyCache[id];
+  let json;
+  try{
+    json = await fetchJson({ id:id, news:1 });
+  }catch(e){
+    console.warn('[StartupFile] GAS company failed, trying local fallback', e);
+    const res = await fetch('data/'+encodeURIComponent(id)+'.json', {cache:'no-store'});
+    json = await res.json();
+  }
+  const c = json.company || json;
+  if(!c || (!c.company && !c.name)) throw new Error('company not found: '+id);
+  STATE.companyCache[id] = c;
+  return c;
 }
-
-async function init(){
+function setActive(isDetail){ $('#tab-top').classList.toggle('active', !isDetail); $('#tab-detail').classList.toggle('active', isDetail); }
+function push(url){ history.pushState(null, '', url); route(); }
+function replace(url){ history.replaceState(null, '', url); }
+function appLoading(text){ app.innerHTML = '<div class="loading">'+esc(text||'読み込み中...')+'</div>'; }
+function appError(err){ app.innerHTML = '<div class="error"><b>表示できませんでした。</b><br>'+esc(err && err.message ? err.message : err)+'</div>'; }
+async function route(){
   try{
     await loadTop();
-    route();
-    window.addEventListener('hashchange', route);
-  }catch(err){ showError(err); }
+    const q = new URLSearchParams(location.search);
+    const view = q.get('view');
+    const id = q.get('id');
+    const tab = q.get('tab') || 'focus';
+    if(view === 'detail' && id){ await showDetail(id, tab); }
+    else { showTop(); }
+  }catch(e){ console.error(e); appError(e); }
 }
-async function loadTop(){
-  var data;
-  try{ data = await fetchJson({toppage:1}); }
-  catch(e){
-    console.warn('toppage failed; fallback to index', e);
-    var idx = await fetchJson({});
-    data = {meta:idx.meta||{}, companies:idx.companies||[], shelves:{}, top_sections:{}};
-  }
-  STATE.top = data || {};
-  STATE.companies = (STATE.top.companies || []).filter(function(c){ return idOf(c); });
-  STATE.companyMap = {};
-  STATE.companies.forEach(function(c){ STATE.companyMap[idOf(c)] = c; });
+function topSections(){ const t=STATE.top||{}; const s=t.top_sections||{}; const old=t.shelves||{}; return { s, old }; }
+function normalizeFeatured(items){ return (items||[]).map(x=>({ company:x.company||x.name, company_id:idOf(x), color:x.color, label:'注目企業', date_label:'', title:first(x.reason,x.mission,x.summary,'注目企業'), desc:first(x.mission,x.summary,x.reason), url:x.url, type:'activity' })); }
+function normalizeTopic(items,label){ return (items||[]).map(x=>({ company:x.company||x.name, company_id:idOf(x), color:x.color, label:label||x.type||'TOPIC', date_label:x.date||x.year, title:first(x.title,x.reason,x.company), desc:first(x.desc,x.summary,x.sector1), url:x.url, type:'activity' })); }
+function normalizeGrowth(items){ return (items||[]).map(x=>Object.assign({label:'組織拡大',type:'growth'},x,{date_label:x.latest_year?x.latest_year+'年時点':''})); }
+function normalizeFunding(items){ return (items||[]).map(x=>Object.assign({label:'資金調達',type:'funding'},x,{title:first(x.title, x.amount_text ? x.amount_text+'の資金調達' : ''), desc:first(x.desc,x.note)})); }
+function normalizeDeck(items){ return (items||[]).map(x=>({ company:x.company||x.name, company_id:idOf(x), color:x.color, label:'資料', title:'会社紹介・カルチャーデックを見る', desc:first(x.sector1,'会社の考え方や組織づくりを資料から確認します。'), url:x.deck_url||x.url, type:'activity' })); }
+function sectionGroups(name){
+  const {s, old} = topSections();
+  if(name==='weekly') return s.weekly ? [['Series C以降・上場後',s.weekly.later_stage],['Series A/B・これから伸びる企業',s.weekly.early_stage]] : [['注目企業', normalizeFeatured(old.featured||[])]];
+  if(name==='growth') return s.growth ? [['社員数の伸びから見る注目企業',s.growth.headcount],['資金調達の動きから見る',s.growth.funding],['次の発表が気になる企業',s.growth.next_signal]] : [['社員数の伸びから見る注目企業',normalizeGrowth(old.growing||[])],['資金調達の動きから見る',normalizeFunding(old.funding||[])]];
+  if(name==='learning') return s.learning ? [['事業・届き方から見る',[...(s.learning.business||[]),...(s.learning.delivery||[])]],['組織・働き方から見る',[...(s.learning.org||[]),...(s.learning.workstyle||[])]],['創業の思い・転換点から見る',[...(s.learning.founder||[]),...(s.learning.turning||[])]]] : [['事業・届き方から見る',normalizeTopic(old.product||[],'事業')],['組織・働き方から見る',normalizeTopic(old.org||[],'組織')],['転換点から見る',normalizeTopic(old.turning||[],'転換点')]];
+  if(name==='thoughts') return s.thoughts ? [['創業の背景から見る',s.thoughts.founder],['事業思想から見る',s.thoughts.philosophy],['目指す世界から見る',s.thoughts.future]] : [];
+  if(name==='recent') return s.recent ? [['経営体制の変化から見る',s.recent.management],['新サービス・新機能から見る',s.recent.product],['事業提携から見る',s.recent.partnership]] : [];
+  return [];
 }
-function route(){
-  var h = location.hash || '';
-  var m = h.match(/^#\/?company\/?([^?]+)/);
-  if(m){ loadAndRenderCompany(decodeURIComponent(m[1])); return; }
-  renderTop();
-}
-function goCompany(id){ if(!id) return; location.hash = '#/company/' + encodeURIComponent(id); }
-function goTop(){ history.replaceState(null,'', location.pathname + location.search); renderTop(); }
-
-function renderTop(){
-  setTopActive(true);
-  var meta = STATE.top.meta || {};
-  var sections = STATE.top.top_sections || {};
-  var shelves = STATE.top.shelves || {};
-  var featured = (sections.weekly && (sections.weekly.later_stage || sections.weekly.early_stage)) ? [] : (shelves.featured || []);
-
-  $app.innerHTML = ''+
-    '<section class="hero"><div class="hero-inner">'+
-      '<div class="eyebrow">STARTUPFILE / DB PROTOTYPE</div>'+
-      '<h1>企業の変化を、<em>数字・出来事・資料</em>から見つける。</h1>'+
-      '<p>資金調達、社員数推移、トピックス、ニュース、公式資料をもとに、日本のスタートアップを確認しながら育てていくための個人用データベースです。</p>'+
-      '<div class="hero-actions"><button class="btn primary" data-action="focusSearch">企業を探す</button><button class="btn secondary" data-action="refreshTop">再読み込み</button></div>'+
-      '<div class="hero-tags" id="heroTags"></div>'+
-      '<div class="hero-stats">'+
-        '<div><div class="hero-stat-label">COMPANIES</div><div class="hero-stat-val">'+esc(meta.company_count || meta.companyCount || STATE.companies.length)+'</div></div>'+
-        '<div><div class="hero-stat-label">TOPICS</div><div class="hero-stat-val">'+esc(meta.topic_count || '—')+'</div></div>'+
-        '<div><div class="hero-stat-label">GENERATED</div><div class="hero-stat-val">'+esc(shortDate(meta.generated_at || meta.generatedAt))+'</div></div>'+
-      '</div></div></section>'+
-    '<main class="main" id="topMain"></main>';
-
+function showTop(){
+  setActive(false);
+  $('#topbar-sub').textContent = '知らない会社を、少し好きになる入口。';
+  const meta = STATE.top.meta || {};
+  app.innerHTML = ''+
+    '<div class="view active" id="view-top"><section class="hero"><div class="hero-inner"><div>'+
+      '<div class="eyebrow">STARTUPFILE / PERSONAL COMPANY DATABASE</div>'+ 
+      '<h1>知らない会社を、<br><em>少し好きになる入口。</em></h1>'+ 
+      '<p>日本のスタートアップを、成長フェーズ・変化のサイン・企業の思いから見つけるサイトです。数字やニュースだけでなく、会社が向き合う課題や考え方を見ながら確認していきます。</p>'+ 
+      '<div class="hero-search-soft"><span>企業名・領域で探す</span><div class="soft-search"><input id="topSearch" placeholder="SmartHR / LayerX / HR / SaaS ..."><button id="topSearchBtn">検索</button></div></div>'+ 
+      '<div class="hero-tags" id="heroTags"></div>'+ 
+      '<div class="hero-stats"><div><div class="hero-stat-label">Companies</div><div class="hero-stat-val">'+esc(meta.company_count||meta.companyCount||STATE.companies.length||'—')+'</div></div><div><div class="hero-stat-label">Topics</div><div class="hero-stat-val">'+esc(meta.topic_count||'—')+'</div></div><div><div class="hero-stat-label">Generated</div><div class="hero-stat-val">'+esc(shortDate(meta.generated_at||meta.generatedAt))+'</div></div></div>'+ 
+    '</div></div></section><main class="sf-top-main" id="topMain"></main></div>';
   renderHeroTags();
-  var $main = $('#topMain');
-  if(sections.weekly){
-    renderSection($main, '今週の注目企業', 'DBの成長サインや編集フラグから、まず見ておきたい企業を表示します。', [
-      ['Series C以降・上場後', sections.weekly.later_stage],
-      ['Series A/B・これから伸びる企業', sections.weekly.early_stage]
-    ]);
-  } else {
-    renderSection($main, '今週の注目企業', '既存の featured shelf から表示しています。', [['注目企業', normalizeFeatured(featured)]]);
-  }
-  if(sections.growth){
-    renderSection($main, '変化のサインから探す', '社員数・資金調達・トピックス量など、変化が見えやすい企業を確認します。', [
-      ['社員数の伸び', sections.growth.headcount],
-      ['資金調達の動き', sections.growth.funding],
-      ['次の発表が気になる企業', sections.growth.next_signal]
-    ]);
-  } else {
-    renderSection($main, '変化のサインから探す', '既存の growing / funding shelf から表示しています。', [
-      ['社員数の伸び', normalizeGrowth(shelves.growing || [])],
-      ['資金調達の動き', normalizeFunding(shelves.funding || [])]
-    ]);
-  }
-  if(sections.learning){
-    renderSection($main, '会社の見方から探す', '事業・届け方・組織・働き方・創業背景・転換点など、会社理解の入口別に見ます。', [
-      ['事業を見る', sections.learning.business], ['届け方を見る', sections.learning.delivery], ['組織を見る', sections.learning.org], ['働き方を見る', sections.learning.workstyle], ['創業の思いを見る', sections.learning.founder], ['転換点を見る', sections.learning.turning]
-    ]);
-  } else {
-    renderSection($main, '会社の見方から探す', '既存トピックスから表示しています。', [
-      ['事業を見る', normalizeTopic(shelves.product || [], '事業')], ['組織・働き方を見る', normalizeTopic(shelves.org || [], '組織')], ['転換点を見る', normalizeTopic(shelves.turning || [], '転換点')]
-    ]);
-  }
-  if(sections.thoughts){
-    renderSection($main, '企業の思いから探す', '創業背景、事業思想、目指す世界など、会社の文脈が見える情報を集めます。', [
-      ['創業背景', sections.thoughts.founder], ['事業思想', sections.thoughts.philosophy], ['目指す世界', sections.thoughts.future]
-    ]);
-  }
-  if(sections.recent){
-    renderSection($main, '最近の動きから探す', '直近のトピックスから、経営・サービス・提携の動きを確認します。', [
-      ['経営・組織', sections.recent.management], ['サービス', sections.recent.product], ['提携・導入', sections.recent.partnership]
-    ]);
-  }
-  renderMaterialsAndSectors($main, sections.materials || normalizeDeck(shelves.deck || []), sections.sectors || shelves.sectors || []);
+  renderStageSection($('#topMain'));
+  renderTopSection($('#topMain'),'weekly','今週の注目企業','DBの成長サインや編集フラグから、まず見ておきたい企業を表示します。','注目企業を見る →');
+  renderTopSection($('#topMain'),'growth','変化のサインから探す','社員数、資金調達、前回発表からの時間など、会社の変化が見えやすいサインを集めました。','変化を見る →');
+  renderTopSection($('#topMain'),'learning','会社の見方から探す','事業、届き方、組織、働き方、創業の思い、転換点。会社の面白さを見つけるための入口です。','視点をもっと見る →');
+  renderTopSection($('#topMain'),'thoughts','企業の思いから探す','創業者が見ていた課題や、事業に込めた考え方から、会社の奥にあるストーリーを見ていきます。','もっと見る →');
+  renderTopSection($('#topMain'),'recent','最近の動きから探す','経営体制、新サービス、事業提携など、会社の変化につながるニュースを切り口別にまとめました。','もっと見る →');
+  renderMaterials($('#topMain'));
 }
-function renderHeroTags(){
-  var sectors = ((STATE.top.top_sections||{}).sectors || (STATE.top.shelves||{}).sectors || []).slice(0,12);
-  var html = sectors.map(function(s){ return '<button data-sector="'+esc(s.name)+'"># '+esc(s.name)+' <span class="mono">'+esc(s.count)+'</span></button>'; }).join('');
-  $('#heroTags').innerHTML = html;
+
+function stageDefinitions(){
+  return [
+    {key:'seed', badge:'Seed / Pre-A', tab:'Seed / Pre-A', tab_desc:'これから形になる会社', heading:'これから形になる会社', desc:'課題設定や初期プロダクト、創業チームの背景から、これからの伸びしろを見ていくフェーズです。', color:'#12345A', cta:'Seed / Pre-Aの企業を見る'},
+    {key:'a', badge:'Series A', tab:'Series A', tab_desc:'伸び始めた会社', heading:'伸び始めた会社', desc:'プロダクトが市場に届き始め、採用・営業・導入事例が増えていくフェーズです。', color:'#0F7A64', cta:'Series Aの企業を見る'},
+    {key:'b', badge:'Series B', tab:'Series B', tab_desc:'広がり始めた会社', heading:'広がり始めた会社', desc:'事業モデルが見え始め、複数プロダクト・組織拡大・大型導入が進むフェーズです。', color:'#1A5EC2', cta:'Series Bの企業を見る'},
+    {key:'c', badge:'Series C+', tab:'Series C+', tab_desc:'大きく変わり始めた会社', heading:'大きく変わり始めた会社', desc:'大型調達、海外展開、複数事業化など、次の成長テーマが見えやすいフェーズです。', color:'#B58A4A', cta:'Series C+の企業を見る'},
+    {key:'ipo', badge:'上場後', tab:'上場後', tab_desc:'さらに進化する会社', heading:'さらに進化する会社', desc:'上場後の決算・IR・事業ポートフォリオから、変化の継続性を見ていくフェーズです。', color:'#5A3FBF', cta:'上場後の企業を見る'}
+  ];
 }
-function renderSection(root, title, note, groups){
-  var html = '<section class="section"><div class="section-head"><div><h2 class="section-title">'+esc(title)+'</h2><p class="section-note">'+esc(note)+'</p></div></div>';
-  groups.forEach(function(g){
-    var label = g[0], items = (g[1] || []).filter(Boolean);
-    html += '<div class="subgroup"><h3 class="subhead">'+esc(label)+' <small>'+items.length+'件</small></h3>';
-    if(items.length) html += '<div class="shelf">'+items.map(renderAnyCard).join('')+'</div>';
-    else html += '<div class="empty">表示できるデータがまだありません。DB補強後に自動で表示されます。</div>';
-    html += '</div>';
-  });
-  html += '</section>';
+function stageDefinition(key){ return stageDefinitions().find(x=>x.key===key) || stageDefinitions()[0]; }
+function stageKeyFromValue(v){
+  const s=clean(v).toLowerCase();
+  if(/ipo|上場|東証|グロース/.test(s)) return 'ipo';
+  if(/series\s*c|series\s*d|series\s*e|シリーズc|シリーズd|シリーズe|late|later|c\+/.test(s)) return 'c';
+  if(/series\s*b|シリーズb|\bb\b/.test(s)) return 'b';
+  if(/series\s*a|シリーズa|\ba\b/.test(s)) return 'a';
+  if(/seed|シード|pre/.test(s)) return 'seed';
+  return '';
+}
+function stageItems(key){
+  const st=((STATE.top.top_sections||{}).stages)||{};
+  const keyMap={seed:['seed'],a:['a','series_a'],b:['b','series_b'],c:['c','later','series_c'],ipo:['ipo']};
+  const seen={}; let arr=[];
+  (keyMap[key]||[key]).forEach(k=>{ (st[k]||[]).forEach(x=>{ const id=idOf(x)||x.company||x.name; if(id&&!seen[id]){ seen[id]=true; arr.push(x); } }); });
+  if(!arr.length){
+    arr=(STATE.companies||[]).filter(c=>stageKeyFromValue(first(c.stage,c.rounds,c.latest_round,c.label))===key).slice(0,12).map(c=>({
+      company:c.company||c.name, name:c.company||c.name, company_id:idOf(c), id:idOf(c), cid:idOf(c), color:c.color,
+      label:first(c.stage,c.rounds,stageDefinition(key).badge), date_label:first(c.sector1,c.domain1,''),
+      title:first(c.one_liner,c.mission,c.summary,'成長フェーズから見る企業'), desc:first(c.summary,c.mission,'')
+    }));
+  }
+  return arr.slice(0,12);
+}
+function renderStageSection(root){
+  const defs=stageDefinitions();
+  const html='<section class="sf-stage-section" id="stage-focus">'+
+    '<div class="sf-stage-head"><div><div class="sf-stage-kicker">GROWTH STAGE</div><h2 class="sf-stage-title">成長フェーズから探す</h2><p class="sf-stage-lead">シードから上場後まで。いま気になるスタートアップを、成長段階ごとに見てみる。</p></div><div class="sf-stage-actions"><a class="sf-stage-link" href="#weekly">すべての企業を見る <span>›</span></a></div></div>'+
+    '<div aria-label="成長フェーズ" class="sf-stage-tabs" role="tablist">'+defs.map((d,i)=>'<button aria-selected="'+(i===0?'true':'false')+'" class="sf-stage-tab '+(i===0?'active':'')+'" data-stage-tab="'+esc(d.key)+'" role="tab" type="button"><b>'+esc(d.tab)+'</b><span>'+esc(d.tab_desc)+'</span></button>').join('')+'</div>'+
+    '<div class="sf-stage-panel" id="sf-stage-panel" style="--stage-color:#12345A"><div class="sf-stage-panel-inner"><aside class="sf-stage-intro"><div class="sf-stage-badge" id="sf-stage-badge"></div><h3 id="sf-stage-heading"></h3><p id="sf-stage-description"></p><div class="sf-stage-mini"><strong id="sf-stage-count">0</strong><span>社をピックアップ</span></div></aside><div aria-live="polite" class="sf-stage-card-row" id="sf-stage-cards"></div></div></div></section>';
   root.insertAdjacentHTML('beforeend', html);
+  renderStagePanel('seed');
 }
-function renderAnyCard(item){
-  var type = clean(item.type);
-  if(type === 'growth' || item.base_count || item.latest_count) return renderGrowthCard(item);
-  if(type === 'funding' || item.amount_text || item.round) return renderFundingCard(item);
-  return renderActivityCard(item);
+function renderStagePanel(key){
+  const def=stageDefinition(key), items=stageItems(key);
+  const panel=$('#sf-stage-panel'), badge=$('#sf-stage-badge'), heading=$('#sf-stage-heading'), desc=$('#sf-stage-description'), count=$('#sf-stage-count'), cards=$('#sf-stage-cards');
+  if(panel) panel.style.setProperty('--stage-color', def.color);
+  if(badge) badge.textContent=def.badge;
+  if(heading) heading.textContent=def.heading;
+  if(desc) desc.textContent=def.desc;
+  if(count) count.textContent=String(items.length);
+  $$('.sf-stage-tab').forEach(tab=>{ const active=tab.dataset.stageTab===key; tab.classList.toggle('active',active); tab.setAttribute('aria-selected',active?'true':'false'); });
+  if(cards){
+    cards.innerHTML = (items.length ? items.map(x=>renderStageCompanyCard(x,def)).join('') : '<div class="empty">このフェーズの表示対象はDB補強後に表示されます。</div>')+
+      '<a class="sf-stage-cta-card" href="#weekly"><b>'+esc(def.cta)+'</b><span>注目企業・変化のサインも合わせて見る</span></a>';
+  }
+}
+function renderStageCompanyCard(item,def){
+  const cid=idOf(item), tags=[first(item.date_label,item.sector1,item.domain1,''), first(item.sector2,item.domain2,'')].filter(Boolean).slice(0,2);
+  return '<article class="sf-stage-company-card" data-company-id="'+esc(cid)+'">'+
+    '<div class="sf-stage-logo-row"><div class="sf-stage-logo"></div><div class="sf-stage-round">'+esc(first(item.label,item.stage,def.badge))+'</div></div>'+
+    '<h4>'+esc(first(item.company,item.name,'企業名未設定'))+'</h4>'+
+    '<p>'+esc(trim(first(item.title,item.desc,item.summary,item.mission,'成長フェーズから見ておきたい企業です。'),110))+'</p>'+
+    '<div class="sf-stage-tags">'+(tags.length?tags.map(t=>'<span>'+esc(t)+'</span>').join(''):'<span>企業詳細へ</span>')+'</div></article>';
+}
+
+function renderHeroTags(){
+  const root = $('#heroTags'); if(!root) return;
+  const sectors = ((STATE.top.top_sections||{}).sectors || (STATE.top.shelves||{}).sectors || []).slice(0,12);
+  root.innerHTML = sectors.map(s=>'<button data-sector="'+esc(s.name)+'"># '+esc(s.name)+' <span class="mono">'+esc(s.count)+'</span></button>').join('');
+}
+function renderHappiness(root){
+  const groups = sectionGroups('weekly');
+  const picks = groups.flatMap(g=>g[1]||[]).slice(0,4);
+  if(!picks.length) return;
+  const cards = picks.map(it=>'<article class="sf-happiness-card" data-company-id="'+esc(idOf(it))+'"><b>'+esc(first(it.title,it.reason,it.company))+'</b><p>'+esc(trim(first(it.desc,it.mission,it.summary,'会社を少し好きになる入口として見ておきたい企業です。'),80))+'</p></article>').join('');
+  root.insertAdjacentHTML('beforeend','<section class="sf-happiness-section"><div class="sf-happiness-head"><div><h2 class="sf-happiness-title">知らない会社を、少し好きになる入口。</h2><p class="sf-happiness-lead">数字やニュースだけでなく、会社が向き合う課題や考え方を見ながら確認していきます。</p></div><div class="sf-happiness-mark">TODAY\'S FILE</div></div><div class="sf-happiness-grid">'+cards+'</div></section>');
+}
+function renderTopSection(root, key, title, desc, more){
+  const groups = sectionGroups(key); if(!groups.length) return;
+  let html = '<section class="sf-top-section" id="'+esc(key)+'"><div class="section-head"><div><h2 class="section-title">'+esc(title)+'</h2><p class="sf-section-desc">'+esc(desc)+'</p></div><a class="more">'+esc(more)+'</a></div>';
+  groups.forEach(g=>{ const label=g[0]; const items=(g[1]||[]).filter(Boolean); html += '<div class="sf-card-group"><h3 class="sf-subhead">'+esc(label)+' <small>'+items.length+'件</small></h3>'; html += items.length ? '<div class="sf-card-row">'+items.map(renderTopCard).join('')+'</div>' : '<div class="empty">表示できるデータがまだありません。DB補強後に自動で表示されます。</div>'; html += '</div>'; });
+  html += '</section>'; root.insertAdjacentHTML('beforeend', html);
+}
+function renderTopCard(item){
+  if(!item) return '';
+  const t = clean(item.type); if(t==='growth' || item.base_count || item.latest_count) return renderGrowthCard(item); if(t==='funding' || item.amount_text || item.round) return renderFundingCard(item); return renderActivityCard(item);
 }
 function renderActivityCard(item){
-  var id = idOf(item), url = clean(item.url);
-  return '<article class="card" data-company="'+esc(id)+'" style="--card-line:'+esc(color(item.color))+'">'+
-    '<div class="card-meta"><span class="label">'+esc(fmt(item.label,'TOPIC'))+'</span><span class="date">'+esc(item.date_label||item.year||'')+'</span></div>'+
-    '<div class="company"><i class="dot"></i><span>'+esc(fmt(item.company||item.name,'企業名未設定'))+'</span></div>'+
-    '<h3 class="card-title">'+esc(fmt(item.title || item.mission || item.reason, 'トピックス'))+'</h3>'+
-    '<p class="card-desc">'+esc(fmt(item.desc || item.summary || item.mission, '説明文はDB補強後に表示されます。'))+'</p>'+
-    '<div class="card-foot"><span>企業詳細</span>'+(url ? '<a href="'+esc(url)+'" target="_blank" rel="noopener" data-no-nav="1">情報ソース ↗</a>' : '')+'</div>'+
-  '</article>';
+  const cid=idOf(item), url=clean(item.url), story=/創業|思想|世界|思い/.test(clean(item.label||item.type||''));
+  return '<article class="sf-activity-card '+(story?'sf-story-card':'')+'" data-company-id="'+esc(cid)+'" style="--card-line:'+esc(color(item.color))+'">'+
+    '<div class="sf-card-meta"><span class="sf-card-label">'+esc(first(item.label,item.type,'TOPIC'))+'</span><span class="sf-card-date">'+esc(dateLabel(first(item.date_label,item.date,item.year)))+'</span></div>'+ 
+    '<div class="sf-company"><i class="sf-dot"></i><span>'+esc(first(item.company,item.name,'企業名未設定'))+'</span></div>'+ 
+    '<h3 class="sf-card-title">'+esc(first(item.title,item.reason,item.mission,'会社の変化を見る'))+'</h3>'+ 
+    '<p class="sf-card-desc">'+esc(first(item.desc,item.summary,item.mission,'説明文はDB補強後に表示されます。'))+'</p>'+ 
+    '<div class="sf-card-foot"><span class="muted">企業詳細へ</span>'+(url?'<a data-source-link href="'+esc(url)+'" target="_blank" rel="noopener">情報ソース ↗</a>':'')+'</div></article>';
 }
 function renderGrowthCard(item){
-  var id = idOf(item);
-  var base = Math.max(1, num(item.base_count) || 1), latest = Math.max(1, num(item.latest_count) || base);
-  var max = Math.max(base, latest);
-  var h1 = Math.max(8, Math.round(base / max * 50));
-  var h2 = Math.max(8, Math.round(latest / max * 50));
-  return '<article class="card metric-card" data-company="'+esc(id)+'" style="--card-line:'+esc(color(item.color))+'">'+
-    '<div class="card-meta"><span class="label">'+esc(fmt(item.label,'社員数成長'))+'</span><span class="date">'+esc(item.date_label||'')+'</span></div>'+
-    '<div class="metric-main"><strong>'+esc(fmt(item.rate,'-'))+'</strong><span>倍</span></div>'+
-    '<div class="period">'+esc(fmt(item.base_year,''))+' → '+esc(fmt(item.latest_year,''))+'</div>'+
-    '<div class="bars"><div class="bar-wrap"><i class="bar" style="height:'+h1+'px"></i><span class="bar-label">'+esc(item.base_count||'-')+'</span></div><div class="bar-wrap"><i class="bar after" style="height:'+h2+'px"></i><span class="bar-label">'+esc(item.latest_count||'-')+'</span></div></div>'+
-    '<div class="company"><i class="dot"></i><span>'+esc(fmt(item.company||item.name,'企業名未設定'))+'</span></div>'+
-  '</article>';
+  const cid=idOf(item), base=Math.max(1,num(item.base_count)||1), latest=Math.max(1,num(item.latest_count)||base), max=Math.max(base,latest), h1=Math.max(8,Math.round(base/max*48)), h2=Math.max(8,Math.round(latest/max*48));
+  const rate = clean(item.rate) || (base? (latest/base).toFixed(1) : '—');
+  return '<article class="sf-activity-card sf-growth-card" data-company-id="'+esc(cid)+'" style="--card-line:'+esc(color(item.color))+'">'+
+    '<div class="sf-growth-top"><span class="sf-growth-label">'+esc(first(item.label,'組織拡大'))+'</span><span class="sf-growth-date">'+esc(item.latest_year?item.latest_year+'年時点':dateLabel(item.date_label))+'</span></div>'+ 
+    '<div class="sf-growth-metric"><strong>×'+esc(rate)+'</strong><span>倍</span></div>'+ 
+    '<div class="sf-growth-period">'+esc(item.base_year||'—')+'年 '+esc(item.base_count||'—')+'名 → '+esc(item.latest_year||'—')+'年 '+esc(item.latest_count||'—')+'名</div>'+ 
+    '<div class="sf-growth-visual"><div class="sf-growth-bars"><div class="sf-growth-bar-wrap"><div class="sf-growth-bar" style="height:'+h1+'px"></div><div class="sf-growth-bar-label">'+esc(item.base_count||'—')+'名</div></div><div class="sf-growth-bar-wrap"><div class="sf-growth-bar after" style="height:'+h2+'px"></div><div class="sf-growth-bar-label">'+esc(item.latest_count||'—')+'名</div></div></div></div>'+ 
+    '<div class="sf-growth-company"><i></i><span>'+esc(first(item.company,item.name,'企業名未設定'))+'</span></div></article>';
 }
 function renderFundingCard(item){
-  var id = idOf(item), url = clean(item.url);
-  return '<article class="card metric-card" data-company="'+esc(id)+'" style="--card-line:'+esc(color(item.color))+'">'+
-    '<div class="card-meta"><span class="label">'+esc(fmt(item.label||item.round,'資金調達'))+'</span><span class="date">'+esc(item.date_label||item.year||'')+'</span></div>'+
-    '<div class="roundline"><span>Seed</span><i></i><span>A</span><i></i><span>B</span><i></i><span>C+</span></div>'+
-    '<h3 class="card-title">'+esc(fmt(item.title || item.amount_text, '資金調達の動き'))+'</h3>'+
-    '<p class="card-desc">'+esc(fmt(item.desc || item.note, '調達後の成長フェーズを確認したい企業です。'))+'</p>'+
-    '<div class="company"><i class="dot"></i><span>'+esc(fmt(item.company||item.name,'企業名未設定'))+'</span></div>'+
-    '<div class="card-foot">'+(url ? '<a href="'+esc(url)+'" target="_blank" rel="noopener" data-no-nav="1">情報ソース ↗</a>' : '<span>企業詳細</span>')+'</div>'+
-  '</article>';
+  const cid=idOf(item), url=clean(item.url);
+  return '<article class="sf-activity-card sf-growth-card" data-company-id="'+esc(cid)+'" style="--card-line:'+esc(color(item.color))+'">'+
+    '<div class="sf-card-meta"><span class="sf-card-label">'+esc(first(item.label,item.round,'資金調達'))+'</span><span class="sf-card-date">'+esc(first(item.year,item.date_label,''))+'</span></div>'+ 
+    '<div class="sf-company"><i class="sf-dot"></i><span>'+esc(first(item.company,item.name,'企業名未設定'))+'</span></div>'+ 
+    '<div class="sf-funding-track"><span class="sf-funding-step">Seed</span><i class="sf-funding-line"></i><span class="sf-funding-step">A</span><i class="sf-funding-line"></i><span class="sf-funding-step">B</span><i class="sf-funding-line"></i><span class="sf-funding-step">C+</span></div>'+ 
+    '<h3 class="sf-card-title">'+esc(first(item.title,item.amount_text,item.round,'資金調達の動き'))+'</h3>'+ 
+    '<p class="sf-card-desc">'+esc(first(item.desc,item.note,'調達後の成長フェーズを確認したい企業です。'))+'</p>'+ 
+    '<div class="sf-card-foot">'+(url?'<a data-source-link href="'+esc(url)+'" target="_blank" rel="noopener">情報ソース ↗</a>':'<span class="muted">企業詳細へ</span>')+'</div></article>';
 }
-function renderMaterialsAndSectors(root, decks, sectors){
-  var html = '<section class="section"><div class="section-head"><div><h2 class="section-title">資料・業界から探す</h2><p class="section-note">会社紹介資料、カルチャーデック、業界分類から企業理解を進めます。</p></div></div>';
-  html += '<div class="subgroup"><h3 class="subhead">会社紹介・カルチャーデック <small>'+decks.length+'件</small></h3>' + (decks.length ? '<div class="shelf">'+decks.slice(0,24).map(renderActivityCard).join('')+'</div>' : '<div class="empty">資料URLがある企業はここに表示されます。</div>') + '</div>';
-  html += '<div class="subgroup"><h3 class="subhead">業界・課題 <small>'+sectors.length+'件</small></h3><div class="sector-grid">'+sectors.slice(0,24).map(function(s){ return '<div class="sector" data-sector="'+esc(s.name)+'"><b>'+esc(s.name)+'</b><span>'+esc(s.count)+' companies</span></div>'; }).join('')+'</div></div>';
-  html += '</section>';
-  root.insertAdjacentHTML('beforeend', html);
+function renderMaterials(root){
+  const {s,old}=topSections(); const decks = s.materials || normalizeDeck(old.deck||[]); const sectors = s.sectors || old.sectors || [];
+  let html='<section class="sf-top-section" id="materials"><div class="section-head"><div><h2 class="section-title">資料・業界から探す</h2><p class="sf-section-desc">会社紹介資料、カルチャーデック、業界分類から企業理解を進めます。</p></div><a class="more">資料を見る →</a></div>';
+  html += '<div class="sf-card-group"><h3 class="sf-subhead">会社紹介・カルチャーデック <small>'+decks.length+'件</small></h3>'+(decks.length?'<div class="sf-card-row">'+decks.slice(0,24).map(renderActivityCard).join('')+'</div>':'<div class="empty">資料URLがある企業はここに表示されます。</div>')+'</div>';
+  html += '<div class="sf-card-group"><h3 class="sf-subhead">業界・課題 <small>'+sectors.length+'件</small></h3><div class="sf-card-row">'+sectors.slice(0,24).map(x=>'<article class="sf-activity-card" data-sector="'+esc(x.name)+'"><div class="sf-card-meta"><span class="sf-card-label">SECTOR</span><span class="sf-card-date">'+esc(x.count)+'社</span></div><div class="sf-company"><i class="sf-dot"></i><span>'+esc(x.name)+'</span></div><h3 class="sf-card-title">'+esc(x.name)+'領域の企業を見る</h3><p class="sf-card-desc">同じ領域の会社を比較しながら確認します。</p><div class="sf-card-foot"><span class="muted">一覧で見る</span></div></article>').join('')+'</div></div></section>';
+  root.insertAdjacentHTML('beforeend',html);
 }
-
-async function loadAndRenderCompany(id){
-  setTopActive(false);
-  STATE.currentId = id;
-  if(!STATE.companyCache[id]){
-    $app.innerHTML = '<div class="loading">企業詳細を読み込み中...</div>';
-    var json = await fetchJson({id:id, news:1});
-    STATE.companyCache[id] = json.company;
-  }
-  renderCompany(STATE.companyCache[id]);
+async function showDetail(id, tab){
+  setActive(true); STATE.currentId=id; STATE.currentTab=tab||'focus'; appLoading('企業詳細を読み込み中...');
+  const c = await loadCompany(id);
+  $('#topbar-sub').textContent = first(c.company,c.name,id);
+  app.innerHTML = renderDetailPage(c);
+  renderSidebar();
+  setDetailTab(STATE.currentTab, false);
 }
-function renderCompany(c){
-  var id = idOf(c), col = color(c.color), hero = c.hero || {};
-  var latestHead = hero.latest_headcount || latestByYear(c.headcount || []);
-  var latestFund = hero.latest_funding || latestByYear(c.funding || []);
-  $app.innerHTML = ''+
-    '<section class="detail-hero"><div class="detail-hero-inner">'+
-      '<div class="breadcrumb"><a href="#" data-action="goTop">StartupFile</a> / '+esc(c.company||c.name)+'</div>'+
-      '<div class="co-header" style="--co-color:'+esc(col)+'"><div class="co-header-accent"></div><div class="co-header-main">'+
-        '<h1 class="co-name">'+esc(c.company||c.name)+'</h1>'+
-        '<div class="co-hook">'+esc(fmt(hero.catchcopy || c.mission || c.summary, 'この会社を一言で見ると'))+'</div>'+
-        '<p class="co-overview">'+esc(fmt(c.summary, '事業概要はDB補強後に表示されます。'))+'</p>'+
-        '<div class="chips">'+chip('領域', c.sector1)+chip('サブ領域', c.sector2)+chip('設立', c.founded)+chip('ステージ', hero.stage || c.latest_round)+'</div>'+
-        '<div class="co-kpis">'+kpi('EMPLOYEE', latestHead ? latestHead.count : '', latestHead ? latestHead.year+'年' : '')+kpi('RAISED', c.raised_total, '累計調達額')+kpi('ROUND', c.latest_round, '直近/累計ラウンド')+kpi('TOPICS', (c.topics||[]).length, '登録トピックス')+'</div>'+
-      '</div><div class="tabs"><a href="#summary">概要</a><a href="#materials">資料</a><a href="#growth">成長推移</a><a href="#timeline">タイムライン</a><a href="#news">ニュース</a><a href="#sources">出典</a></div></div>'+
-    '</div></section>'+
-    '<div class="workspace"><aside class="sidebar">'+renderSidebarHtml(id)+'</aside><main class="detail-main">'+renderDetailMain(c)+'</main></div>';
-  var input = $('.sb-search'); if(input){ input.value = STATE.search || ''; }
+function renderDetailPage(c){
+  const cid=idOf(c), col=color(c.color), mats=materials(c), latestHead=latestByYear(c.headcount||[]), latestFund=latestByYear(c.funding||[]), hero=c.hero||{};
+  const hook=first(hero.headline,c.mission,c.summary,(c.company||c.name)+'の変化を数字と出来事から見る。');
+  const overview=first(hero.overview,c.summary,c.biz_desc,c.description,'企業概要はDB補強後に表示されます。');
+  const one=first(hero.one_line,c.one_line,c.summary,c.mission,'この会社の見方はDB補強後に編集コメントとして表示できます。');
+  const story=first(hero.storyline,c.storyline,c.mission ? c.mission+'という言葉から、会社が向き合う課題を見ていきます。' : '会社の背景やストーリーはDB補強後に表示できます。');
+  return '<div class="view active detail-page" id="detail"><section class="detail-hero-current"><div class="detail-hero-inner">'+
+    '<div class="detail-breadcrumb"><a data-nav-top href="'+esc(topHref())+'">StartupFile</a> / 企業詳細 / '+esc(first(c.sector1,''))+' / '+esc(first(c.company,c.name,cid))+'</div>'+ 
+    '<div class="co-header-card" style="--co-color:'+esc(col)+'"><div class="co-header-accent"></div><div class="co-header-main"><div class="co-header-topline"><div>'+ 
+      '<div class="co-name-current">'+esc(first(c.company,c.name,cid))+'</div>'+ 
+      '<div class="co-hook-current">'+esc(hook)+'</div>'+ 
+      '<div class="co-overview-current">'+esc(overview)+'</div>'+ 
+      '<div class="detail-one-line"><div class="detail-one-line-label">この会社を一言で見ると</div><div class="detail-one-line-text">'+esc(one)+'</div></div>'+ 
+      '<div class="detail-storyline"><div class="detail-storyline-label">好きになった先にある物語</div><div class="detail-storyline-text">'+esc(story)+'</div></div>'+ 
+      '<div class="co-hero-chips">'+detailChips(c,latestHead,latestFund).map(ch=>'<span><b>'+esc(ch[0])+'</b> '+esc(ch[1])+'</span>').join('')+'</div>'+ 
+      (mats.length?'<div class="detail-first-materials"><div class="detail-materials-head"><h3>会社の考え方が見える資料</h3><span>資料・発信から見る</span></div><div class="detail-materials-grid">'+mats.slice(0,3).map(materialCard).join('')+'</div></div>':'')+
+    '</div></div></div><div class="co-tabbar">'+tabButton('focus','まず見るところ')+tabButton('growth','成長推移')+tabButton('timeline','タイムライン')+tabButton('news','ニュース')+tabButton('links','資料・リンク')+'</div></div></div></section>'+ 
+    '<main class="detail-workspace"><aside class="company-sidebar"><div class="sb-title">企業一覧 <span class="sb-count" id="sbCount"></span></div><input class="sb-search" id="sidebarSearch" placeholder="企業名・領域で検索"><div class="sb-list" id="sidebarList"></div></aside><div class="detail-frame" id="detailFrame">'+renderDetailPanel(c,'focus')+'</div></main></div>';
 }
-function renderDetailMain(c){
-  var story = clean(c.hero && c.hero.story);
-  return ''+
-    '<section class="detail-section" id="summary"><div class="detail-section-head"><h2 class="detail-section-title">この会社の見方</h2></div><div class="summary-grid">'+
-      '<div class="note"><strong>一言で見ると：</strong>'+esc(fmt((c.hero&&c.hero.catchcopy)||c.mission||c.summary, 'DB補強後に表示されます。'))+'<br><br>'+esc(story || 'この欄は「好きになる物語」「一言紹介」などの編集列を追加すると、より自然な会社紹介として表示できます。現時点では既存DBのミッション・事業概要を優先しています。')+'</div>'+
-      '<div class="reading-map">'+mapRow('事業', c.sector1 || c.summary)+mapRow('成長', growthSummary(c))+mapRow('資料', materialSummary(c))+mapRow('ニュース', newsSummary(c))+'</div>'+
-    '</div></section>'+
-    '<section class="detail-section" id="materials"><div class="detail-section-head"><h2 class="detail-section-title">最初に見る資料</h2></div>'+renderMaterials(c)+'</section>'+
-    '<section class="detail-section" id="growth"><div class="detail-section-head"><h2 class="detail-section-title">成長推移</h2></div><div class="charts">'+renderHeadcountChart(c)+renderFundingChart(c)+'</div></section>'+
-    '<section class="detail-section" id="timeline"><div class="detail-section-head"><h2 class="detail-section-title">タイムライン</h2></div>'+renderTopics(c)+'</section>'+
-    '<section class="detail-section" id="news"><div class="detail-section-head"><h2 class="detail-section-title">ニュース</h2></div>'+renderNews(c)+'</section>'+
-    '<section class="detail-section" id="sources"><div class="detail-section-head"><h2 class="detail-section-title">データの出典</h2></div>'+renderSources(c)+'</section>';
+function tabButton(tab,label){ return '<button class="co-tab" data-detail-tab="'+esc(tab)+'">'+esc(label)+'</button>'; }
+function detailChips(c,head,fund){ const chips=[]; if(head&&head.count) chips.push(['届いているサイン', head.count+'名']); if(c.raised_total||c.raised) chips.push(['累計調達額', c.raised_total||c.raised]); if(fund&&fund.round) chips.push(['直近ラウンド', fund.round]); if(c.sector1) chips.push(['向き合うテーマ', c.sector1]); return chips.slice(0,4); }
+function materials(c){ const links=c.links||{}; const arr=[]; [['公式HP','hp','会社の基本情報を見る'],['サービス','service','提供価値を見る'],['IR','ir','上場後の情報を見る'],['採用','recruit','組織と採用を見る'],['カルチャーデック','culture','会社の考え方を見る'],['サービス資料','service_doc','プロダクト理解を深める'],['ニュース','news','公式発表を見る'],['顧客事例','case','使われ方を見る']].forEach(([label,key,desc])=>{ if(clean(links[key])) arr.push({label,url:links[key],desc}); }); if(Array.isArray(c.materials)) c.materials.forEach(x=>arr.push(x)); return arr.filter(x=>clean(x.url)); }
+function materialCard(x){ return '<a class="detail-material-card" data-source-link href="'+esc(x.url)+'" target="_blank" rel="noopener"><span class="detail-material-type">'+esc(first(x.type,x.label,'資料'))+'</span><b>'+esc(first(x.title,x.label,'資料を見る'))+'</b><p>'+esc(first(x.desc,'会社理解に使える一次情報です。'))+'</p><span class="detail-material-link">開く ↗</span></a>'; }
+function renderSidebar(){
+  const list=$('#sidebarList'), count=$('#sbCount'); if(!list) return;
+  const render=(q='')=>{ const qq=q.toLowerCase().trim(); const items=STATE.companies.filter(c=>!qq || [c.name,c.company,c.summary,c.sector1,c.sector2].some(v=>clean(v).toLowerCase().includes(qq))).slice(0,400); if(count) count.textContent=items.length+'社'; list.innerHTML=items.map(c=>'<div class="sb-item '+(idOf(c)===STATE.currentId?'active':'')+'" data-company-id="'+esc(idOf(c))+'"><h4>'+esc(first(c.name,c.company,idOf(c)))+'</h4><p>'+esc(first(c.sector1,c.summary,''))+'</p></div>').join('') || '<div class="empty">該当する企業がありません</div>'; };
+  render(); const inp=$('#sidebarSearch'); if(inp) inp.addEventListener('input',()=>render(inp.value));
 }
-function chip(k,v){ return clean(v) ? '<span class="chip"><b>'+esc(k)+'</b>'+esc(v)+'</span>' : ''; }
-function kpi(label,val,sub){ return '<div class="kpi"><div class="kpi-label">'+esc(label)+'</div><div class="kpi-val">'+esc(fmt(val))+'</div><div class="date">'+esc(sub||'')+'</div></div>'; }
-function mapRow(k,v){ return '<div class="map-row"><b>'+esc(k)+'</b><span>'+esc(fmt(v, 'データ補強後に表示'))+'</span></div>'; }
-function growthSummary(c){ var h=latestByYear(c.headcount||[]), f=latestByYear(c.funding||[]); return (h ? h.year+'年社員数 '+h.count+'名' : '') + (f ? ' / '+f.year+'年 '+(f.round||'調達') : ''); }
-function materialSummary(c){ return ((c.materials||[]).length || Object.keys(c.links||{}).filter(function(k){ return clean(c.links[k]); }).length) + '件のリンク候補'; }
-function newsSummary(c){ return ((c.news_items||[]).length) + '件の保存済みニュース'; }
-function renderMaterials(c){
-  var mats = (c.materials && c.materials.length) ? c.materials : linkMaterials(c.links||{});
-  if(!mats.length) return '<div class="empty">公式リンク・資料URLはまだ登録されていません。</div>';
-  return '<div class="materials-grid">'+mats.map(function(m){ return '<a class="material-card" href="'+esc(m.url)+'" target="_blank" rel="noopener"><small>'+esc(m.type||'LINK')+'</small><b>'+esc(m.title||m.type||'資料を見る')+'</b><span>開く ↗</span></a>'; }).join('')+'</div>';
+function setDetailTab(tab,pushUrl=true){
+  tab = tab || 'focus'; STATE.currentTab = tab;
+  $$('.co-tab').forEach(b=>b.classList.toggle('active', b.dataset.detailTab===tab));
+  const c=STATE.companyCache[STATE.currentId]; if($('#detailFrame')&&c) $('#detailFrame').innerHTML = renderDetailPanel(c, tab);
+  if(pushUrl) replace(detailHref(STATE.currentId,tab));
 }
-function linkMaterials(links){
-  var defs = {hp:'公式HP',service:'サービスページ',ir:'IRページ',recruit:'採用ページ',culture:'カルチャーデック',service_doc:'サービス資料',news:'ニュース',case:'顧客事例'};
-  return Object.keys(defs).map(function(k){ return clean(links[k]) ? {type:defs[k], title:defs[k]+'を見る', url:links[k]} : null; }).filter(Boolean);
+function renderDetailPanel(c,tab){
+  if(tab==='growth') return panelGrowth(c);
+  if(tab==='timeline') return panelTimeline(c);
+  if(tab==='news') return panelNews(c);
+  if(tab==='links') return panelLinks(c);
+  return panelFocus(c);
 }
-function renderHeadcountChart(c){ return '<div class="chart"><div class="chart-title">社員数推移</div>'+barChart(c.headcount||[], 'count')+'</div>'; }
-function renderFundingChart(c){
-  var rows=(c.funding||[]).map(function(r){ var y={}; for(var k in r)y[k]=r[k]; y.amount_num = parseAmount(y.amount); return y; });
-  return '<div class="chart"><div class="chart-title">資金調達推移</div>'+barChart(rows, 'amount_num')+'</div>';
+function panelFocus(c){
+  const head=latestByYear(c.headcount||[]), fund=latestByYear(c.funding||[]);
+  return '<section class="detail-section"><div class="detail-section-head"><h2 class="detail-section-title">この会社を見るための視点</h2></div><div class="rich-kpi-grid">'+
+    kpi('設立',c.founded||'—','会社の年齢を見る')+kpi('社員数',head&&head.count?head.count+'名':'—',head&&head.year?head.year+'年時点':'')+kpi('累計調達',c.raised_total||c.raised||'—',c.latest_round||c.rounds||'')+kpi('領域',c.sector1||'—',c.sector2||'')+'</div></section>'+
+    '<section class="detail-section"><div class="co-highlights"><div class="co-highlights-label">まず見るところ</div><div class="co-highlights-grid">'+whyCards(c,head,fund).join('')+'</div></div></section>'+
+    '<section class="detail-section"><div class="detail-section-head"><h2 class="detail-section-title">関連する重要トピックス</h2></div><div class="timeline-rich">'+(c.topics||[]).slice(0,8).map(topicRow).join('')+'</div></section>';
 }
-function barChart(rows, key){
-  rows = (rows||[]).filter(function(r){ return r.year && num(r[key]) !== null; }).sort(function(a,b){ return a.year-b.year; }).slice(-8);
-  if(!rows.length) return '<div class="empty">グラフ化できるデータがまだありません。</div>';
-  var max = Math.max.apply(null, rows.map(function(r){ return Math.max(1, num(r[key]) || 1); }));
-  return '<div class="bar-chart">'+rows.map(function(r){ var h=Math.max(4, Math.round((num(r[key])||1)/max*90)); return '<div class="bar-col"><i class="bar-fill" style="height:'+h+'px"></i><span class="bar-year">'+esc(r.year)+'</span></div>'; }).join('')+'</div>';
-}
-function renderTopics(c){
-  var rows=(c.topics||[]).slice().sort(function(a,b){ return String(b.date||b.year||'').localeCompare(String(a.date||a.year||'')); }).slice(0,60);
-  if(!rows.length) return '<div class="empty">トピックスはまだ登録されていません。</div>';
-  return '<div class="timeline">'+rows.map(function(t){ return '<article class="topic-item"><div class="tl-date">'+esc(t.date||t.year||'')+'</div><div><span class="tl-cat">'+esc(typeLabel(t.type))+'</span></div><div><h3>'+esc(fmt(t.title,'トピックス'))+'</h3><p>'+esc(t.desc||t.source||'')+'</p></div><div class="tl-src">'+(t.url ? '<a href="'+esc(t.url)+'" target="_blank" rel="noopener">情報ソース ↗</a>' : 'ソース未登録')+'</div></article>'; }).join('')+'</div>';
-}
-function renderNews(c){
-  var rows=(c.news_items||[]).slice(0,24);
-  if(!rows.length) return '<div class="empty">保存済みニュースはまだありません。GASの update_news 実行後に表示されます。</div>';
-  return '<div class="news-grid">'+rows.map(function(n){ return '<a class="news-card" href="'+esc(n.url||'#')+'" target="_blank" rel="noopener"><div class="meta"><span>'+esc(n.date||'')+'</span><span>'+esc(n.source_label||n.source||'')+'</span></div><h3>'+esc(n.title||'ニュース')+'</h3></a>'; }).join('')+'</div>';
-}
-function renderSources(c){
-  var rows=[];
-  (c.headcount||[]).forEach(function(r){ rows.push({kind:'社員数', year:r.year, val:r.count ? r.count+'名' : '', src:r.source_text||r.source_method, url:r.source_url}); });
-  (c.funding||[]).forEach(function(r){ rows.push({kind:'資金調達', year:r.year, val:(r.round||'')+' '+(r.amount||''), src:r.source_text||r.note, url:r.source_url}); });
-  if(!rows.length) return '<div class="empty">出典付きのデータがまだありません。</div>';
-  rows = rows.sort(function(a,b){ return (b.year||0)-(a.year||0); }).slice(0,80);
-  return '<div class="table">'+rows.map(function(r){ return '<div class="table-row"><b>'+esc(r.kind)+'</b><span>'+esc(r.year||'')+'</span><span>'+esc(r.val||r.src||'')+'</span><span>'+(r.url ? '<a href="'+esc(r.url)+'" target="_blank" rel="noopener">Source</a>' : '')+'</span></div>'; }).join('')+'</div>';
-}
-function renderSidebarHtml(activeId){
-  var list = filterCompanies(STATE.search).slice(0,160);
-  return '<div class="sb-title">企業一覧 <span class="mono">'+STATE.companies.length+'</span></div><input class="sb-search" placeholder="企業名・領域で検索" value="'+esc(STATE.search)+'">'+
-    '<div class="sb-list">'+list.map(function(c){ var id=idOf(c); return '<div class="sb-item '+(id===activeId?'active':'')+'" data-company="'+esc(id)+'"><h4>'+esc(c.company||c.name)+'</h4><p>'+esc(c.sector1||c.summary||'')+'</p></div>'; }).join('')+'</div>';
-}
-function filterCompanies(q){
-  q = clean(q).toLowerCase();
-  var arr = STATE.companies.slice();
-  if(q){ arr = arr.filter(function(c){ return [c.company,c.name,c.sector1,c.sector2,c.summary,c.mission].join(' ').toLowerCase().indexOf(q) >= 0; }); }
-  return arr;
-}
-function latestByYear(arr){ if(!arr || !arr.length) return null; return arr.slice().sort(function(a,b){ return (b.year||0)-(a.year||0); })[0]; }
-function parseAmount(v){ var s=clean(v).replace(/,/g,'').replace(/約/g,'').replace(/億円/g,'').replace(/億/g,''); var n=parseFloat(s); return isFinite(n) ? n : 0; }
-function shortDate(v){ if(!v) return '—'; var d=new Date(v); if(!isNaN(d)) return d.toISOString().slice(0,10); return String(v).slice(0,10); }
-function normalizeFeatured(items){ return (items||[]).map(function(x){ return {type:'activity',cid:idOf(x),company:x.company||x.name,color:x.color,label:'注目企業',date_label:x.sector1,title:x.reason||x.mission,desc:x.mission||x.summary}; }); }
-function normalizeGrowth(items){ return (items||[]).map(function(x){ x.type='growth'; x.label='社員数成長'; x.date_label=(x.base_year||'')+' → '+(x.latest_year||''); x.title='社員数が '+(x.rate||'-')+'倍に拡大'; return x; }); }
-function normalizeFunding(items){ return (items||[]).map(function(x){ x.type='funding'; x.label=x.round||'資金調達'; x.date_label=x.year||''; x.title=(x.amount_text||x.amount||'金額非公開')+'の資金調達'; x.desc=x.note||''; return x; }); }
-function normalizeTopic(items,label){ return (items||[]).map(function(x){ return {type:'activity',cid:idOf(x),company:x.company||x.name,color:x.color,label:label||typeLabel(x.type),date_label:x.date||x.year,title:x.title,desc:x.desc,url:x.url}; }); }
-function normalizeDeck(items){ return (items||[]).map(function(x){ return {type:'activity',cid:idOf(x),company:x.company||x.name,color:x.color,label:'資料',date_label:x.sector1,title:'会社紹介・カルチャーデックを見る',desc:'会社の考え方や採用メッセージを確認できます。',url:x.deck_url}; }); }
-
-$app.addEventListener('click', function(e){
-  var noNav = e.target.closest('[data-no-nav]'); if(noNav) return;
-  var action = e.target.closest('[data-action]');
-  if(action){
-    var a = action.dataset.action;
-    if(a === 'goTop'){ e.preventDefault(); goTop(); }
-    if(a === 'focusSearch'){ e.preventDefault(); var input = $('.sb-search'); if(input) input.focus(); else { location.hash = '#/company/' + idOf(STATE.companies[0]||{}); } }
-    if(a === 'refreshTop'){ e.preventDefault(); location.reload(); }
-    return;
-  }
-  var card = e.target.closest('[data-company]');
-  if(card){ e.preventDefault(); goCompany(card.dataset.company); return; }
-  var sector = e.target.closest('[data-sector]');
-  if(sector){ STATE.search = sector.dataset.sector; location.hash = '#/company/' + idOf(filterCompanies(STATE.search)[0] || STATE.companies[0] || {}); }
+function kpi(label,val,sub){ return '<div class="rich-kpi"><div class="label">'+esc(label)+'</div><div class="val">'+esc(val)+'</div><div class="sub">'+esc(sub||'')+'</div></div>'; }
+function whyCards(c,head,fund){ const cards=[]; cards.push(['事業','何を変えようとしているか',first(c.summary,c.mission,'事業概要はDB補強後に表示します。')]); if(head) cards.push(['成長','組織の伸び',head.year+'年時点で'+head.count+'名。社員数推移からフェーズ変化を見ます。']); if(fund) cards.push(['調達','次のフェーズ',fund.year+'年の'+first(fund.round,'資金調達')+'を起点に、次の成長テーマを見ます。']); if((c.topics||[]).length) cards.push(['出来事','重要トピックス',c.topics.length+'件のトピックスから、創業・事業・組織の変化を確認します。']); if(c.sector1) cards.push(['領域','比較の入口',c.sector1+'領域の他社と比較して見ます。']); cards.push(['資料','一次情報',materials(c).length ? '公式資料・採用・サービスページから会社の考え方を確認できます。' : '公式資料URLはDB補強後に表示できます。']); return cards.slice(0,6).map(x=>'<article class="why-card"><div class="why-card-head"><div class="why-card-kicker">'+esc(x[0])+'</div><div class="why-card-title">'+esc(x[1])+'</div></div><div class="why-card-body">'+esc(trim(x[2],150))+'</div></article>'); }
+function panelGrowth(c){ const heads=(c.headcount||[]).slice().sort((a,b)=>(num(a.year)||0)-(num(b.year)||0)); const funds=(c.funding||[]).slice().sort((a,b)=>(num(a.year)||0)-(num(b.year)||0)); return '<section class="detail-section"><div class="detail-section-head"><h2 class="detail-section-title">成長推移</h2></div><div class="rich-kpi-grid">'+heads.slice(-4).map(h=>kpi(h.year+'年',h.count? h.count+'名':'—',h.source_text||h.source_method||'')).join('')+'</div></section><section class="detail-section"><div class="detail-section-head"><h2 class="detail-section-title">資金調達推移</h2></div><div class="timeline-rich">'+funds.map(f=>'<article class="tl-item"><div class="tl-date">'+esc(f.year||'')+'</div><div class="tl-cat">'+esc(f.round||'調達')+'</div><div><h3>'+esc(first(f.amount,'金額非公開'))+'</h3><p>'+esc(first(f.note,f.source_text,''))+'</p></div><div class="tl-why">'+(f.source_url?'<a data-source-link href="'+esc(f.source_url)+'" target="_blank" rel="noopener">出典 ↗</a>':'出典未設定')+'</div></article>').join('')+'</div></section>'; }
+function panelTimeline(c){ const topics=(c.topics||[]).slice().sort((a,b)=>(num(b.year)||0)-(num(a.year)||0)); return '<section class="detail-section"><div class="detail-section-head"><h2 class="detail-section-title">タイムライン</h2></div><div class="timeline-rich">'+(topics.length?topics.map(topicRow).join(''):'<div class="empty">トピックスはDB補強後に表示されます。</div>')+'</div></section>'; }
+function topicRow(t){ return '<article class="tl-item"><div class="tl-date">'+esc(first(t.date,t.year,''))+'</div><div class="tl-cat">'+esc(first(t.type,'topic'))+'</div><div><h3>'+esc(first(t.title,'トピックス'))+'</h3><p>'+esc(first(t.desc,t.speaker,t.source,''))+'</p></div><div class="tl-why">'+(t.url?'<a data-source-link href="'+esc(t.url)+'" target="_blank" rel="noopener">情報ソース ↗</a>':'会社理解の補助情報')+'</div></article>'; }
+function panelNews(c){ const news=(c.news_items||[]).slice(0,30); return '<section class="detail-section"><div class="detail-section-head"><h2 class="detail-section-title">最近のニュース</h2></div><div class="news-rich-grid">'+(news.length?news.map(n=>'<article class="news-rich-item"><div class="meta"><span>'+esc(dateLabel(n.date))+'</span><span>'+esc(first(n.source_label,n.source,''))+'</span></div><h3>'+esc(n.title||'ニュース')+'</h3><p>'+esc(first(n.desc,'保存済みニュースから表示しています。'))+'</p>'+(n.url?'<div class="sf-card-foot"><a data-source-link href="'+esc(n.url)+'" target="_blank" rel="noopener">記事を開く ↗</a></div>':'')+'</article>').join(''):'<div class="empty">保存済みニュースはまだありません。GASのニュース更新後に表示されます。</div>')+'</div></section>'; }
+function panelLinks(c){ const mats=materials(c); const sources=[...(c.news_sources||[]),...(c.news_links||[])]; return '<section class="detail-section"><div class="detail-section-head"><h2 class="detail-section-title">資料・リンク</h2></div><div class="link-grid">'+(mats.length?mats.map(x=>'<a class="link-card" data-source-link href="'+esc(x.url)+'" target="_blank" rel="noopener"><b>'+esc(first(x.label,x.title,'リンク'))+'</b><span>'+esc(first(x.desc,'一次情報を開く'))+'</span></a>').join(''):'<div class="empty">公式リンクはDB補強後に表示されます。</div>')+'</div></section><section class="detail-section"><div class="detail-section-head"><h2 class="detail-section-title">ニュース収集元</h2></div><div class="source-ledger">'+(sources.length?sources.map(s=>'<div class="source-ledger-row"><div class="kind">'+esc(s.type||s.mode||'source')+'</div><div><b>'+esc(s.label||s.title||'収集元')+'</b><p>'+esc(s.url||s.query||'')+'</p></div><div class="trust">'+esc(s.mode||'link')+'</div></div>').join(''):'<div class="empty">ニュース収集元は未設定です。</div>')+'</div></section>'; }
+document.addEventListener('click', e=>{
+  const src = e.target.closest('[data-source-link]'); if(src) return;
+  const top = e.target.closest('[data-nav-top]'); if(top){ e.preventDefault(); push(topHref()); return; }
+  const stageTab = e.target.closest('[data-stage-tab]'); if(stageTab){ e.preventDefault(); renderStagePanel(stageTab.dataset.stageTab || 'seed'); return; }
+  const tab = e.target.closest('[data-detail-tab]'); if(tab){ e.preventDefault(); setDetailTab(tab.dataset.detailTab, true); return; }
+  const card = e.target.closest('[data-company-id]'); if(card){ const id=card.dataset.companyId; if(id){ e.preventDefault(); push(detailHref(id,'focus')); } return; }
 });
-$app.addEventListener('input', function(e){
-  if(e.target.classList.contains('sb-search')){
-    STATE.search = e.target.value;
-    var sb = $('.sidebar');
-    if(sb) sb.innerHTML = renderSidebarHtml(STATE.currentId);
-    var next = $('.sb-search'); if(next){ next.focus(); next.setSelectionRange(STATE.search.length, STATE.search.length); }
-  }
-});
-
-document.addEventListener('click', function(e){
-  var action = e.target.closest('[data-action]');
-  if(action && action.dataset.action === 'goTop'){ e.preventDefault(); goTop(); }
-});
-
-init();
+window.addEventListener('popstate', route);
+route();
 })();
 </script>
 </body>
