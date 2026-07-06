@@ -1438,6 +1438,17 @@ main{max-width:1280px;margin:0 auto;padding:28px 30px 76px}.section{margin-botto
   font-weight:600;
 }
 
+
+/* === v5 minimal DB policy ===
+   詳細ヒーローは「成長の先にある物語」に統合し、
+   「届いているサイン」系チップと重複ストーリー欄は出さない。
+   HTML構造は残し、デザインの余白・カード体系は崩さない。
+*/
+.co-hero-chips{display:none!important;}
+.detail-storyline{display:none!important;}
+.detail-one-line{background:linear-gradient(135deg, rgba(255,255,255,.82), rgba(255,250,242,.78));}
+.detail-one-line-label{color:#A86010!important;}
+
 </style>
 </head>
 <body>
@@ -1805,14 +1816,14 @@ main{max-width:1280px;margin:0 auto;padding:28px 30px 76px}.section{margin-botto
 <div class="sf-card-foot"><span class="muted">思いを見る</span><a>情報ソース ↗</a></div>
 </article>
 <article class="sf-activity-card sf-story-card" style="--card-line:#0F7A64">
-<div class="sf-card-meta"><span class="sf-card-label">事業に込めた思想</span><span class="sf-card-date">2026.06</span></div>
+<div class="sf-card-meta"><span class="sf-card-label">サービスの内容や特徴</span><span class="sf-card-date">2026.06</span></div>
 <div class="sf-company"><i class="sf-dot"></i><span>カミナシ</span></div>
 <h3 class="sf-card-title">現場で働く人が、面倒な記録や確認に追われすぎないようにする。</h3>
 <p class="sf-card-desc">プロダクトの裏にある考え方を見る。</p>
 <div class="sf-card-foot"><span class="muted">思いを見る</span><a>情報ソース ↗</a></div>
 </article>
 <article class="sf-activity-card sf-story-card" style="--card-line:#0F7A64">
-<div class="sf-card-meta"><span class="sf-card-label">事業に込めた思想</span><span class="sf-card-date">2026.06</span></div>
+<div class="sf-card-meta"><span class="sf-card-label">サービスの内容や特徴</span><span class="sf-card-date">2026.06</span></div>
 <div class="sf-company"><i class="sf-dot"></i><span>LayerX</span></div>
 <h3 class="sf-card-title">人が本来向き合うべき仕事に時間を使えるようにする。</h3>
 <p class="sf-card-desc">事務作業の自動化にどんな願いがあるかが見える。</p>
@@ -1824,28 +1835,28 @@ main{max-width:1280px;margin:0 auto;padding:28px 30px 76px}.section{margin-botto
 <h3 class="sf-subhead">目指す世界から見る</h3>
 <div class="sf-card-row">
 <article class="sf-activity-card sf-story-card" style="--card-line:#1A5EC2">
-<div class="sf-card-meta"><span class="sf-card-label">市場から見た強み</span><span class="sf-card-date">2026.06</span></div>
+<div class="sf-card-meta"><span class="sf-card-label">マーケット状況と優位性</span><span class="sf-card-date">2026.06</span></div>
 <div class="sf-company"><i class="sf-dot"></i><span>CADDi</span></div>
 <h3 class="sf-card-title">製造業に散らばる図面や調達情報を、次の判断に使える形にしていく。</h3>
 <p class="sf-card-desc">市場の見方にも会社の思想が出る。</p>
 <div class="sf-card-foot"><span class="muted">思いを見る</span><a>情報ソース ↗</a></div>
 </article>
 <article class="sf-activity-card sf-story-card" style="--card-line:#1A5EC2">
-<div class="sf-card-meta"><span class="sf-card-label">市場から見た強み</span><span class="sf-card-date">2026.06</span></div>
+<div class="sf-card-meta"><span class="sf-card-label">マーケット状況と優位性</span><span class="sf-card-date">2026.06</span></div>
 <div class="sf-company"><i class="sf-dot"></i><span>estie</span></div>
 <h3 class="sf-card-title">不動産の見えにくい情報を、日々の判断に使えるデータへ変えていく。</h3>
 <p class="sf-card-desc">複雑な市場をどう読み解くかに強みがある。</p>
 <div class="sf-card-foot"><span class="muted">思いを見る</span><a>情報ソース ↗</a></div>
 </article>
 <article class="sf-activity-card sf-story-card" style="--card-line:#5A3FBF">
-<div class="sf-card-meta"><span class="sf-card-label">これから目指す世界</span><span class="sf-card-date">2026.06</span></div>
+<div class="sf-card-meta"><span class="sf-card-label">事業の展望とこれから目指す世界</span><span class="sf-card-date">2026.06</span></div>
 <div class="sf-company"><i class="sf-dot"></i><span>SmartHR</span></div>
 <h3 class="sf-card-title">働く人にまつわる情報をつなぎ、その人らしく働ける社会をつくる。</h3>
 <p class="sf-card-desc">人事労務のその先にある世界観が感じられる。</p>
 <div class="sf-card-foot"><span class="muted">思いを見る</span><a>情報ソース ↗</a></div>
 </article>
 <article class="sf-activity-card sf-story-card" style="--card-line:#5A3FBF">
-<div class="sf-card-meta"><span class="sf-card-label">これから目指す世界</span><span class="sf-card-date">2026.06</span></div>
+<div class="sf-card-meta"><span class="sf-card-label">事業の展望とこれから目指す世界</span><span class="sf-card-date">2026.06</span></div>
 <div class="sf-company"><i class="sf-dot"></i><span>Ubie</span></div>
 <h3 class="sf-card-title">生活者と医療の距離を近づけ、適切な受診につながる世界を目指す。</h3>
 <p class="sf-card-desc">事業の先にある未来像が伝わる。</p>
@@ -1971,11 +1982,11 @@ main{max-width:1280px;margin:0 auto;padding:28px 30px 76px}.section{margin-botto
 <div class="co-hook-current">労働にまつわる社会課題をなくし、誰もがその人らしく働ける社会をつくる。</div>
 <div class="co-overview-current">入社手続き・雇用契約・年末調整などの人事労務をクラウド化するプロダクトを起点に、従業員データ、タレントマネジメント、人的資本開示、給与計算へと領域を拡張している。</div>
 <div class="detail-one-line">
-<div class="detail-one-line-label">この会社を一言で見ると</div>
+<div class="detail-one-line-label">成長の先にある物語</div>
 <div class="detail-one-line-text">人事労務の手続きをラクにするところから始まり、働く人と組織のデータを扱う入口へ広がっている会社です。</div>
 </div>
 <div class="detail-storyline">
-<div class="detail-storyline-label">好きになった先にある物語</div>
+<div class="detail-storyline-label">成長の先にある物語</div>
 <div class="detail-storyline-text">入社手続きや年末調整にかかる負担が少し軽くなり、働く人と人事が、手続きよりも人に向き合いやすくなる。</div>
 </div>
 <div class="co-hero-chips">
@@ -4306,7 +4317,7 @@ const VOICE_SAMPLE = {
       ],
     },
     {
-      no:'02', title:'事業に込めた思想',
+      no:'02', title:'サービスの内容や特徴',
       body:`SmartHRは、入社手続き・雇用契約・年末調整・給与明細などをクラウドでペーパーレス化し、&lt;strong&gt;1,000名規模で合計工数約88%削減&lt;/strong&gt;を実現する人事労務SaaS。業務効率化の過程で従業員データが自然に蓄積され、そのデータを人事評価・配置・サーベイ・人的資本開示に活用できる点が特徴。労務管理を起点に、タレントマネジメント・従業員データベース・給与計算・採用管理・ID管理・アプリストア「SmartHR Plus」などへ提供領域を広げ、&lt;strong&gt;単一プロダクトからマルチプロダクトへと進化&lt;/strong&gt;している。`,
       sources:[
         {title:`SmartHRサービスサイト`, url:`https://smarthr.jp/`},
@@ -4316,7 +4327,7 @@ const VOICE_SAMPLE = {
       ],
     },
     {
-      no:'03', title:'市場から見た強み',
+      no:'03', title:'マーケット状況と優位性',
       body:`SmartHRは登録社数&lt;strong&gt;80,000社以上&lt;/strong&gt;を突破し、&lt;strong&gt;2025年5月時点でARRが200億円&lt;/strong&gt;を超え、労務管理クラウド市場で&lt;strong&gt;7年連続シェアNo.1&lt;/strong&gt;（2026年度も8年連続を見込む）を獲得。一方で日本には&lt;strong&gt;330万社を超える企業&lt;/strong&gt;があり開拓余地は大きく、2030年には売上1,000億円を目標に掲げる、成長余地の大きいレイターステージSaaSである。この市場地位を支えるのが、&lt;strong&gt;行政電子申請連携など参入障壁の高いコア機能の先行実装&lt;/strong&gt;、&lt;strong&gt;業務フローに組み込まれ従業員データが蓄積される高いスイッチングコスト&lt;/strong&gt;、&lt;strong&gt;120以上の外部サービス連携&lt;/strong&gt;、そして&lt;strong&gt;従業員自身も使う広い企業内接点&lt;/strong&gt;という自社ならではの優位性である。`,
       sources:[
         {title:`事業から見るSmartHR`, url:`https://smarthr.co.jp/about/business/`},
@@ -4327,7 +4338,7 @@ const VOICE_SAMPLE = {
       ],
     },
     {
-      no:'04', title:'これから目指す世界',
+      no:'04', title:'事業の展望とこれから目指す世界',
       body:`SmartHRは「&lt;strong&gt;労働にまつわる社会課題をなくし、誰もがその人らしく働ける社会をつくる&lt;/strong&gt;」をミッションに掲げ、管理部門だけでなく現場の管理職や従業員も含めた&quot;働くみんなが使いやすい&quot;システム（サービスビジョン「worker-friendly」）を志向している。今後は「&lt;strong&gt;人的資本経営プラットフォーム&lt;/strong&gt;」への進化を掲げ、①クラウド人事給与基幹システムへの進化、②AIによる業務効率化と人的資本経営の推進、③HR SaaS以外の領域への拡張を注力ポイントとする。シリーズEの資金は新プロダクト開発・S&amp;M拡大・M&amp;A・AI等の新技術投資に充てられる。`,
       sources:[
         {title:`SmartHRが「人的資本経営プラットフォーム」へ進化`, url:`https://smarthr.jp/release/20250603_jigyousenryaku/`},
@@ -4379,8 +4390,10 @@ const VOICE_SAMPLE = {
 //   ・見どころ、基本情報、成長推移グラフ、データの出典はHTML側に静的配置
 // ════════════════════════════════════════════════
 function hasVoiceData(c) {
-  // 現状はSmartHRのみVOICE_SAMPLEを使う。今後はc.voice等を確認。
-  return c &amp;&amp; /smarthr|スマートHR|SmartHR/i.test(c.name || '');
+  return !!(c &amp;&amp; c.voice &amp;&amp; (
+    (c.voice.sections &amp;&amp; c.voice.sections.length) ||
+    (c.voice.investors &amp;&amp; c.voice.investors.length)
+  ));
 }
 
 function renderFocus(c) {
@@ -4418,42 +4431,49 @@ function renderFocus(c) {
 }
 
 function renderVoicePanel(c) {
-  const wrap = document.getElementById('voice-panel-dynamic');
+  const wrap = document.getElementById(&#x27;voice-panel-dynamic&#x27;);
   if (!wrap) return;
 
+  const mkBody = (body) =&gt; escapeHtmlSafe(body || &#x27;&#x27;).replace(/\\n/g,&#x27;&lt;br&gt;&#x27;);
   const mkSources = (srcs) =&gt; (srcs &amp;&amp; srcs.length)
-    ? `&lt;div class=&quot;v-sources&quot;&gt;${srcs.map(s=&gt;`&lt;a class=&quot;v-src&quot; href=&quot;${s.url||'#'}&quot; target=&quot;_blank&quot;&gt;${s.title} ↗&lt;/a&gt;`).join('')}&lt;/div&gt;`
-    : '';
+    ? `&lt;div class=&quot;v-sources&quot;&gt;${srcs.filter(s=&gt;s &amp;&amp; s.url).map(s=&gt;`&lt;a class=&quot;v-src&quot; href=&quot;${s.url}&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;${escapeHtmlSafe(s.title || &#x27;出典&#x27;)} ↗&lt;/a&gt;`).join(&#x27;&#x27;)}&lt;/div&gt;`
+    : &#x27;&#x27;;
 
-  let html = '';
+  let html = &#x27;&#x27;;
   if (hasVoiceData(c)) {
+    const v = c.voice || {};
+    const sections = v.sections || [];
     html += `&lt;div class=&quot;sec-heading&quot;&gt;会社の思い&lt;/div&gt;`;
-    html += ``;
-    const v = VOICE_SAMPLE;
-    html += `&lt;div class=&quot;voice-group&quot;&gt;`;
-    v.sections.forEach(sec =&gt; {
-      html += `
-        &lt;div class=&quot;voice-chapter&quot;&gt;
-          &lt;div class=&quot;voice-chapter-title&quot;&gt;${sec.title}&lt;/div&gt;
-          &lt;div class=&quot;v-card&quot;&gt;
-            &lt;div class=&quot;v-card-body&quot;&gt;${sec.body}&lt;/div&gt;
-          &lt;/div&gt;
-          ${mkSources(sec.sources)}
-        &lt;/div&gt;`;
-    });
+    if (v.summary) {
+      html += `&lt;div class=&quot;focus-voice-quiet&quot; style=&quot;margin-bottom:12px&quot;&gt;&lt;span class=&quot;focus-voice-quiet-msg&quot;&gt;${escapeHtmlSafe(v.summary)}&lt;/span&gt;&lt;/div&gt;`;
+    }
+    if (sections.length) {
+      html += `&lt;div class=&quot;voice-group&quot;&gt;`;
+      sections.forEach(sec =&gt; {
+        if(!sec || !sec.body) return;
+        html += `
+          &lt;div class=&quot;voice-chapter&quot;&gt;
+            &lt;div class=&quot;voice-chapter-title&quot;&gt;${escapeHtmlSafe(sec.title)}&lt;/div&gt;
+            &lt;div class=&quot;v-card&quot;&gt;
+              &lt;div class=&quot;v-card-body&quot;&gt;${mkBody(sec.body)}&lt;/div&gt;
+            &lt;/div&gt;
+            ${mkSources(sec.sources || [])}
+          &lt;/div&gt;`;
+      });
+      html += `&lt;/div&gt;`;
+    }
     if (v.investors &amp;&amp; v.investors.length) {
       html += `
         &lt;div class=&quot;voice-chapter&quot;&gt;
           &lt;div class=&quot;voice-chapter-title&quot;&gt;投資家・関係者の期待&lt;/div&gt;
           ${v.investors.map(vc=&gt;`
             &lt;div class=&quot;v-card&quot;&gt;
-              &lt;div class=&quot;v-card-meta&quot;&gt;&lt;span class=&quot;v-badge&quot;&gt;${vc.name}&lt;/span&gt;&lt;/div&gt;
-              &lt;div class=&quot;v-card-body&quot;&gt;${vc.txt}&lt;div class=&quot;v-speaker&quot;&gt;— ${vc.person} · ${vc.round}&lt;/div&gt;&lt;/div&gt;
-            &lt;/div&gt;`).join('')}
+              &lt;div class=&quot;v-card-meta&quot;&gt;&lt;span class=&quot;v-badge&quot;&gt;${escapeHtmlSafe(vc.name || &#x27;VC&#x27;)}&lt;/span&gt;&lt;/div&gt;
+              &lt;div class=&quot;v-card-body&quot;&gt;${mkBody(vc.summary || vc.txt || &#x27;&#x27;)}${vc.person ? `&lt;div class=&quot;v-speaker&quot;&gt;— ${escapeHtmlSafe(vc.person)}${vc.round ? &#x27; · &#x27; + escapeHtmlSafe(vc.round) : &#x27;&#x27;}&lt;/div&gt;` : &#x27;&#x27;}&lt;/div&gt;
+            &lt;/div&gt;`).join(&#x27;&#x27;)}
           ${mkSources(v.investors.flatMap(vc=&gt;vc.sources||[]))}
         &lt;/div&gt;`;
     }
-    html += `&lt;/div&gt;`;
   } else {
     html += `
       &lt;div class=&quot;focus-voice-quiet&quot;&gt;
@@ -4465,8 +4485,10 @@ function renderVoicePanel(c) {
 
 // 軽量HTMLエスケープ（タイトル等のサニタイズ用）
 function escapeHtmlSafe(s){
-  return String(s||'').replace(/[&amp;&lt;&gt;&quot;]/g, c=&gt;({'&amp;':'&amp;amp;','&lt;':'&amp;lt;','&gt;':'&amp;gt;','&quot;':'&amp;quot;'})[c]);
+  return String(s||&#x27;&#x27;).replace(/[&amp;&lt;&gt;\&quot;]/g, c=&gt;({&#x27;&amp;&#x27;:&#x27;&amp;amp;&#x27;,&#x27;&lt;&#x27;:&#x27;&amp;lt;&#x27;,&#x27;&gt;&#x27;:&#x27;&amp;gt;&#x27;,&#x27;&quot;&#x27;:&#x27;&amp;quot;&#x27;})[c]);
 }
+
+
 
 // 重要トピックスを優先順位でピック
 function pickImportantTopics(c, limit) {
@@ -5850,7 +5872,7 @@ if (document.readyState === 'loading') {
 </script>
 <script>
 /* =========================================================
-   StartupFile dynamic bridge v4
+   StartupFile dynamic bridge v5 minimal-DB
    - 添付モックのCSS/HTML構造は変更しない
    - GASデータが取れる場合だけ、同じクラス構造に流し込む
    - 詳細ページのURL遷移を ?view=detail&id=...&tab=... に統一
@@ -6047,21 +6069,12 @@ if (document.readyState === 'loading') {
     const set = (sel, val) => { const el = document.querySelector(sel); if(el && val) el.textContent = val; };
     set('.detail-breadcrumb', `StartupFile / 企業詳細 / ${company.sector1 || company.domain1 || ''} / ${company.name || company.company || id}`);
     set('.co-name-current', company.name || company.company || id);
-    set('.co-hook-current', (company.hero && company.hero.one_liner) || company.one_liner || company.mission || company.summary || 'この会社の変化を見る。');
+    set('.co-hook-current', (company.hero && (company.hero.catchcopy || company.hero.one_liner)) || company.mission || company.summary || company.one_liner || 'この会社の変化を見る。');
     set('.co-overview-current', company.summary || company.biz_desc || company.mission || '');
-    set('.detail-one-line-text', (company.hero && company.hero.one_liner) || company.one_liner || company.mission || company.summary || 'この会社の事業・成長・発信から、いまの変化を見ていきます。');
-    set('.detail-storyline-text', (company.hero && company.hero.storyline) || company.storyline || company.summary || '数字や出来事だけでなく、会社がどこへ向かっているかを確認します。');
+    set('.detail-one-line-text', (company.hero && (company.hero.growth_story || company.hero.storyline || company.hero.story)) || company.growth_story || company.storyline || company.summary || company.mission || 'この会社の事業・成長・発信から、いまの変化を見ていきます。');
+    set('.detail-storyline-text', (company.hero && (company.hero.growth_story || company.hero.storyline || company.hero.story)) || company.growth_story || company.storyline || '');
     const chips = document.querySelector('.co-hero-chips');
-    if(chips){
-      const head = (company.headcount || []).slice(-1)[0];
-      const fund = (company.funding || []).slice(-1)[0];
-      chips.innerHTML = [
-        company.raised_total ? `<span><b>届いているサイン</b> ${esc(company.raised_total)}</span>` : '',
-        head && head.count ? `<span><b>組織の広がり</b> ${esc(head.count)}名</span>` : '',
-        fund && fund.round ? `<span><b>直近ラウンド</b> ${esc(fund.round)}</span>` : '',
-        company.sector1 ? `<span><b>向き合うテーマ</b> ${esc(company.sector1)}</span>` : ''
-      ].filter(Boolean).join('');
-    }
+    if(chips){ chips.innerHTML = ''; chips.style.display = 'none'; }
     const links = company.links || {};
     const materials = document.querySelector('.detail-materials-grid');
     if(materials){
