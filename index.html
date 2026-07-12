@@ -2154,17 +2154,66 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
 }
 
 .v-sources{
-  display:flex;gap:8px;flex-wrap:wrap;
-  padding:10px 13px;
-  background:#fff;border-radius:var(--r);border:1px solid var(--border);
-  margin-bottom:0;
+  display:block;
+  padding:12px 13px;
+  background:#F8FAFC;
+  border-radius:var(--r);
+  border:1px solid var(--border);
+  margin:10px 0 0;
+}
+.v-sources-title{
+  font-size:10.5px;
+  font-weight:700;
+  color:var(--text-mute);
+  margin-bottom:8px;
+  letter-spacing:.03em;
+}
+.v-src-grid{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
 }
 .v-src{
-  display:inline-flex;align-items:center;gap:4px;
-  font-size:11px;color:var(--blue);font-family:var(--mono);
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  max-width:260px;
+  padding:7px 10px;
+  border:1px solid #D8E0EA;
+  border-radius:999px;
+  background:#fff;
+  color:var(--blue);
+  font-size:11px;
+  line-height:1.25;
+  font-weight:700;
+  text-decoration:none;
+  transition:background .12s,border-color .12s,transform .12s;
+}
+.v-src:hover{
+  background:#F1F6FD;
+  border-color:#9DB6D8;
+  transform:translateY(-1px);
   text-decoration:none;
 }
-.v-src:hover{text-decoration:underline}
+.v-src-kind{
+  color:var(--text);
+  white-space:nowrap;
+}
+.v-src-domain{
+  max-width:150px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  color:var(--text-mute);
+  font-family:var(--mono);
+  font-size:10px;
+  font-weight:600;
+}
+.v-src-arrow{
+  color:var(--blue);
+  font-size:10px;
+  flex:0 0 auto;
+}
 
 .v-speaker{font-size:10px;color:var(--text-mute);font-family:var(--mono);margin-top:6px}
 
@@ -4290,9 +4339,57 @@ function renderVoicePanel(c) {
   const wrap = document.getElementById('voice-panel-dynamic');
   if (!wrap) return;
 
-  const mkSources = (srcs) =&gt; (srcs &amp;&amp; srcs.length)
-    ? `&lt;div class=&quot;v-sources&quot;&gt;${srcs.map(s=&gt;`&lt;a class=&quot;v-src&quot; href=&quot;${s.url||'#'}&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;${s.title || '出典'} ↗&lt;/a&gt;`).join('')}&lt;/div&gt;`
-    : '';
+  const sourceHost = (url) =&gt; {
+    try { return new URL(url).hostname.replace(/^www\./,''); } catch(e) { return ''; }
+  };
+  const sourceKind = (url, title) =&gt; {
+    const t = String(title || '');
+    if (t &amp;&amp; !/^出典\d*$/.test(t)) return t;
+    const u = String(url || '').toLowerCase();
+    try {
+      const parsed = new URL(url);
+      if ((parsed.pathname === '/' || parsed.pathname === '') &amp;&amp; !u.includes('prtimes.jp')) return '公式サイト';
+    } catch(e) {}
+    if (u.includes('prtimes.jp')) return 'PR TIMES';
+    if (u.includes('speakerdeck.com')) return '会社資料';
+    if (u.includes('note.com')) return 'note';
+    if (u.includes('/ir/') || u.includes('ir.')) return 'IR';
+    if (u.includes('recruit') || u.includes('career')) return '採用';
+    if (u.includes('case') || u.includes('customer')) return '導入事例';
+    if (u.includes('news') || u.includes('press') || u.includes('release')) return '公式ニュース';
+    if (u.includes('business')) return '事業内容';
+    if (u.includes('service') || u.includes('product') || u.includes('bakuraku') || u.includes('smarthr.jp') || u.includes('ubie.app')) return 'サービス';
+    if (u.includes('about') || u.includes('mission')) return 'ミッション';
+    return '参考情報';
+  };
+  const normalizeSourceItems = (srcs) =&gt; {
+    const seen = new Set();
+    const out = [];
+    (srcs || []).forEach(s =&gt; {
+      const raw = typeof s === 'string' ? s : (s &amp;&amp; s.url);
+      if (!raw) return;
+      String(raw).split(/\r?\n/).map(x=&gt;x.trim()).filter(x=&gt;/^https?:\/\//.test(x)).forEach(url =&gt; {
+        if (seen.has(url)) return;
+        seen.add(url);
+        const title = typeof s === 'string' ? '' : (s.title || s.kind || '');
+        out.push({ url, kind: sourceKind(url, title), domain: (s &amp;&amp; s.domain) || sourceHost(url) });
+      });
+    });
+    return out;
+  };
+  const mkSources = (srcs) =&gt; {
+    const items = normalizeSourceItems(srcs);
+    if (!items.length) return '';
+    return `&lt;div class=&quot;v-sources&quot;&gt;
+      &lt;div class=&quot;v-sources-title&quot;&gt;参考にした情報&lt;/div&gt;
+      &lt;div class=&quot;v-src-grid&quot;&gt;${items.map(s=&gt;`
+        &lt;a class=&quot;v-src&quot; href=&quot;${s.url}&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+          &lt;span class=&quot;v-src-kind&quot;&gt;${escapeHtmlSafe(s.kind)}&lt;/span&gt;
+          &lt;span class=&quot;v-src-domain&quot;&gt;${escapeHtmlSafe(s.domain)}&lt;/span&gt;
+          &lt;span class=&quot;v-src-arrow&quot;&gt;↗&lt;/span&gt;
+        &lt;/a&gt;`).join('')}&lt;/div&gt;
+    &lt;/div&gt;`;
+  };
   const vcText = (vc) =&gt; vc &amp;&amp; (vc.summary || vc.txt || vc.comment || '') || '';
   const vcSpeaker = (vc) =&gt; [vc.person, vc.round].filter(Boolean).join(' · ');
 
