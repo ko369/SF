@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="ja" data-api-url="https://script.google.com/macros/s/xxxxx/exec">
+<html lang="ja" data-api-url="">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -1438,30 +1438,19 @@ main{max-width:1280px;margin:0 auto;padding:28px 30px 76px}.section{margin-botto
   font-weight:600;
 }
 
-
-/* === v5 minimal DB policy ===
-   詳細ヒーローは「成長の先にある物語」に統合し、
-   「届いているサイン」系チップと重複ストーリー欄は出さない。
-   HTML構造は残し、デザインの余白・カード体系は崩さない。
-*/
-.co-hero-chips{display:none!important;}
-.detail-storyline{display:none!important;}
-.detail-one-line{background:linear-gradient(135deg, rgba(255,255,255,.82), rgba(255,250,242,.78));}
-.detail-one-line-label{color:#A86010!important;}
-
 </style>
 </head>
 <body>
 <header class="topbar">
 <strong>StartupFile</strong><span class="tagline">知らない会社を、少し好きになる入口。</span>
 <nav class="switch-nav">
-<button class="view-tab active" data-view="top">トップページ</button>
-<button class="view-tab" data-view="detail">詳細ページ</button>
+<button class="view-tab" data-view="top">トップページ</button>
+<button class="view-tab active" data-view="detail">詳細ページ</button>
 <a class="top-link" href="#learning">見方</a>
 <a class="top-link" href="#growth">変化</a>
 </nav>
 </header>
-<div class="view active" id="top">
+<div class="view" id="top">
 <section class="hero">
 <div class="hero-inner">
 <div>
@@ -1816,14 +1805,14 @@ main{max-width:1280px;margin:0 auto;padding:28px 30px 76px}.section{margin-botto
 <div class="sf-card-foot"><span class="muted">思いを見る</span><a>情報ソース ↗</a></div>
 </article>
 <article class="sf-activity-card sf-story-card" style="--card-line:#0F7A64">
-<div class="sf-card-meta"><span class="sf-card-label">サービスの内容や特徴</span><span class="sf-card-date">2026.06</span></div>
+<div class="sf-card-meta"><span class="sf-card-label">事業に込めた思想</span><span class="sf-card-date">2026.06</span></div>
 <div class="sf-company"><i class="sf-dot"></i><span>カミナシ</span></div>
 <h3 class="sf-card-title">現場で働く人が、面倒な記録や確認に追われすぎないようにする。</h3>
 <p class="sf-card-desc">プロダクトの裏にある考え方を見る。</p>
 <div class="sf-card-foot"><span class="muted">思いを見る</span><a>情報ソース ↗</a></div>
 </article>
 <article class="sf-activity-card sf-story-card" style="--card-line:#0F7A64">
-<div class="sf-card-meta"><span class="sf-card-label">サービスの内容や特徴</span><span class="sf-card-date">2026.06</span></div>
+<div class="sf-card-meta"><span class="sf-card-label">事業に込めた思想</span><span class="sf-card-date">2026.06</span></div>
 <div class="sf-company"><i class="sf-dot"></i><span>LayerX</span></div>
 <h3 class="sf-card-title">人が本来向き合うべき仕事に時間を使えるようにする。</h3>
 <p class="sf-card-desc">事務作業の自動化にどんな願いがあるかが見える。</p>
@@ -1835,28 +1824,28 @@ main{max-width:1280px;margin:0 auto;padding:28px 30px 76px}.section{margin-botto
 <h3 class="sf-subhead">目指す世界から見る</h3>
 <div class="sf-card-row">
 <article class="sf-activity-card sf-story-card" style="--card-line:#1A5EC2">
-<div class="sf-card-meta"><span class="sf-card-label">マーケット状況と優位性</span><span class="sf-card-date">2026.06</span></div>
+<div class="sf-card-meta"><span class="sf-card-label">市場から見た強み</span><span class="sf-card-date">2026.06</span></div>
 <div class="sf-company"><i class="sf-dot"></i><span>CADDi</span></div>
 <h3 class="sf-card-title">製造業に散らばる図面や調達情報を、次の判断に使える形にしていく。</h3>
 <p class="sf-card-desc">市場の見方にも会社の思想が出る。</p>
 <div class="sf-card-foot"><span class="muted">思いを見る</span><a>情報ソース ↗</a></div>
 </article>
 <article class="sf-activity-card sf-story-card" style="--card-line:#1A5EC2">
-<div class="sf-card-meta"><span class="sf-card-label">マーケット状況と優位性</span><span class="sf-card-date">2026.06</span></div>
+<div class="sf-card-meta"><span class="sf-card-label">市場から見た強み</span><span class="sf-card-date">2026.06</span></div>
 <div class="sf-company"><i class="sf-dot"></i><span>estie</span></div>
 <h3 class="sf-card-title">不動産の見えにくい情報を、日々の判断に使えるデータへ変えていく。</h3>
 <p class="sf-card-desc">複雑な市場をどう読み解くかに強みがある。</p>
 <div class="sf-card-foot"><span class="muted">思いを見る</span><a>情報ソース ↗</a></div>
 </article>
 <article class="sf-activity-card sf-story-card" style="--card-line:#5A3FBF">
-<div class="sf-card-meta"><span class="sf-card-label">事業の展望とこれから目指す世界</span><span class="sf-card-date">2026.06</span></div>
+<div class="sf-card-meta"><span class="sf-card-label">これから目指す世界</span><span class="sf-card-date">2026.06</span></div>
 <div class="sf-company"><i class="sf-dot"></i><span>SmartHR</span></div>
 <h3 class="sf-card-title">働く人にまつわる情報をつなぎ、その人らしく働ける社会をつくる。</h3>
 <p class="sf-card-desc">人事労務のその先にある世界観が感じられる。</p>
 <div class="sf-card-foot"><span class="muted">思いを見る</span><a>情報ソース ↗</a></div>
 </article>
 <article class="sf-activity-card sf-story-card" style="--card-line:#5A3FBF">
-<div class="sf-card-meta"><span class="sf-card-label">事業の展望とこれから目指す世界</span><span class="sf-card-date">2026.06</span></div>
+<div class="sf-card-meta"><span class="sf-card-label">これから目指す世界</span><span class="sf-card-date">2026.06</span></div>
 <div class="sf-company"><i class="sf-dot"></i><span>Ubie</span></div>
 <h3 class="sf-card-title">生活者と医療の距離を近づけ、適切な受診につながる世界を目指す。</h3>
 <p class="sf-card-desc">事業の先にある未来像が伝わる。</p>
@@ -1969,7 +1958,7 @@ main{max-width:1280px;margin:0 auto;padding:28px 30px 76px}.section{margin-botto
 </section>
 </main>
 </div>
-<div class="view detail-page" id="detail">
+<div class="view detail-page active" id="detail">
 <section class="detail-hero-current">
 <div class="detail-hero-inner">
 <div class="detail-breadcrumb">StartupFile / 企業詳細 / HR / SmartHR</div>
@@ -1979,20 +1968,20 @@ main{max-width:1280px;margin:0 auto;padding:28px 30px 76px}.section{margin-botto
 <div class="co-header-topline">
 <div>
 <div class="co-name-current">SmartHR</div>
-<div class="co-hook-current">労働にまつわる社会課題をなくし、誰もがその人らしく働ける社会をつくる。</div>
-<div class="co-overview-current">入社手続き・雇用契約・年末調整などの人事労務をクラウド化するプロダクトを起点に、従業員データ、タレントマネジメント、人的資本開示、給与計算へと領域を拡張している。</div>
+<div class="co-hook-current">人事労務の手続きから、働く人と組織のデータを支える基盤へ。</div>
+<div class="co-overview-current">SmartHRは、入社手続き・雇用契約・年末調整などの人事労務をクラウド化するサービスを起点に、従業員データの整備、タレントマネジメント、人的資本経営、周辺業務連携へと提供領域を広げている。</div>
 <div class="detail-one-line">
 <div class="detail-one-line-label">成長の先にある物語</div>
-<div class="detail-one-line-text">人事労務の手続きをラクにするところから始まり、働く人と組織のデータを扱う入口へ広がっている会社です。</div>
+<div class="detail-one-line-text">SmartHRは、紙・ハンコ・郵送に残っていた労務手続きの負担を軽くするところから始まった会社です。人事労務の入口をクラウド化することで、従業員情報が自然に整い、採用・評価・配置・給与・人的資本開示までをつなぐ基盤へと広がっています。単なる業務効率化ではなく、働く人と組織がより良い意思決定をできる状態をつくろうとしている点が見どころです。</div>
 </div>
 <div class="detail-storyline">
-<div class="detail-storyline-label">成長の先にある物語</div>
-<div class="detail-storyline-text">入社手続きや年末調整にかかる負担が少し軽くなり、働く人と人事が、手続きよりも人に向き合いやすくなる。</div>
+<div class="detail-storyline-label">このページで見る観点</div>
+<div class="detail-storyline-text">労務管理SaaSから、企業の人事データ基盤、さらに人的資本経営を支えるプラットフォームへどう進化しているかを見る。</div>
 </div>
 <div class="co-hero-chips">
-<span><b>届いているサイン</b> ARR200億円超</span>
-<span><b>使われている広がり</b> 登録社数8万社超</span>
-<span><b>向き合うテーマ</b> 人的資本経営</span>
+<span><b>事業の広がり</b> 労務管理から人事データ活用へ</span>
+<span><b>顧客接点</b> 中小企業からエンタープライズまで</span>
+<span><b>向き合うテーマ</b> 人的資本経営・働く体験</span>
 </div>
 <div class="detail-first-materials">
 <div class="detail-materials-head">
@@ -2029,7 +2018,7 @@ main{max-width:1280px;margin:0 auto;padding:28px 30px 76px}.section{margin-botto
 <div class="attached-detail-shell">
 <iframe class="attached-detail-frame" srcdoc="&lt;!DOCTYPE html&gt;
 
-&lt;html lang=&quot;ja&quot; data-api-url=&quot;https://script.google.com/macros/s/AKfycbzzRfW419IKvKBIGtOjihhshYfd8jGPv8vCMWlJjE2w0b1tRWfYPyfWsGAP2_KJ2hWd/exec&quot;&gt;
+&lt;html lang=&quot;ja&quot; data-api-url=&quot;&quot;&gt;
 &lt;head&gt;
 &lt;meta charset=&quot;UTF-8&quot;&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
@@ -3782,7 +3771,7 @@ body{overflow:hidden!important;background:#fff!important}
 // ════════════════════════════════════════════════
 let DB = {};
 
-const STARTUPFILE_FALLBACK_COMPANY = {&quot;company_id&quot;: &quot;c0001&quot;, &quot;name&quot;: &quot;SmartHR&quot;, &quot;color&quot;: &quot;#0F7A64&quot;, &quot;mission&quot;: &quot;well-working 労働にまつわる社会課題をなくし、誰もがその人らしく働ける社会をつくる。&quot;, &quot;summary&quot;: &quot;入社手続き・雇用契約・年末調整などの人事労務をクラウド化するプロダクトを起点に、従業員データ、タレントマネジメント、人的資本開示、給与計算へと領域を拡張している。&quot;, &quot;biz_desc&quot;: &quot;人事労務をペーパーレス化し、従業員情報をクラウドで管理する。労務の効率化から始まり、人事データを起点に組織や人的資本経営へ広がっている。&quot;, &quot;raised_total&quot;: &quot;約467億円&quot;, &quot;latest_round&quot;: &quot;Series E&quot;, &quot;location&quot;: &quot;東京都港区&quot;, &quot;sector1&quot;: &quot;HR&quot;, &quot;sector2&quot;: &quot;SaaS&quot;, &quot;ticker&quot;: &quot;非上場&quot;, &quot;founded&quot;: &quot;2013&quot;, &quot;links&quot;: {&quot;hp&quot;: &quot;https://smarthr.co.jp/&quot;, &quot;service&quot;: &quot;https://smarthr.jp/&quot;, &quot;recruit&quot;: &quot;https://smarthr.co.jp/recruit/&quot;, &quot;culture&quot;: &quot;https://smarthr.co.jp/recruit/&quot;, &quot;ir&quot;: &quot;&quot;, &quot;service_doc&quot;: &quot;&quot;}, &quot;headcount&quot;: [{&quot;year&quot;: 2015, &quot;count&quot;: 10, &quot;source_text&quot;: &quot;公開情報ベースのサンプル&quot;, &quot;source_url&quot;: &quot;&quot;, &quot;score&quot;: &quot;C&quot;}, {&quot;year&quot;: 2018, &quot;count&quot;: 150, &quot;source_text&quot;: &quot;公開情報ベースのサンプル&quot;, &quot;source_url&quot;: &quot;&quot;, &quot;score&quot;: &quot;C&quot;}, {&quot;year&quot;: 2020, &quot;count&quot;: 450, &quot;source_text&quot;: &quot;公開情報ベースのサンプル&quot;, &quot;source_url&quot;: &quot;&quot;, &quot;score&quot;: &quot;C&quot;}, {&quot;year&quot;: 2022, &quot;count&quot;: 800, &quot;source_text&quot;: &quot;公開情報ベースのサンプル&quot;, &quot;source_url&quot;: &quot;&quot;, &quot;score&quot;: &quot;C&quot;}, {&quot;year&quot;: 2024, &quot;count&quot;: 1200, &quot;source_text&quot;: &quot;公開情報ベースのサンプル&quot;, &quot;source_url&quot;: &quot;&quot;, &quot;score&quot;: &quot;C&quot;}, {&quot;year&quot;: 2025, &quot;count&quot;: 1400, &quot;source_text&quot;: &quot;公開情報ベースのサンプル&quot;, &quot;source_url&quot;: &quot;&quot;, &quot;score&quot;: &quot;C&quot;}], &quot;funding&quot;: [{&quot;year&quot;: 2015, &quot;round&quot;: &quot;Seed&quot;, &quot;amount&quot;: &quot;1億&quot;, &quot;note&quot;: &quot;East Ventures ほか&quot;, &quot;source_text&quot;: &quot;公開情報ベースのサンプル&quot;, &quot;source_url&quot;: &quot;&quot;, &quot;score&quot;: &quot;C&quot;}, {&quot;year&quot;: 2017, &quot;round&quot;: &quot;Series A&quot;, &quot;amount&quot;: &quot;15億&quot;, &quot;note&quot;: &quot;既存投資家 ほか&quot;, &quot;source_text&quot;: &quot;公開情報ベースのサンプル&quot;, &quot;source_url&quot;: &quot;&quot;, &quot;score&quot;: &quot;C&quot;}, {&quot;year&quot;: 2019, &quot;round&quot;: &quot;Series B&quot;, &quot;amount&quot;: &quot;61.5億&quot;, &quot;note&quot;: &quot;海外投資家 ほか&quot;, &quot;source_text&quot;: &quot;公開情報ベースのサンプル&quot;, &quot;source_url&quot;: &quot;&quot;, &quot;score&quot;: &quot;C&quot;}, {&quot;year&quot;: 2021, &quot;round&quot;: &quot;Series D&quot;, &quot;amount&quot;: &quot;156億&quot;, &quot;note&quot;: &quot;Sequoia Capital Global Equities ほか&quot;, &quot;source_text&quot;: &quot;公開情報ベースのサンプル&quot;, &quot;source_url&quot;: &quot;&quot;, &quot;score&quot;: &quot;C&quot;}, {&quot;year&quot;: 2024, &quot;round&quot;: &quot;Series E&quot;, &quot;amount&quot;: &quot;214億&quot;, &quot;note&quot;: &quot;既存・新規投資家&quot;, &quot;source_text&quot;: &quot;公開情報ベースのサンプル&quot;, &quot;source_url&quot;: &quot;&quot;, &quot;score&quot;: &quot;C&quot;}], &quot;metrics&quot;: [{&quot;year&quot;: 2025, &quot;arr&quot;: &quot;200億円超&quot;, &quot;customers&quot;: &quot;80,000社超&quot;, &quot;retention&quot;: &quot;非開示&quot;}], &quot;topics&quot;: [{&quot;year&quot;: 2013, &quot;type&quot;: &quot;founder&quot;, &quot;title&quot;: &quot;創業者の労務手続き体験から着想&quot;, &quot;speaker&quot;: &quot;創業背景&quot;, &quot;desc&quot;: &quot;産休・育休手続きなど、紙と手作業が残る労務の非効率をなくすことが出発点になった。&quot;, &quot;url&quot;: &quot;&quot;, &quot;date&quot;: &quot;2013&quot;}, {&quot;year&quot;: 2015, &quot;type&quot;: &quot;business&quot;, &quot;title&quot;: &quot;クラウド人事労務ソフトSmartHRを提供開始&quot;, &quot;speaker&quot;: &quot;事業&quot;, &quot;desc&quot;: &quot;入社手続きや雇用契約など、すべての企業に発生する労務手続きをクラウド化する入口をつくった。&quot;, &quot;url&quot;: &quot;&quot;, &quot;date&quot;: &quot;2015&quot;}, {&quot;year&quot;: 2019, &quot;type&quot;: &quot;business&quot;, &quot;title&quot;: &quot;タレントマネジメント領域へ広がる&quot;, &quot;speaker&quot;: &quot;事業&quot;, &quot;desc&quot;: &quot;労務管理で蓄積した従業員データを、人材活用や組織に使う方向へプロダクトを広げている。&quot;, &quot;url&quot;: &quot;&quot;, &quot;date&quot;: &quot;2019&quot;}, {&quot;year&quot;: 2021, &quot;type&quot;: &quot;org&quot;, &quot;title&quot;: &quot;大型調達を機に組織拡大フェーズへ&quot;, &quot;speaker&quot;: &quot;組織&quot;, &quot;desc&quot;: &quot;プロダクト拡張と採用を強め、レイターステージのSaaS企業として組織も重要になった。&quot;, &quot;url&quot;: &quot;&quot;, &quot;date&quot;: &quot;2021&quot;}, {&quot;year&quot;: 2023, &quot;type&quot;: &quot;workstyle&quot;, &quot;title&quot;: &quot;採用資料や組織の発信が増える&quot;, &quot;speaker&quot;: &quot;カルチャー&quot;, &quot;desc&quot;: &quot;会社の考え方、働く人、組織のつくり方が外から読みやすくなっている。&quot;, &quot;url&quot;: &quot;&quot;, &quot;date&quot;: &quot;2023&quot;}, {&quot;year&quot;: 2024, &quot;type&quot;: &quot;award&quot;, &quot;title&quot;: &quot;登録社数8万社超へ&quot;, &quot;speaker&quot;: &quot;実績&quot;, &quot;desc&quot;: &quot;中小企業から大企業まで幅広く入り込み、人事労務領域の入口として広がっている。&quot;, &quot;url&quot;: &quot;&quot;, &quot;date&quot;: &quot;2024&quot;}, {&quot;year&quot;: 2025, &quot;type&quot;: &quot;turning&quot;, &quot;title&quot;: &quot;人的資本経営プラットフォームへ&quot;, &quot;speaker&quot;: &quot;これから&quot;, &quot;desc&quot;: &quot;労務管理にとどまらず、人的資本開示、給与、人事データ活用へ広がる動きが見えている。&quot;, &quot;url&quot;: &quot;&quot;, &quot;date&quot;: &quot;2025&quot;}], &quot;news_sources&quot;: [{&quot;label&quot;: &quot;公式サイト&quot;, &quot;mode&quot;: &quot;link&quot;}, {&quot;label&quot;: &quot;採用情報&quot;, &quot;mode&quot;: &quot;link&quot;}, {&quot;label&quot;: &quot;公式ブログ&quot;, &quot;mode&quot;: &quot;link&quot;}], &quot;news_links&quot;: [{&quot;label&quot;: &quot;SmartHR公式サイト&quot;, &quot;url&quot;: &quot;https://smarthr.co.jp/&quot;}, {&quot;label&quot;: &quot;SmartHRサービスサイト&quot;, &quot;url&quot;: &quot;https://smarthr.jp/&quot;}]};
+const STARTUPFILE_FALLBACK_COMPANY = {&quot;company_id&quot;:&quot;c0001&quot;,&quot;name&quot;:&quot;SmartHR&quot;,&quot;color&quot;:&quot;#0F7A64&quot;,&quot;mission&quot;:&quot;well-working 労働にまつわる社会課題をなくし、誰もがその人らしく働ける社会をつくる。&quot;,&quot;summary&quot;:&quot;SmartHRは、入社手続き・雇用契約・年末調整などの人事労務をクラウド化するサービスを起点に、従業員データの整備、タレントマネジメント、人的資本経営、給与・周辺業務連携へと提供領域を広げている。&quot;,&quot;biz_desc&quot;:&quot;紙・ハンコ・郵送に残っていた人事労務の非効率をクラウド化し、従業員情報を正しく集め、管理し、活用できる状態をつくる。労務管理から始まったプロダクトは、評価・配置・サーベイ・人的資本開示など、組織の意思決定に関わるデータ基盤へと広がっている。&quot;,&quot;raised_total&quot;:&quot;約467億円（参考モック）&quot;,&quot;latest_round&quot;:&quot;Series E相当&quot;,&quot;location&quot;:&quot;東京都港区&quot;,&quot;sector1&quot;:&quot;HR Tech&quot;,&quot;sector2&quot;:&quot;SaaS / 人事・労務&quot;,&quot;ticker&quot;:&quot;非上場&quot;,&quot;founded&quot;:&quot;2013&quot;,&quot;links&quot;:{&quot;hp&quot;:&quot;https://smarthr.example.com/&quot;,&quot;service&quot;:&quot;https://smarthr.example.com/product/&quot;,&quot;recruit&quot;:&quot;https://smarthr.example.com/recruit/&quot;,&quot;culture&quot;:&quot;https://smarthr.example.com/culture/&quot;,&quot;ir&quot;:&quot;&quot;,&quot;service_doc&quot;:&quot;https://smarthr.example.com/resources/product-guide/&quot;},&quot;headcount&quot;:[{&quot;year&quot;:2015,&quot;count&quot;:10,&quot;source_text&quot;:&quot;内容確認用モック&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;score&quot;:&quot;C&quot;},{&quot;year&quot;:2018,&quot;count&quot;:150,&quot;source_text&quot;:&quot;内容確認用モック&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;score&quot;:&quot;C&quot;},{&quot;year&quot;:2020,&quot;count&quot;:450,&quot;source_text&quot;:&quot;内容確認用モック&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;score&quot;:&quot;C&quot;},{&quot;year&quot;:2022,&quot;count&quot;:800,&quot;source_text&quot;:&quot;内容確認用モック&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;score&quot;:&quot;C&quot;},{&quot;year&quot;:2024,&quot;count&quot;:1200,&quot;source_text&quot;:&quot;内容確認用モック&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;score&quot;:&quot;C&quot;},{&quot;year&quot;:2026,&quot;count&quot;:1590,&quot;source_text&quot;:&quot;内容確認用モック&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;score&quot;:&quot;C&quot;}],&quot;funding&quot;:[{&quot;year&quot;:2015,&quot;round&quot;:&quot;Seed&quot;,&quot;amount&quot;:&quot;1億円&quot;,&quot;note&quot;:&quot;労務クラウド立ち上げ期の資金調達&quot;,&quot;source_text&quot;:&quot;内容確認用モック&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;score&quot;:&quot;C&quot;},{&quot;year&quot;:2017,&quot;round&quot;:&quot;Series A&quot;,&quot;amount&quot;:&quot;15億円&quot;,&quot;note&quot;:&quot;導入企業拡大とプロダクト強化&quot;,&quot;source_text&quot;:&quot;内容確認用モック&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;score&quot;:&quot;C&quot;},{&quot;year&quot;:2019,&quot;round&quot;:&quot;Series B&quot;,&quot;amount&quot;:&quot;61.5億円&quot;,&quot;note&quot;:&quot;中堅・大企業向けの営業体制を強化&quot;,&quot;source_text&quot;:&quot;内容確認用モック&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;score&quot;:&quot;C&quot;},{&quot;year&quot;:2021,&quot;round&quot;:&quot;Series D&quot;,&quot;amount&quot;:&quot;156億円&quot;,&quot;note&quot;:&quot;マルチプロダクト化と採用拡大&quot;,&quot;source_text&quot;:&quot;内容確認用モック&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;score&quot;:&quot;C&quot;},{&quot;year&quot;:2024,&quot;round&quot;:&quot;Series E&quot;,&quot;amount&quot;:&quot;214億円&quot;,&quot;note&quot;:&quot;人的資本経営プラットフォームへの進化を加速&quot;,&quot;source_text&quot;:&quot;内容確認用モック&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;score&quot;:&quot;C&quot;}],&quot;metrics&quot;:[{&quot;year&quot;:2026,&quot;arr&quot;:&quot;200億円超（参考モック）&quot;,&quot;customers&quot;:&quot;80,000社超（参考モック）&quot;,&quot;retention&quot;:&quot;非開示&quot;}],&quot;topics&quot;:[{&quot;year&quot;:2013,&quot;type&quot;:&quot;founder&quot;,&quot;title&quot;:&quot;創業者の労務手続き体験から着想&quot;,&quot;speaker&quot;:&quot;創業背景&quot;,&quot;desc&quot;:&quot;紙の申請書、押印、郵送が前提だった労務手続きに課題を感じたことが出発点。制度は働く人を支えるためにあるのに、手続きの複雑さが企業と従業員双方の負担になっていた。&quot;,&quot;url&quot;:&quot;&quot;,&quot;date&quot;:&quot;2013&quot;},{&quot;year&quot;:2015,&quot;type&quot;:&quot;business&quot;,&quot;title&quot;:&quot;クラウド人事労務ソフトSmartHRを提供開始&quot;,&quot;speaker&quot;:&quot;事業&quot;,&quot;desc&quot;:&quot;入社手続き、雇用契約、年末調整など、どの企業にも発生する人事労務業務をオンライン化。従業員が自分で入力でき、人事担当者が確認・承認できる体験をつくった。&quot;,&quot;url&quot;:&quot;&quot;,&quot;date&quot;:&quot;2015&quot;},{&quot;year&quot;:2018,&quot;type&quot;:&quot;award&quot;,&quot;title&quot;:&quot;導入企業の拡大と市場認知の高まり&quot;,&quot;speaker&quot;:&quot;実績&quot;,&quot;desc&quot;:&quot;人事労務クラウドのカテゴリが広がる中で、SmartHRは使いやすさ、法改正対応、導入企業数を背景に認知を高めた。&quot;,&quot;url&quot;:&quot;&quot;,&quot;date&quot;:&quot;2018&quot;},{&quot;year&quot;:2021,&quot;type&quot;:&quot;org&quot;,&quot;title&quot;:&quot;大型調達を機に組織拡大フェーズへ&quot;,&quot;speaker&quot;:&quot;組織&quot;,&quot;desc&quot;:&quot;プロダクト開発、カスタマーサクセス、エンタープライズ営業を強化。単一プロダクトの成長だけでなく、複数領域を扱う組織への移行が始まった。&quot;,&quot;url&quot;:&quot;&quot;,&quot;date&quot;:&quot;2021&quot;},{&quot;year&quot;:2023,&quot;type&quot;:&quot;workstyle&quot;,&quot;title&quot;:&quot;採用資料や組織の発信が増える&quot;,&quot;speaker&quot;:&quot;カルチャー&quot;,&quot;desc&quot;:&quot;採用・カルチャー・制度に関する発信が増え、働き方や組織づくりの考え方が外部からも読みやすくなった。&quot;,&quot;url&quot;:&quot;&quot;,&quot;date&quot;:&quot;2023&quot;},{&quot;year&quot;:2024,&quot;type&quot;:&quot;business&quot;,&quot;title&quot;:&quot;労務管理から人事データ活用へ拡張&quot;,&quot;speaker&quot;:&quot;事業&quot;,&quot;desc&quot;:&quot;従業員データを起点に、評価、配置、サーベイ、人的資本開示などへ提供領域を拡大。業務効率化だけでなく、人事意思決定を支える基盤になっている。&quot;,&quot;url&quot;:&quot;&quot;,&quot;date&quot;:&quot;2024&quot;},{&quot;year&quot;:2025,&quot;type&quot;:&quot;turning&quot;,&quot;title&quot;:&quot;人的資本経営プラットフォームとしての提供価値を強める&quot;,&quot;speaker&quot;:&quot;これから&quot;,&quot;desc&quot;:&quot;人事労務で蓄積されるデータを、組織状態の可視化や人材活用につなげる方向へ進化。バックオフィスSaaSから経営インフラへの転換が見えている。&quot;,&quot;url&quot;:&quot;&quot;,&quot;date&quot;:&quot;2025&quot;},{&quot;year&quot;:2026,&quot;type&quot;:&quot;business&quot;,&quot;title&quot;:&quot;周辺業務連携と分析機能を強化&quot;,&quot;speaker&quot;:&quot;最近の動き&quot;,&quot;desc&quot;:&quot;給与、勤怠、採用、評価など周辺領域との連携を強め、人事データを横断的に扱える状態を目指している。&quot;,&quot;url&quot;:&quot;&quot;,&quot;date&quot;:&quot;2026&quot;}],&quot;news_sources&quot;:[{&quot;label&quot;:&quot;公式ブログ&quot;,&quot;mode&quot;:&quot;link&quot;},{&quot;label&quot;:&quot;PR TIMES&quot;,&quot;mode&quot;:&quot;link&quot;},{&quot;label&quot;:&quot;採用情報&quot;,&quot;mode&quot;:&quot;link&quot;}],&quot;news_links&quot;:[{&quot;label&quot;:&quot;SmartHR公式サイト（モック）&quot;,&quot;url&quot;:&quot;https://smarthr.example.com/&quot;},{&quot;label&quot;:&quot;SmartHRサービスサイト（モック）&quot;,&quot;url&quot;:&quot;https://smarthr.example.com/product/&quot;}]};
 const STARTUPFILE_FALLBACK_INDEX = [{&quot;company_id&quot;: &quot;c0001&quot;, &quot;name&quot;: &quot;SmartHR&quot;, &quot;color&quot;: &quot;#0F7A64&quot;, &quot;summary&quot;: &quot;人事データの入口&quot;, &quot;sector1&quot;: &quot;HR / SaaS&quot;, &quot;founded&quot;: &quot;2013&quot;}, {&quot;company_id&quot;: &quot;c0002&quot;, &quot;name&quot;: &quot;カミナシ&quot;, &quot;color&quot;: &quot;#1A5EC2&quot;, &quot;summary&quot;: &quot;現場をスマホで変える&quot;, &quot;sector1&quot;: &quot;Field DX&quot;, &quot;founded&quot;: &quot;2016&quot;}, {&quot;company_id&quot;: &quot;c0003&quot;, &quot;name&quot;: &quot;CADDi&quot;, &quot;color&quot;: &quot;#A86010&quot;, &quot;summary&quot;: &quot;図面データから製造業を見る&quot;, &quot;sector1&quot;: &quot;Manufacturing&quot;, &quot;founded&quot;: &quot;2017&quot;}, {&quot;company_id&quot;: &quot;c0004&quot;, &quot;name&quot;: &quot;LayerX&quot;, &quot;color&quot;: &quot;#5A3FBF&quot;, &quot;summary&quot;: &quot;お金の流れとバックオフィス&quot;, &quot;sector1&quot;: &quot;Fintech / AI&quot;, &quot;founded&quot;: &quot;2018&quot;}, {&quot;company_id&quot;: &quot;c0005&quot;, &quot;name&quot;: &quot;HERP&quot;, &quot;color&quot;: &quot;#1A7A3C&quot;, &quot;summary&quot;: &quot;採用管理&quot;, &quot;sector1&quot;: &quot;Recruiting&quot;, &quot;founded&quot;: &quot;2017&quot;}, {&quot;company_id&quot;: &quot;c0006&quot;, &quot;name&quot;: &quot;estie&quot;, &quot;color&quot;: &quot;#C02020&quot;, &quot;summary&quot;: &quot;不動産データ&quot;, &quot;sector1&quot;: &quot;Real Estate&quot;, &quot;founded&quot;: &quot;2018&quot;}, {&quot;company_id&quot;: &quot;c0007&quot;, &quot;name&quot;: &quot;Ubie&quot;, &quot;color&quot;: &quot;#0F7A64&quot;, &quot;summary&quot;: &quot;医療体験&quot;, &quot;sector1&quot;: &quot;HealthTech&quot;, &quot;founded&quot;: &quot;2017&quot;}, {&quot;company_id&quot;: &quot;c0008&quot;, &quot;name&quot;: &quot;LegalOn&quot;, &quot;color&quot;: &quot;#1A5EC2&quot;, &quot;summary&quot;: &quot;契約審査&quot;, &quot;sector1&quot;: &quot;LegalTech&quot;, &quot;founded&quot;: &quot;2017&quot;}];
 
 // JSON（build_company_json.py 出力）→ 画面が期待する形へ変換
@@ -3938,7 +3927,7 @@ async function loadCompany(id) {
 // ヘッダー用の企業概要文（ミッション直下に表示）
 // デザイン確認用にSmartHRだけ固定文を持たせています。量産時はDBの事業概要を使います。
 const SMARTHR_HEADER_OVERVIEW =
-  '入社手続き・雇用契約・年末調整などの人事労務をクラウド化するプロダクトを起点に、従業員データ、タレントマネジメント、人的資本開示、給与計算へと領域を拡張している。';
+  'SmartHRは、入社手続き・雇用契約・年末調整などの人事労務をクラウド化するサービスを起点に、従業員データの整備、タレントマネジメント、人的資本経営、給与・周辺業務連携へと提供領域を広げている。';
 
 function isSmartHRCompany(c) {
   const keys = [
@@ -4305,81 +4294,13 @@ function toggleAcc(btn) {
 // ════════════════════════════════════════════════
 const VOICE_SAMPLE = {
   sections: [
-    {
-      no:'01', title:'創業者が見ていた課題',
-      body:`SmartHRは、創業者・宮田昇始氏が妊娠中のパートナーが産休・育休関連の紙書類に向き合う姿を見た実体験を起点に生まれた。社会保障制度は本来人々を支える仕組みでありながら、申請や届け出が複雑で従業員・企業双方に大きな負担がかかっている。背景には、&lt;strong&gt;労働人口の減少・働き方の多様化・人的資本開示への対応・レガシーシステムからの移行といったバックオフィスDXの遅れ&lt;/strong&gt;という構造的課題が同時進行している現状がある。SmartHRは「すべての働く人に関わるが、紙・手作業・非効率が残る巨大な業務領域」をクラウド化し、人事労務の入り口を押さえるプロダクトとして立ち上がった。`,
-      sources:[
-        {title:`事業から見るSmartHR`, url:`https://smarthr.co.jp/about/business/`},
-        {title:`SmartHR 10th Anniversary`, url:`https://smarthr.jp/smarthr-10th-anniversary/`},
-        {title:`シリーズE資金調達プレスリリース`, url:`https://smarthr.co.jp/news/press/27110/`},
-        {title:`SmartHRがARR150億円を突破`, url:`https://smarthr.co.jp/news/info/26682/`},
-        {title:`SmartHRが7年連続シェアNo.1を獲得`, url:`https://prtimes.jp/main/html/rd/p/000000432.000015987.html`},
-      ],
-    },
-    {
-      no:'02', title:'サービスの内容や特徴',
-      body:`SmartHRは、入社手続き・雇用契約・年末調整・給与明細などをクラウドでペーパーレス化し、&lt;strong&gt;1,000名規模で合計工数約88%削減&lt;/strong&gt;を実現する人事労務SaaS。業務効率化の過程で従業員データが自然に蓄積され、そのデータを人事評価・配置・サーベイ・人的資本開示に活用できる点が特徴。労務管理を起点に、タレントマネジメント・従業員データベース・給与計算・採用管理・ID管理・アプリストア「SmartHR Plus」などへ提供領域を広げ、&lt;strong&gt;単一プロダクトからマルチプロダクトへと進化&lt;/strong&gt;している。`,
-      sources:[
-        {title:`SmartHRサービスサイト`, url:`https://smarthr.jp/`},
-        {title:`SmartHRタレントマネジメント`, url:`https://smarthr.jp/talent-management/`},
-        {title:`事業から見るSmartHR`, url:`https://smarthr.co.jp/about/business/`},
-        {title:`SmartHRが「人的資本経営プラットフォーム」へ進化`, url:`https://smarthr.jp/release/20250603_jigyousenryaku/`},
-      ],
-    },
-    {
-      no:'03', title:'マーケット状況と優位性',
-      body:`SmartHRは登録社数&lt;strong&gt;80,000社以上&lt;/strong&gt;を突破し、&lt;strong&gt;2025年5月時点でARRが200億円&lt;/strong&gt;を超え、労務管理クラウド市場で&lt;strong&gt;7年連続シェアNo.1&lt;/strong&gt;（2026年度も8年連続を見込む）を獲得。一方で日本には&lt;strong&gt;330万社を超える企業&lt;/strong&gt;があり開拓余地は大きく、2030年には売上1,000億円を目標に掲げる、成長余地の大きいレイターステージSaaSである。この市場地位を支えるのが、&lt;strong&gt;行政電子申請連携など参入障壁の高いコア機能の先行実装&lt;/strong&gt;、&lt;strong&gt;業務フローに組み込まれ従業員データが蓄積される高いスイッチングコスト&lt;/strong&gt;、&lt;strong&gt;120以上の外部サービス連携&lt;/strong&gt;、そして&lt;strong&gt;従業員自身も使う広い企業内接点&lt;/strong&gt;という自社ならではの優位性である。`,
-      sources:[
-        {title:`事業から見るSmartHR`, url:`https://smarthr.co.jp/about/business/`},
-        {title:`SmartHRが7年連続シェアNo.1を獲得`, url:`https://prtimes.jp/main/html/rd/p/000000432.000015987.html`},
-        {title:`SmartHRが「人的資本経営プラットフォーム」へ進化`, url:`https://smarthr.jp/release/20250603_jigyousenryaku/`},
-        {title:`SmartHRサービスビジョン`, url:`https://smarthr.jp/about/service-vision/`},
-        {title:`SmartHRサービスサイト`, url:`https://smarthr.jp/`},
-      ],
-    },
-    {
-      no:'04', title:'事業の展望とこれから目指す世界',
-      body:`SmartHRは「&lt;strong&gt;労働にまつわる社会課題をなくし、誰もがその人らしく働ける社会をつくる&lt;/strong&gt;」をミッションに掲げ、管理部門だけでなく現場の管理職や従業員も含めた&quot;働くみんなが使いやすい&quot;システム（サービスビジョン「worker-friendly」）を志向している。今後は「&lt;strong&gt;人的資本経営プラットフォーム&lt;/strong&gt;」への進化を掲げ、①クラウド人事給与基幹システムへの進化、②AIによる業務効率化と人的資本経営の推進、③HR SaaS以外の領域への拡張を注力ポイントとする。シリーズEの資金は新プロダクト開発・S&amp;M拡大・M&amp;A・AI等の新技術投資に充てられる。`,
-      sources:[
-        {title:`SmartHRが「人的資本経営プラットフォーム」へ進化`, url:`https://smarthr.jp/release/20250603_jigyousenryaku/`},
-        {title:`シリーズE資金調達プレスリリース`, url:`https://smarthr.co.jp/news/press/27110/`},
-        {title:`事業から見るSmartHR`, url:`https://smarthr.co.jp/about/business/`},
-        {title:`私たちについて — SmartHR`, url:`https://smarthr.co.jp/about/`},
-        {title:`SmartHRサービスビジョン`, url:`https://smarthr.jp/about/service-vision/`},
-        {title:`10周年記念プレスリリース`, url:`https://smarthr.jp/release/20250623_10thanniversary/`},
-      ],
-    },
+    { no:'01', title:'創業者が見ていた課題', body:`SmartHRの原点は、紙の申請書、押印、郵送、Excel管理が残る人事労務の現場にある。入社、雇用契約、年末調整、社会保険などの手続きは、働く人にとっても人事担当者にとっても避けて通れない業務でありながら、複雑でミスが起こりやすく、企業の成長に合わせて負担が大きくなりやすい。SmartHRは、この「誰にでも関係するが、なかなか改善されてこなかった業務」をクラウド化し、働く人と組織が手続きではなく本来向き合うべき仕事に時間を使える状態をつくろうとしている。`, sources:[{title:`参考モック：創業背景メモ`, url:`https://smarthr.example.com/story/founder`}] },
+    { no:'02', title:'サービスの内容や特徴', body:`SmartHRは、入社手続き、雇用契約、年末調整、申請・承認、給与明細などの人事労務業務をオンラインで完結できるクラウドサービスとして始まった。従業員自身が入力し、人事担当者が確認し、必要な情報が従業員データベースとして整うため、単なる手続き効率化にとどまらない。そこから評価、配置、サーベイ、人的資本開示、外部サービス連携へと広がることで、日々の業務で蓄積される人事データを、組織の意思決定に使える状態へ変えている点が特徴である。`, sources:[{title:`参考モック：サービス概要`, url:`https://smarthr.example.com/product`}] },
+    { no:'03', title:'マーケット状況と優位性', body:`人事・労務領域は、法改正対応、働き方の多様化、人的資本開示、エンタープライズ企業のDX需要を背景に、継続的なクラウド化余地が大きい領域である。SmartHRの強みは、労務手続きという利用頻度と必然性の高い業務から入り、従業員情報を正しく集められることにある。導入後は人事データが蓄積され、関連業務や外部サービスとの接続が増えるほど、組織内での重要性が高まりやすい。使いやすいUI、法令対応、導入基盤、連携エコシステムが積み上がることで、単機能SaaSではなく人事データの入口としての優位性が生まれている。`, sources:[{title:`参考モック：市場・競争環境メモ`, url:`https://smarthr.example.com/market`}] },
+    { no:'04', title:'事業の展望とこれから目指す世界', body:`今後のSmartHRは、労務管理の効率化だけでなく、働く人と組織の状態を可視化し、より良い人事判断を支える基盤へ進化していく可能性がある。従業員データ、評価、配置、サーベイ、給与、人的資本開示がつながることで、人事部門だけでなく経営層や現場マネージャーも同じ情報をもとに意思決定できるようになる。会社が大きくなるほど、人と組織に関する情報は分断されやすい。SmartHRは、その分断をほどき、誰もが能力を発揮しやすい組織づくりを支えるインフラを目指している。`, sources:[{title:`参考モック：事業展望メモ`, url:`https://smarthr.example.com/future`}] },
   ],
   investors:[
-    {
-      name:&quot;Ontario Teachers' Pension Plan&quot;,
-      person:&quot;Olivia Steedman（Executive Managing Director, Teachers' Venture Growth）&quot;,
-      round:&quot;Series E リード (2024年)&quot;,
-      txt:`「SmartHRは、企業規模を問わず、従業員の&lt;strong&gt;労務管理とタレントマネジメントを改善する革新的な手段&lt;/strong&gt;を提供してきた。日本企業がデジタルトランスフォーメーションを進める中で、SmartHRは労務管理を中心とした幅広いニーズを支援できる優位なポジションにある。グローバルな知見を活かし、成長に向けた価値共創を期待している。」`,
-      sources:[
-        {title:`シリーズEプレスリリース`, url:`https://smarthr.co.jp/news/press/27110/`},
-        {title:`Ontario Teachers' / KKR共同発表`, url:`https://www.otpp.com/en-ca/about-us/news-and-insights/2024/kkr-and-teachers-venture-growth-lead-us-140-million-series-e-round-in-leading-japanese-cloud-native-human-resources-software-platform-smarthr/`},
-      ],
-    },
-    {
-      name:&quot;KKR&quot;,
-      person:&quot;Mukul Chawla（Partner and Head of Growth Equity, Asia Pacific）&quot;,
-      round:&quot;Series E 共同リード (2024年)&quot;,
-      txt:`「SmartHRは&lt;strong&gt;日本を代表するHR SaaSプラットフォームの一つ&lt;/strong&gt;であり、デジタル化とクラウド普及を通じて国内の労働生産性向上に重要な役割を果たしている。KKRのテクノロジー・グロース投資戦略を通じ、グローバルな知見・ベストプラクティス・ネットワークを活用してSmartHRの次の成長フェーズを支援する。SmartHRは日本のニューエコノミーを象徴する企業。」`,
-      sources:[
-        {title:`シリーズEプレスリリース`, url:`https://smarthr.co.jp/news/press/27110/`},
-      ],
-    },
-    {
-      name:&quot;Light Street Capital&quot;,
-      person:&quot;Gaurav Gupta（Partner at Light Street Capital）&quot;,
-      round:&quot;Series C〜E 継続投資&quot;,
-      txt:`「SmartHRを&lt;strong&gt;日本企業における人事データベース&lt;/strong&gt;として評価。市場全体および大企業における高いシェア、労務管理から人材マネジメントへの戦略的なプラットフォーム拡張、経営陣の実行力を高く評価している。人口動態や規制変化を背景に、より多くの日本企業でSaaS型HRソリューションの導入が進む中、SmartHRには&lt;strong&gt;長い成長余地&lt;/strong&gt;がある。」`,
-      sources:[
-        {title:`シリーズD資金調達プレスリリース`, url:`https://smarthr.jp/release/25704/`},
-        {title:`シリーズEプレスリリース`, url:`https://smarthr.co.jp/news/press/27110/`},
-      ],
-    },
+    { name:'Series E 投資家コメント（モック）', person:'グロース投資家・コメント要約', round:'Series E相当', txt:`「SmartHRは、人事労務という企業に必ず存在する業務を起点に、従業員データの基盤へと広がっている。導入社数、プロダクトの拡張性、法改正対応力、エンタープライズ領域への浸透を踏まえると、国内SaaSの中でも長期的に経営インフラ化する可能性を持つ会社だと見ている。」`, sources:[{title:`参考モック：投資家コメント`, url:`https://smarthr.example.com/investor-comment`}] },
   ],
 };
 
@@ -4390,10 +4311,8 @@ const VOICE_SAMPLE = {
 //   ・見どころ、基本情報、成長推移グラフ、データの出典はHTML側に静的配置
 // ════════════════════════════════════════════════
 function hasVoiceData(c) {
-  return !!(c &amp;&amp; c.voice &amp;&amp; (
-    (c.voice.sections &amp;&amp; c.voice.sections.length) ||
-    (c.voice.investors &amp;&amp; c.voice.investors.length)
-  ));
+  // 現状はSmartHRのみVOICE_SAMPLEを使う。今後はc.voice等を確認。
+  return c &amp;&amp; /smarthr|スマートHR|SmartHR/i.test(c.name || '');
 }
 
 function renderFocus(c) {
@@ -4431,49 +4350,42 @@ function renderFocus(c) {
 }
 
 function renderVoicePanel(c) {
-  const wrap = document.getElementById(&#x27;voice-panel-dynamic&#x27;);
+  const wrap = document.getElementById('voice-panel-dynamic');
   if (!wrap) return;
 
-  const mkBody = (body) =&gt; escapeHtmlSafe(body || &#x27;&#x27;).replace(/\\n/g,&#x27;&lt;br&gt;&#x27;);
   const mkSources = (srcs) =&gt; (srcs &amp;&amp; srcs.length)
-    ? `&lt;div class=&quot;v-sources&quot;&gt;${srcs.filter(s=&gt;s &amp;&amp; s.url).map(s=&gt;`&lt;a class=&quot;v-src&quot; href=&quot;${s.url}&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;${escapeHtmlSafe(s.title || &#x27;出典&#x27;)} ↗&lt;/a&gt;`).join(&#x27;&#x27;)}&lt;/div&gt;`
-    : &#x27;&#x27;;
+    ? `&lt;div class=&quot;v-sources&quot;&gt;${srcs.map(s=&gt;`&lt;a class=&quot;v-src&quot; href=&quot;${s.url||'#'}&quot; target=&quot;_blank&quot;&gt;${s.title} ↗&lt;/a&gt;`).join('')}&lt;/div&gt;`
+    : '';
 
-  let html = &#x27;&#x27;;
+  let html = '';
   if (hasVoiceData(c)) {
-    const v = c.voice || {};
-    const sections = v.sections || [];
     html += `&lt;div class=&quot;sec-heading&quot;&gt;会社の思い&lt;/div&gt;`;
-    if (v.summary) {
-      html += `&lt;div class=&quot;focus-voice-quiet&quot; style=&quot;margin-bottom:12px&quot;&gt;&lt;span class=&quot;focus-voice-quiet-msg&quot;&gt;${escapeHtmlSafe(v.summary)}&lt;/span&gt;&lt;/div&gt;`;
-    }
-    if (sections.length) {
-      html += `&lt;div class=&quot;voice-group&quot;&gt;`;
-      sections.forEach(sec =&gt; {
-        if(!sec || !sec.body) return;
-        html += `
-          &lt;div class=&quot;voice-chapter&quot;&gt;
-            &lt;div class=&quot;voice-chapter-title&quot;&gt;${escapeHtmlSafe(sec.title)}&lt;/div&gt;
-            &lt;div class=&quot;v-card&quot;&gt;
-              &lt;div class=&quot;v-card-body&quot;&gt;${mkBody(sec.body)}&lt;/div&gt;
-            &lt;/div&gt;
-            ${mkSources(sec.sources || [])}
-          &lt;/div&gt;`;
-      });
-      html += `&lt;/div&gt;`;
-    }
+    html += ``;
+    const v = VOICE_SAMPLE;
+    html += `&lt;div class=&quot;voice-group&quot;&gt;`;
+    v.sections.forEach(sec =&gt; {
+      html += `
+        &lt;div class=&quot;voice-chapter&quot;&gt;
+          &lt;div class=&quot;voice-chapter-title&quot;&gt;${sec.title}&lt;/div&gt;
+          &lt;div class=&quot;v-card&quot;&gt;
+            &lt;div class=&quot;v-card-body&quot;&gt;${sec.body}&lt;/div&gt;
+          &lt;/div&gt;
+          ${mkSources(sec.sources)}
+        &lt;/div&gt;`;
+    });
     if (v.investors &amp;&amp; v.investors.length) {
       html += `
         &lt;div class=&quot;voice-chapter&quot;&gt;
           &lt;div class=&quot;voice-chapter-title&quot;&gt;投資家・関係者の期待&lt;/div&gt;
           ${v.investors.map(vc=&gt;`
             &lt;div class=&quot;v-card&quot;&gt;
-              &lt;div class=&quot;v-card-meta&quot;&gt;&lt;span class=&quot;v-badge&quot;&gt;${escapeHtmlSafe(vc.name || &#x27;VC&#x27;)}&lt;/span&gt;&lt;/div&gt;
-              &lt;div class=&quot;v-card-body&quot;&gt;${mkBody(vc.summary || vc.txt || &#x27;&#x27;)}${vc.person ? `&lt;div class=&quot;v-speaker&quot;&gt;— ${escapeHtmlSafe(vc.person)}${vc.round ? &#x27; · &#x27; + escapeHtmlSafe(vc.round) : &#x27;&#x27;}&lt;/div&gt;` : &#x27;&#x27;}&lt;/div&gt;
-            &lt;/div&gt;`).join(&#x27;&#x27;)}
+              &lt;div class=&quot;v-card-meta&quot;&gt;&lt;span class=&quot;v-badge&quot;&gt;${vc.name}&lt;/span&gt;&lt;/div&gt;
+              &lt;div class=&quot;v-card-body&quot;&gt;${vc.txt}&lt;div class=&quot;v-speaker&quot;&gt;— ${vc.person} · ${vc.round}&lt;/div&gt;&lt;/div&gt;
+            &lt;/div&gt;`).join('')}
           ${mkSources(v.investors.flatMap(vc=&gt;vc.sources||[]))}
         &lt;/div&gt;`;
     }
+    html += `&lt;/div&gt;`;
   } else {
     html += `
       &lt;div class=&quot;focus-voice-quiet&quot;&gt;
@@ -4485,10 +4397,8 @@ function renderVoicePanel(c) {
 
 // 軽量HTMLエスケープ（タイトル等のサニタイズ用）
 function escapeHtmlSafe(s){
-  return String(s||&#x27;&#x27;).replace(/[&amp;&lt;&gt;\&quot;]/g, c=&gt;({&#x27;&amp;&#x27;:&#x27;&amp;amp;&#x27;,&#x27;&lt;&#x27;:&#x27;&amp;lt;&#x27;,&#x27;&gt;&#x27;:&#x27;&amp;gt;&#x27;,&#x27;&quot;&#x27;:&#x27;&amp;quot;&#x27;})[c]);
+  return String(s||'').replace(/[&amp;&lt;&gt;&quot;]/g, c=&gt;({'&amp;':'&amp;amp;','&lt;':'&amp;lt;','&gt;':'&amp;gt;','&quot;':'&amp;quot;'})[c]);
 }
-
-
 
 // 重要トピックスを優先順位でピック
 function pickImportantTopics(c, limit) {
@@ -4521,7 +4431,7 @@ function pickImportantTopics(c, limit) {
 // ════════════════════════════════════════════════
 const WHY_COPY_OVERRIDES = {
   // デザイン確認用。後でDB側に「編集コメント」列を持たせる場合は、ここを置き換える。
-  'SmartHR': 'SmartHRは、単なる労務管理SaaSではなく、企業に蓄積される従業員データを起点に、人事労務・タレントマネジメント・人的資本経営を横断するプラットフォームへ広がろうとしている企業です。大型調達、ARR200億円超、登録社数8万社超という届いているサインに加え、採用・カルチャー・組織の発信が豊富で、国内SaaSが「単一プロダクト」から「経営基盤」へ進化する流れを象徴しています。'
+  'SmartHR': 'SmartHRは、紙・ハンコ・郵送に残っていた人事労務の負担を軽くするところから始まり、いまでは従業員データを起点に人事労務・タレントマネジメント・人的資本経営を横断する基盤へ広がっている企業です。使いやすさ、法改正対応、導入企業基盤、周辺サービス連携を背景に、国内SaaSが業務効率化から経営インフラへ進化する流れを確認できます。'
 };
 
 function renderHighlights(c, lastEmp, lastFund) {
@@ -5050,45 +4960,26 @@ const INITIAL_SHOW = 10; // 11件以上はアコーディオン（10件表示→
 // ════════════════════════════════════════════════
 // ↓ 既定はオフライン用サンプル。本番では data/{company}.json を読み込んで置き換える。
 let FEED = [
-  // ── 直近1ヶ月（11件以上：アコーディオン確認用） ──
-  {date:'2026-06-18', src:'pr',       title:'SmartHR、クラウドシフト管理「らくしふ」を運営する株式会社クロスビットをグループ会社化', url:'https://prtimes.jp/main/html/searchrlp/company_id/15987'},
-  {date:'2026-06-16', src:'official', title:'SmartHR、人事・労務向け新機能のアップデート情報を公開', url:'https://smarthr.co.jp/news/'},
-  {date:'2026-06-14', src:'gnews',    title:'SmartHRが7年連続シェアNo.1、登録社数80,000社突破と各メディアが報道', url:'https://news.google.com/'},
-  {date:'2026-06-12', src:'note',     title:'【note】働き方制度2025のその後 ― カフェテリアプラン導入から半年の振り返り', url:'https://note.com/smarthr_co'},
-  {date:'2026-06-10', src:'blog',     title:'【開発者ブログ】大規模テナントにおける権限管理のリアーキテクチャ', url:'https://tech.smarthr.jp/'},
-  {date:'2026-06-08', src:'pr',       title:'SmartHR、『well-working story 2026』を公開', url:'https://prtimes.jp/main/html/searchrlp/company_id/15987'},
-  {date:'2026-06-05', src:'gnews',    title:'労務管理クラウド市場、2026年度も拡大基調 ― 主要ベンダーの動向', url:'https://news.google.com/'},
-  {date:'2026-06-03', src:'ipforce',  title:'SmartHR、従業員データ連携に関する特許を出願（公開番号）', url:'https://ipforce.jp/'},
-  {date:'2026-06-01', src:'official', title:'第47回日本BtoB広告賞 ウェブサイト〈企業・学校PR〉の部で10周年特設サイトが金賞を受賞', url:'https://smarthr.co.jp/news/'},
-  {date:'2026-05-29', src:'note',     title:'【note】SmartHRのデザイン組織のいま ― アクセシビリティへの取り組み', url:'https://note.com/smarthr_co'},
-  {date:'2026-05-27', src:'jglobal',  title:'J-GLOBAL：SmartHR関連の研究者・技術文献情報を更新', url:'https://jglobal.jst.go.jp/'},
-  {date:'2026-05-24', src:'blog',     title:'【開発者ブログ】Railsアップグレード戦略と段階的移行の実践', url:'https://tech.smarthr.jp/'},
-
-  // ── 直近1年（1ヶ月超〜1年以内：11件以上） ──
-  {date:'2026-04-20', src:'pr',       title:'SmartHR、新たにサービスカテゴリーブランドを展開。「労務管理」「タレントマネジメント」をリニューアル', url:'https://prtimes.jp/main/html/searchrlp/company_id/15987'},
-  {date:'2026-04-02', src:'official', title:'2025年度 人的資本レポートを公開', url:'https://smarthr.co.jp/news/'},
-  {date:'2026-03-18', src:'gnews',    title:'SmartHR、製薬・医療領域での導入が拡大とメディア報道', url:'https://news.google.com/'},
-  {date:'2026-02-25', src:'note',     title:'【note】1,593名体制・「スケールアップ企業」宣言の背景', url:'https://note.com/smarthr_co'},
-  {date:'2026-02-10', src:'ipforce',  title:'SmartHR、給与計算処理に関する特許が登録', url:'https://ipforce.jp/'},
-  {date:'2026-01-28', src:'blog',     title:'【開発者ブログ】マルチプロダクト時代のデータ基盤設計', url:'https://tech.smarthr.jp/'},
-  {date:'2026-01-15', src:'pr',       title:'SmartHR、年末調整機能の大型アップデートを実施', url:'https://prtimes.jp/main/html/searchrlp/company_id/15987'},
-  {date:'2025-12-12', src:'official', title:'「働きがいのある会社」女性ランキングで2年連続ベスト100入賞', url:'https://smarthr.co.jp/news/'},
-  {date:'2025-11-20', src:'gnews',    title:'SmartHR、ARR200億円突破と各社が報道', url:'https://news.google.com/'},
-  {date:'2025-10-30', src:'jglobal',  title:'J-GLOBAL：人的資本経営に関する技術動向を更新', url:'https://jglobal.jst.go.jp/'},
-  {date:'2025-09-18', src:'note',     title:'【note】働き方制度を2025年版に刷新 ― ワークライフインテグレーション', url:'https://note.com/smarthr_co'},
-  {date:'2025-08-05', src:'blog',     title:'【開発者ブログ】SRE体制の立ち上げと信頼性指標の運用', url:'https://tech.smarthr.jp/'},
-
-  // ── 直近3年（1年超〜3年以内） ──
-  {date:'2025-05-22', src:'pr',       title:'サービス10周年・登録7万社突破 ― プラットフォーム化を加速', url:'https://prtimes.jp/main/html/searchrlp/company_id/15987'},
-  {date:'2025-03-10', src:'official', title:'創業者・宮田、元CFO玉木が退任 ― 創業12年の区切り', url:'https://smarthr.co.jp/news/'},
-  {date:'2024-12-01', src:'gnews',    title:'SmartHR、シリーズEで214億円調達と各メディアが報道', url:'https://news.google.com/'},
-  {date:'2024-09-15', src:'note',     title:'【note】本社移転とこれからの働き方', url:'https://note.com/smarthr_co'},
-  {date:'2024-06-08', src:'ipforce',  title:'SmartHR、電子申請連携に関する特許を出願', url:'https://ipforce.jp/'},
-  {date:'2024-03-20', src:'blog',     title:'【開発者ブログ】大規模リファクタリングの進め方', url:'https://tech.smarthr.jp/'},
-  {date:'2023-11-12', src:'jglobal',  title:'J-GLOBAL：労務DXに関する文献情報を更新', url:'https://jglobal.jst.go.jp/'},
-  {date:'2023-09-01', src:'official', title:'タレントマネジメント機能の提供を開始', url:'https://smarthr.co.jp/news/'},
+  {date:'2026-06-18', src:'official', title:'SmartHR、人事データ分析機能「HR Insight」を正式リリース', url:'https://smarthr.example.com/news/hr-insight'},
+  {date:'2026-06-12', src:'pr',       title:'SmartHR、勤怠・給与領域とのAPI連携を強化', url:'https://smarthr.example.com/news/api-partner'},
+  {date:'2026-06-05', src:'gnews',    title:'人事労務クラウド市場、人的資本経営ニーズを背景に拡大基調', url:'https://news.google.com/'},
+  {date:'2026-05-27', src:'blog',     title:'プロダクト横断で従業員データを扱うための設計思想を公開', url:'https://smarthr.example.com/blog/data-platform'},
+  {date:'2026-05-10', src:'note',     title:'SmartHRの組織づくり：マルチプロダクト化に合わせたチーム設計', url:'https://smarthr.example.com/note/org'},
+  {date:'2026-04-20', src:'pr',       title:'SmartHR、タレントマネジメント領域の機能群を刷新', url:'https://smarthr.example.com/news/talent-management'},
+  {date:'2026-04-02', src:'official', title:'人的資本レポートのサンプルテンプレートを公開', url:'https://smarthr.example.com/news/human-capital-report'},
+  {date:'2026-03-18', src:'gnews',    title:'大企業での人事DX導入、労務管理からデータ活用へ広がる動き', url:'https://news.google.com/'},
+  {date:'2026-02-25', src:'note',     title:'エンタープライズ顧客に向き合うカスタマーサクセス体制を紹介', url:'https://smarthr.example.com/note/cs-enterprise'},
+  {date:'2026-01-15', src:'official', title:'年末調整機能のアップデートと法改正対応を発表', url:'https://smarthr.example.com/news/year-end-adjustment'},
+  {date:'2025-12-12', src:'official', title:'働き方制度と組織文化に関する社内レポートを公開', url:'https://smarthr.example.com/news/culture-report'},
+  {date:'2025-11-20', src:'gnews',    title:'SmartHR、ARR200億円突破と複数メディアが報道', url:'https://news.google.com/'},
+  {date:'2025-09-18', src:'blog',     title:'人事データ基盤としてのSmartHR Plus連携の現在地', url:'https://smarthr.example.com/blog/plus'},
+  {date:'2025-05-22', src:'pr',       title:'サービス10周年にあわせ、今後のプロダクト戦略を発表', url:'https://smarthr.example.com/news/10th-strategy'},
+  {date:'2025-03-10', src:'official', title:'創業期からの歩みと経営体制の節目について発表', url:'https://smarthr.example.com/news/founder-transition'},
+  {date:'2024-12-01', src:'gnews',    title:'SmartHR、Series E相当の大型資金調達を実施と報道', url:'https://news.google.com/'},
+  {date:'2024-09-15', src:'note',     title:'本社移転とこれからの働き方に関する発信を公開', url:'https://smarthr.example.com/note/workstyle'},
+  {date:'2024-03-20', src:'blog',     title:'大規模プロダクト運用を支える基盤刷新の取り組み', url:'https://smarthr.example.com/blog/platform'},
+  {date:'2023-09-01', src:'official', title:'タレントマネジメント機能の提供開始を発表', url:'https://smarthr.example.com/news/talent-launch'},
 ];
-
 // ════════════════════════════════════════════════
 //  描画
 // ════════════════════════════════════════════════
@@ -5872,7 +5763,7 @@ if (document.readyState === 'loading') {
 </script>
 <script>
 /* =========================================================
-   StartupFile dynamic bridge v5 minimal-DB
+   StartupFile dynamic bridge v4
    - 添付モックのCSS/HTML構造は変更しない
    - GASデータが取れる場合だけ、同じクラス構造に流し込む
    - 詳細ページのURL遷移を ?view=detail&id=...&tab=... に統一
@@ -6069,12 +5960,21 @@ if (document.readyState === 'loading') {
     const set = (sel, val) => { const el = document.querySelector(sel); if(el && val) el.textContent = val; };
     set('.detail-breadcrumb', `StartupFile / 企業詳細 / ${company.sector1 || company.domain1 || ''} / ${company.name || company.company || id}`);
     set('.co-name-current', company.name || company.company || id);
-    set('.co-hook-current', (company.hero && (company.hero.catchcopy || company.hero.one_liner)) || company.mission || company.summary || company.one_liner || 'この会社の変化を見る。');
+    set('.co-hook-current', (company.hero && company.hero.one_liner) || company.one_liner || company.mission || company.summary || 'この会社の変化を見る。');
     set('.co-overview-current', company.summary || company.biz_desc || company.mission || '');
-    set('.detail-one-line-text', (company.hero && (company.hero.growth_story || company.hero.storyline || company.hero.story)) || company.growth_story || company.storyline || company.summary || company.mission || 'この会社の事業・成長・発信から、いまの変化を見ていきます。');
-    set('.detail-storyline-text', (company.hero && (company.hero.growth_story || company.hero.storyline || company.hero.story)) || company.growth_story || company.storyline || '');
+    set('.detail-one-line-text', (company.hero && company.hero.one_liner) || company.one_liner || company.mission || company.summary || 'この会社の事業・成長・発信から、いまの変化を見ていきます。');
+    set('.detail-storyline-text', (company.hero && company.hero.storyline) || company.storyline || company.summary || '数字や出来事だけでなく、会社がどこへ向かっているかを確認します。');
     const chips = document.querySelector('.co-hero-chips');
-    if(chips){ chips.innerHTML = ''; chips.style.display = 'none'; }
+    if(chips){
+      const head = (company.headcount || []).slice(-1)[0];
+      const fund = (company.funding || []).slice(-1)[0];
+      chips.innerHTML = [
+        company.raised_total ? `<span><b>届いているサイン</b> ${esc(company.raised_total)}</span>` : '',
+        head && head.count ? `<span><b>組織の広がり</b> ${esc(head.count)}名</span>` : '',
+        fund && fund.round ? `<span><b>直近ラウンド</b> ${esc(fund.round)}</span>` : '',
+        company.sector1 ? `<span><b>向き合うテーマ</b> ${esc(company.sector1)}</span>` : ''
+      ].filter(Boolean).join('');
+    }
     const links = company.links || {};
     const materials = document.querySelector('.detail-materials-grid');
     if(materials){
@@ -6106,7 +6006,8 @@ if (document.readyState === 'loading') {
       setViewNoScroll('detail');
       loadAndApplyDetail(id || 'c0001', tab);
     }else{
-      setViewNoScroll('top');
+      setViewNoScroll('detail');
+      loadAndApplyDetail('c0001', 'focus');
     }
   }
 
