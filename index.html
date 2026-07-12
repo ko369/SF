@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="ja" data-api-url="">
+<html lang="ja" data-api-url="https://script.google.com/macros/s/XXXX/exec">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -3796,7 +3796,10 @@ function adaptCompany(j) {
     urls: { corp: L.hp||'', svc: L.service||'', hire: L.recruit||'', deck: L.culture||'', ir: L.ir||'', svc_doc: L.service_doc||'' },
     emp, fund, perf, vc, topics, refs,
     // 最近の動きタブ用（自動取得設定）
-    news_sources: j.news_sources || [], news_links: j.news_links || []
+    news_sources: j.news_sources || [], news_links: j.news_links || [],
+    // コメントシート由来の「会社の思い」。GASの buildVoiceFromComment_() が返す構造を保持する。
+    voice: j.voice || null,
+    comment: j.comment || null
   };
 }
 
@@ -3817,7 +3820,7 @@ async function fetchCompany(id) {
   // ① GAS API が設定されていれば、そこから1社の詳細を取得
   if (API_URL) {
     try {
-      const res = await fetch(`${API_URL}?id=${encodeURIComponent(id)}&amp;t=${Date.now()}`, { cache: 'no-store', redirect: 'follow' });
+      const res = await fetch(`${API_URL}?id=${encodeURIComponent(id)}&amp;news=1&amp;nocache=1&amp;t=${Date.now()}`, { cache: 'no-store', redirect: 'follow' });
       if (res.ok) {
         const payload = await res.json();
         if (payload &amp;&amp; payload.company) {
@@ -4266,8 +4269,15 @@ const VOICE_SAMPLE = {
 //   ・見どころ、基本情報、成長推移グラフ、データの出典はHTML側に静的配置
 // ════════════════════════════════════════════════
 function hasVoiceData(c) {
-  // 現状はSmartHRのみVOICE_SAMPLEを使う。今後はc.voice等を確認。
-  return c &amp;&amp; /smarthr|スマートHR|SmartHR/i.test(c.name || '');
+  const v = c &amp;&amp; c.voice;
+  return !!(
+    v &amp;&amp; (
+      (v.sections &amp;&amp; v.sections.length) ||
+      (v.investors &amp;&amp; v.investors.length) ||
+      v.summary ||
+      v.growth_story
+    )
+  );
 }
 
 function renderFocus(c) {
@@ -4281,14 +4291,16 @@ function renderVoicePanel(c) {
   if (!wrap) return;
 
   const mkSources = (srcs) =&gt; (srcs &amp;&amp; srcs.length)
-    ? `&lt;div class=&quot;v-sources&quot;&gt;${srcs.map(s=&gt;`&lt;a class=&quot;v-src&quot; href=&quot;${s.url||'#'}&quot; target=&quot;_blank&quot;&gt;${s.title} ↗&lt;/a&gt;`).join('')}&lt;/div&gt;`
+    ? `&lt;div class=&quot;v-sources&quot;&gt;${srcs.map(s=&gt;`&lt;a class=&quot;v-src&quot; href=&quot;${s.url||'#'}&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;${s.title || '出典'} ↗&lt;/a&gt;`).join('')}&lt;/div&gt;`
     : '';
+  const vcText = (vc) =&gt; vc &amp;&amp; (vc.summary || vc.txt || vc.comment || '') || '';
+  const vcSpeaker = (vc) =&gt; [vc.person, vc.round].filter(Boolean).join(' · ');
 
   let html = '';
   if (hasVoiceData(c)) {
     html += `&lt;div class=&quot;sec-heading&quot;&gt;会社の思い&lt;/div&gt;`;
     html += ``;
-    const v = VOICE_SAMPLE;
+    const v = c.voice || { summary:'', growth_story:'', sections:[], investors:[] };
     html += `&lt;div class=&quot;voice-group&quot;&gt;`;
     v.sections.forEach(sec =&gt; {
       html += `
@@ -4306,8 +4318,8 @@ function renderVoicePanel(c) {
           &lt;div class=&quot;voice-chapter-title&quot;&gt;投資家・関係者の期待&lt;/div&gt;
           ${v.investors.map(vc=&gt;`
             &lt;div class=&quot;v-card&quot;&gt;
-              &lt;div class=&quot;v-card-meta&quot;&gt;&lt;span class=&quot;v-badge&quot;&gt;${vc.name}&lt;/span&gt;&lt;/div&gt;
-              &lt;div class=&quot;v-card-body&quot;&gt;${vc.txt}&lt;div class=&quot;v-speaker&quot;&gt;— ${vc.person} · ${vc.round}&lt;/div&gt;&lt;/div&gt;
+              &lt;div class=&quot;v-card-meta&quot;&gt;&lt;span class=&quot;v-badge&quot;&gt;${vc.name || '投資家・関係者'}&lt;/span&gt;&lt;/div&gt;
+              &lt;div class=&quot;v-card-body&quot;&gt;${vcText(vc)}${vcSpeaker(vc) ? `&lt;div class=&quot;v-speaker&quot;&gt;— ${vcSpeaker(vc)}&lt;/div&gt;` : ''}&lt;/div&gt;
             &lt;/div&gt;`).join('')}
           ${mkSources(v.investors.flatMap(vc=&gt;vc.sources||[]))}
         &lt;/div&gt;`;
@@ -5697,7 +5709,7 @@ if (document.readyState === 'loading') {
    ========================================================= */
 (function(){
   const root = document.documentElement;
-  const API_URL = root.dataset.apiUrl || root.getAttribute('data-api-url') || '';
+  const API_URL = window.STARTUPFILE_API_URL || root.dataset.apiUrl || root.getAttribute('data-api-url') || '';
   let SF_TOP_DATA = null;
 
   const STAGE_META = {
