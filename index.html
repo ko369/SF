@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>StartupFile — Simplified BASE2 Mock</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet"/><style>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500;700&amp;family=Noto+Sans+JP:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/><style>
 
 /* =========================================================
    StartupFile mock — cleaned visual system
@@ -1990,16 +1990,15 @@ main{max-width:1280px;margin:0 auto;padding:28px 30px 76px}.section{margin-botto
 </div>
 </section>
 <div class="attached-detail-shell">
-<template id="attached-detail-template">
-<!DOCTYPE html>
+<iframe class="attached-detail-frame" srcdoc="&lt;!DOCTYPE html&gt;
 
-<html lang="ja" data-api-url="">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>StartupFile — 日本のスタートアップの変化を発見する</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
+&lt;html lang=&quot;ja&quot; data-api-url=&quot;&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
+&lt;title&gt;StartupFile — 日本のスタートアップの変化を発見する&lt;/title&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&amp;family=Noto+Sans+JP:wght@300;400;500;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;style&gt;
 :root{
   --bg:#fff;--bg-card:#fff;--bg-deep:#F5F5F5;--bg-muted:#EEEEEE;
   --text:#1A1814;--text-sub:#5A5650;--text-mute:#767269;
@@ -3347,7 +3346,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
 /* Embedded detail mode: keep the attached detail page body, hide only its own top banner. */
 #view-top{display:none!important}
 #view-detail{display:block!important;height:100vh!important;overflow:hidden!important}
-.frame>.topbar{display:none!important}
+.frame&gt;.topbar{display:none!important}
 .co-header .co-header-top,
 .co-header .co-mission,
 .co-header .co-overview,
@@ -3483,298 +3482,298 @@ body{overflow:hidden!important;background:#fff!important}
   display:none!important;
 }
 
-</style>
-</head>
-<body>
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
-<div id="view-top" style="display:none">
+&lt;div id=&quot;view-top&quot; style=&quot;display:none&quot;&gt;
 
-  <div class="topbar top-topbar">
-    <span class="topbar-brand">StartupFile</span>
-    <span>›</span>
-    <span>トップ</span>
-    <div class="top-topbar-right">
-      <a href="?view=detail&id=c0001">企業詳細を見る</a>
-    </div>
-  </div>
+  &lt;div class=&quot;topbar top-topbar&quot;&gt;
+    &lt;span class=&quot;topbar-brand&quot;&gt;StartupFile&lt;/span&gt;
+    &lt;span&gt;›&lt;/span&gt;
+    &lt;span&gt;トップ&lt;/span&gt;
+    &lt;div class=&quot;top-topbar-right&quot;&gt;
+      &lt;a href=&quot;?view=detail&amp;id=c0001&quot;&gt;企業詳細を見る&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
 
-  <section class="top-hero">
-    <div class="top-hero-inner">
-<h1 class="top-hero-title">
-        日本のスタートアップの<br><em>変化・成長・思想</em>を発見する。
-      </h1>
-      <p class="top-hero-sub">資金調達、社員数、プロダクト、組織から、企業の「いま」を探せます。</p>
+  &lt;section class=&quot;top-hero&quot;&gt;
+    &lt;div class=&quot;top-hero-inner&quot;&gt;
+&lt;h1 class=&quot;top-hero-title&quot;&gt;
+        日本のスタートアップの&lt;br&gt;&lt;em&gt;変化・成長・思想&lt;/em&gt;を発見する。
+      &lt;/h1&gt;
+      &lt;p class=&quot;top-hero-sub&quot;&gt;資金調達、社員数、プロダクト、組織から、企業の「いま」を探せます。&lt;/p&gt;
 
-      <form class="top-hero-search" onsubmit="event.preventDefault();topDoSearch()">
-        <input id="top-searchbox" type="text" placeholder="企業名 / 業界 / キーワードで探す（例：FinTech、SmartHR、組織）" autocomplete="off">
-        <button type="submit">検索</button>
-      </form>
+      &lt;form class=&quot;top-hero-search&quot; onsubmit=&quot;event.preventDefault();topDoSearch()&quot;&gt;
+        &lt;input id=&quot;top-searchbox&quot; type=&quot;text&quot; placeholder=&quot;企業名 / 業界 / キーワードで探す（例：FinTech、SmartHR、組織）&quot; autocomplete=&quot;off&quot;&gt;
+        &lt;button type=&quot;submit&quot;&gt;検索&lt;/button&gt;
+      &lt;/form&gt;
 
-      <div class="top-hero-tags" id="top-hero-tags"></div>
+      &lt;div class=&quot;top-hero-tags&quot; id=&quot;top-hero-tags&quot;&gt;&lt;/div&gt;
 
-    </div>
-  </section>
+    &lt;/div&gt;
+  &lt;/section&gt;
 
-  <main class="top-main">
+  &lt;main class=&quot;top-main&quot;&gt;
 
-    <section class="top-shelf" id="top-section-featured">
-      <div class="top-shelf-head">
-        <div class="top-shelf-title-wrap">
-          <h2 class="top-shelf-title">今、読んでおきたい企業</h2>
-        </div>
-        <a class="top-shelf-more" href="#" onclick="topComingSoon(event)">すべて見る →</a>
-      </div>
+    &lt;section class=&quot;top-shelf&quot; id=&quot;top-section-featured&quot;&gt;
+      &lt;div class=&quot;top-shelf-head&quot;&gt;
+        &lt;div class=&quot;top-shelf-title-wrap&quot;&gt;
+          &lt;h2 class=&quot;top-shelf-title&quot;&gt;今、読んでおきたい企業&lt;/h2&gt;
+        &lt;/div&gt;
+        &lt;a class=&quot;top-shelf-more&quot; href=&quot;#&quot; onclick=&quot;topComingSoon(event)&quot;&gt;すべて見る →&lt;/a&gt;
+      &lt;/div&gt;
 
-      <div class="top-shelf-scroll" id="top-row-featured"></div>
-    </section>
+      &lt;div class=&quot;top-shelf-scroll&quot; id=&quot;top-row-featured&quot;&gt;&lt;/div&gt;
+    &lt;/section&gt;
 
-    <section class="top-shelf" id="top-section-recent">
-      <div class="top-shelf-head">
-        <div class="top-shelf-title-wrap">
-          <h2 class="top-shelf-title" style="border-left-color:var(--red)">最近の変化</h2>
-        </div>
-        <a class="top-shelf-more" href="#" onclick="topComingSoon(event)">すべて見る →</a>
-      </div>
+    &lt;section class=&quot;top-shelf&quot; id=&quot;top-section-recent&quot;&gt;
+      &lt;div class=&quot;top-shelf-head&quot;&gt;
+        &lt;div class=&quot;top-shelf-title-wrap&quot;&gt;
+          &lt;h2 class=&quot;top-shelf-title&quot; style=&quot;border-left-color:var(--red)&quot;&gt;最近の変化&lt;/h2&gt;
+        &lt;/div&gt;
+        &lt;a class=&quot;top-shelf-more&quot; href=&quot;#&quot; onclick=&quot;topComingSoon(event)&quot;&gt;すべて見る →&lt;/a&gt;
+      &lt;/div&gt;
 
-      <div class="top-shelf-scroll" id="top-row-recent"></div>
-    </section>
+      &lt;div class=&quot;top-shelf-scroll&quot; id=&quot;top-row-recent&quot;&gt;&lt;/div&gt;
+    &lt;/section&gt;
 
-    <section class="top-shelf" id="top-section-growth">
-      <div class="top-shelf-head">
-        <div class="top-shelf-title-wrap">
-          <h2 class="top-shelf-title" style="border-left-color:var(--teal)">届いているサインから探す</h2>
-        </div>
-      </div>
+    &lt;section class=&quot;top-shelf&quot; id=&quot;top-section-growth&quot;&gt;
+      &lt;div class=&quot;top-shelf-head&quot;&gt;
+        &lt;div class=&quot;top-shelf-title-wrap&quot;&gt;
+          &lt;h2 class=&quot;top-shelf-title&quot; style=&quot;border-left-color:var(--teal)&quot;&gt;届いているサインから探す&lt;/h2&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
 
-      <div class="top-growth-block">
-        <section>
-          <div class="top-shelf-head">
-            <div class="top-shelf-title-wrap">
-              <h3 class="top-shelf-title" style="font-size:15px;border-left-color:var(--teal)">次のフェーズに入った企業</h3>
-            </div>
-          </div>
-          <div class="top-shelf-scroll" id="top-row-funding"></div>
-        </section>
+      &lt;div class=&quot;top-growth-block&quot;&gt;
+        &lt;section&gt;
+          &lt;div class=&quot;top-shelf-head&quot;&gt;
+            &lt;div class=&quot;top-shelf-title-wrap&quot;&gt;
+              &lt;h3 class=&quot;top-shelf-title&quot; style=&quot;font-size:15px;border-left-color:var(--teal)&quot;&gt;次のフェーズに入った企業&lt;/h3&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;top-shelf-scroll&quot; id=&quot;top-row-funding&quot;&gt;&lt;/div&gt;
+        &lt;/section&gt;
 
-        <section>
-          <div class="top-shelf-head">
-            <div class="top-shelf-title-wrap">
-              <h3 class="top-shelf-title" style="font-size:15px;border-left-color:var(--green)">組織が拡大している企業</h3>
-            </div>
-          </div>
-          <div class="top-shelf-scroll" id="top-row-growing"></div>
-        </section>
-      </div>
-    </section>
+        &lt;section&gt;
+          &lt;div class=&quot;top-shelf-head&quot;&gt;
+            &lt;div class=&quot;top-shelf-title-wrap&quot;&gt;
+              &lt;h3 class=&quot;top-shelf-title&quot; style=&quot;font-size:15px;border-left-color:var(--green)&quot;&gt;組織が拡大している企業&lt;/h3&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;top-shelf-scroll&quot; id=&quot;top-row-growing&quot;&gt;&lt;/div&gt;
+        &lt;/section&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
 
-    <section class="top-shelf" id="top-section-learn">
-      <div class="top-shelf-head">
-        <div class="top-shelf-title-wrap">
-          <h2 class="top-shelf-title" style="border-left-color:var(--blue)">6つの視点で見る</h2>
-        </div>
-      </div>
+    &lt;section class=&quot;top-shelf&quot; id=&quot;top-section-learn&quot;&gt;
+      &lt;div class=&quot;top-shelf-head&quot;&gt;
+        &lt;div class=&quot;top-shelf-title-wrap&quot;&gt;
+          &lt;h2 class=&quot;top-shelf-title&quot; style=&quot;border-left-color:var(--blue)&quot;&gt;6つの視点で見る&lt;/h2&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
 
-      <div class="top-learning-grid">
-        <div class="top-learning-card" style="--learn-color:var(--blue)" onclick="topLearningJump('founder')">
-          <div class="top-learning-title">創業の思い<small>思想から探す</small></div>
-        </div>
-        <div class="top-learning-card" style="--learn-color:var(--teal)" onclick="topLearningJump('business')">
-          <div class="top-learning-title">事業<small>戦略から探す</small></div>
-        </div>
-        <div class="top-learning-card" style="--learn-color:var(--amber)" onclick="topLearningJump('org')">
-          <div class="top-learning-title">組織<small>採用・文化から探す</small></div>
-        </div>
-        <div class="top-learning-card" style="--learn-color:var(--purple)" onclick="topLearningJump('workstyle')">
-          <div class="top-learning-title">働き方<small>制度から探す</small></div>
-        </div>
-        <div class="top-learning-card" style="--learn-color:var(--green)" onclick="topLearningJump('award')">
-          <div class="top-learning-title">外から見える実績<small>成果から探す</small></div>
-        </div>
-        <div class="top-learning-card" style="--learn-color:var(--red)" onclick="topLearningJump('turning')">
-          <div class="top-learning-title">転換点<small>変化から探す</small></div>
-        </div>
-      </div>
-    </section>
+      &lt;div class=&quot;top-learning-grid&quot;&gt;
+        &lt;div class=&quot;top-learning-card&quot; style=&quot;--learn-color:var(--blue)&quot; onclick=&quot;topLearningJump('founder')&quot;&gt;
+          &lt;div class=&quot;top-learning-title&quot;&gt;創業の思い&lt;small&gt;思想から探す&lt;/small&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;top-learning-card&quot; style=&quot;--learn-color:var(--teal)&quot; onclick=&quot;topLearningJump('business')&quot;&gt;
+          &lt;div class=&quot;top-learning-title&quot;&gt;事業&lt;small&gt;戦略から探す&lt;/small&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;top-learning-card&quot; style=&quot;--learn-color:var(--amber)&quot; onclick=&quot;topLearningJump('org')&quot;&gt;
+          &lt;div class=&quot;top-learning-title&quot;&gt;組織&lt;small&gt;採用・文化から探す&lt;/small&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;top-learning-card&quot; style=&quot;--learn-color:var(--purple)&quot; onclick=&quot;topLearningJump('workstyle')&quot;&gt;
+          &lt;div class=&quot;top-learning-title&quot;&gt;働き方&lt;small&gt;制度から探す&lt;/small&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;top-learning-card&quot; style=&quot;--learn-color:var(--green)&quot; onclick=&quot;topLearningJump('award')&quot;&gt;
+          &lt;div class=&quot;top-learning-title&quot;&gt;外から見える実績&lt;small&gt;成果から探す&lt;/small&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;top-learning-card&quot; style=&quot;--learn-color:var(--red)&quot; onclick=&quot;topLearningJump('turning')&quot;&gt;
+          &lt;div class=&quot;top-learning-title&quot;&gt;転換点&lt;small&gt;変化から探す&lt;/small&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
 
-    <section class="top-shelf" id="top-section-deck">
-      <div class="top-shelf-head">
-        <div class="top-shelf-title-wrap">
-          <h2 class="top-shelf-title" style="border-left-color:var(--purple)">会社の思想を読む資料</h2>
-        </div>
-        <a class="top-shelf-more" href="#" onclick="topComingSoon(event)">すべて見る →</a>
-      </div>
-      <div class="top-shelf-scroll" id="top-row-deck"></div>
-    </section>
+    &lt;section class=&quot;top-shelf&quot; id=&quot;top-section-deck&quot;&gt;
+      &lt;div class=&quot;top-shelf-head&quot;&gt;
+        &lt;div class=&quot;top-shelf-title-wrap&quot;&gt;
+          &lt;h2 class=&quot;top-shelf-title&quot; style=&quot;border-left-color:var(--purple)&quot;&gt;会社の思想を読む資料&lt;/h2&gt;
+        &lt;/div&gt;
+        &lt;a class=&quot;top-shelf-more&quot; href=&quot;#&quot; onclick=&quot;topComingSoon(event)&quot;&gt;すべて見る →&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;top-shelf-scroll&quot; id=&quot;top-row-deck&quot;&gt;&lt;/div&gt;
+    &lt;/section&gt;
 
-    <section class="top-shelf" id="top-section-sector">
-      <div class="top-shelf-head">
-        <div class="top-shelf-title-wrap">
-          <h2 class="top-shelf-title" style="border-left-color:var(--text)">業界・課題から探す</h2>
-        </div>
-      </div>
-      <div class="top-shelf-scroll" id="top-row-sector"></div>
-    </section>
+    &lt;section class=&quot;top-shelf&quot; id=&quot;top-section-sector&quot;&gt;
+      &lt;div class=&quot;top-shelf-head&quot;&gt;
+        &lt;div class=&quot;top-shelf-title-wrap&quot;&gt;
+          &lt;h2 class=&quot;top-shelf-title&quot; style=&quot;border-left-color:var(--text)&quot;&gt;業界・課題から探す&lt;/h2&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;top-shelf-scroll&quot; id=&quot;top-row-sector&quot;&gt;&lt;/div&gt;
+    &lt;/section&gt;
 
-    <div class="top-discover-row">
-      <div class="top-discover-text">
-<div class="top-discover-title">まだ知らない企業に出会う</div>
+    &lt;div class=&quot;top-discover-row&quot;&gt;
+      &lt;div class=&quot;top-discover-text&quot;&gt;
+&lt;div class=&quot;top-discover-title&quot;&gt;まだ知らない企業に出会う&lt;/div&gt;
 
-      </div>
-      <button class="top-discover-btn" onclick="topDiscoverRandom()">ランダムに1社見る →</button>
-    </div>
+      &lt;/div&gt;
+      &lt;button class=&quot;top-discover-btn&quot; onclick=&quot;topDiscoverRandom()&quot;&gt;ランダムに1社見る →&lt;/button&gt;
+    &lt;/div&gt;
 
-  </main>
+  &lt;/main&gt;
 
-  <footer class="top-footer">
-    <strong>StartupFile</strong> &nbsp;·&nbsp; <span id="top-meta-info">—</span>
-  </footer>
-</div>
+  &lt;footer class=&quot;top-footer&quot;&gt;
+    &lt;strong&gt;StartupFile&lt;/strong&gt; &amp;nbsp;·&amp;nbsp; &lt;span id=&quot;top-meta-info&quot;&gt;—&lt;/span&gt;
+  &lt;/footer&gt;
+&lt;/div&gt;
 
-<div id="view-detail" style="display:none">
-<div class="app">
-<aside class="sidebar" id="sidebar">
-  <div class="sb-head">
-    <div class="sb-title">企業一覧 <span id="sb-count">—</span></div>
-    <input type="text" id="sb-search" class="sb-search" placeholder="企業名を検索…" oninput="filterSidebar()" autocomplete="off">
-  </div>
-  <div class="sb-list" id="sb-list"></div>
-</aside>
-<div class="frame">
-<div class="topbar">
-  <button class="sb-toggle" id="sb-toggle" onclick="toggleSidebar()" aria-label="企業一覧">☰</button>
-  <a href="?">StartupFile</a><span>›</span>
-  <a href="?">トップ</a><span>›</span>
-  <span class="topbar-name" id="topbar-name">—</span>
-</div>
+&lt;div id=&quot;view-detail&quot; style=&quot;display:none&quot;&gt;
+&lt;div class=&quot;app&quot;&gt;
+&lt;aside class=&quot;sidebar&quot; id=&quot;sidebar&quot;&gt;
+  &lt;div class=&quot;sb-head&quot;&gt;
+    &lt;div class=&quot;sb-title&quot;&gt;企業一覧 &lt;span id=&quot;sb-count&quot;&gt;—&lt;/span&gt;&lt;/div&gt;
+    &lt;input type=&quot;text&quot; id=&quot;sb-search&quot; class=&quot;sb-search&quot; placeholder=&quot;企業名を検索…&quot; oninput=&quot;filterSidebar()&quot; autocomplete=&quot;off&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;sb-list&quot; id=&quot;sb-list&quot;&gt;&lt;/div&gt;
+&lt;/aside&gt;
+&lt;div class=&quot;frame&quot;&gt;
+&lt;div class=&quot;topbar&quot;&gt;
+  &lt;button class=&quot;sb-toggle&quot; id=&quot;sb-toggle&quot; onclick=&quot;toggleSidebar()&quot; aria-label=&quot;企業一覧&quot;&gt;☰&lt;/button&gt;
+  &lt;a href=&quot;?&quot;&gt;StartupFile&lt;/a&gt;&lt;span&gt;›&lt;/span&gt;
+  &lt;a href=&quot;?&quot;&gt;トップ&lt;/a&gt;&lt;span&gt;›&lt;/span&gt;
+  &lt;span class=&quot;topbar-name&quot; id=&quot;topbar-name&quot;&gt;—&lt;/span&gt;
+&lt;/div&gt;
 
-<div class="co-header">
-  <div class="co-header-top">
-    <div><div class="co-company-name" id="co-name">—</div></div>
-    <div class="co-kpi-row">
-      <div>
-        <div class="co-kpi-label">従業員数</div>
-        <div class="co-kpi-val" id="co-emp-val">—</div>
-        <div class="co-kpi-sub" id="co-emp-sub"></div>
-      </div>
-  <div id="co-raised-block">
-        <div class="co-kpi-label">累計調達額</div>
-        <div class="co-kpi-val" style="font-size:20px" id="co-raised-val">—</div>
-        <div class="co-kpi-sub" id="co-raised-sub"></div>
-      </div>
-      <div>
-        <div class="co-kpi-label">直近ラウンド</div>
-        <div class="co-kpi-val" style="font-size:20px" id="co-round-val">—</div>
-        <div class="co-kpi-sub" id="co-round-sub"></div>
-      </div>
-    </div>
-  </div>
-  <div class="co-mission" id="co-mission"></div>
-  <div class="co-overview" id="co-overview"></div>
-  <div class="co-signal-row" id="co-signal-row" aria-label="届いているサイン"></div>
+&lt;div class=&quot;co-header&quot;&gt;
+  &lt;div class=&quot;co-header-top&quot;&gt;
+    &lt;div&gt;&lt;div class=&quot;co-company-name&quot; id=&quot;co-name&quot;&gt;—&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;co-kpi-row&quot;&gt;
+      &lt;div&gt;
+        &lt;div class=&quot;co-kpi-label&quot;&gt;従業員数&lt;/div&gt;
+        &lt;div class=&quot;co-kpi-val&quot; id=&quot;co-emp-val&quot;&gt;—&lt;/div&gt;
+        &lt;div class=&quot;co-kpi-sub&quot; id=&quot;co-emp-sub&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+  &lt;div id=&quot;co-raised-block&quot;&gt;
+        &lt;div class=&quot;co-kpi-label&quot;&gt;累計調達額&lt;/div&gt;
+        &lt;div class=&quot;co-kpi-val&quot; style=&quot;font-size:20px&quot; id=&quot;co-raised-val&quot;&gt;—&lt;/div&gt;
+        &lt;div class=&quot;co-kpi-sub&quot; id=&quot;co-raised-sub&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;div class=&quot;co-kpi-label&quot;&gt;直近ラウンド&lt;/div&gt;
+        &lt;div class=&quot;co-kpi-val&quot; style=&quot;font-size:20px&quot; id=&quot;co-round-val&quot;&gt;—&lt;/div&gt;
+        &lt;div class=&quot;co-kpi-sub&quot; id=&quot;co-round-sub&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;co-mission&quot; id=&quot;co-mission&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;co-overview&quot; id=&quot;co-overview&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;co-signal-row&quot; id=&quot;co-signal-row&quot; aria-label=&quot;届いているサイン&quot;&gt;&lt;/div&gt;
 
-  <div class="co-tabs">
-    <button class="co-tab active" onclick="switchTab('focus',this)">まず見るところ</button>
-    <button class="co-tab" onclick="switchTab('voice',this)">会社の思い</button>
-    <button class="co-tab" onclick="switchTab('learn',this)">6つの視点で見る</button>
-    <button class="co-tab" onclick="switchTab('news',this)">最近の動き</button>
-  </div>
-</div>
+  &lt;div class=&quot;co-tabs&quot;&gt;
+    &lt;button class=&quot;co-tab active&quot; onclick=&quot;switchTab('focus',this)&quot;&gt;まず見るところ&lt;/button&gt;
+    &lt;button class=&quot;co-tab&quot; onclick=&quot;switchTab('voice',this)&quot;&gt;会社の思い&lt;/button&gt;
+    &lt;button class=&quot;co-tab&quot; onclick=&quot;switchTab('learn',this)&quot;&gt;6つの視点で見る&lt;/button&gt;
+    &lt;button class=&quot;co-tab&quot; onclick=&quot;switchTab('news',this)&quot;&gt;最近の動き&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 
-<div class="content-area">
+&lt;div class=&quot;content-area&quot;&gt;
 
-  <div id="panel-focus" class="tab-panel active">
-    <div class="voice-wrap" id="focus-wrap-main" style="padding-top:18px">
+  &lt;div id=&quot;panel-focus&quot; class=&quot;tab-panel active&quot;&gt;
+    &lt;div class=&quot;voice-wrap&quot; id=&quot;focus-wrap-main&quot; style=&quot;padding-top:18px&quot;&gt;
 
 
-      <div class="sec-heading">基本情報・公式リンク</div>
-      <div class="tl-company-section">
+      &lt;div class=&quot;sec-heading&quot;&gt;基本情報・公式リンク&lt;/div&gt;
+      &lt;div class=&quot;tl-company-section&quot;&gt;
 
-        <div class="co-biz-desc" id="co-biz-desc"></div>
-        <div class="acc-categories" id="acc-body"></div>
-        <div class="co-links-wrap" id="co-links-wrap"></div>
-      </div>
+        &lt;div class=&quot;co-biz-desc&quot; id=&quot;co-biz-desc&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;acc-categories&quot; id=&quot;acc-body&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;co-links-wrap&quot; id=&quot;co-links-wrap&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
 
-      <div class="sec-heading" style="margin-top:14px">成長推移</div>
-      <div class="focus-mini-charts" id="focus-mini-charts">
-        <div class="focus-mini-chart">
-          <div class="focus-mini-chart-label">社員数</div>
-          <div class="focus-mini-chart-val" id="emp-latest"></div>
-          <div class="focus-mini-chart-sub" id="emp-sub2"></div>
-          <div class="bar-chart" id="emp-chart"></div>
-        </div>
-        <div class="focus-mini-chart">
-          <div class="focus-mini-chart-label">資金調達</div>
-          <div class="focus-mini-chart-val" id="fund-summary"></div>
-          <div class="focus-mini-chart-sub" id="fund-sub"></div>
-          <div class="bar-chart" id="fund-chart"></div>
-        </div>
-      </div>
-      <div class="ref-section">
-        <div class="sec-heading" style="margin-top:14px">データの出典を見る</div>
-        <div class="ref-accordion-body open" id="ref-accordion-body">
-        <table class="ref-table">
-          <thead><tr><th>年</th><th>社員数</th><th>資金調達情報</th><th>投資家</th><th>ソース</th></tr></thead>
-          <tbody id="ref-tbody"></tbody>
-        </table>
-        </div>
-      </div>
+      &lt;div class=&quot;sec-heading&quot; style=&quot;margin-top:14px&quot;&gt;成長推移&lt;/div&gt;
+      &lt;div class=&quot;focus-mini-charts&quot; id=&quot;focus-mini-charts&quot;&gt;
+        &lt;div class=&quot;focus-mini-chart&quot;&gt;
+          &lt;div class=&quot;focus-mini-chart-label&quot;&gt;社員数&lt;/div&gt;
+          &lt;div class=&quot;focus-mini-chart-val&quot; id=&quot;emp-latest&quot;&gt;&lt;/div&gt;
+          &lt;div class=&quot;focus-mini-chart-sub&quot; id=&quot;emp-sub2&quot;&gt;&lt;/div&gt;
+          &lt;div class=&quot;bar-chart&quot; id=&quot;emp-chart&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;focus-mini-chart&quot;&gt;
+          &lt;div class=&quot;focus-mini-chart-label&quot;&gt;資金調達&lt;/div&gt;
+          &lt;div class=&quot;focus-mini-chart-val&quot; id=&quot;fund-summary&quot;&gt;&lt;/div&gt;
+          &lt;div class=&quot;focus-mini-chart-sub&quot; id=&quot;fund-sub&quot;&gt;&lt;/div&gt;
+          &lt;div class=&quot;bar-chart&quot; id=&quot;fund-chart&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;ref-section&quot;&gt;
+        &lt;div class=&quot;sec-heading&quot; style=&quot;margin-top:14px&quot;&gt;データの出典を見る&lt;/div&gt;
+        &lt;div class=&quot;ref-accordion-body open&quot; id=&quot;ref-accordion-body&quot;&gt;
+        &lt;table class=&quot;ref-table&quot;&gt;
+          &lt;thead&gt;&lt;tr&gt;&lt;th&gt;年&lt;/th&gt;&lt;th&gt;社員数&lt;/th&gt;&lt;th&gt;資金調達情報&lt;/th&gt;&lt;th&gt;投資家&lt;/th&gt;&lt;th&gt;ソース&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+          &lt;tbody id=&quot;ref-tbody&quot;&gt;&lt;/tbody&gt;
+        &lt;/table&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
 
-      <div id="focus-dynamic"></div>
+      &lt;div id=&quot;focus-dynamic&quot;&gt;&lt;/div&gt;
 
-      <div class="next-tab-cta">
-        <div>この会社の思いを読む</div>
-        <button type="button" onclick="switchTabByName('voice')">会社の思いへ →</button>
-      </div>
+      &lt;div class=&quot;next-tab-cta&quot;&gt;
+        &lt;div&gt;この会社の思いを読む&lt;/div&gt;
+        &lt;button type=&quot;button&quot; onclick=&quot;switchTabByName('voice')&quot;&gt;会社の思いへ →&lt;/button&gt;
+      &lt;/div&gt;
 
-    </div>
-  </div>
+    &lt;/div&gt;
+  &lt;/div&gt;
 
-  <div id="panel-voice" class="tab-panel">
-    <div class="voice-wrap" id="voice-panel-wrap" style="padding-top:18px">
-      <div id="voice-panel-dynamic"></div>
-      <div class="next-tab-cta">
-        <div>この企業から学べる6つのテーマを見る</div>
-        <button type="button" onclick="switchTabByName('learn')">6つの視点で見るへ →</button>
-      </div>
-    </div>
-  </div>
+  &lt;div id=&quot;panel-voice&quot; class=&quot;tab-panel&quot;&gt;
+    &lt;div class=&quot;voice-wrap&quot; id=&quot;voice-panel-wrap&quot; style=&quot;padding-top:18px&quot;&gt;
+      &lt;div id=&quot;voice-panel-dynamic&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;next-tab-cta&quot;&gt;
+        &lt;div&gt;この企業から学べる6つのテーマを見る&lt;/div&gt;
+        &lt;button type=&quot;button&quot; onclick=&quot;switchTabByName('learn')&quot;&gt;6つの視点で見るへ →&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
 
-  <div id="panel-learn" class="tab-panel">
-    <div class="tl-wrap" style="padding-bottom:80px">
-      <div class="learn-intro">
-        <div class="learn-intro-title">6つの視点で見る</div>
-        <div class="learn-intro-text">創業・事業・組織・働き方・実績・転換点の6カテゴリで、企業の歩みから学べる重要イベントを整理します。</div>
-      </div>
-      <div class="tl-filters">
-        <button class="tl-filter fa active" onclick="filterTL('all',this)">すべて</button>
-        <button class="tl-filter ff" onclick="filterTL('founder',this)">創業の思い</button>
-        <button class="tl-filter fb" onclick="filterTL('business',this)">事業</button>
-        <button class="tl-filter fo" onclick="filterTL('org',this)">組織</button>
-        <button class="tl-filter fw" onclick="filterTL('workstyle',this)">働き方</button>
-        <button class="tl-filter faw" onclick="filterTL('award',this)">外から見える実績</button>
-        <button class="tl-filter ft" onclick="filterTL('turning',this)">転換点</button>
-      </div>
-      <div class="tl-list" id="tl-list"></div>
-      <div class="next-tab-cta">
-        <div>直近の最近の動き・外部フィードを見る</div>
-        <button type="button" onclick="switchTabByName('news')">最近の動きへ →</button>
-      </div>
-    </div>
-  </div>
+  &lt;div id=&quot;panel-learn&quot; class=&quot;tab-panel&quot;&gt;
+    &lt;div class=&quot;tl-wrap&quot; style=&quot;padding-bottom:80px&quot;&gt;
+      &lt;div class=&quot;learn-intro&quot;&gt;
+        &lt;div class=&quot;learn-intro-title&quot;&gt;6つの視点で見る&lt;/div&gt;
+        &lt;div class=&quot;learn-intro-text&quot;&gt;創業・事業・組織・働き方・実績・転換点の6カテゴリで、企業の歩みから学べる重要イベントを整理します。&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;tl-filters&quot;&gt;
+        &lt;button class=&quot;tl-filter fa active&quot; onclick=&quot;filterTL('all',this)&quot;&gt;すべて&lt;/button&gt;
+        &lt;button class=&quot;tl-filter ff&quot; onclick=&quot;filterTL('founder',this)&quot;&gt;創業の思い&lt;/button&gt;
+        &lt;button class=&quot;tl-filter fb&quot; onclick=&quot;filterTL('business',this)&quot;&gt;事業&lt;/button&gt;
+        &lt;button class=&quot;tl-filter fo&quot; onclick=&quot;filterTL('org',this)&quot;&gt;組織&lt;/button&gt;
+        &lt;button class=&quot;tl-filter fw&quot; onclick=&quot;filterTL('workstyle',this)&quot;&gt;働き方&lt;/button&gt;
+        &lt;button class=&quot;tl-filter faw&quot; onclick=&quot;filterTL('award',this)&quot;&gt;外から見える実績&lt;/button&gt;
+        &lt;button class=&quot;tl-filter ft&quot; onclick=&quot;filterTL('turning',this)&quot;&gt;転換点&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;tl-list&quot; id=&quot;tl-list&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;next-tab-cta&quot;&gt;
+        &lt;div&gt;直近の最近の動き・外部フィードを見る&lt;/div&gt;
+        &lt;button type=&quot;button&quot; onclick=&quot;switchTabByName('news')&quot;&gt;最近の動きへ →&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
 
-  <div id="panel-news" class="tab-panel">
-    <div class="news-wrap" id="news-wrap">
-      <div style="padding:40px;text-align:center;color:var(--text-mute);font-size:12px">読み込み中...</div>
-    </div>
-  </div>
-</div>
-</div>
-</div>
+  &lt;div id=&quot;panel-news&quot; class=&quot;tab-panel&quot;&gt;
+    &lt;div class=&quot;news-wrap&quot; id=&quot;news-wrap&quot;&gt;
+      &lt;div style=&quot;padding:40px;text-align:center;color:var(--text-mute);font-size:12px&quot;&gt;読み込み中...&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
-<div class="sb-backdrop" id="sb-backdrop" onclick="toggleSidebar()"></div>
-</div>
+&lt;div class=&quot;sb-backdrop&quot; id=&quot;sb-backdrop&quot; onclick=&quot;toggleSidebar()&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
 
-<script>
+&lt;script&gt;
 // ════════════════════════════════════════════════
 // DB — Excelデータのみ使用
 // ════════════════════════════════════════════════
@@ -3784,52 +3783,52 @@ body{overflow:hidden!important;background:#fff!important}
 // ════════════════════════════════════════════════
 let DB = {};
 
-const STARTUPFILE_FALLBACK_COMPANY = {"company_id":"c0001","name":"SmartHR","color":"#0F7A64","mission":"well-working 労働にまつわる社会課題をなくし、誰もがその人らしく働ける社会をつくる。","summary":"SmartHRは、入社手続き・雇用契約・年末調整などの人事労務をクラウド化するサービスを起点に、従業員データの整備、タレントマネジメント、人的資本経営、給与・周辺業務連携へと提供領域を広げている。","biz_desc":"紙・ハンコ・郵送に残っていた人事労務の非効率をクラウド化し、従業員情報を正しく集め、管理し、活用できる状態をつくる。労務管理から始まったプロダクトは、評価・配置・サーベイ・人的資本開示など、組織の意思決定に関わるデータ基盤へと広がっている。","raised_total":"約467億円（参考モック）","latest_round":"Series E相当","location":"東京都港区","sector1":"HR Tech","sector2":"SaaS / 人事・労務","ticker":"非上場","founded":"2013","links":{"hp":"https://smarthr.example.com/","service":"https://smarthr.example.com/product/","recruit":"https://smarthr.example.com/recruit/","culture":"https://smarthr.example.com/culture/","ir":"","service_doc":"https://smarthr.example.com/resources/product-guide/"},"headcount":[{"year":2015,"count":10,"source_text":"内容確認用モック","source_url":"","score":"C"},{"year":2018,"count":150,"source_text":"内容確認用モック","source_url":"","score":"C"},{"year":2020,"count":450,"source_text":"内容確認用モック","source_url":"","score":"C"},{"year":2022,"count":800,"source_text":"内容確認用モック","source_url":"","score":"C"},{"year":2024,"count":1200,"source_text":"内容確認用モック","source_url":"","score":"C"},{"year":2026,"count":1590,"source_text":"内容確認用モック","source_url":"","score":"C"}],"funding":[{"year":2015,"round":"Seed","amount":"1億円","note":"労務クラウド立ち上げ期の資金調達","source_text":"内容確認用モック","source_url":"","score":"C"},{"year":2017,"round":"Series A","amount":"15億円","note":"導入企業拡大とプロダクト強化","source_text":"内容確認用モック","source_url":"","score":"C"},{"year":2019,"round":"Series B","amount":"61.5億円","note":"中堅・大企業向けの営業体制を強化","source_text":"内容確認用モック","source_url":"","score":"C"},{"year":2021,"round":"Series D","amount":"156億円","note":"マルチプロダクト化と採用拡大","source_text":"内容確認用モック","source_url":"","score":"C"},{"year":2024,"round":"Series E","amount":"214億円","note":"人的資本経営プラットフォームへの進化を加速","source_text":"内容確認用モック","source_url":"","score":"C"}],"metrics":[{"year":2026,"arr":"200億円超（参考モック）","customers":"80,000社超（参考モック）","retention":"非開示"}],"topics":[{"year":2013,"type":"founder","title":"創業者の労務手続き体験から着想","speaker":"創業背景","desc":"紙の申請書、押印、郵送が前提だった労務手続きに課題を感じたことが出発点。制度は働く人を支えるためにあるのに、手続きの複雑さが企業と従業員双方の負担になっていた。","url":"","date":"2013"},{"year":2015,"type":"business","title":"クラウド人事労務ソフトSmartHRを提供開始","speaker":"事業","desc":"入社手続き、雇用契約、年末調整など、どの企業にも発生する人事労務業務をオンライン化。従業員が自分で入力でき、人事担当者が確認・承認できる体験をつくった。","url":"","date":"2015"},{"year":2018,"type":"award","title":"導入企業の拡大と市場認知の高まり","speaker":"実績","desc":"人事労務クラウドのカテゴリが広がる中で、SmartHRは使いやすさ、法改正対応、導入企業数を背景に認知を高めた。","url":"","date":"2018"},{"year":2021,"type":"org","title":"大型調達を機に組織拡大フェーズへ","speaker":"組織","desc":"プロダクト開発、カスタマーサクセス、エンタープライズ営業を強化。単一プロダクトの成長だけでなく、複数領域を扱う組織への移行が始まった。","url":"","date":"2021"},{"year":2023,"type":"workstyle","title":"採用資料や組織の発信が増える","speaker":"カルチャー","desc":"採用・カルチャー・制度に関する発信が増え、働き方や組織づくりの考え方が外部からも読みやすくなった。","url":"","date":"2023"},{"year":2024,"type":"business","title":"労務管理から人事データ活用へ拡張","speaker":"事業","desc":"従業員データを起点に、評価、配置、サーベイ、人的資本開示などへ提供領域を拡大。業務効率化だけでなく、人事意思決定を支える基盤になっている。","url":"","date":"2024"},{"year":2025,"type":"turning","title":"人的資本経営プラットフォームとしての提供価値を強める","speaker":"これから","desc":"人事労務で蓄積されるデータを、組織状態の可視化や人材活用につなげる方向へ進化。バックオフィスSaaSから経営インフラへの転換が見えている。","url":"","date":"2025"},{"year":2026,"type":"business","title":"周辺業務連携と分析機能を強化","speaker":"最近の動き","desc":"給与、勤怠、採用、評価など周辺領域との連携を強め、人事データを横断的に扱える状態を目指している。","url":"","date":"2026"}],"news_sources":[{"label":"公式ブログ","mode":"link"},{"label":"PR TIMES","mode":"link"},{"label":"採用情報","mode":"link"}],"news_links":[{"label":"SmartHR公式サイト（モック）","url":"https://smarthr.example.com/"},{"label":"SmartHRサービスサイト（モック）","url":"https://smarthr.example.com/product/"}]};
-const STARTUPFILE_FALLBACK_INDEX = [{"company_id": "c0001", "name": "SmartHR", "color": "#0F7A64", "summary": "人事データの入口", "sector1": "HR / SaaS", "founded": "2013"}, {"company_id": "c0002", "name": "カミナシ", "color": "#1A5EC2", "summary": "現場をスマホで変える", "sector1": "Field DX", "founded": "2016"}, {"company_id": "c0003", "name": "CADDi", "color": "#A86010", "summary": "図面データから製造業を見る", "sector1": "Manufacturing", "founded": "2017"}, {"company_id": "c0004", "name": "LayerX", "color": "#5A3FBF", "summary": "お金の流れとバックオフィス", "sector1": "Fintech / AI", "founded": "2018"}, {"company_id": "c0005", "name": "HERP", "color": "#1A7A3C", "summary": "採用管理", "sector1": "Recruiting", "founded": "2017"}, {"company_id": "c0006", "name": "estie", "color": "#C02020", "summary": "不動産データ", "sector1": "Real Estate", "founded": "2018"}, {"company_id": "c0007", "name": "Ubie", "color": "#0F7A64", "summary": "医療体験", "sector1": "HealthTech", "founded": "2017"}, {"company_id": "c0008", "name": "LegalOn", "color": "#1A5EC2", "summary": "契約審査", "sector1": "LegalTech", "founded": "2017"}];
+const STARTUPFILE_FALLBACK_COMPANY = {&quot;company_id&quot;:&quot;c0001&quot;,&quot;name&quot;:&quot;SmartHR&quot;,&quot;color&quot;:&quot;#0F7A64&quot;,&quot;mission&quot;:&quot;well-working 労働にまつわる社会課題をなくし、誰もがその人らしく働ける社会をつくる。&quot;,&quot;summary&quot;:&quot;SmartHRは、入社手続き・雇用契約・年末調整などの人事労務をクラウド化するサービスを起点に、従業員データの整備、タレントマネジメント、人的資本経営、給与・周辺業務連携へと提供領域を広げている。&quot;,&quot;biz_desc&quot;:&quot;紙・ハンコ・郵送に残っていた人事労務の非効率をクラウド化し、従業員情報を正しく集め、管理し、活用できる状態をつくる。労務管理から始まったプロダクトは、評価・配置・サーベイ・人的資本開示など、組織の意思決定に関わるデータ基盤へと広がっている。&quot;,&quot;raised_total&quot;:&quot;約467億円（参考モック）&quot;,&quot;latest_round&quot;:&quot;Series E相当&quot;,&quot;location&quot;:&quot;東京都港区&quot;,&quot;sector1&quot;:&quot;HR Tech&quot;,&quot;sector2&quot;:&quot;SaaS / 人事・労務&quot;,&quot;ticker&quot;:&quot;非上場&quot;,&quot;founded&quot;:&quot;2013&quot;,&quot;links&quot;:{&quot;hp&quot;:&quot;https://smarthr.example.com/&quot;,&quot;service&quot;:&quot;https://smarthr.example.com/product/&quot;,&quot;recruit&quot;:&quot;https://smarthr.example.com/recruit/&quot;,&quot;culture&quot;:&quot;https://smarthr.example.com/culture/&quot;,&quot;ir&quot;:&quot;&quot;,&quot;service_doc&quot;:&quot;https://smarthr.example.com/resources/product-guide/&quot;},&quot;headcount&quot;:[{&quot;year&quot;:2015,&quot;count&quot;:10,&quot;source_text&quot;:&quot;内容確認用モック&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;score&quot;:&quot;C&quot;},{&quot;year&quot;:2018,&quot;count&quot;:150,&quot;source_text&quot;:&quot;内容確認用モック&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;score&quot;:&quot;C&quot;},{&quot;year&quot;:2020,&quot;count&quot;:450,&quot;source_text&quot;:&quot;内容確認用モック&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;score&quot;:&quot;C&quot;},{&quot;year&quot;:2022,&quot;count&quot;:800,&quot;source_text&quot;:&quot;内容確認用モック&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;score&quot;:&quot;C&quot;},{&quot;year&quot;:2024,&quot;count&quot;:1200,&quot;source_text&quot;:&quot;内容確認用モック&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;score&quot;:&quot;C&quot;},{&quot;year&quot;:2026,&quot;count&quot;:1590,&quot;source_text&quot;:&quot;内容確認用モック&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;score&quot;:&quot;C&quot;}],&quot;funding&quot;:[{&quot;year&quot;:2015,&quot;round&quot;:&quot;Seed&quot;,&quot;amount&quot;:&quot;1億円&quot;,&quot;note&quot;:&quot;労務クラウド立ち上げ期の資金調達&quot;,&quot;source_text&quot;:&quot;内容確認用モック&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;score&quot;:&quot;C&quot;},{&quot;year&quot;:2017,&quot;round&quot;:&quot;Series A&quot;,&quot;amount&quot;:&quot;15億円&quot;,&quot;note&quot;:&quot;導入企業拡大とプロダクト強化&quot;,&quot;source_text&quot;:&quot;内容確認用モック&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;score&quot;:&quot;C&quot;},{&quot;year&quot;:2019,&quot;round&quot;:&quot;Series B&quot;,&quot;amount&quot;:&quot;61.5億円&quot;,&quot;note&quot;:&quot;中堅・大企業向けの営業体制を強化&quot;,&quot;source_text&quot;:&quot;内容確認用モック&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;score&quot;:&quot;C&quot;},{&quot;year&quot;:2021,&quot;round&quot;:&quot;Series D&quot;,&quot;amount&quot;:&quot;156億円&quot;,&quot;note&quot;:&quot;マルチプロダクト化と採用拡大&quot;,&quot;source_text&quot;:&quot;内容確認用モック&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;score&quot;:&quot;C&quot;},{&quot;year&quot;:2024,&quot;round&quot;:&quot;Series E&quot;,&quot;amount&quot;:&quot;214億円&quot;,&quot;note&quot;:&quot;人的資本経営プラットフォームへの進化を加速&quot;,&quot;source_text&quot;:&quot;内容確認用モック&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;score&quot;:&quot;C&quot;}],&quot;metrics&quot;:[{&quot;year&quot;:2026,&quot;arr&quot;:&quot;200億円超（参考モック）&quot;,&quot;customers&quot;:&quot;80,000社超（参考モック）&quot;,&quot;retention&quot;:&quot;非開示&quot;}],&quot;topics&quot;:[{&quot;year&quot;:2013,&quot;type&quot;:&quot;founder&quot;,&quot;title&quot;:&quot;創業者の労務手続き体験から着想&quot;,&quot;speaker&quot;:&quot;創業背景&quot;,&quot;desc&quot;:&quot;紙の申請書、押印、郵送が前提だった労務手続きに課題を感じたことが出発点。制度は働く人を支えるためにあるのに、手続きの複雑さが企業と従業員双方の負担になっていた。&quot;,&quot;url&quot;:&quot;&quot;,&quot;date&quot;:&quot;2013&quot;},{&quot;year&quot;:2015,&quot;type&quot;:&quot;business&quot;,&quot;title&quot;:&quot;クラウド人事労務ソフトSmartHRを提供開始&quot;,&quot;speaker&quot;:&quot;事業&quot;,&quot;desc&quot;:&quot;入社手続き、雇用契約、年末調整など、どの企業にも発生する人事労務業務をオンライン化。従業員が自分で入力でき、人事担当者が確認・承認できる体験をつくった。&quot;,&quot;url&quot;:&quot;&quot;,&quot;date&quot;:&quot;2015&quot;},{&quot;year&quot;:2018,&quot;type&quot;:&quot;award&quot;,&quot;title&quot;:&quot;導入企業の拡大と市場認知の高まり&quot;,&quot;speaker&quot;:&quot;実績&quot;,&quot;desc&quot;:&quot;人事労務クラウドのカテゴリが広がる中で、SmartHRは使いやすさ、法改正対応、導入企業数を背景に認知を高めた。&quot;,&quot;url&quot;:&quot;&quot;,&quot;date&quot;:&quot;2018&quot;},{&quot;year&quot;:2021,&quot;type&quot;:&quot;org&quot;,&quot;title&quot;:&quot;大型調達を機に組織拡大フェーズへ&quot;,&quot;speaker&quot;:&quot;組織&quot;,&quot;desc&quot;:&quot;プロダクト開発、カスタマーサクセス、エンタープライズ営業を強化。単一プロダクトの成長だけでなく、複数領域を扱う組織への移行が始まった。&quot;,&quot;url&quot;:&quot;&quot;,&quot;date&quot;:&quot;2021&quot;},{&quot;year&quot;:2023,&quot;type&quot;:&quot;workstyle&quot;,&quot;title&quot;:&quot;採用資料や組織の発信が増える&quot;,&quot;speaker&quot;:&quot;カルチャー&quot;,&quot;desc&quot;:&quot;採用・カルチャー・制度に関する発信が増え、働き方や組織づくりの考え方が外部からも読みやすくなった。&quot;,&quot;url&quot;:&quot;&quot;,&quot;date&quot;:&quot;2023&quot;},{&quot;year&quot;:2024,&quot;type&quot;:&quot;business&quot;,&quot;title&quot;:&quot;労務管理から人事データ活用へ拡張&quot;,&quot;speaker&quot;:&quot;事業&quot;,&quot;desc&quot;:&quot;従業員データを起点に、評価、配置、サーベイ、人的資本開示などへ提供領域を拡大。業務効率化だけでなく、人事意思決定を支える基盤になっている。&quot;,&quot;url&quot;:&quot;&quot;,&quot;date&quot;:&quot;2024&quot;},{&quot;year&quot;:2025,&quot;type&quot;:&quot;turning&quot;,&quot;title&quot;:&quot;人的資本経営プラットフォームとしての提供価値を強める&quot;,&quot;speaker&quot;:&quot;これから&quot;,&quot;desc&quot;:&quot;人事労務で蓄積されるデータを、組織状態の可視化や人材活用につなげる方向へ進化。バックオフィスSaaSから経営インフラへの転換が見えている。&quot;,&quot;url&quot;:&quot;&quot;,&quot;date&quot;:&quot;2025&quot;},{&quot;year&quot;:2026,&quot;type&quot;:&quot;business&quot;,&quot;title&quot;:&quot;周辺業務連携と分析機能を強化&quot;,&quot;speaker&quot;:&quot;最近の動き&quot;,&quot;desc&quot;:&quot;給与、勤怠、採用、評価など周辺領域との連携を強め、人事データを横断的に扱える状態を目指している。&quot;,&quot;url&quot;:&quot;&quot;,&quot;date&quot;:&quot;2026&quot;}],&quot;news_sources&quot;:[{&quot;label&quot;:&quot;公式ブログ&quot;,&quot;mode&quot;:&quot;link&quot;},{&quot;label&quot;:&quot;PR TIMES&quot;,&quot;mode&quot;:&quot;link&quot;},{&quot;label&quot;:&quot;採用情報&quot;,&quot;mode&quot;:&quot;link&quot;}],&quot;news_links&quot;:[{&quot;label&quot;:&quot;SmartHR公式サイト（モック）&quot;,&quot;url&quot;:&quot;https://smarthr.example.com/&quot;},{&quot;label&quot;:&quot;SmartHRサービスサイト（モック）&quot;,&quot;url&quot;:&quot;https://smarthr.example.com/product/&quot;}]};
+const STARTUPFILE_FALLBACK_INDEX = [{&quot;company_id&quot;: &quot;c0001&quot;, &quot;name&quot;: &quot;SmartHR&quot;, &quot;color&quot;: &quot;#0F7A64&quot;, &quot;summary&quot;: &quot;人事データの入口&quot;, &quot;sector1&quot;: &quot;HR / SaaS&quot;, &quot;founded&quot;: &quot;2013&quot;}, {&quot;company_id&quot;: &quot;c0002&quot;, &quot;name&quot;: &quot;カミナシ&quot;, &quot;color&quot;: &quot;#1A5EC2&quot;, &quot;summary&quot;: &quot;現場をスマホで変える&quot;, &quot;sector1&quot;: &quot;Field DX&quot;, &quot;founded&quot;: &quot;2016&quot;}, {&quot;company_id&quot;: &quot;c0003&quot;, &quot;name&quot;: &quot;CADDi&quot;, &quot;color&quot;: &quot;#A86010&quot;, &quot;summary&quot;: &quot;図面データから製造業を見る&quot;, &quot;sector1&quot;: &quot;Manufacturing&quot;, &quot;founded&quot;: &quot;2017&quot;}, {&quot;company_id&quot;: &quot;c0004&quot;, &quot;name&quot;: &quot;LayerX&quot;, &quot;color&quot;: &quot;#5A3FBF&quot;, &quot;summary&quot;: &quot;お金の流れとバックオフィス&quot;, &quot;sector1&quot;: &quot;Fintech / AI&quot;, &quot;founded&quot;: &quot;2018&quot;}, {&quot;company_id&quot;: &quot;c0005&quot;, &quot;name&quot;: &quot;HERP&quot;, &quot;color&quot;: &quot;#1A7A3C&quot;, &quot;summary&quot;: &quot;採用管理&quot;, &quot;sector1&quot;: &quot;Recruiting&quot;, &quot;founded&quot;: &quot;2017&quot;}, {&quot;company_id&quot;: &quot;c0006&quot;, &quot;name&quot;: &quot;estie&quot;, &quot;color&quot;: &quot;#C02020&quot;, &quot;summary&quot;: &quot;不動産データ&quot;, &quot;sector1&quot;: &quot;Real Estate&quot;, &quot;founded&quot;: &quot;2018&quot;}, {&quot;company_id&quot;: &quot;c0007&quot;, &quot;name&quot;: &quot;Ubie&quot;, &quot;color&quot;: &quot;#0F7A64&quot;, &quot;summary&quot;: &quot;医療体験&quot;, &quot;sector1&quot;: &quot;HealthTech&quot;, &quot;founded&quot;: &quot;2017&quot;}, {&quot;company_id&quot;: &quot;c0008&quot;, &quot;name&quot;: &quot;LegalOn&quot;, &quot;color&quot;: &quot;#1A5EC2&quot;, &quot;summary&quot;: &quot;契約審査&quot;, &quot;sector1&quot;: &quot;LegalTech&quot;, &quot;founded&quot;: &quot;2017&quot;}];
 
 // JSON（build_company_json.py 出力）→ 画面が期待する形へ変換
 function adaptCompany(j) {
   // 投資家文字列を整える
-  const fund = (j.funding || []).map(f => ({
+  const fund = (j.funding || []).map(f =&gt; ({
     year: f.year,
     round: f.round || '非公開',
-    amount: (f.amount && f.amount !== '非公開') ? (String(f.amount).match(/[億兆%]/) ? f.amount : f.amount + '億') : (f.amount || '非公開'),
+    amount: (f.amount &amp;&amp; f.amount !== '非公開') ? (String(f.amount).match(/[億兆%]/) ? f.amount : f.amount + '億') : (f.amount || '非公開'),
     investors: f.note || '',
     source_text: f.source_text || '',
     source_url: f.source_url || '',
     score: f.score || ''
   }));
   // 社員数 → [[year,count],...]（グラフ用）と、出典つき行（参考ソース用）
-  const headRows = (j.headcount || []).filter(h => h.count != null);
-  const emp = headRows.map(h => [h.year, h.count]);
+  const headRows = (j.headcount || []).filter(h =&gt; h.count != null);
+  const emp = headRows.map(h =&gt; [h.year, h.count]);
 
   // 参考ソース：社員数・資金調達の source_text / source_url / score から動的生成
   const SCORE_LABEL = { A:'一次情報', B:'メディア等', C:'推定・二次' };
   const refs = [];
-  headRows.forEach(h => {
-    if (!h.source_text && !h.source_url) return;
+  headRows.forEach(h =&gt; {
+    if (!h.source_text &amp;&amp; !h.source_url) return;
     refs.push({ year: h.year, kind: 'emp', cite: h.source_text || '', url: h.source_url || '',
                 score: h.score || '', label: SCORE_LABEL[h.score] || (h.score || '') });
   });
-  (j.funding || []).forEach(f => {
-    if (!f.source_text && !f.source_url) return;
+  (j.funding || []).forEach(f =&gt; {
+    if (!f.source_text &amp;&amp; !f.source_url) return;
     refs.push({ year: f.year, kind: 'fund', cite: f.source_text || ((f.round||'') + ' ' + (f.amount||'')), url: f.source_url || '',
                 score: f.score || '', label: SCORE_LABEL[f.score] || (f.score || '') });
   });
 
   // トピックス: src/retro へ名称変換（retro は記事年と出来事年の乖離2年以上で true）
-  const topics = (j.topics || []).map(t => {
+  const topics = (j.topics || []).map(t =&gt; {
     let retro = false;
     const dm = (t.date || '').match(/(\d{4})/);
-    if (dm && t.year) retro = (parseInt(dm[1]) - t.year) >= 2;
+    if (dm &amp;&amp; t.year) retro = (parseInt(dm[1]) - t.year) &gt;= 2;
     return { year: t.year, type: (t.type || '').split(',')[0].trim(), title: t.title,
              speaker: t.speaker || '', desc: t.desc || '', src: t.url || '', retro };
   });
   // 実績・評判 → perf（最新年の行を採用）
   const perf = { arr:'', clients:'', retention:'', itreview:'', boxil:'', ittrend:'' };
-  if (j.metrics && j.metrics.length) {
-    const withYear = j.metrics.filter(m => m.year);
-    const latest = (withYear.length ? withYear : j.metrics).reduce((a,b)=> (String(b.year) > String(a.year) ? b : a));
+  if (j.metrics &amp;&amp; j.metrics.length) {
+    const withYear = j.metrics.filter(m =&gt; m.year);
+    const latest = (withYear.length ? withYear : j.metrics).reduce((a,b)=&gt; (String(b.year) &gt; String(a.year) ? b : a));
     perf.arr = latest.arr || '非開示';
     perf.clients = latest.customers || '';
     perf.retention = latest.retention || '非開示';
@@ -3838,7 +3837,7 @@ function adaptCompany(j) {
   let vc = [];
   if (fund.length) {
     const last = fund[fund.length - 1];
-    vc = (last.investors || '').split(/[、,]/).map(s=>s.replace(/（.*?）/g,'').trim()).filter(Boolean).slice(0,3);
+    vc = (last.investors || '').split(/[、,]/).map(s=&gt;s.replace(/（.*?）/g,'').trim()).filter(Boolean).slice(0,3);
   }
   const L = j.links || {};
   return {
@@ -3878,10 +3877,10 @@ async function fetchCompany(id) {
   // ① GAS API が設定されていれば、そこから1社の詳細を取得
   if (API_URL) {
     try {
-      const res = await fetch(`${API_URL}?id=${encodeURIComponent(id)}&news=1&nocache=1&t=${Date.now()}`, { cache: 'no-store', redirect: 'follow' });
+      const res = await fetch(`${API_URL}?id=${encodeURIComponent(id)}&amp;news=1&amp;nocache=1&amp;t=${Date.now()}`, { cache: 'no-store', redirect: 'follow' });
       if (res.ok) {
         const payload = await res.json();
-        if (payload && payload.company) {
+        if (payload &amp;&amp; payload.company) {
           DB[id] = adaptCompany(payload.company);
           return DB[id];
         }
@@ -3910,7 +3909,7 @@ async function fetchCompany(id) {
 }
 
 // ════════════════════════════════════════════════
-// TYPE LABELS & COLORS
+// TYPE LABELS &amp; COLORS
 // ════════════════════════════════════════════════
 const TYPE = {
   founder:{label:'創業の思い',cls:'tb-f',dot:'var(--blue)'},
@@ -3947,12 +3946,12 @@ const SMARTHR_HEADER_OVERVIEW =
 
 function isSmartHRCompany(c) {
   const keys = [
-    c && c.name,
-    c && c.company,
-    c && c.company_id,
-    c && c.id,
-    c && c.cid,
-    c && c.biz_id
+    c &amp;&amp; c.name,
+    c &amp;&amp; c.company,
+    c &amp;&amp; c.company_id,
+    c &amp;&amp; c.id,
+    c &amp;&amp; c.cid,
+    c &amp;&amp; c.biz_id
   ].filter(Boolean).join(' ');
   return /smarthr|スマートhr|スマートHR|株式会社smarthr/i.test(keys);
 }
@@ -3998,15 +3997,15 @@ function render(id) {
   document.querySelector('.co-header').style.setProperty('--co-color', c.color);
 
   // データ欠損ガード
-  const lastEmp = (c.emp && c.emp.length) ? c.emp[c.emp.length-1] : null;
-  const lastFund = (c.fund && c.fund.length) ? c.fund[c.fund.length-1] : null;
+  const lastEmp = (c.emp &amp;&amp; c.emp.length) ? c.emp[c.emp.length-1] : null;
+  const lastFund = (c.fund &amp;&amp; c.fund.length) ? c.fund[c.fund.length-1] : null;
 
   // KPI: 従業員数
   document.getElementById('co-emp-val').textContent = lastEmp ? lastEmp[1].toLocaleString() : '—';
   document.getElementById('co-emp-sub').textContent = lastEmp ? `${lastEmp[0]}年時点` : '';
   // KPI: 累計調達額
   document.getElementById('co-raised-val').textContent = c.raised ? c.raised.split('(')[0].split('（')[0] : '—';
-  document.getElementById('co-raised-sub').textContent = (c.rounds && c.rounds.length > 40) ? c.rounds.slice(0,40)+'…' : (c.rounds || '');
+  document.getElementById('co-raised-sub').textContent = (c.rounds &amp;&amp; c.rounds.length &gt; 40) ? c.rounds.slice(0,40)+'…' : (c.rounds || '');
   // KPI: 直近ラウンド
   const roundEl = document.getElementById('co-round-val');
   const roundSub = document.getElementById('co-round-sub');
@@ -4040,19 +4039,19 @@ function render(id) {
   ];
   const row1 = linkDefs.slice(0,4);
   const row2 = linkDefs.slice(4);
-  const mkLink = ({label,url,icon}) => {
+  const mkLink = ({label,url,icon}) =&gt; {
     const a = document.createElement('a');
     a.className = 'co-link' + (url?'':' disabled');
     a.href = url||'#'; if(url) a.target='_blank';
-    a.innerHTML = `<span>${icon}</span>${label}<span class="co-link-arrow">${url?'↗':'—'}</span>`;
+    a.innerHTML = `&lt;span&gt;${icon}&lt;/span&gt;${label}&lt;span class=&quot;co-link-arrow&quot;&gt;${url?'↗':'—'}&lt;/span&gt;`;
     return a;
   };
   const linkWrap = document.getElementById('co-links-wrap');
   if(linkWrap) {
     linkWrap.innerHTML = '';
-    [row1,row2].forEach(row => {
+    [row1,row2].forEach(row =&gt; {
       const div = document.createElement('div'); div.className='co-links-row';
-      row.forEach(l => div.appendChild(mkLink(l)));
+      row.forEach(l =&gt; div.appendChild(mkLink(l)));
       linkWrap.appendChild(div);
     });
   }
@@ -4069,88 +4068,88 @@ function render(id) {
   const perf = c.perf;
   const hasBiz = perf.arr||perf.clients||perf.retention;
   const hasRep = perf.itreview||perf.boxil||perf.ittrend;
-  const na = v => v ? `<span class="acc-val">${v}</span>` : `<span class="acc-val val-na">—</span>`;
+  const na = v =&gt; v ? `&lt;span class=&quot;acc-val&quot;&gt;${v}&lt;/span&gt;` : `&lt;span class=&quot;acc-val val-na&quot;&gt;—&lt;/span&gt;`;
 
   // 基本情報・財務欄の安全表示用
   const foundedText = c.founded ? `${c.founded}年` : '';
-  const fundCountText = (c.fund && c.fund.length) ? `${c.fund.length}ラウンド` : '';
+  const fundCountText = (c.fund &amp;&amp; c.fund.length) ? `${c.fund.length}ラウンド` : '';
   const raisedText = c.raised ? c.raised.split('（')[0].split('(')[0] : '';
   const latestAmountText = lastFund ? lastFund.amount : '';
   const latestRoundText = lastFund ? lastFund.round : '';
   document.getElementById('acc-body').innerHTML = `
-    <div class="acc-cat">
-      <span class="acc-cat-label">基本</span>
-      <div class="acc-rows">
-        <div class="acc-row"><span class="acc-key">設立年</span>${na(foundedText)}</div>
-        <div class="acc-row"><span class="acc-key">所在地</span>${na(c.hq)}</div>
-        <div class="acc-row"><span class="acc-key">証券コード</span>${na(c.code)}</div>
-        <div class="acc-row"><span class="acc-key">事業区分１</span>${na(c.domain1)}</div>
-        <div class="acc-row"><span class="acc-key">事業区分２</span>${na(c.domain2||'—')}</div>
-        <div class="acc-row"><span class="acc-key">調達ラウンド数</span>${na(fundCountText)}</div>
-      </div>
-    </div>
-    <div class="acc-cat">
-      <span class="acc-cat-label">財務</span>
-      <div class="acc-rows">
-        <div class="acc-row"><span class="acc-key">累計調達額</span>${na(raisedText)}</div>
-        <div class="acc-row"><span class="acc-key">直近調達額</span>${na(latestAmountText)}</div>
-        <div class="acc-row"><span class="acc-key">直近ラウンド</span>${na(latestRoundText)}</div>
-      </div>
-    </div>
-    ${hasBiz?`<div class="acc-cat">
-      <span class="acc-cat-label">事業</span>
-      <div class="acc-rows">
-        <div class="acc-row"><span class="acc-key">ARR</span>${na(perf.arr)}</div>
-        <div class="acc-row"><span class="acc-key">導入数</span>${na(perf.clients)}</div>
-        <div class="acc-row"><span class="acc-key">継続率</span>${na(perf.retention)}</div>
-      </div>
-    </div>`:''}
-    ${hasRep?`<div class="acc-cat">
-      <span class="acc-cat-label">評判</span>
-      <div class="acc-rows">
-        <div class="acc-row"><span class="acc-key">ITreview</span>${na(perf.itreview?perf.itreview+' / 5.0':'')}</div>
-        <div class="acc-row"><span class="acc-key">BOXIL</span>${na(perf.boxil?perf.boxil+' / 5.0':'')}</div>
-        <div class="acc-row"><span class="acc-key">ITトレンド</span>${na(perf.ittrend?perf.ittrend+' / 5.0':'')}</div>
-      </div>
-    </div>`:''}
-    <div style="padding:10px 0 2px;border-top:1px solid rgba(0,0,0,.07);margin-top:4px;display:flex;gap:7px;flex-wrap:wrap">
-    </div>
+    &lt;div class=&quot;acc-cat&quot;&gt;
+      &lt;span class=&quot;acc-cat-label&quot;&gt;基本&lt;/span&gt;
+      &lt;div class=&quot;acc-rows&quot;&gt;
+        &lt;div class=&quot;acc-row&quot;&gt;&lt;span class=&quot;acc-key&quot;&gt;設立年&lt;/span&gt;${na(foundedText)}&lt;/div&gt;
+        &lt;div class=&quot;acc-row&quot;&gt;&lt;span class=&quot;acc-key&quot;&gt;所在地&lt;/span&gt;${na(c.hq)}&lt;/div&gt;
+        &lt;div class=&quot;acc-row&quot;&gt;&lt;span class=&quot;acc-key&quot;&gt;証券コード&lt;/span&gt;${na(c.code)}&lt;/div&gt;
+        &lt;div class=&quot;acc-row&quot;&gt;&lt;span class=&quot;acc-key&quot;&gt;事業区分１&lt;/span&gt;${na(c.domain1)}&lt;/div&gt;
+        &lt;div class=&quot;acc-row&quot;&gt;&lt;span class=&quot;acc-key&quot;&gt;事業区分２&lt;/span&gt;${na(c.domain2||'—')}&lt;/div&gt;
+        &lt;div class=&quot;acc-row&quot;&gt;&lt;span class=&quot;acc-key&quot;&gt;調達ラウンド数&lt;/span&gt;${na(fundCountText)}&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;acc-cat&quot;&gt;
+      &lt;span class=&quot;acc-cat-label&quot;&gt;財務&lt;/span&gt;
+      &lt;div class=&quot;acc-rows&quot;&gt;
+        &lt;div class=&quot;acc-row&quot;&gt;&lt;span class=&quot;acc-key&quot;&gt;累計調達額&lt;/span&gt;${na(raisedText)}&lt;/div&gt;
+        &lt;div class=&quot;acc-row&quot;&gt;&lt;span class=&quot;acc-key&quot;&gt;直近調達額&lt;/span&gt;${na(latestAmountText)}&lt;/div&gt;
+        &lt;div class=&quot;acc-row&quot;&gt;&lt;span class=&quot;acc-key&quot;&gt;直近ラウンド&lt;/span&gt;${na(latestRoundText)}&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    ${hasBiz?`&lt;div class=&quot;acc-cat&quot;&gt;
+      &lt;span class=&quot;acc-cat-label&quot;&gt;事業&lt;/span&gt;
+      &lt;div class=&quot;acc-rows&quot;&gt;
+        &lt;div class=&quot;acc-row&quot;&gt;&lt;span class=&quot;acc-key&quot;&gt;ARR&lt;/span&gt;${na(perf.arr)}&lt;/div&gt;
+        &lt;div class=&quot;acc-row&quot;&gt;&lt;span class=&quot;acc-key&quot;&gt;導入数&lt;/span&gt;${na(perf.clients)}&lt;/div&gt;
+        &lt;div class=&quot;acc-row&quot;&gt;&lt;span class=&quot;acc-key&quot;&gt;継続率&lt;/span&gt;${na(perf.retention)}&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;`:''}
+    ${hasRep?`&lt;div class=&quot;acc-cat&quot;&gt;
+      &lt;span class=&quot;acc-cat-label&quot;&gt;評判&lt;/span&gt;
+      &lt;div class=&quot;acc-rows&quot;&gt;
+        &lt;div class=&quot;acc-row&quot;&gt;&lt;span class=&quot;acc-key&quot;&gt;ITreview&lt;/span&gt;${na(perf.itreview?perf.itreview+' / 5.0':'')}&lt;/div&gt;
+        &lt;div class=&quot;acc-row&quot;&gt;&lt;span class=&quot;acc-key&quot;&gt;BOXIL&lt;/span&gt;${na(perf.boxil?perf.boxil+' / 5.0':'')}&lt;/div&gt;
+        &lt;div class=&quot;acc-row&quot;&gt;&lt;span class=&quot;acc-key&quot;&gt;ITトレンド&lt;/span&gt;${na(perf.ittrend?perf.ittrend+' / 5.0':'')}&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;`:''}
+    &lt;div style=&quot;padding:10px 0 2px;border-top:1px solid rgba(0,0,0,.07);margin-top:4px;display:flex;gap:7px;flex-wrap:wrap&quot;&gt;
+    &lt;/div&gt;
   `;
 
   // Emp chart（データ欠損ガード）
   const empColor = c.color;
-  if (c.emp && c.emp.length) {
-    const empMax = Math.max(...c.emp.map(e=>e[1]));
+  if (c.emp &amp;&amp; c.emp.length) {
+    const empMax = Math.max(...c.emp.map(e=&gt;e[1]));
     document.getElementById('emp-latest').textContent = lastEmp[1].toLocaleString()+'名';
     document.getElementById('emp-sub2').textContent = lastEmp[0]+'年時点';
-    document.getElementById('emp-chart').innerHTML = c.emp.map(([yr,cnt],i,arr)=>{
+    document.getElementById('emp-chart').innerHTML = c.emp.map(([yr,cnt],i,arr)=&gt;{
       const isLast = i===arr.length-1;
       const h = Math.max(2, Math.round((cnt/empMax)*60));
       const op = isLast ? 1 : 0.3 + (i/arr.length)*0.5;
       const label = String(yr).slice(2);
-      return `<div class="bar-col">
-        <div class="bar-fill" style="height:${h}px;background:${empColor};opacity:${op}"></div>
-        <div class="bar-yr">'${label}</div>
-      </div>`;
+      return `&lt;div class=&quot;bar-col&quot;&gt;
+        &lt;div class=&quot;bar-fill&quot; style=&quot;height:${h}px;background:${empColor};opacity:${op}&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;bar-yr&quot;&gt;'${label}&lt;/div&gt;
+      &lt;/div&gt;`;
     }).join('');
   } else {
     document.getElementById('emp-latest').textContent = '—';
     document.getElementById('emp-sub2').textContent = 'データなし';
-    document.getElementById('emp-chart').innerHTML = '<div style="font-family:var(--mono);font-size:11px;color:var(--text-mute);padding:18px 0;text-align:center;width:100%">社員数データ未整備</div>';
+    document.getElementById('emp-chart').innerHTML = '&lt;div style=&quot;font-family:var(--mono);font-size:11px;color:var(--text-mute);padding:18px 0;text-align:center;width:100%&quot;&gt;社員数データ未整備&lt;/div&gt;';
   }
 
   // Fund chart（データ欠損ガード）
-  if (c.fund && c.fund.length) {
-    const fundAmts = c.fund.map(f => {
+  if (c.fund &amp;&amp; c.fund.length) {
+    const fundAmts = c.fund.map(f =&gt; {
       const n = parseFloat(String(f.amount).replace('億','').replace('非公開','0').replace('nan','0'));
       return isNaN(n)?0:n;
     });
     const fundMax = Math.max(...fundAmts, 1);
     document.getElementById('fund-summary').textContent = c.raised ? c.raised.split('(')[0].split('（')[0] : '—';
     document.getElementById('fund-sub').textContent = lastFund.round;
-    document.getElementById('fund-chart').innerHTML = c.fund.map((f,i)=>{
+    document.getElementById('fund-chart').innerHTML = c.fund.map((f,i)=&gt;{
     const amt = fundAmts[i];
-    const h = amt>0 ? Math.max(4, Math.round((amt/fundMax)*60)) : 3;
+    const h = amt&gt;0 ? Math.max(4, Math.round((amt/fundMax)*60)) : 3;
     const op = i===c.fund.length-1 ? 1 : 0.3+(i/c.fund.length)*0.5;
     // ラウンド名を読みやすく短縮
     const roundMap = {'シリーズA':'S-A','シリーズB':'S-B','シリーズC':'S-C','シリーズD':'S-D','シリーズE':'S-E',
@@ -4161,79 +4160,79 @@ function render(id) {
     for(const [k,v] of Object.entries(roundMap)){
       if(f.round.startsWith(k)){ shortLabel=v; break; }
     }
-    if(shortLabel===f.round) shortLabel = f.round.length>6 ? f.round.slice(0,5)+'…' : f.round;
-    return `<div class="bar-col" style="min-width:0">
-      <div class="bar-fill" style="height:${h}px;background:var(--blue);opacity:${op}${amt===0?';background:var(--bg-muted)':''}"></div>
-      <div class="bar-yr" style="font-size:10px">${shortLabel}<br><span style="font-size:9px;color:var(--text-mute)">'${String(f.year).slice(2)}</span></div>
-    </div>`;
+    if(shortLabel===f.round) shortLabel = f.round.length&gt;6 ? f.round.slice(0,5)+'…' : f.round;
+    return `&lt;div class=&quot;bar-col&quot; style=&quot;min-width:0&quot;&gt;
+      &lt;div class=&quot;bar-fill&quot; style=&quot;height:${h}px;background:var(--blue);opacity:${op}${amt===0?';background:var(--bg-muted)':''}&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;bar-yr&quot; style=&quot;font-size:10px&quot;&gt;${shortLabel}&lt;br&gt;&lt;span style=&quot;font-size:9px;color:var(--text-mute)&quot;&gt;'${String(f.year).slice(2)}&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;`;
     }).join('');
   } else {
     document.getElementById('fund-summary').textContent = '—';
     document.getElementById('fund-sub').textContent = 'データなし';
-    document.getElementById('fund-chart').innerHTML = '<div style="font-family:var(--mono);font-size:11px;color:var(--text-mute);padding:18px 0;text-align:center;width:100%">資金調達データ未整備</div>';
+    document.getElementById('fund-chart').innerHTML = '&lt;div style=&quot;font-family:var(--mono);font-size:11px;color:var(--text-mute);padding:18px 0;text-align:center;width:100%&quot;&gt;資金調達データ未整備&lt;/div&gt;';
   }
 
   // Ref table (emp + fund combined) — データ欠損ガード
   const empArr = c.emp || [];
   const fundArr = c.fund || [];
-  const empMap = Object.fromEntries(empArr.map(([y,n])=>[y,n]));
+  const empMap = Object.fromEntries(empArr.map(([y,n])=&gt;[y,n]));
   const fundMap = {};
-  fundArr.forEach(f => { fundMap[f.year] = f; });
-  const allYears = [...new Set([...empArr.map(e=>e[0]),...fundArr.map(f=>f.year)])].sort((a,b)=>b-a);
+  fundArr.forEach(f =&gt; { fundMap[f.year] = f; });
+  const allYears = [...new Set([...empArr.map(e=&gt;e[0]),...fundArr.map(f=&gt;f.year)])].sort((a,b)=&gt;b-a);
   // 参考ソースは c.refs（社員数・資金調達の source_text/source_url/score）から動的生成
   const SCORE_BADGE = { A:'rst-official', B:'rst-media', C:'rst-blog' };
   const refsByYear = {};
-  (c.refs || []).forEach(r => { (refsByYear[r.year] = refsByYear[r.year] || []).push(r); });
+  (c.refs || []).forEach(r =&gt; { (refsByYear[r.year] = refsByYear[r.year] || []).push(r); });
 
-  document.getElementById('ref-tbody').innerHTML = allYears.map(yr=>{
+  document.getElementById('ref-tbody').innerHTML = allYears.map(yr=&gt;{
     const empVal = empMap[yr] ? empMap[yr].toLocaleString()+'名' : '—';
     const f = fundMap[yr];
     const fundStr = f ? `${f.round} ${f.amount}` : '—';
-    const invStr  = f ? (f.investors||'').slice(0,44)+((f.investors||'').length>44?'…':'') : '';
+    const invStr  = f ? (f.investors||'').slice(0,44)+((f.investors||'').length&gt;44?'…':'') : '';
     // ソース列: c.refs（スプレッドシート由来）から該当年を取得
     const srcEntries = (refsByYear[yr] || []);
-    const srcCell = srcEntries.length > 0
-      ? `<div class="ref-src-cell">${srcEntries.map(s=>`
-          <div class="ref-src-row">
-            ${s.label ? `<span class="ref-src-badge ${SCORE_BADGE[s.score]||'rst-media'}">${s.label}</span>` : ''}
-            <span>${s.cite}</span>
-            ${s.url ? `<a href="${s.url}" target="_blank">↗</a>` : ''}
-          </div>`).join('')}</div>`
+    const srcCell = srcEntries.length &gt; 0
+      ? `&lt;div class=&quot;ref-src-cell&quot;&gt;${srcEntries.map(s=&gt;`
+          &lt;div class=&quot;ref-src-row&quot;&gt;
+            ${s.label ? `&lt;span class=&quot;ref-src-badge ${SCORE_BADGE[s.score]||'rst-media'}&quot;&gt;${s.label}&lt;/span&gt;` : ''}
+            &lt;span&gt;${s.cite}&lt;/span&gt;
+            ${s.url ? `&lt;a href=&quot;${s.url}&quot; target=&quot;_blank&quot;&gt;↗&lt;/a&gt;` : ''}
+          &lt;/div&gt;`).join('')}&lt;/div&gt;`
       : '—';
-    return `<tr>
-      <td>${yr}</td>
-      <td>${empVal}</td>
-      <td>${fundStr}</td>
-      <td style="font-size:10px;color:var(--text-mute)">${invStr}</td>
-      <td>${srcCell}</td>
-    </tr>`;
+    return `&lt;tr&gt;
+      &lt;td&gt;${yr}&lt;/td&gt;
+      &lt;td&gt;${empVal}&lt;/td&gt;
+      &lt;td&gt;${fundStr}&lt;/td&gt;
+      &lt;td style=&quot;font-size:10px;color:var(--text-mute)&quot;&gt;${invStr}&lt;/td&gt;
+      &lt;td&gt;${srcCell}&lt;/td&gt;
+    &lt;/tr&gt;`;
   }).join('');
   // Topics
-  document.getElementById('tl-list').innerHTML = [...c.topics].reverse().map(t=>{
+  document.getElementById('tl-list').innerHTML = [...c.topics].reverse().map(t=&gt;{
     const type = t.type.split(',')[0].trim();
     const ti = TYPE[type]||{label:type,cls:'tb-b',dot:'var(--teal)'};
-    return `<div class="tl-item" data-t="${t.type}">
-      <div class="tl-left">
-        <div class="tl-year">${t.year}</div>
-        <div class="tl-dot" style="background:${ti.dot}"></div>
-      </div>
-      <div class="tl-right">
-        <div class="tl-meta">
-          <span class="tl-badge ${ti.cls}">${ti.label}</span>
-          ${t.retro?'<span class="tl-retro">回顧</span>':''}
-          ${t.speaker?`<span class="tl-speaker">${t.speaker}</span>`:''}
-        </div>
-        <div class="tl-title">${t.title}</div>
-        <div class="tl-desc">${t.desc}</div>
-        ${t.src ? `<a class="tl-src-link" href="${t.src}" target="_blank">情報ソースを読む →</a>` : ''}
-      </div>
-    </div>`;
+    return `&lt;div class=&quot;tl-item&quot; data-t=&quot;${t.type}&quot;&gt;
+      &lt;div class=&quot;tl-left&quot;&gt;
+        &lt;div class=&quot;tl-year&quot;&gt;${t.year}&lt;/div&gt;
+        &lt;div class=&quot;tl-dot&quot; style=&quot;background:${ti.dot}&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;tl-right&quot;&gt;
+        &lt;div class=&quot;tl-meta&quot;&gt;
+          &lt;span class=&quot;tl-badge ${ti.cls}&quot;&gt;${ti.label}&lt;/span&gt;
+          ${t.retro?'&lt;span class=&quot;tl-retro&quot;&gt;回顧&lt;/span&gt;':''}
+          ${t.speaker?`&lt;span class=&quot;tl-speaker&quot;&gt;${t.speaker}&lt;/span&gt;`:''}
+        &lt;/div&gt;
+        &lt;div class=&quot;tl-title&quot;&gt;${t.title}&lt;/div&gt;
+        &lt;div class=&quot;tl-desc&quot;&gt;${t.desc}&lt;/div&gt;
+        ${t.src ? `&lt;a class=&quot;tl-src-link&quot; href=&quot;${t.src}&quot; target=&quot;_blank&quot;&gt;情報ソースを読む →&lt;/a&gt;` : ''}
+      &lt;/div&gt;
+    &lt;/div&gt;`;
   }).join('');
 
   // Reset topic filter
-  document.querySelectorAll('.tl-filter').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tl-filter').forEach(b=&gt;b.classList.remove('active'));
   document.querySelector('.tl-filter.fa').classList.add('active');
-  document.querySelectorAll('#tl-list .tl-item').forEach(i=>i.classList.remove('tl-hidden'));
+  document.querySelectorAll('#tl-list .tl-item').forEach(i=&gt;i.classList.remove('tl-hidden'));
 
   // まず見るところ / Voiceパネルを更新
   renderFocus(c);
@@ -4257,9 +4256,9 @@ function switchTab(id, btn) {
   if (id === 'tl') id = 'learn';
   if (id === 'timeline') id = 'learn';
 
-  document.querySelectorAll('.co-tab').forEach(b=>b.classList.remove('active'));
-  document.querySelectorAll('.tab-panel').forEach(p=>{ p.classList.remove('active'); p.scrollTop=0; });
-  const activeBtn = btn || document.querySelector(`.co-tab[onclick*="'${id}'"]`);
+  document.querySelectorAll('.co-tab').forEach(b=&gt;b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p=&gt;{ p.classList.remove('active'); p.scrollTop=0; });
+  const activeBtn = btn || document.querySelector(`.co-tab[onclick*=&quot;'${id}'&quot;]`);
   if(activeBtn) activeBtn.classList.add('active');
   const panel = document.getElementById('panel-'+id);
   if (panel) {
@@ -4271,8 +4270,8 @@ function switchTab(id, btn) {
 
 // Timeline 内サブタブ：重要イベント / 最近の動き
 function switchTLSub(name, btn){
-  document.querySelectorAll('.tl-subtab').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.tl-sub-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tl-subtab').forEach(b =&gt; b.classList.remove('active'));
+  document.querySelectorAll('.tl-sub-panel').forEach(p =&gt; p.classList.remove('active'));
   if(btn) btn.classList.add('active');
   const target = document.getElementById('timeline-sub-' + name);
   if(target) target.classList.add('active');
@@ -4280,10 +4279,10 @@ function switchTLSub(name, btn){
   if(name === 'news') renderNews(currentId);
 }
 function filterTL(type, btn) {
-  document.querySelectorAll('.tl-filter').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tl-filter').forEach(b=&gt;b.classList.remove('active'));
   btn.classList.add('active');
-  document.querySelectorAll('#tl-list .tl-item').forEach(item=>{
-    item.classList.toggle('tl-hidden', type!=='all' && !item.dataset.t.includes(type));
+  document.querySelectorAll('#tl-list .tl-item').forEach(item=&gt;{
+    item.classList.toggle('tl-hidden', type!=='all' &amp;&amp; !item.dataset.t.includes(type));
   });
 }
 function toggleAcc(btn) {
@@ -4294,8 +4293,8 @@ function toggleAcc(btn) {
   chev.classList.toggle('open',!open);
 }
 
-</script>
-<script>
+&lt;/script&gt;
+&lt;script&gt;
 // ── SmartHR Voice — Rich Design (from public URLs) ──
 // Sources: smarthr.co.jp / app.smarthr.jp / smarthr.co.jp/recruit/ / speakerdeck.com/smarthr_pr/
 // ════════════════════════════════════════════════
@@ -4327,11 +4326,11 @@ const VOICE_SAMPLE = {
 //   ・見どころ、基本情報、成長推移グラフ、データの出典はHTML側に静的配置
 // ════════════════════════════════════════════════
 function hasVoiceData(c) {
-  const v = c && c.voice;
+  const v = c &amp;&amp; c.voice;
   return !!(
-    v && (
-      (v.sections && v.sections.length) ||
-      (v.investors && v.investors.length) ||
+    v &amp;&amp; (
+      (v.sections &amp;&amp; v.sections.length) ||
+      (v.investors &amp;&amp; v.investors.length) ||
       v.summary ||
       v.growth_story
     )
@@ -4345,145 +4344,145 @@ function renderFocus(c) {
 }
 
 function renderVoicePanel(c) {
-  const wrap = document.getElementById('voice-panel-dynamic');
+  const wrap = document.getElementById(&#x27;voice-panel-dynamic&#x27;);
   if (!wrap) return;
 
-  const sourceHost = (url) => {
-    try { return new URL(url).hostname.replace(/^www\./,''); } catch(e) { return ''; }
+  const sourceHost = (url) =&gt; {
+    try { return new URL(url).hostname.replace(/^www\./,&#x27;&#x27;); } catch(e) { return &#x27;&#x27;; }
   };
-  const sourceKind = (url, title) => {
-    const t = String(title || '');
-    if (t && !/^出典\d*$/.test(t) && !/^参考情報$/.test(t)) return t;
-    const u = String(url || '').toLowerCase();
+  const sourceKind = (url, title) =&gt; {
+    const t = String(title || &#x27;&#x27;);
+    if (t &amp;&amp; !/^出典\d*$/.test(t) &amp;&amp; !/^参考情報$/.test(t)) return t;
+    const u = String(url || &#x27;&#x27;).toLowerCase();
     try {
       const parsed = new URL(url);
-      if ((parsed.pathname === '/' || parsed.pathname === '') && !u.includes('prtimes.jp')) return '公式サイト';
+      if ((parsed.pathname === &#x27;/&#x27; || parsed.pathname === &#x27;&#x27;) &amp;&amp; !u.includes(&#x27;prtimes.jp&#x27;)) return &#x27;公式サイト&#x27;;
     } catch(e) {}
-    if (u.includes('prtimes.jp')) return 'PR TIMES';
-    if (u.includes('speakerdeck.com')) return '会社資料';
-    if (u.includes('note.com')) return 'note';
-    if (u.includes('/ir/') || u.includes('ir.')) return 'IR';
-    if (u.includes('recruit') || u.includes('career')) return '採用ページ';
-    if (u.includes('case') || u.includes('customer')) return '導入事例';
-    if (u.includes('news') || u.includes('press') || u.includes('release')) return '公式ニュース';
-    if (u.includes('business')) return '事業内容';
-    if (u.includes('service') || u.includes('product') || u.includes('bakuraku') || u.includes('smarthr.jp') || u.includes('ubie.app')) return 'サービス';
-    if (u.includes('about') || u.includes('mission')) return 'ミッション';
-    return '参考情報';
+    if (u.includes(&#x27;prtimes.jp&#x27;)) return &#x27;PR TIMES&#x27;;
+    if (u.includes(&#x27;speakerdeck.com&#x27;)) return &#x27;会社資料&#x27;;
+    if (u.includes(&#x27;note.com&#x27;)) return &#x27;note&#x27;;
+    if (u.includes(&#x27;/ir/&#x27;) || u.includes(&#x27;ir.&#x27;)) return &#x27;IR&#x27;;
+    if (u.includes(&#x27;recruit&#x27;) || u.includes(&#x27;career&#x27;)) return &#x27;採用ページ&#x27;;
+    if (u.includes(&#x27;case&#x27;) || u.includes(&#x27;customer&#x27;)) return &#x27;導入事例&#x27;;
+    if (u.includes(&#x27;news&#x27;) || u.includes(&#x27;press&#x27;) || u.includes(&#x27;release&#x27;)) return &#x27;公式ニュース&#x27;;
+    if (u.includes(&#x27;business&#x27;)) return &#x27;事業内容&#x27;;
+    if (u.includes(&#x27;service&#x27;) || u.includes(&#x27;product&#x27;) || u.includes(&#x27;bakuraku&#x27;) || u.includes(&#x27;smarthr.jp&#x27;) || u.includes(&#x27;ubie.app&#x27;)) return &#x27;サービス&#x27;;
+    if (u.includes(&#x27;about&#x27;) || u.includes(&#x27;mission&#x27;)) return &#x27;ミッション&#x27;;
+    return &#x27;参考情報&#x27;;
   };
-  const sourceTitleHint = (url, src) => {
-    const fromApi = src && (src.page_title || src.pageTitle || src.title_fragment || src.titleFragment);
+  const sourceTitleHint = (url, src) =&gt; {
+    const fromApi = src &amp;&amp; (src.page_title || src.pageTitle || src.title_fragment || src.titleFragment);
     if (fromApi) return String(fromApi).trim();
-    const u = String(url || '').toLowerCase();
+    const u = String(url || &#x27;&#x27;).toLowerCase();
     const rules = [
-      [/layerx\.co\.jp\/news\/20250901-3/, 'シリーズBで150億円を調達'],
-      [/layerx\.co\.jp\/news\/2023110901/, 'シリーズA累計で約102億円を調達完了'],
-      [/bakuraku\.jp\/news\/20250404/, 'バクラク導入社数15,000社突破'],
-      [/prtimes\.jp\/main\/html\/rd\/p\/000000295\.000036528/, 'シリーズA累計で約102億円を調達'],
-      [/prtimes\.jp\/main\/html\/rd\/p\/000000209\.000036528/, 'シリーズAファーストクローズで約55億円を調達'],
-      [/smarthr\.co\.jp\/news\/press\/27110/, 'シリーズEで214億円を調達'],
-      [/smarthr\.jp\/release\/25704/, 'シリーズDで約156億円を調達'],
-      [/ubie.*000000151\.000048083/, 'シリーズCエクステンションを実施'],
-      [/ubie.*000000107\.000048083/, 'Google Cloudとの医療DX連携'],
-      [/corp-sansan\.com\/news\/2009\/090617_397/, '総額1億円の資金調達を実施'],
-      [/corp-sansan\.com\/news\/2018\/funding_seriese/, '30億円超の資金調達を実施']
+      [/layerx\.co\.jp\/news\/20250901-3/, &#x27;シリーズBで150億円を調達&#x27;],
+      [/layerx\.co\.jp\/news\/2023110901/, &#x27;シリーズA累計で約102億円を調達完了&#x27;],
+      [/bakuraku\.jp\/news\/20250404/, &#x27;バクラク導入社数15,000社突破&#x27;],
+      [/prtimes\.jp\/main\/html\/rd\/p\/000000295\.000036528/, &#x27;シリーズA累計で約102億円を調達&#x27;],
+      [/prtimes\.jp\/main\/html\/rd\/p\/000000209\.000036528/, &#x27;シリーズAファーストクローズで約55億円を調達&#x27;],
+      [/smarthr\.co\.jp\/news\/press\/27110/, &#x27;シリーズEで214億円を調達&#x27;],
+      [/smarthr\.jp\/release\/25704/, &#x27;シリーズDで約156億円を調達&#x27;],
+      [/ubie.*000000151\.000048083/, &#x27;シリーズCエクステンションを実施&#x27;],
+      [/ubie.*000000107\.000048083/, &#x27;Google Cloudとの医療DX連携&#x27;],
+      [/corp-sansan\.com\/news\/2009\/090617_397/, &#x27;総額1億円の資金調達を実施&#x27;],
+      [/corp-sansan\.com\/news\/2018\/funding_seriese/, &#x27;30億円超の資金調達を実施&#x27;]
     ];
     for (const [re, title] of rules) if (re.test(u)) return title;
-    return '';
+    return &#x27;&#x27;;
   };
-  const sourceLabel = (item) => {
+  const sourceLabel = (item) =&gt; {
     const kind = item.kind || sourceKind(item.url, item.title);
     const hint = sourceTitleHint(item.url, item);
-    if (hint && (kind.includes('ニュース') || kind.includes('PR TIMES') || kind.includes('資金調達'))) return `${kind}「${hint}」`;
-    if (hint && kind === '参考情報') return `参考情報「${hint}」`;
+    if (hint &amp;&amp; (kind.includes(&#x27;ニュース&#x27;) || kind.includes(&#x27;PR TIMES&#x27;) || kind.includes(&#x27;資金調達&#x27;))) return `${kind}「${hint}」`;
+    if (hint &amp;&amp; kind === &#x27;参考情報&#x27;) return `参考情報「${hint}」`;
     return kind;
   };
-  const normalizeSourceItems = (srcs) => {
+  const normalizeSourceItems = (srcs) =&gt; {
     const seen = new Set();
     const out = [];
-    (srcs || []).forEach(s => {
-      const raw = typeof s === 'string' ? s : (s && s.url);
+    (srcs || []).forEach(s =&gt; {
+      const raw = typeof s === &#x27;string&#x27; ? s : (s &amp;&amp; s.url);
       if (!raw) return;
-      String(raw).split(/\r?\n/).map(x=>x.trim()).filter(x=>/^https?:\/\//.test(x)).forEach(url => {
+      String(raw).split(/\r?\n/).map(x=&gt;x.trim()).filter(x=&gt;/^https?:\/\//.test(x)).forEach(url =&gt; {
         if (seen.has(url)) return;
         seen.add(url);
-        const title = typeof s === 'string' ? '' : (s.title || s.kind || '');
-        const kind = typeof s === 'string' ? sourceKind(url, title) : (s.kind || sourceKind(url, title));
+        const title = typeof s === &#x27;string&#x27; ? &#x27;&#x27; : (s.title || s.kind || &#x27;&#x27;);
+        const kind = typeof s === &#x27;string&#x27; ? sourceKind(url, title) : (s.kind || sourceKind(url, title));
         out.push({
           url,
           kind,
           title,
-          page_title: (s && (s.page_title || s.pageTitle || s.title_fragment || s.titleFragment)) || '',
-          domain: (s && s.domain) || sourceHost(url)
+          page_title: (s &amp;&amp; (s.page_title || s.pageTitle || s.title_fragment || s.titleFragment)) || &#x27;&#x27;,
+          domain: (s &amp;&amp; s.domain) || sourceHost(url)
         });
       });
     });
     return out;
   };
-  const mkSources = (srcs) => {
+  const mkSources = (srcs) =&gt; {
     const items = normalizeSourceItems(srcs);
-    if (!items.length) return '';
-    return `<div class="v-sources">
-      <div class="v-sources-title">参考情報</div>
-      <div class="v-src-line">${items.map((s, i)=>`
-        ${i ? '<span class="v-src-sep">／</span>' : ''}
-        <a class="v-src" href="${escapeHtmlSafe(s.url)}" target="_blank" rel="noopener" title="${escapeHtmlSafe(s.url)}">
-          <span class="v-src-label">${escapeHtmlSafe(sourceLabel(s))}</span>
-          <span class="v-src-arrow">↗</span>
-        </a>`).join('')}</div>
-    </div>`;
+    if (!items.length) return &#x27;&#x27;;
+    return `&lt;div class=&quot;v-sources&quot;&gt;
+      &lt;div class=&quot;v-sources-title&quot;&gt;参考情報&lt;/div&gt;
+      &lt;div class=&quot;v-src-line&quot;&gt;${items.map((s, i)=&gt;`
+        ${i ? &#x27;&lt;span class=&quot;v-src-sep&quot;&gt;／&lt;/span&gt;&#x27; : &#x27;&#x27;}
+        &lt;a class=&quot;v-src&quot; href=&quot;${escapeHtmlSafe(s.url)}&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; title=&quot;${escapeHtmlSafe(s.url)}&quot;&gt;
+          &lt;span class=&quot;v-src-label&quot;&gt;${escapeHtmlSafe(sourceLabel(s))}&lt;/span&gt;
+          &lt;span class=&quot;v-src-arrow&quot;&gt;↗&lt;/span&gt;
+        &lt;/a&gt;`).join(&#x27;&#x27;)}&lt;/div&gt;
+    &lt;/div&gt;`;
   };
-  const vcText = (vc) => vc && (vc.summary || vc.txt || vc.comment || '') || '';
-  const vcSpeaker = (vc) => [vc.person, vc.round].filter(Boolean).join(' · ');
+  const vcText = (vc) =&gt; vc &amp;&amp; (vc.summary || vc.txt || vc.comment || &#x27;&#x27;) || &#x27;&#x27;;
+  const vcSpeaker = (vc) =&gt; [vc.person, vc.round].filter(Boolean).join(&#x27; · &#x27;);
 
-  let html = '';
+  let html = &#x27;&#x27;;
   if (hasVoiceData(c)) {
-    html += `<div class="sec-heading">会社の思い</div>`;
+    html += `&lt;div class=&quot;sec-heading&quot;&gt;会社の思い&lt;/div&gt;`;
     html += ``;
-    const v = c.voice || { summary:'', growth_story:'', sections:[], investors:[] };
-    html += `<div class="voice-group">`;
-    v.sections.forEach(sec => {
+    const v = c.voice || { summary:&#x27;&#x27;, growth_story:&#x27;&#x27;, sections:[], investors:[] };
+    html += `&lt;div class=&quot;voice-group&quot;&gt;`;
+    v.sections.forEach(sec =&gt; {
       html += `
-        <div class="voice-chapter">
-          <div class="voice-chapter-title">${sec.title}</div>
-          <div class="v-card">
-            <div class="v-card-body">${sec.body}</div>
-          </div>
+        &lt;div class=&quot;voice-chapter&quot;&gt;
+          &lt;div class=&quot;voice-chapter-title&quot;&gt;${sec.title}&lt;/div&gt;
+          &lt;div class=&quot;v-card&quot;&gt;
+            &lt;div class=&quot;v-card-body&quot;&gt;${sec.body}&lt;/div&gt;
+          &lt;/div&gt;
           ${mkSources(sec.sources)}
-        </div>`;
+        &lt;/div&gt;`;
     });
-    if (v.investors && v.investors.length) {
+    if (v.investors &amp;&amp; v.investors.length) {
       html += `
-        <div class="voice-chapter">
-          <div class="voice-chapter-title">投資家・関係者の期待</div>
-          ${v.investors.map(vc=>`
-            <div class="v-card">
-              <div class="v-card-meta"><span class="v-badge">${vc.name || '投資家・関係者'}</span></div>
-              <div class="v-card-body">${vcText(vc)}${vcSpeaker(vc) ? `<div class="v-speaker">— ${vcSpeaker(vc)}</div>` : ''}</div>
-            </div>`).join('')}
-          ${mkSources(v.investors.flatMap(vc=>vc.sources||[]))}
-        </div>`;
+        &lt;div class=&quot;voice-chapter&quot;&gt;
+          &lt;div class=&quot;voice-chapter-title&quot;&gt;投資家・関係者の期待&lt;/div&gt;
+          ${v.investors.map(vc=&gt;`
+            &lt;div class=&quot;v-card&quot;&gt;
+              &lt;div class=&quot;v-card-meta&quot;&gt;&lt;span class=&quot;v-badge&quot;&gt;${vc.name || &#x27;投資家・関係者&#x27;}&lt;/span&gt;&lt;/div&gt;
+              &lt;div class=&quot;v-card-body&quot;&gt;${vcText(vc)}${vcSpeaker(vc) ? `&lt;div class=&quot;v-speaker&quot;&gt;— ${vcSpeaker(vc)}&lt;/div&gt;` : &#x27;&#x27;}&lt;/div&gt;
+            &lt;/div&gt;`).join(&#x27;&#x27;)}
+          ${mkSources(v.investors.flatMap(vc=&gt;vc.sources||[]))}
+        &lt;/div&gt;`;
     }
-    html += `</div>`;
+    html += `&lt;/div&gt;`;
   } else {
     html += `
-      <div class="focus-voice-quiet">
-        <span class="focus-voice-quiet-msg">会社の思いは準備中です。</span>
-      </div>`;
+      &lt;div class=&quot;focus-voice-quiet&quot;&gt;
+        &lt;span class=&quot;focus-voice-quiet-msg&quot;&gt;会社の思いは準備中です。&lt;/span&gt;
+      &lt;/div&gt;`;
   }
   wrap.innerHTML = html;
 }
 
 // 軽量HTMLエスケープ（タイトル等のサニタイズ用）
 function escapeHtmlSafe(s){
-  return String(s||'').replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
+  return String(s||'').replace(/[&amp;&lt;&gt;&quot;]/g, c=&gt;({'&amp;':'&amp;amp;','&lt;':'&amp;lt;','&gt;':'&amp;gt;','&quot;':'&amp;quot;'})[c]);
 }
 
 // 重要トピックスを優先順位でピック
 function pickImportantTopics(c, limit) {
   if (!c || !c.topics) return [];
   const priority = { founder: 0, turning: 1, business: 2, org: 3, award: 4, workstyle: 5 };
-  const sorted = [...c.topics].sort((a, b) => {
+  const sorted = [...c.topics].sort((a, b) =&gt; {
     const pa = priority[a.type] ?? 99;
     const pb = priority[b.type] ?? 99;
     if (pa !== pb) return pa - pb;
@@ -4493,13 +4492,13 @@ function pickImportantTopics(c, limit) {
   const picked = [];
   const seenTypes = new Set();
   for (const t of sorted) {
-    if (picked.length >= limit) break;
+    if (picked.length &gt;= limit) break;
     if (!seenTypes.has(t.type)) {
       picked.push(t); seenTypes.add(t.type);
     }
   }
   for (const t of sorted) {
-    if (picked.length >= limit) break;
+    if (picked.length &gt;= limit) break;
     if (!picked.includes(t)) picked.push(t);
   }
   return picked.slice(0, limit);
@@ -4538,7 +4537,7 @@ function makeWhyInterestingHtml(c, lastEmp, lastFund) {
   const name = c.name || 'この企業';
   const desc = cleanHighlightText(c.summary || c.biz_desc || c.mission || '');
   const domain = [c.domain1, c.domain2]
-    .filter(x => x && x !== '—')
+    .filter(x =&gt; x &amp;&amp; x !== '—')
     .join('・');
 
   const lead = desc
@@ -4552,7 +4551,7 @@ function makeWhyInterestingHtml(c, lastEmp, lastFund) {
     ? `${signals.join('、')}という届いているサインに加え、${topicPhrase}、今後の展開を継続して追う価値があります。`
     : `${topicPhrase}、その事業の広がりや組織の変化を追うことで、国内スタートアップの現在地を理解しやすい一社です。`;
 
-  return `<strong>${escapeHtmlSafe(lead)}</strong>${escapeHtmlSafe(body)}`;
+  return `&lt;strong&gt;${escapeHtmlSafe(lead)}&lt;/strong&gt;${escapeHtmlSafe(body)}`;
 }
 
 function boldFirstSentenceHtml(text) {
@@ -4560,14 +4559,14 @@ function boldFirstSentenceHtml(text) {
   if (!s) return '';
   const marker = '企業です。';
   const idx = s.indexOf(marker);
-  if (idx >= 0) {
+  if (idx &gt;= 0) {
     const head = s.slice(0, idx + marker.length);
     const tail = s.slice(idx + marker.length);
-    return `<strong>${escapeHtmlSafe(head)}</strong>${escapeHtmlSafe(tail)}`;
+    return `&lt;strong&gt;${escapeHtmlSafe(head)}&lt;/strong&gt;${escapeHtmlSafe(tail)}`;
   }
   const m = s.match(/^(.+?。)(.*)$/);
-  if (m) return `<strong>${escapeHtmlSafe(m[1])}</strong>${escapeHtmlSafe(m[2])}`;
-  return `<strong>${escapeHtmlSafe(s)}</strong>`;
+  if (m) return `&lt;strong&gt;${escapeHtmlSafe(m[1])}&lt;/strong&gt;${escapeHtmlSafe(m[2])}`;
+  return `&lt;strong&gt;${escapeHtmlSafe(s)}&lt;/strong&gt;`;
 }
 
 function cleanHighlightText(s) {
@@ -4580,7 +4579,7 @@ function buildHighlightSignals(c, lastEmp, lastFund) {
   const raised = (c.raised || '').split('(')[0].split('（')[0].trim();
   if (raised) signals.push(`累計調達${raised}`);
 
-  if (lastFund && lastFund.year && lastFund.round) {
+  if (lastFund &amp;&amp; lastFund.year &amp;&amp; lastFund.round) {
     const amount = lastFund.amount ? `・${lastFund.amount}` : '';
     signals.push(`${lastFund.year}年の${lastFund.round}${amount}`);
   }
@@ -4589,20 +4588,20 @@ function buildHighlightSignals(c, lastEmp, lastFund) {
   if (empGrowth) signals.push(empGrowth);
 
   const perf = c.perf || {};
-  if (perf.arr && perf.arr !== '非開示') signals.push(`ARR${perf.arr}`);
+  if (perf.arr &amp;&amp; perf.arr !== '非開示') signals.push(`ARR${perf.arr}`);
   if (perf.clients) signals.push(`導入数${perf.clients}`);
 
   return signals.slice(0, 3);
 }
 
 function calcReadableEmpGrowth(c) {
-  if (!c.emp || c.emp.length < 2) return '';
+  if (!c.emp || c.emp.length &lt; 2) return '';
   const last = c.emp[c.emp.length - 1];
   const targetYear = last[0] - 5;
-  const base = [...c.emp].reverse().find(([y]) => y <= targetYear) || c.emp[Math.max(0, c.emp.length - 5)];
-  if (!base || !base[1] || !last[1] || base[1] < 5) return '';
+  const base = [...c.emp].reverse().find(([y]) =&gt; y &lt;= targetYear) || c.emp[Math.max(0, c.emp.length - 5)];
+  if (!base || !base[1] || !last[1] || base[1] &lt; 5) return '';
   const rate = last[1] / base[1];
-  if (rate < 1.4) return '';
+  if (rate &lt; 1.4) return '';
   return `社員数${base[0]}年${base[1].toLocaleString()}名から${last[0]}年${last[1].toLocaleString()}名へ拡大`;
 }
 
@@ -4610,11 +4609,11 @@ function buildTopicPhrase(c) {
   if (!c.topics || !c.topics.length) return '公開情報から事業の変化を読み解きやすく';
 
   const tc = {};
-  c.topics.forEach(t => { tc[t.type] = (tc[t.type] || 0) + 1; });
+  c.topics.forEach(t =&gt; { tc[t.type] = (tc[t.type] || 0) + 1; });
   const topTypes = Object.entries(tc)
-    .sort((a, b) => b[1] - a[1])
+    .sort((a, b) =&gt; b[1] - a[1])
     .slice(0, 3)
-    .map(([k]) => (TYPE[k] || { label: k }).label)
+    .map(([k]) =&gt; (TYPE[k] || { label: k }).label)
     .filter(Boolean)
     .join('・');
 
@@ -4631,7 +4630,7 @@ function normalizeTopicType(type) {
 }
 
 function escapeAttrSafe(v) {
-  return escapeHtmlSafe(String(v || '')).replace(/"/g, '&quot;');
+  return escapeHtmlSafe(String(v || '')).replace(/&quot;/g, '&amp;quot;');
 }
 
 function buildHeaderSignals(c, lastEmp, lastFund) {
@@ -4647,7 +4646,7 @@ function buildHeaderSignals(c, lastEmp, lastFund) {
   const out = [];
   if (lastEmp) out.push({label:'届いているサイン', value:`社員数 ${Number(lastEmp[1] || 0).toLocaleString()}名`});
   if (c.raised) out.push({label:'調達', value:String(c.raised).split('（')[0].split('(')[0]});
-  if (lastFund && lastFund.round) out.push({label:'直近', value:`${lastFund.round}${lastFund.year ? ' / ' + lastFund.year : ''}`});
+  if (lastFund &amp;&amp; lastFund.round) out.push({label:'直近', value:`${lastFund.round}${lastFund.year ? ' / ' + lastFund.year : ''}`});
   const domain = [c.domain1, c.domain2].filter(Boolean).join('・');
   if (domain) out.push({label:'領域', value:domain});
   return out.slice(0, 4);
@@ -4657,7 +4656,7 @@ function renderHeaderSignals(c, lastEmp, lastFund) {
   const row = document.getElementById('co-signal-row');
   if (!row) return;
   const signals = buildHeaderSignals(c, lastEmp, lastFund);
-  row.innerHTML = signals.map(s => `<span class="co-signal-chip"><span>${escapeHtmlSafe(s.label)}</span><strong>${escapeHtmlSafe(s.value)}</strong></span>`).join('');
+  row.innerHTML = signals.map(s =&gt; `&lt;span class=&quot;co-signal-chip&quot;&gt;&lt;span&gt;${escapeHtmlSafe(s.label)}&lt;/span&gt;&lt;strong&gt;${escapeHtmlSafe(s.value)}&lt;/strong&gt;&lt;/span&gt;`).join('');
   row.style.display = signals.length ? 'flex' : 'none';
 }
 
@@ -4673,7 +4672,7 @@ function getWhyTags(c, title) {
   }
   if (title === '届き方') return ['#届いているサイン','#資金調達'].filter(Boolean);
   if (title === '創業の思い') return ['#ミッション','#創業背景'];
-  if (title === '事業') return [c.domain1, c.domain2].filter(Boolean).slice(0,2).map(x => '#' + String(x).replace(/\s+/g,''));
+  if (title === '事業') return [c.domain1, c.domain2].filter(Boolean).slice(0,2).map(x =&gt; '#' + String(x).replace(/\s+/g,''));
   if (title === '組織') return ['#組織','#採用','#カルチャー'];
   return [];
 }
@@ -4686,18 +4685,18 @@ function buildGrowthRead(c, lastEmp, lastFund) {
     };
   }
   let emp = '社員数の推移から、事業拡大・採用強化のタイミングを読み取れます。';
-  if (c && c.emp && c.emp.length >= 2) {
+  if (c &amp;&amp; c.emp &amp;&amp; c.emp.length &gt;= 2) {
     const first = c.emp[0];
     const last = c.emp[c.emp.length - 1];
-    const rate = first && first[1] ? (last[1] / first[1]) : null;
-    emp = rate && isFinite(rate)
+    const rate = first &amp;&amp; first[1] ? (last[1] / first[1]) : null;
+    emp = rate &amp;&amp; isFinite(rate)
       ? `${first[0]}年から${last[0]}年にかけて社員数は約${rate.toFixed(1)}倍。組織拡大のフェーズが見える企業です。`
       : `${last[0]}年時点で社員数${Number(last[1] || 0).toLocaleString()}名。組織規模から現在の成長フェーズを確認できます。`;
   }
   let fund = '資金調達の履歴から、どのタイミングで次の成長フェーズに入ったかを確認できます。';
   if (lastFund) {
     fund = `${lastFund.year}年の${lastFund.round || '資金調達'}${lastFund.amount ? '（' + lastFund.amount + '）' : ''}を起点に、事業拡張・採用・プロダクト投資のフェーズを読み取れます。`;
-  } else if (c && c.raised) {
+  } else if (c &amp;&amp; c.raised) {
     fund = `累計調達額は${c.raised}。資金調達の情報と事業トピックスを合わせて成長フェーズを確認できます。`;
   }
   return {emp, fund};
@@ -4715,7 +4714,7 @@ function renderGrowthRead(c, lastEmp, lastFund) {
 }
 
 function switchTabByName(name) {
-  const btn = Array.from(document.querySelectorAll('.co-tab')).find(b => (b.getAttribute('onclick') || '').includes(`'${name}'`));
+  const btn = Array.from(document.querySelectorAll('.co-tab')).find(b =&gt; (b.getAttribute('onclick') || '').includes(`'${name}'`));
   if (btn) switchTab(name, btn);
 }
 
@@ -4750,7 +4749,7 @@ function makeWhyCards(c, lastEmp, lastFund) {
   }
 
   const signals = buildHighlightSignals(c, lastEmp, lastFund);
-  const domain = [c.domain1, c.domain2].filter(x => x && x !== '—').join('・') || '事業領域';
+  const domain = [c.domain1, c.domain2].filter(x =&gt; x &amp;&amp; x !== '—').join('・') || '事業領域';
   const topicPhrase = buildTopicPhrase(c).replace(/で$/,'');
   const mission = cleanHighlightText(c.mission || c.summary || '創業背景や事業思想を公開情報から追いやすい。');
   const latest = lastFund ? `${lastFund.year}年 ${lastFund.round}${lastFund.amount ? '・' + lastFund.amount : ''}` : (c.raised || '成長データを蓄積中');
@@ -4760,7 +4759,7 @@ function makeWhyCards(c, lastEmp, lastFund) {
     {kicker:'02', title:'事業', body: `${domain}を中心に、顧客課題・市場変化・プロダクト展開を横断して追える。`},
     {kicker:'03', title:'組織', body: `${topicPhrase || '組織や採用に関する発信'}から、成長企業の組織運営を読み解ける。`},
     {kicker:'04', title:'働き方', body: '働く人に向けた発信や制度から、会社が大事にしている空気が見える。'},
-    {kicker:'05', title:'創業の思い', body: mission.length > 78 ? mission.slice(0,78) + '…' : mission},
+    {kicker:'05', title:'創業の思い', body: mission.length &gt; 78 ? mission.slice(0,78) + '…' : mission},
     {kicker:'06', title:'転換点', body: 'プロダクト拡張、顧客変化、組織拡大など、会社が変わったきっかけを追える。'},
   ];
 }
@@ -4770,7 +4769,7 @@ function renderHighlights(c, lastEmp, lastFund) {
   const grid = document.getElementById('co-highlights-grid');
   const textEl = document.getElementById('co-highlights-text');
   if (!wrap || !grid) return;
-  const cards = makeWhyCards(c, lastEmp, lastFund).filter(x => x && x.body);
+  const cards = makeWhyCards(c, lastEmp, lastFund).filter(x =&gt; x &amp;&amp; x.body);
   if (!cards.length) {
     wrap.style.display = 'none';
     return;
@@ -4778,24 +4777,24 @@ function renderHighlights(c, lastEmp, lastFund) {
   wrap.style.display = 'block';
   wrap.style.setProperty('--co-color', c.color || '#5BCFB7');
   if (textEl) textEl.innerHTML = '';
-  grid.innerHTML = cards.map(card => `
-    <div class="why-card">
-      <div class="why-card-head">
-        <span class="why-card-kicker">${escapeHtmlSafe(card.kicker)}</span>
-        <span class="why-card-title">${escapeHtmlSafe(card.title)}</span>
-      </div>
-      <div class="why-card-body">${escapeHtmlSafe(card.body)}</div>
+  grid.innerHTML = cards.map(card =&gt; `
+    &lt;div class=&quot;why-card&quot;&gt;
+      &lt;div class=&quot;why-card-head&quot;&gt;
+        &lt;span class=&quot;why-card-kicker&quot;&gt;${escapeHtmlSafe(card.kicker)}&lt;/span&gt;
+        &lt;span class=&quot;why-card-title&quot;&gt;${escapeHtmlSafe(card.title)}&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;why-card-body&quot;&gt;${escapeHtmlSafe(card.body)}&lt;/div&gt;
 
-    </div>`).join('');
+    &lt;/div&gt;`).join('');
 }
 
 function pickRecentActivityTopics(c, limit) {
   if (!c || !c.topics) return [];
   const priority = { founder: 0, business: 1, org: 2, workstyle: 3, award: 4, turning: 5 };
   return [...c.topics]
-    .map(t => ({...t, _type: normalizeTopicType(t.type)}))
-    .filter(t => t.title)
-    .sort((a,b) => {
+    .map(t =&gt; ({...t, _type: normalizeTopicType(t.type)}))
+    .filter(t =&gt; t.title)
+    .sort((a,b) =&gt; {
       const yd = (b.year || 0) - (a.year || 0);
       if (yd) return yd;
       return (priority[a._type] ?? 99) - (priority[b._type] ?? 99);
@@ -4807,8 +4806,8 @@ function pickImportantTopics(c, limit) {
   if (!c || !c.topics) return [];
   const priority = { founder: 0, business: 1, org: 2, workstyle: 3, award: 4, turning: 5 };
   const sorted = [...c.topics]
-    .map(t => ({...t, _type: normalizeTopicType(t.type)}))
-    .sort((a, b) => {
+    .map(t =&gt; ({...t, _type: normalizeTopicType(t.type)}))
+    .sort((a, b) =&gt; {
       const pa = priority[a._type] ?? 99;
       const pb = priority[b._type] ?? 99;
       if (pa !== pb) return pa - pb;
@@ -4817,13 +4816,13 @@ function pickImportantTopics(c, limit) {
   const picked = [];
   const seenTypes = new Set();
   for (const t of sorted) {
-    if (picked.length >= limit) break;
+    if (picked.length &gt;= limit) break;
     if (!seenTypes.has(t._type)) {
       picked.push(t); seenTypes.add(t._type);
     }
   }
   for (const t of sorted) {
-    if (picked.length >= limit) break;
+    if (picked.length &gt;= limit) break;
     if (!picked.includes(t)) picked.push(t);
   }
   return picked.slice(0, limit);
@@ -4834,20 +4833,20 @@ function renderNews(id) {
 
   // 全企業で情報集約ダッシュボードを表示（収集元は企業JSONの設定を併記）
   const c = DB[id] || {};
-  const srcList = (c.news_sources || []).filter(s => s.mode !== 'gnews');
+  const srcList = (c.news_sources || []).filter(s =&gt; s.mode !== 'gnews');
   const linkList = c.news_links || [];
-  const srcChips = [...srcList.map(s => s.label), ...linkList.map(s => s.label)]
-    .filter((v, i, a) => a.indexOf(v) === i)
-    .map(l => `<span class="ns-chip">${l}</span>`).join('');
+  const srcChips = [...srcList.map(s =&gt; s.label), ...linkList.map(s =&gt; s.label)]
+    .filter((v, i, a) =&gt; a.indexOf(v) === i)
+    .map(l =&gt; `&lt;span class=&quot;ns-chip&quot;&gt;${l}&lt;/span&gt;`).join('');
 
-  wrap.innerHTML = `<div id="smnews">
-<main class="board" id="board"></main>
-<div class="ns-config">
-  <div class="ns-config-h">この企業の収集元（自動更新の対象）</div>
-  <div class="ns-config-chips">${srcChips || '<span class="ns-chip">設定なし</span>'}</div>
-</div>
-<div class="disclaimer" id="disclaimer"></div>
-</div>`;
+  wrap.innerHTML = `&lt;div id=&quot;smnews&quot;&gt;
+&lt;main class=&quot;board&quot; id=&quot;board&quot;&gt;&lt;/main&gt;
+&lt;div class=&quot;ns-config&quot;&gt;
+  &lt;div class=&quot;ns-config-h&quot;&gt;この企業の収集元（自動更新の対象）&lt;/div&gt;
+  &lt;div class=&quot;ns-config-chips&quot;&gt;${srcChips || '&lt;span class=&quot;ns-chip&quot;&gt;設定なし&lt;/span&gt;'}&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;disclaimer&quot; id=&quot;disclaimer&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;`;
   _smNewsInited = false;
   if (typeof initSmNews === 'function') initSmNews();
   return;
@@ -4874,36 +4873,36 @@ async function loadCompanyIndex() {
   if (!COMPANY_INDEX.length) COMPANY_INDEX = STARTUPFILE_FALLBACK_INDEX;
 }
 
-function dotColor(c){ return c && /^#/.test(c) ? c : 'var(--slate,#5A6A80)'; }
+function dotColor(c){ return c &amp;&amp; /^#/.test(c) ? c : 'var(--slate,#5A6A80)'; }
 
 function renderSidebar(filter) {
   const list = document.getElementById('sb-list');
   const cnt = document.getElementById('sb-count');
   const q = (filter || '').trim().toLowerCase();
-  const items = COMPANY_INDEX.filter(c =>
+  const items = COMPANY_INDEX.filter(c =&gt;
     !q || (c.name||'').toLowerCase().includes(q) || (c.summary||'').toLowerCase().includes(q) || (c.sector1||'').toLowerCase().includes(q)
   );
   if (cnt) cnt.textContent = `${items.length}社`;
   if (!list) return;
-  if (!items.length) { list.innerHTML = `<div class="sb-empty">該当する企業がありません</div>`; return; }
-  list.innerHTML = items.slice(0, 400).map(c => {
+  if (!items.length) { list.innerHTML = `&lt;div class=&quot;sb-empty&quot;&gt;該当する企業がありません&lt;/div&gt;`; return; }
+  list.innerHTML = items.slice(0, 400).map(c =&gt; {
     const sub = [c.founded ? `設立 ${c.founded}` : ''].filter(Boolean).join(' · ');
     const tag = c.sector1 || c.summary || '';
-    return `<div class="sb-item${c.company_id===currentId?' active':''}" data-id="${c.company_id}" onclick="pickCompany('${c.company_id}')">
-      <span class="sb-item-bar" style="background:${dotColor(c.color)}"></span>
-      <div class="sb-item-body">
-        <div class="sb-item-name">${c.name||c.company_id}</div>
-        ${sub?`<div class="sb-item-sub">${sub}</div>`:''}
-        ${tag?`<div class="sb-item-tag">${tag.slice(0,18)}</div>`:''}
-      </div>
-    </div>`;
-  }).join('') + (items.length > 400 ? `<div class="sb-empty">他 ${items.length-400} 社… 検索で絞り込んでください</div>` : '');
+    return `&lt;div class=&quot;sb-item${c.company_id===currentId?' active':''}&quot; data-id=&quot;${c.company_id}&quot; onclick=&quot;pickCompany('${c.company_id}')&quot;&gt;
+      &lt;span class=&quot;sb-item-bar&quot; style=&quot;background:${dotColor(c.color)}&quot;&gt;&lt;/span&gt;
+      &lt;div class=&quot;sb-item-body&quot;&gt;
+        &lt;div class=&quot;sb-item-name&quot;&gt;${c.name||c.company_id}&lt;/div&gt;
+        ${sub?`&lt;div class=&quot;sb-item-sub&quot;&gt;${sub}&lt;/div&gt;`:''}
+        ${tag?`&lt;div class=&quot;sb-item-tag&quot;&gt;${tag.slice(0,18)}&lt;/div&gt;`:''}
+      &lt;/div&gt;
+    &lt;/div&gt;`;
+  }).join('') + (items.length &gt; 400 ? `&lt;div class=&quot;sb-empty&quot;&gt;他 ${items.length-400} 社… 検索で絞り込んでください&lt;/div&gt;` : '');
 }
 
 function filterSidebar(){ renderSidebar(document.getElementById('sb-search').value); }
 
 function setSidebarActive(id){
-  document.querySelectorAll('.sb-item').forEach(el=>{
+  document.querySelectorAll('.sb-item').forEach(el=&gt;{
     el.classList.toggle('active', el.dataset.id===id);
   });
 }
@@ -4926,7 +4925,7 @@ async function pickCompany(id){
   }
 }
 
-// ── 初期化：?view=detail&id=xxx&tab=xxx でビュー切替 ──
+// ── 初期化：?view=detail&amp;id=xxx&amp;tab=xxx でビュー切替 ──
 // 外部公開のtab値（指示書準拠）と、内部DOM IDの対応：
 //   focus    → まず見るところ
 //   voice    → 会社の思い
@@ -4950,8 +4949,8 @@ async function bootstrap(){
 async function initDetail(reqId, reqTab, reqSub){
   await loadCompanyIndex();
   let firstId = reqId || 'c0001';
-  if (!reqId && COMPANY_INDEX.length) {
-    const sm = COMPANY_INDEX.find(c => /smarthr/i.test(c.name||'') || /smarthr/i.test(c.company_id||''));
+  if (!reqId &amp;&amp; COMPANY_INDEX.length) {
+    const sm = COMPANY_INDEX.find(c =&gt; /smarthr/i.test(c.name||'') || /smarthr/i.test(c.company_id||''));
     firstId = sm ? sm.company_id : COMPANY_INDEX[0].company_id;
   }
   renderSidebar('');
@@ -4962,17 +4961,17 @@ async function initDetail(reqId, reqTab, reqSub){
   // タブ指定（外部値→内部ID）
   const targetTab = TAB_MAP[reqTab] || 'focus';
   if (targetTab !== 'focus') {
-    const btn = document.querySelector(`.co-tab[onclick*="'${targetTab}'"]`);
+    const btn = document.querySelector(`.co-tab[onclick*=&quot;'${targetTab}'&quot;]`);
     switchTab(targetTab, btn);
   }
   // 旧URL互換：?timeline=news は最近の動きタブへ寄せる
   if (reqSub === 'news') {
-    const newsBtn = document.querySelector(`.co-tab[onclick*="'news'"]`);
+    const newsBtn = document.querySelector(`.co-tab[onclick*=&quot;'news'&quot;]`);
     switchTab('news', newsBtn);
   }
 
   // データ源接続案内
-  if (!COMPANY_INDEX.length && !c) {
+  if (!COMPANY_INDEX.length &amp;&amp; !c) {
     showSetupNotice();
   }
 }
@@ -4984,14 +4983,14 @@ function showSetupNotice(){
   div.id = 'setup-notice';
   div.style.cssText = 'position:fixed;left:50%;top:80px;transform:translateX(-50%);z-index:300;max-width:600px;width:calc(100% - 32px);background:#fff;border:1px solid #E2E5EA;border-left:4px solid #E8632B;border-radius:10px;box-shadow:0 12px 40px rgba(0,0,0,.18);padding:18px 20px;font-family:var(--sans),sans-serif;color:#16202E;line-height:1.7;font-size:13px';
   div.innerHTML = `
-    <div style="font-weight:700;font-size:14px;margin-bottom:6px">⚠ データに接続できていません</div>
-    <div>サイトの枠は表示できていますが、企業データの取得先が設定されていません。次のいずれかが必要です。</div>
-    <ul style="margin:10px 0 4px;padding-left:18px">
-      <li style="margin-bottom:6px"><b>方法①（推奨）</b>：GASを設定し、このHTML冒頭の <code style="background:#F1F3F5;padding:1px 5px;border-radius:4px">data-api-url=""</code> に <code style="background:#F1F3F5;padding:1px 5px;border-radius:4px">/exec</code> URLを貼る。${apiSet ? '<br><span style="color:#137333">→ URLは設定済みのようです。GASの公開設定（アクセス＝全員）とURL末尾(/exec)をご確認ください。</span>' : '<br><span style="color:#B42318">→ 現在URLは未設定です。</span>'}</li>
-      <li>方法②：<code style="background:#F1F3F5;padding:1px 5px;border-radius:4px">data/</code> フォルダ（企業JSON）も同じ場所に置く。</li>
-    </ul>
-    <div style="margin-top:8px;font-size:12px;color:#717A86">詳しくは同梱の SETUP_GAS.md / GITHUB実装ガイド.md をご覧ください。</div>
-    <button onclick="this.parentElement.remove()" style="position:absolute;top:12px;right:14px;border:none;background:none;font-size:16px;color:#9AA3AE;cursor:pointer">✕</button>`;
+    &lt;div style=&quot;font-weight:700;font-size:14px;margin-bottom:6px&quot;&gt;⚠ データに接続できていません&lt;/div&gt;
+    &lt;div&gt;サイトの枠は表示できていますが、企業データの取得先が設定されていません。次のいずれかが必要です。&lt;/div&gt;
+    &lt;ul style=&quot;margin:10px 0 4px;padding-left:18px&quot;&gt;
+      &lt;li style=&quot;margin-bottom:6px&quot;&gt;&lt;b&gt;方法①（推奨）&lt;/b&gt;：GASを設定し、このHTML冒頭の &lt;code style=&quot;background:#F1F3F5;padding:1px 5px;border-radius:4px&quot;&gt;data-api-url=&quot;&quot;&lt;/code&gt; に &lt;code style=&quot;background:#F1F3F5;padding:1px 5px;border-radius:4px&quot;&gt;/exec&lt;/code&gt; URLを貼る。${apiSet ? '&lt;br&gt;&lt;span style=&quot;color:#137333&quot;&gt;→ URLは設定済みのようです。GASの公開設定（アクセス＝全員）とURL末尾(/exec)をご確認ください。&lt;/span&gt;' : '&lt;br&gt;&lt;span style=&quot;color:#B42318&quot;&gt;→ 現在URLは未設定です。&lt;/span&gt;'}&lt;/li&gt;
+      &lt;li&gt;方法②：&lt;code style=&quot;background:#F1F3F5;padding:1px 5px;border-radius:4px&quot;&gt;data/&lt;/code&gt; フォルダ（企業JSON）も同じ場所に置く。&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div style=&quot;margin-top:8px;font-size:12px;color:#717A86&quot;&gt;詳しくは同梱の SETUP_GAS.md / GITHUB実装ガイド.md をご覧ください。&lt;/div&gt;
+    &lt;button onclick=&quot;this.parentElement.remove()&quot; style=&quot;position:absolute;top:12px;right:14px;border:none;background:none;font-size:16px;color:#9AA3AE;cursor:pointer&quot;&gt;✕&lt;/button&gt;`;
   document.body.appendChild(div);
 }
 (function(){
@@ -5009,8 +5008,8 @@ function initSmNews() {
 //  情報源（収集元）定義 ＋ 期間カラム定義
 // ════════════════════════════════════════════════
 const SVG = {
-  cal:'<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
-  ext:'<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14L21 3"/>',
+  cal:'&lt;rect x=&quot;3&quot; y=&quot;4&quot; width=&quot;18&quot; height=&quot;18&quot; rx=&quot;2&quot;/&gt;&lt;path d=&quot;M16 2v4M8 2v4M3 10h18&quot;/&gt;',
+  ext:'&lt;path d=&quot;M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6&quot;/&gt;&lt;path d=&quot;M15 3h6v6M10 14L21 3&quot;/&gt;',
 };
 
 // 収集元（バッジの色つき）。本番はそれぞれのRSS/APIから取得。
@@ -5062,8 +5061,8 @@ let FEED = [
 // ════════════════════════════════════════════════
 //  描画
 // ════════════════════════════════════════════════
-const esc = s => (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-const fmtDate = s => { if(!s) return ''; const d=new Date(s); return isNaN(d)? s : `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`; };
+const esc = s =&gt; (s||'').replace(/&amp;/g,'&amp;amp;').replace(/&lt;/g,'&amp;lt;').replace(/&gt;/g,'&amp;gt;');
+const fmtDate = s =&gt; { if(!s) return ''; const d=new Date(s); return isNaN(d)? s : `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`; };
 
 // 基準日から n 日前（0時）の境界を返す
 function daysAgo(n){ const d=new Date(); d.setHours(0,0,0,0); d.setDate(d.getDate()-n); return d; }
@@ -5075,15 +5074,15 @@ function bucketize(){
   const b365  = daysAgo(365);
   const b1095 = daysAgo(1095);
   const buckets = {m1:[], y1:[], y3:[]};
-  FEED.forEach(it=>{
+  FEED.forEach(it=&gt;{
     const d = new Date(it.date);
     if(isNaN(d)) return;
-    if(d >= b30)         buckets.m1.push(it);
-    else if(d >= b365)   buckets.y1.push(it);
-    else if(d >= b1095)  buckets.y3.push(it);
+    if(d &gt;= b30)         buckets.m1.push(it);
+    else if(d &gt;= b365)   buckets.y1.push(it);
+    else if(d &gt;= b1095)  buckets.y3.push(it);
   });
   // 各期間とも日付の新しい順に並べる
-  const byDateDesc = (a,b)=> new Date(b.date) - new Date(a.date);
+  const byDateDesc = (a,b)=&gt; new Date(b.date) - new Date(a.date);
   buckets.m1.sort(byDateDesc);
   buckets.y1.sort(byDateDesc);
   buckets.y3.sort(byDateDesc);
@@ -5093,60 +5092,60 @@ function bucketize(){
 function srcBadge(srcKey){
   const s = SRC[srcKey];
   if(!s) return '';
-  return `<span class="item-tag item-src" style="background:${s.color}1A;color:${s.color}">${esc(s.label)}</span>`;
+  return `&lt;span class=&quot;item-tag item-src&quot; style=&quot;background:${s.color}1A;color:${s.color}&quot;&gt;${esc(s.label)}&lt;/span&gt;`;
 }
 
 function itemRow(it, i){
-  return `<a class="item" href="${it.url}" target="_blank" rel="noopener">
-    <span class="item-rank">${i+1}</span>
-    <div class="item-main">
-      <div class="item-title">${esc(it.title)}</div>
-      <div class="item-foot">
-        ${it.date?`<span class="item-date">${fmtDate(it.date)}</span>`:''}
+  return `&lt;a class=&quot;item&quot; href=&quot;${it.url}&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;item-rank&quot;&gt;${i+1}&lt;/span&gt;
+    &lt;div class=&quot;item-main&quot;&gt;
+      &lt;div class=&quot;item-title&quot;&gt;${esc(it.title)}&lt;/div&gt;
+      &lt;div class=&quot;item-foot&quot;&gt;
+        ${it.date?`&lt;span class=&quot;item-date&quot;&gt;${fmtDate(it.date)}&lt;/span&gt;`:''}
         ${srcBadge(it.src)}
-      </div>
-    </div>
-  </a>`;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/a&gt;`;
 }
 
 // 期間カラム1つ分のHTML。11件以上は10件表示＋アコーディオン。
 function periodCol(p, items){
   const total = items.length;
   const head = `
-    <div class="col-head">
-      <div class="col-title-row">
-        <div class="col-icon" style="background:var(--ink)"><svg class="ic" viewBox="0 0 24 24">${SVG.cal}</svg></div>
-        <div>
-          <div class="col-title">${p.title}</div>
-          <div class="col-source">${p.sub}</div>
-        </div>
-        <span class="status sample" style="background:var(--blue-l);color:var(--blue)">${total}件</span>
-      </div>
-    </div>`;
+    &lt;div class=&quot;col-head&quot;&gt;
+      &lt;div class=&quot;col-title-row&quot;&gt;
+        &lt;div class=&quot;col-icon&quot; style=&quot;background:var(--ink)&quot;&gt;&lt;svg class=&quot;ic&quot; viewBox=&quot;0 0 24 24&quot;&gt;${SVG.cal}&lt;/svg&gt;&lt;/div&gt;
+        &lt;div&gt;
+          &lt;div class=&quot;col-title&quot;&gt;${p.title}&lt;/div&gt;
+          &lt;div class=&quot;col-source&quot;&gt;${p.sub}&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;span class=&quot;status sample&quot; style=&quot;background:var(--blue-l);color:var(--blue)&quot;&gt;${total}件&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;`;
 
   if(!total){
-    return `<section class="col" id="col-${p.id}">${head}
-      <div class="col-body"><div class="skeleton" style="grid-column:1/-1;color:var(--mute);font-size:11px;text-align:center;padding:24px">該当する情報がありません</div></div>
-    </section>`;
+    return `&lt;section class=&quot;col&quot; id=&quot;col-${p.id}&quot;&gt;${head}
+      &lt;div class=&quot;col-body&quot;&gt;&lt;div class=&quot;skeleton&quot; style=&quot;grid-column:1/-1;color:var(--mute);font-size:11px;text-align:center;padding:24px&quot;&gt;該当する情報がありません&lt;/div&gt;&lt;/div&gt;
+    &lt;/section&gt;`;
   }
 
   const visible = items.slice(0, INITIAL_SHOW);
   const hidden  = items.slice(INITIAL_SHOW);
-  const visibleHtml = visible.map((it,idx)=>itemRow(it, idx)).join('');
-  const hiddenHtml  = hidden.map((it,idx)=>itemRow(it, INITIAL_SHOW+idx)).join('');
+  const visibleHtml = visible.map((it,idx)=&gt;itemRow(it, idx)).join('');
+  const hiddenHtml  = hidden.map((it,idx)=&gt;itemRow(it, INITIAL_SHOW+idx)).join('');
 
   const accordion = hidden.length ? `
-    <div class="col-body acc-hidden" id="more-${p.id}" hidden>${hiddenHtml}</div>
-    <div class="col-foot">
-      <button type="button" class="more-btn" data-target="more-${p.id}" onclick="toggleMore(this)">
-        残り${hidden.length}件を表示 <svg class="ic chev" viewBox="0 0 24 24" style="width:13px;height:13px"><path d="M6 9l6 6 6-6"/></svg>
-      </button>
-    </div>` : '';
+    &lt;div class=&quot;col-body acc-hidden&quot; id=&quot;more-${p.id}&quot; hidden&gt;${hiddenHtml}&lt;/div&gt;
+    &lt;div class=&quot;col-foot&quot;&gt;
+      &lt;button type=&quot;button&quot; class=&quot;more-btn&quot; data-target=&quot;more-${p.id}&quot; onclick=&quot;toggleMore(this)&quot;&gt;
+        残り${hidden.length}件を表示 &lt;svg class=&quot;ic chev&quot; viewBox=&quot;0 0 24 24&quot; style=&quot;width:13px;height:13px&quot;&gt;&lt;path d=&quot;M6 9l6 6 6-6&quot;/&gt;&lt;/svg&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;` : '';
 
-  return `<section class="col" id="col-${p.id}">${head}
-    <div class="col-body">${visibleHtml}</div>
+  return `&lt;section class=&quot;col&quot; id=&quot;col-${p.id}&quot;&gt;${head}
+    &lt;div class=&quot;col-body&quot;&gt;${visibleHtml}&lt;/div&gt;
     ${accordion}
-  </section>`;
+  &lt;/section&gt;`;
 }
 
 // アコーディオン開閉
@@ -5158,11 +5157,11 @@ function toggleMore(btn){
     panel.setAttribute('hidden','');
     btn.classList.remove('open');
     const n = panel.querySelectorAll('.item').length;
-    btn.innerHTML = `残り${n}件を表示 <svg class="ic chev" viewBox="0 0 24 24" style="width:13px;height:13px"><path d="M6 9l6 6 6-6"/></svg>`;
+    btn.innerHTML = `残り${n}件を表示 &lt;svg class=&quot;ic chev&quot; viewBox=&quot;0 0 24 24&quot; style=&quot;width:13px;height:13px&quot;&gt;&lt;path d=&quot;M6 9l6 6 6-6&quot;/&gt;&lt;/svg&gt;`;
   }else{
     panel.removeAttribute('hidden');
     btn.classList.add('open');
-    btn.innerHTML = `折りたたむ <svg class="ic chev" viewBox="0 0 24 24" style="width:13px;height:13px"><path d="M18 15l-6-6-6 6"/></svg>`;
+    btn.innerHTML = `折りたたむ &lt;svg class=&quot;ic chev&quot; viewBox=&quot;0 0 24 24&quot; style=&quot;width:13px;height:13px&quot;&gt;&lt;path d=&quot;M18 15l-6-6-6 6&quot;/&gt;&lt;/svg&gt;`;
   }
 }
 window.toggleMore = toggleMore;
@@ -5172,12 +5171,12 @@ window.toggleMore = toggleMore;
 const SRC_MAP = { official:'official', prtimes:'pr', gnews:'gnews', blog:'blog', note:'note', ipforce:'ipforce', jglobal:'jglobal' };
 function adoptFeed(arr){
   if(!Array.isArray(arr)) return false;
-  const mapped = arr.map(it=>({
+  const mapped = arr.map(it=&gt;({
     date: it.date ? String(it.date).slice(0,10) : '',
     src:  SRC_MAP[it.source] || it.source || 'official',
     title: it.title || '',
     url:  it.url || '#',
-  })).filter(x=>x.title && x.date);
+  })).filter(x=&gt;x.title &amp;&amp; x.date);
   if(!mapped.length) return false;
   FEED = mapped;
   return true;
@@ -5189,12 +5188,12 @@ function adoptFeed(arr){
 //  どちらも無ければ既定サンプルのまま（オフライン動作）
 async function loadFeedData(companyId){
   // ① GAS から保存済み最近の動き
-  if (typeof API_URL !== 'undefined' && API_URL) {
+  if (typeof API_URL !== 'undefined' &amp;&amp; API_URL) {
     try{
-      const res = await fetch(`${API_URL}?news=${encodeURIComponent(companyId)}&t=${Date.now()}`, {cache:'no-store', redirect:'follow'});
+      const res = await fetch(`${API_URL}?news=${encodeURIComponent(companyId)}&amp;t=${Date.now()}`, {cache:'no-store', redirect:'follow'});
       if(res.ok){
         const json = await res.json();
-        if(json && adoptFeed(json.news_items)){
+        if(json &amp;&amp; adoptFeed(json.news_items)){
           markNewsLive_();
           return true;
         }
@@ -5221,18 +5220,18 @@ function markNewsLive_(updatedAt){
   const dc = document.getElementById('disclaimer');
   if(!dc) return;
   const label = updatedAt ? `（最終更新 ${fmtDate(updatedAt)}）` : '';
-  dc.insertAdjacentHTML('afterbegin', `<div style="margin-bottom:8px;color:var(--green);font-weight:600">● 自動取得データ${label}</div>`);
+  dc.insertAdjacentHTML('afterbegin', `&lt;div style=&quot;margin-bottom:8px;color:var(--green);font-weight:600&quot;&gt;● 自動取得データ${label}&lt;/div&gt;`);
 }
 
 // ── 全体ロード ──
 function renderBoard(){
   const buckets = bucketize();
-  document.getElementById('board').innerHTML = PERIODS.map(p=>periodCol(p, buckets[p.id])).join('');
+  document.getElementById('board').innerHTML = PERIODS.map(p=&gt;periodCol(p, buckets[p.id])).join('');
 }
 async function loadAll(){
   // ローディング表示
   const boardEl = document.getElementById('board');
-  if(boardEl) boardEl.innerHTML = `<div style="padding:30px 18px;text-align:center;color:var(--mute,#717A86);font-size:12px">最近の動きを読み込み中...</div>`;
+  if(boardEl) boardEl.innerHTML = `&lt;div style=&quot;padding:30px 18px;text-align:center;color:var(--mute,#717A86);font-size:12px&quot;&gt;最近の動きを読み込み中...&lt;/div&gt;`;
 
   const ok = await loadFeedData(currentId); // 自動取得データを取りに行く
   if(ok){
@@ -5247,7 +5246,7 @@ async function loadAll(){
 function renderNewsEmpty(){
   const boardEl = document.getElementById('board');
   if(!boardEl) return;
-  const c = (typeof DB !== 'undefined' && DB[currentId]) ? DB[currentId] : {};
+  const c = (typeof DB !== 'undefined' &amp;&amp; DB[currentId]) ? DB[currentId] : {};
   // 収集元リンクを企業マスタから拾えるものだけ並べる
   const srcLinks = [];
   if(c.urls){
@@ -5256,47 +5255,47 @@ function renderNewsEmpty(){
     if(c.urls.ir) srcLinks.push({label:'IRページ', url:c.urls.ir});
   }
   // 採用ページなどは news_links / news_sources にあれば追加
-  (c.news_sources||[]).forEach(s => { if(s.url) srcLinks.push({label:s.label, url:s.url}); });
-  (c.news_links||[]).forEach(s => { if(s.url) srcLinks.push({label:s.label, url:s.url}); });
+  (c.news_sources||[]).forEach(s =&gt; { if(s.url) srcLinks.push({label:s.label, url:s.url}); });
+  (c.news_links||[]).forEach(s =&gt; { if(s.url) srcLinks.push({label:s.label, url:s.url}); });
   // PR TIMES / Google最近の動き検索リンクも一般的なものとして添える
   if(c.name){
     srcLinks.push({label:'Google最近の動き検索', url:`https://news.google.com/search?q=${encodeURIComponent(c.name)}`});
   }
   const linkHtml = srcLinks
-    .filter((v,i,a)=>v.url && a.findIndex(x=>x.url===v.url)===i)
+    .filter((v,i,a)=&gt;v.url &amp;&amp; a.findIndex(x=&gt;x.url===v.url)===i)
     .slice(0,8)
-    .map(s => `<a class="news-empty-link" href="${s.url}" target="_blank" rel="noopener">${s.label} ↗</a>`)
+    .map(s =&gt; `&lt;a class=&quot;news-empty-link&quot; href=&quot;${s.url}&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;${s.label} ↗&lt;/a&gt;`)
     .join('');
   boardEl.innerHTML = `
-    <div class="news-empty">
-      <div class="news-empty-title">この企業の最近の動きはまだ自動取得されていません</div>
-      <div class="news-empty-sub">
-        収集元（PR TIMES・公式ブログ・Google最近の動き等）からの最新情報を直接ご確認ください。<br>
+    &lt;div class=&quot;news-empty&quot;&gt;
+      &lt;div class=&quot;news-empty-title&quot;&gt;この企業の最近の動きはまだ自動取得されていません&lt;/div&gt;
+      &lt;div class=&quot;news-empty-sub&quot;&gt;
+        収集元（PR TIMES・公式ブログ・Google最近の動き等）からの最新情報を直接ご確認ください。&lt;br&gt;
         本番運用ではGAS側の日次バッチで最近の動きシートに集約予定です。
-      </div>
-      <div class="news-empty-links">${linkHtml}</div>
-    </div>`;
+      &lt;/div&gt;
+      &lt;div class=&quot;news-empty-links&quot;&gt;${linkHtml}&lt;/div&gt;
+    &lt;/div&gt;`;
 }
 
 document.getElementById('disclaimer').innerHTML = `
-  <strong>最近の動きについて：</strong> 公開された情報を公開日で「直近1ヶ月／1年／3年」に振り分けて表示します（各区間は重複なし。各カラムは該当するものすべてを掲載し、11件以上は10件表示＋アコーディオンで展開）。
+  &lt;strong&gt;最近の動きについて：&lt;/strong&gt; 公開された情報を公開日で「直近1ヶ月／1年／3年」に振り分けて表示します（各区間は重複なし。各カラムは該当するものすべてを掲載し、11件以上は10件表示＋アコーディオンで展開）。
   収集元は、公式サイト関連RSS・PR TIMES・Google最近の動きRSS・IP Force・J-GLOBAL・各社公式ブログRSS・note RSS。各アイテムの収集元はバッジで示します。
   自動取得データが未配置の企業では、サンプルではなく「最近の動き未取得」を表示し、収集元リンクへ誘導します。本番ではGAS側の日次バッチで各RSSを取得・重複排除し、公開日の降順で並べます。`;
 window.loadAll = loadAll;
   loadAll();
 }
 
-</script>
+&lt;/script&gt;
 
-<script>
+&lt;script&gt;
 let TOP_DATA = null;
 
 function topEscapeHtml(s){
-  return String(s||'').replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
+  return String(s||'').replace(/[&amp;&lt;&gt;&quot;]/g, c=&gt;({'&amp;':'&amp;amp;','&lt;':'&amp;lt;','&gt;':'&amp;gt;','&quot;':'&amp;quot;'})[c]);
 }
 function topTrim(s, n){
   s = String(s||'');
-  return s.length > n ? s.slice(0, n) + '…' : s;
+  return s.length &gt; n ? s.slice(0, n) + '…' : s;
 }
 function topShortRound(r){
   if(!r) return '';
@@ -5311,9 +5310,9 @@ function topShortRound(r){
 }
 function topFmtAmount(n){
   if(n == null) return '—';
-  if(n >= 1000) return (n/1000).toFixed(1) + '千';
-  if(n >= 100) return Math.round(n);
-  if(n >= 10) return n.toFixed(0);
+  if(n &gt;= 1000) return (n/1000).toFixed(1) + '千';
+  if(n &gt;= 100) return Math.round(n);
+  if(n &gt;= 10) return n.toFixed(0);
   return n.toFixed(1);
 }
 function topSectorShort(s){
@@ -5331,7 +5330,7 @@ function topSectorShort(s){
 // 詳細ページへのリンク（同一HTML内ビュー切替）
 function topDetailLink(cid, tab){
   const id = cid || 'c0001';
-  return `?view=detail&id=${encodeURIComponent(id)}${tab ? `&tab=${tab}` : ''}`;
+  return `?view=detail&amp;id=${encodeURIComponent(id)}${tab ? `&amp;tab=${tab}` : ''}`;
 }
 // onclick用ヘルパ（情報ソースリンクと競合しないように）
 function topGoDetail(e, cid, tab){
@@ -5362,77 +5361,77 @@ function topReadByReason(reason){
 }
 function topRenderFeatured(items){
   const row = document.getElementById('top-row-featured');
-  row.innerHTML = items.map(it => {
+  row.innerHTML = items.map(it =&gt; {
     const cid = it.cid || it.id || it.company_id;
-    const tags = topInsightTags(it).map(t=>`<span class="top-card-tag">${topEscapeHtml(t)}</span>`).join('');
+    const tags = topInsightTags(it).map(t=&gt;`&lt;span class=&quot;top-card-tag&quot;&gt;${topEscapeHtml(t)}&lt;/span&gt;`).join('');
     return `
-    <a class="top-card top-card-featured" href="${topDetailLink(cid, 'focus')}" style="--co-color:${topEscapeHtml(it.color)}">
-      <div class="top-card-bar"></div>
-      <div class="top-card-body">
-        <div class="tcf-name">${topEscapeHtml(it.company)}</div>
-        <div class="tcf-sector">${topEscapeHtml(topSectorShort(it.sector1))}</div>
-        <div class="top-card-tags">${tags}</div>
-        <div class="tcf-mission">${topEscapeHtml(topTrim(it.mission, 72))}</div>
-        <div class="tcf-reason">${topEscapeHtml(topReadByReason(it.reason))}</div>
-      </div>
-    </a>
+    &lt;a class=&quot;top-card top-card-featured&quot; href=&quot;${topDetailLink(cid, 'focus')}&quot; style=&quot;--co-color:${topEscapeHtml(it.color)}&quot;&gt;
+      &lt;div class=&quot;top-card-bar&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;top-card-body&quot;&gt;
+        &lt;div class=&quot;tcf-name&quot;&gt;${topEscapeHtml(it.company)}&lt;/div&gt;
+        &lt;div class=&quot;tcf-sector&quot;&gt;${topEscapeHtml(topSectorShort(it.sector1))}&lt;/div&gt;
+        &lt;div class=&quot;top-card-tags&quot;&gt;${tags}&lt;/div&gt;
+        &lt;div class=&quot;tcf-mission&quot;&gt;${topEscapeHtml(topTrim(it.mission, 72))}&lt;/div&gt;
+        &lt;div class=&quot;tcf-reason&quot;&gt;${topEscapeHtml(topReadByReason(it.reason))}&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/a&gt;
   `;
   }).join('');
 }
 
 function topRenderFunding(items){
   const row = document.getElementById('top-row-funding');
-  row.innerHTML = items.map(it => {
+  row.innerHTML = items.map(it =&gt; {
     const cid = it.cid || it.id || it.company_id;
     const fact = `${it.year}年 / ${topShortRound(it.round) || '非公開'} / ${topFmtAmount(it.amount)}億円`;
     return `
-    <a class="top-card top-card-funding" href="${topDetailLink(cid, 'focus')}" style="--co-color:${topEscapeHtml(it.color)}">
-      <div class="top-card-bar"></div>
-      <div class="top-card-body">
-        <div class="tcn-meta">
-          <span class="tcn-badge b-funding">次フェーズ</span>
-          <span class="tcn-date">${topEscapeHtml(String(it.year))}年</span>
-        </div>
-        <div class="tcf-amount">${topEscapeHtml(String(topFmtAmount(it.amount)))}<span class="unit">億円</span></div>
-        <div class="tcf-round">${topEscapeHtml(fact)}</div>
-        <div class="top-growth-read">事業拡張・採用強化のフェーズへ</div>
-        <div class="tcn-company"><span class="tcn-dot"></span>${topEscapeHtml(it.company)}</div>
-      </div>
-    </a>
+    &lt;a class=&quot;top-card top-card-funding&quot; href=&quot;${topDetailLink(cid, 'focus')}&quot; style=&quot;--co-color:${topEscapeHtml(it.color)}&quot;&gt;
+      &lt;div class=&quot;top-card-bar&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;top-card-body&quot;&gt;
+        &lt;div class=&quot;tcn-meta&quot;&gt;
+          &lt;span class=&quot;tcn-badge b-funding&quot;&gt;次フェーズ&lt;/span&gt;
+          &lt;span class=&quot;tcn-date&quot;&gt;${topEscapeHtml(String(it.year))}年&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;tcf-amount&quot;&gt;${topEscapeHtml(String(topFmtAmount(it.amount)))}&lt;span class=&quot;unit&quot;&gt;億円&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;tcf-round&quot;&gt;${topEscapeHtml(fact)}&lt;/div&gt;
+        &lt;div class=&quot;top-growth-read&quot;&gt;事業拡張・採用強化のフェーズへ&lt;/div&gt;
+        &lt;div class=&quot;tcn-company&quot;&gt;&lt;span class=&quot;tcn-dot&quot;&gt;&lt;/span&gt;${topEscapeHtml(it.company)}&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/a&gt;
   `;
   }).join('');
 }
 
 function topRenderGrowing(items){
   const row = document.getElementById('top-row-growing');
-  row.innerHTML = items.map(it => {
+  row.innerHTML = items.map(it =&gt; {
     const baseH = Math.max(6, Math.round(it.base_count / it.latest_count * 36));
     const latestH = 36;
     const cid = it.cid || it.id || it.company_id;
     return `
-    <a class="top-card top-card-grow" href="${topDetailLink(cid, 'focus')}" style="--co-color:${topEscapeHtml(it.color)}">
-      <div class="top-card-bar"></div>
-      <div class="top-card-body">
-        <div class="tcn-meta">
-          <span class="tcn-badge b-growth">組織拡大</span>
-          <span class="tcn-date">${it.latest_year}年時点</span>
-        </div>
-        <div class="tcg-rate">×${it.rate}<span class="unit">倍</span></div>
-        <div class="tcg-range">${it.base_year}年 ${it.base_count.toLocaleString()}名 → ${it.latest_year}年 ${it.latest_count.toLocaleString()}名</div>
-        <div class="top-growth-read">組織拡大フェーズ</div>
-        <div class="tcg-bar-wrap">
-          <div class="tcg-bar-left">
-            <div class="tcg-bar" style="height:${baseH}px"></div>
-            <div class="tcg-bar-label">'${String(it.base_year).slice(2)}</div>
-          </div>
-          <div class="tcg-bar-right">
-            <div class="tcg-bar" style="height:${latestH}px"></div>
-            <div class="tcg-bar-label">'${String(it.latest_year).slice(2)}</div>
-          </div>
-        </div>
-        <div class="tcn-company"><span class="tcn-dot"></span>${topEscapeHtml(it.company)}</div>
-      </div>
-    </a>
+    &lt;a class=&quot;top-card top-card-grow&quot; href=&quot;${topDetailLink(cid, 'focus')}&quot; style=&quot;--co-color:${topEscapeHtml(it.color)}&quot;&gt;
+      &lt;div class=&quot;top-card-bar&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;top-card-body&quot;&gt;
+        &lt;div class=&quot;tcn-meta&quot;&gt;
+          &lt;span class=&quot;tcn-badge b-growth&quot;&gt;組織拡大&lt;/span&gt;
+          &lt;span class=&quot;tcn-date&quot;&gt;${it.latest_year}年時点&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;tcg-rate&quot;&gt;×${it.rate}&lt;span class=&quot;unit&quot;&gt;倍&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;tcg-range&quot;&gt;${it.base_year}年 ${it.base_count.toLocaleString()}名 → ${it.latest_year}年 ${it.latest_count.toLocaleString()}名&lt;/div&gt;
+        &lt;div class=&quot;top-growth-read&quot;&gt;組織拡大フェーズ&lt;/div&gt;
+        &lt;div class=&quot;tcg-bar-wrap&quot;&gt;
+          &lt;div class=&quot;tcg-bar-left&quot;&gt;
+            &lt;div class=&quot;tcg-bar&quot; style=&quot;height:${baseH}px&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;tcg-bar-label&quot;&gt;'${String(it.base_year).slice(2)}&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;tcg-bar-right&quot;&gt;
+            &lt;div class=&quot;tcg-bar&quot; style=&quot;height:${latestH}px&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;tcg-bar-label&quot;&gt;'${String(it.latest_year).slice(2)}&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;tcn-company&quot;&gt;&lt;span class=&quot;tcn-dot&quot;&gt;&lt;/span&gt;${topEscapeHtml(it.company)}&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/a&gt;
     `;
   }).join('');
 }
@@ -5451,30 +5450,30 @@ function topTopicBadge(type, fallbackLabel){
 function topRenderTopicCards(rowId, items, badgeClass, badgeLabel){
   const row = document.getElementById(rowId);
   if (!row) return;
-  row.innerHTML = items.map(it => {
+  row.innerHTML = items.map(it =&gt; {
     const dateLabel = it.date ? it.date.slice(0,7).replace('-','.') : `${it.year}年`;
     const cid = it.cid || it.id || it.company_id;
     const [cls, label] = topTopicBadge(it.type, badgeLabel);
     return `
-    <div class="top-card top-card-news" role="link" tabindex="0"
-         onclick="topGoDetail(event,'${topEscapeHtml(cid)}','learn')"
-         onkeydown="if(event.key==='Enter')location.href=topDetailLink('${topEscapeHtml(cid)}','learn')"
-         style="--co-color:${topEscapeHtml(it.color)}">
-      <div class="top-card-bar"></div>
-      <div class="top-card-body">
-        <div class="tcn-meta">
-          <span class="tcn-badge ${cls || badgeClass}">${topEscapeHtml(label || badgeLabel)}</span>
-          <span class="tcn-date">${topEscapeHtml(dateLabel)}</span>
-        </div>
-        <div class="tcn-company"><span class="tcn-dot"></span>${topEscapeHtml(it.company)}</div>
-        <div class="tcn-title">${topEscapeHtml(topTrim(it.title, 80))}</div>
-        <div class="tcn-desc">${topEscapeHtml(topTrim(it.desc, 90))}</div>
-        <div class="tcn-foot">
-          <span>${topEscapeHtml(topSectorShort(it.sector1))}</span>
-          ${it.url ? `<a href="${topEscapeHtml(it.url)}" target="_blank" rel="noopener">情報ソース ↗</a>` : ''}
-        </div>
-      </div>
-    </div>
+    &lt;div class=&quot;top-card top-card-news&quot; role=&quot;link&quot; tabindex=&quot;0&quot;
+         onclick=&quot;topGoDetail(event,'${topEscapeHtml(cid)}','learn')&quot;
+         onkeydown=&quot;if(event.key==='Enter')location.href=topDetailLink('${topEscapeHtml(cid)}','learn')&quot;
+         style=&quot;--co-color:${topEscapeHtml(it.color)}&quot;&gt;
+      &lt;div class=&quot;top-card-bar&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;top-card-body&quot;&gt;
+        &lt;div class=&quot;tcn-meta&quot;&gt;
+          &lt;span class=&quot;tcn-badge ${cls || badgeClass}&quot;&gt;${topEscapeHtml(label || badgeLabel)}&lt;/span&gt;
+          &lt;span class=&quot;tcn-date&quot;&gt;${topEscapeHtml(dateLabel)}&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;tcn-company&quot;&gt;&lt;span class=&quot;tcn-dot&quot;&gt;&lt;/span&gt;${topEscapeHtml(it.company)}&lt;/div&gt;
+        &lt;div class=&quot;tcn-title&quot;&gt;${topEscapeHtml(topTrim(it.title, 80))}&lt;/div&gt;
+        &lt;div class=&quot;tcn-desc&quot;&gt;${topEscapeHtml(topTrim(it.desc, 90))}&lt;/div&gt;
+        &lt;div class=&quot;tcn-foot&quot;&gt;
+          &lt;span&gt;${topEscapeHtml(topSectorShort(it.sector1))}&lt;/span&gt;
+          ${it.url ? `&lt;a href=&quot;${topEscapeHtml(it.url)}&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;情報ソース ↗&lt;/a&gt;` : ''}
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
     `;
   }).join('');
 }
@@ -5487,54 +5486,54 @@ function topRenderRecentChanges(){
   const row = document.getElementById('top-row-recent');
   if(!row || !TOP_DATA || !TOP_DATA.shelves) return;
   const items = [];
-  ['product','org','turning'].forEach(k => (TOP_DATA.shelves[k] || []).forEach(x => items.push(x)));
+  ['product','org','turning'].forEach(k =&gt; (TOP_DATA.shelves[k] || []).forEach(x =&gt; items.push(x)));
   const seen = new Set();
-  const deduped = items.filter(x => {
+  const deduped = items.filter(x =&gt; {
     const key = `${x.cid || x.id || x.company_id}-${x.title}`;
     if(seen.has(key)) return false;
     seen.add(key); return true;
-  }).sort((a,b)=>{
+  }).sort((a,b)=&gt;{
     const ad = a.date || String(a.year || '');
     const bd = b.date || String(b.year || '');
     return String(bd).localeCompare(String(ad));
   }).slice(0,18);
-  row.innerHTML = deduped.map(it => {
+  row.innerHTML = deduped.map(it =&gt; {
     const dateLabel = it.date ? it.date.slice(0,7).replace('-','.') : `${it.year || ''}年`;
     const cid = it.cid || it.id || it.company_id;
     const [cls,label] = topTopicBadge(it.type, '変化');
     return `
-      <div class="top-card top-card-news compact-change" role="link" tabindex="0"
-           onclick="topGoDetail(event,'${topEscapeHtml(cid)}','focus')"
-           onkeydown="if(event.key==='Enter')location.href=topDetailLink('${topEscapeHtml(cid)}','focus')"
-           style="--co-color:${topEscapeHtml(it.color)}">
-        <div class="top-card-bar"></div>
-        <div class="top-card-body">
-          <div class="tcn-meta">
-            <span class="tcn-badge ${cls}">${topEscapeHtml(label)}</span>
-            <span class="tcn-date">${topEscapeHtml(dateLabel)}</span>
-          </div>
-          <div class="tcn-company"><span class="tcn-dot"></span>${topEscapeHtml(it.company)}</div>
-          <div class="tcn-title">${topEscapeHtml(topTrim(it.title, 88))}</div>
-          <div class="tcn-foot"><span>最近の活動へ</span>${it.url ? `<a href="${topEscapeHtml(it.url)}" target="_blank" rel="noopener">情報ソース ↗</a>` : ''}</div>
-        </div>
-      </div>
+      &lt;div class=&quot;top-card top-card-news compact-change&quot; role=&quot;link&quot; tabindex=&quot;0&quot;
+           onclick=&quot;topGoDetail(event,'${topEscapeHtml(cid)}','focus')&quot;
+           onkeydown=&quot;if(event.key==='Enter')location.href=topDetailLink('${topEscapeHtml(cid)}','focus')&quot;
+           style=&quot;--co-color:${topEscapeHtml(it.color)}&quot;&gt;
+        &lt;div class=&quot;top-card-bar&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;top-card-body&quot;&gt;
+          &lt;div class=&quot;tcn-meta&quot;&gt;
+            &lt;span class=&quot;tcn-badge ${cls}&quot;&gt;${topEscapeHtml(label)}&lt;/span&gt;
+            &lt;span class=&quot;tcn-date&quot;&gt;${topEscapeHtml(dateLabel)}&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;tcn-company&quot;&gt;&lt;span class=&quot;tcn-dot&quot;&gt;&lt;/span&gt;${topEscapeHtml(it.company)}&lt;/div&gt;
+          &lt;div class=&quot;tcn-title&quot;&gt;${topEscapeHtml(topTrim(it.title, 88))}&lt;/div&gt;
+          &lt;div class=&quot;tcn-foot&quot;&gt;&lt;span&gt;最近の活動へ&lt;/span&gt;${it.url ? `&lt;a href=&quot;${topEscapeHtml(it.url)}&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;情報ソース ↗&lt;/a&gt;` : ''}&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
     `;
   }).join('');
 }
 
 function topRenderDeck(items){
   const row = document.getElementById('top-row-deck');
-  row.innerHTML = items.map(it => `
-    <a class="top-card top-card-deck" href="${topEscapeHtml(it.deck_url)}" target="_blank" rel="noopener" style="--co-color:${topEscapeHtml(it.color)}">
-      <div class="top-card-bar"></div>
-      <div class="top-card-body">
-        <span class="tcd-icon">思想を読む資料</span>
-        <div class="tcd-name">${topEscapeHtml(it.company)}</div>
-        <div class="tcd-sector">${topEscapeHtml(topSectorShort(it.sector1))}</div>
-        <div class="tcd-read">採用・組織の考え方を読める資料</div>
-        <span class="tcd-link">資料を開く ↗</span>
-      </div>
-    </a>
+  row.innerHTML = items.map(it =&gt; `
+    &lt;a class=&quot;top-card top-card-deck&quot; href=&quot;${topEscapeHtml(it.deck_url)}&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; style=&quot;--co-color:${topEscapeHtml(it.color)}&quot;&gt;
+      &lt;div class=&quot;top-card-bar&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;top-card-body&quot;&gt;
+        &lt;span class=&quot;tcd-icon&quot;&gt;思想を読む資料&lt;/span&gt;
+        &lt;div class=&quot;tcd-name&quot;&gt;${topEscapeHtml(it.company)}&lt;/div&gt;
+        &lt;div class=&quot;tcd-sector&quot;&gt;${topEscapeHtml(topSectorShort(it.sector1))}&lt;/div&gt;
+        &lt;div class=&quot;tcd-read&quot;&gt;採用・組織の考え方を読める資料&lt;/div&gt;
+        &lt;span class=&quot;tcd-link&quot;&gt;資料を開く ↗&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/a&gt;
   `).join('');
 }
 
@@ -5550,15 +5549,15 @@ function topSectorDesc(name){
 }
 function topRenderSectors(items){
   const row = document.getElementById('top-row-sector');
-  row.innerHTML = items.slice(0,10).map(it => `
-    <div class="top-card-sector" onclick="topFilterBySector('${topEscapeHtml(it.name)}')">
-      <div>
-        <div class="tcs-name">${topEscapeHtml(topSectorShort(it.name))}</div>
-        <div class="tcs-count">${it.count}社</div>
-        <div class="tcs-desc">${topEscapeHtml(topSectorDesc(it.name))}</div>
-      </div>
-      <div class="tcs-arrow">→</div>
-    </div>
+  row.innerHTML = items.slice(0,10).map(it =&gt; `
+    &lt;div class=&quot;top-card-sector&quot; onclick=&quot;topFilterBySector('${topEscapeHtml(it.name)}')&quot;&gt;
+      &lt;div&gt;
+        &lt;div class=&quot;tcs-name&quot;&gt;${topEscapeHtml(topSectorShort(it.name))}&lt;/div&gt;
+        &lt;div class=&quot;tcs-count&quot;&gt;${it.count}社&lt;/div&gt;
+        &lt;div class=&quot;tcs-desc&quot;&gt;${topEscapeHtml(topSectorDesc(it.name))}&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;tcs-arrow&quot;&gt;→&lt;/div&gt;
+    &lt;/div&gt;
   `).join('');
 }
 
@@ -5577,7 +5576,7 @@ function topLearningJump(type){
 
 function topRenderHero(meta){
   const info = document.getElementById('top-meta-info');
-  if (info && meta) info.textContent = `${Number(meta.company_count || 0).toLocaleString()}社 / ${Number(meta.topic_count || 0).toLocaleString()}件`;
+  if (info &amp;&amp; meta) info.textContent = `${Number(meta.company_count || 0).toLocaleString()}社 / ${Number(meta.topic_count || 0).toLocaleString()}件`;
 }
 
 const TOP_HERO_TAGS = [
@@ -5585,8 +5584,8 @@ const TOP_HERO_TAGS = [
   '#組織','#働き方','#外から見える実績','#転換点'
 ];
 function topRenderHeroTags(){
-  document.getElementById('top-hero-tags').innerHTML = TOP_HERO_TAGS.map(t =>
-    `<span class="top-hero-tag" onclick="topSetSearch('${topEscapeHtml(t.slice(1))}')">${topEscapeHtml(t)}</span>`
+  document.getElementById('top-hero-tags').innerHTML = TOP_HERO_TAGS.map(t =&gt;
+    `&lt;span class=&quot;top-hero-tag&quot; onclick=&quot;topSetSearch('${topEscapeHtml(t.slice(1))}')&quot;&gt;${topEscapeHtml(t)}&lt;/span&gt;`
   ).join('');
 }
 
@@ -5600,7 +5599,7 @@ function topDoSearch(){
 
   const qq = q.toLowerCase();
 
-  const hit = (TOP_DATA.companies || []).find(c => {
+  const hit = (TOP_DATA.companies || []).find(c =&gt; {
     const fields = [
       c.name,
       c.company,
@@ -5614,7 +5613,7 @@ function topDoSearch(){
       c.domain1,
       c.domain2
     ];
-    return fields.some(v => String(v || '').toLowerCase().includes(qq));
+    return fields.some(v =&gt; String(v || '').toLowerCase().includes(qq));
   });
 
   if(hit) {
@@ -5632,7 +5631,7 @@ function topDiscoverRandom(){
 }
 function topFilterBySector(name){
   if(!TOP_DATA) return;
-  const n = TOP_DATA.shelves.sectors.find(s=>s.name===name)?.count || '?';
+  const n = TOP_DATA.shelves.sectors.find(s=&gt;s.name===name)?.count || '?';
   alert(`「${name}」で絞り込み — まだプロトタイプです（${n}社）`);
 }
 
@@ -5646,8 +5645,8 @@ async function initTop(){
   //    ※現時点ではGAS側未実装の場合があるため、主に data/top.json をフォールバックとして使用
   // ② ローカル data/top.json
   const tries = [];
-  if (typeof API_URL !== 'undefined' && API_URL) {
-    tries.push(`${API_URL}?toppage=1&t=${Date.now()}`);
+  if (typeof API_URL !== 'undefined' &amp;&amp; API_URL) {
+    tries.push(`${API_URL}?toppage=1&amp;t=${Date.now()}`);
   }
   tries.push('data/top.json');
   let loaded = false;
@@ -5656,15 +5655,15 @@ async function initTop(){
       const res = await fetch(url, { cache: 'no-store', redirect: 'follow' });
       if(!res.ok) continue;
       const j = await res.json();
-      if(j && j.shelves){ TOP_DATA = j; loaded = true; break; }
+      if(j &amp;&amp; j.shelves){ TOP_DATA = j; loaded = true; break; }
     } catch(e) { /* 次の候補へ */ }
   }
   if(!loaded){
     document.querySelector('.top-main').innerHTML = `
-      <div style="padding:60px 24px;text-align:center;color:var(--text-mute)">
-        <div style="font-weight:700;color:var(--text);margin-bottom:8px">データの読み込みに失敗しました</div>
-        <div style="font-size:12px">GASのURL設定、または data/top.json を確認してください</div>
-      </div>`;
+      &lt;div style=&quot;padding:60px 24px;text-align:center;color:var(--text-mute)&quot;&gt;
+        &lt;div style=&quot;font-weight:700;color:var(--text);margin-bottom:8px&quot;&gt;データの読み込みに失敗しました&lt;/div&gt;
+        &lt;div style=&quot;font-size:12px&quot;&gt;GASのURL設定、または data/top.json を確認してください&lt;/div&gt;
+      &lt;/div&gt;`;
     return;
   }
 
@@ -5684,12 +5683,10 @@ if (document.readyState === 'loading') {
 } else {
   bootstrap();
 }
-</script>
+&lt;/script&gt;
 
-</body>
-</html>
-</template>
-<iframe class="attached-detail-frame" title="添付資料の詳細ページ"></iframe>
+&lt;/body&gt;
+&lt;/html&gt;" title="添付資料の詳細ページ"></iframe>
 </div>
 </div>
 <footer class="footer"><strong>StartupFile</strong> · 知らない会社を、少し好きになる入口。</footer>
@@ -5788,7 +5785,7 @@ const SF_STAGE_DATA = {
 };
 
 function sfEscapeStageHtml(value){
-  return String(value || '').replace(/[&<>"']/g, s => ({'&':'&','<':'<','>':'>','"':'"',"'":'''}[s]));
+  return String(value || '').replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
 }
 function sfRenderStage(stageKey){
   const data = SF_STAGE_DATA[stageKey] || SF_STAGE_DATA.seed;
@@ -5863,7 +5860,7 @@ if (document.readyState === 'loading') {
   };
 
   function esc(value){
-    return String(value == null ? '' : value).replace(/[&<>"']/g, s => ({'&':'&','<':'<','>':'>','"':'"',"'":'''}[s]));
+    return String(value == null ? '' : value).replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
   }
   function idOf(x){ return x && (x.cid || x.company_id || x.id); }
   function nameOf(x){ return x && (x.company || x.name || x.title || ''); }
@@ -6015,55 +6012,16 @@ if (document.readyState === 'loading') {
     document.querySelectorAll('.view-tab').forEach(b => b.classList.toggle('active', b.dataset.view === view));
   }
 
-  function getAttachedDetailBaseHtml(){
-    const tpl = document.getElementById('attached-detail-template');
-    if (tpl) return tpl.innerHTML || '';
-    const frame = document.querySelector('.attached-detail-frame');
-    return (frame && (frame.getAttribute('srcdoc') || frame.srcdoc)) || '';
-  }
-
-  function resizeAttachedDetailFrame(){
-    const frame = document.querySelector('.attached-detail-frame');
-    if(!frame) return;
-    // 元デザインはiframe内の詳細ページをそのまま使うため、内部スクロール可能な高さを確保する。
-    // contentDocumentに触れない環境でも既定高さで表示できるようにしておく。
-    try{
-      const doc = frame.contentDocument || (frame.contentWindow && frame.contentWindow.document);
-      if(!doc) return;
-      const minH = window.matchMedia('(max-width:640px)').matches ? 660 : 680;
-      const h = Math.max(
-        minH,
-        doc.documentElement ? doc.documentElement.scrollHeight : 0,
-        doc.body ? doc.body.scrollHeight : 0
-      );
-      if(h && Number.isFinite(h)) frame.style.height = h + 'px';
-    }catch(e){ /* srcdocなので通常は到達できるが、失敗時はCSS既定値に任せる */ }
-  }
-
   function patchFrameRoute(id, tab){
     const frame = document.querySelector('.attached-detail-frame');
-    if(!frame || !id) return;
-
-    const key = id + ':' + (tab || 'focus');
-    if(frame.dataset.currentId === key && frame.srcdoc) return;
-
-    let html = getAttachedDetailBaseHtml();
+    if(!frame || !id || frame.dataset.currentId === id + ':' + (tab || 'focus')) return;
+    let html = frame.getAttribute('srcdoc') || frame.srcdoc || '';
     if(!html) return;
-
-    if(API_URL) {
-      html = html.replace(/data-api-url="[^"]*"/, `data-api-url="${API_URL.replace(/"/g, '&quot;')}"`);
-    }
-
-    const safeId = String(id).replace(/'/g, "\\'");
-    const safeTab = String(tab || 'focus').replace(/'/g, "\\'");
-    html = html.replace(/await initDetail\('[^']+',\s*'[^']+',\s*null\);/g, `await initDetail('${safeId}', '${safeTab}', null);`);
-
-    frame.dataset.currentId = key;
-    frame.onload = function(){
-      resizeAttachedDetailFrame();
-      setTimeout(resizeAttachedDetailFrame, 250);
-      setTimeout(resizeAttachedDetailFrame, 900);
-    };
+    if(API_URL) html = html.replace(/data-api-url="[^"]*"/, `data-api-url="${API_URL.replace(/"/g, '&quot;')}"`);
+    html = html.replace(/await initDetail\('c0001',\s*'focus',\s*null\);/g, `await initDetail('${String(id).replace(/'/g, "\\'")}', '${String(tab || 'focus').replace(/'/g, "\\'")}', null);`);
+    // 既に別IDで差し替え済みの場合にも再差し替えできるようにする
+    html = html.replace(/await initDetail\('[^']+',\s*'[^']+',\s*null\);/g, `await initDetail('${String(id).replace(/'/g, "\\'")}', '${String(tab || 'focus').replace(/'/g, "\\'")}', null);`);
+    frame.dataset.currentId = id + ':' + (tab || 'focus');
     frame.srcdoc = html;
   }
 
@@ -6082,7 +6040,7 @@ if (document.readyState === 'loading') {
     set('.co-name-current', company.name || company.company || id);
     set('.co-hook-current', company.mission || (company.hero && company.hero.one_liner) || company.one_liner || company.summary || 'この会社の変化を見る。');
     set('.co-overview-current', company.summary || company.biz_desc || company.mission || '');
-    set('.detail-one-line-text', (company.voice && company.voice.growth_story) || (company.hero && company.hero.storyline) || company.storyline || (company.hero && company.hero.one_liner) || company.one_liner || company.summary || company.mission || 'この会社の事業・成長・発信から、いまの変化を見ていきます。');
+    set('.detail-one-line-text', (company.voice && company.voice.growth_story) || (company.comment && company.comment.growth_story) || (company.hero && company.hero.storyline) || company.storyline || (company.hero && company.hero.one_liner) || company.one_liner || company.mission || company.summary || 'この会社の事業・成長・発信から、いまの変化を見ていきます。');
     set('.detail-storyline-text', (company.hero && company.hero.storyline) || company.storyline || company.summary || '数字や出来事だけでなく、会社がどこへ向かっているかを確認します。');
     const chips = document.querySelector('.co-hero-chips');
     if(chips){
