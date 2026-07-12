@@ -1438,6 +1438,14 @@ main{max-width:1280px;margin:0 auto;padding:28px 30px 76px}.section{margin-botto
   font-weight:600;
 }
 
+
+/* === detail adjustment: always-visible source table and simplified material card === */
+.ref-section .ref-accordion-body{max-height:none!important;opacity:1!important;overflow:visible!important;}
+.ref-section .ref-accordion-trigger{display:none!important;}
+.detail-material-card b,.detail-material-card p{display:none!important;}
+.detail-material-card{min-height:58px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.detail-material-link{margin-top:0!important;white-space:nowrap;}
+
 </style>
 </head>
 <body>
@@ -1974,41 +1982,7 @@ main{max-width:1280px;margin:0 auto;padding:28px 30px 76px}.section{margin-botto
 <div class="detail-one-line-label">成長の先にある物語</div>
 <div class="detail-one-line-text">SmartHRは、紙・ハンコ・郵送に残っていた労務手続きの負担を軽くするところから始まった会社です。人事労務の入口をクラウド化することで、従業員情報が自然に整い、採用・評価・配置・給与・人的資本開示までをつなぐ基盤へと広がっています。単なる業務効率化ではなく、働く人と組織がより良い意思決定をできる状態をつくろうとしている点が見どころです。</div>
 </div>
-<div class="detail-storyline">
-<div class="detail-storyline-label">このページで見る観点</div>
-<div class="detail-storyline-text">労務管理SaaSから、企業の人事データ基盤、さらに人的資本経営を支えるプラットフォームへどう進化しているかを見る。</div>
-</div>
-<div class="co-hero-chips">
-<span><b>事業の広がり</b> 労務管理から人事データ活用へ</span>
-<span><b>顧客接点</b> 中小企業からエンタープライズまで</span>
-<span><b>向き合うテーマ</b> 人的資本経営・働く体験</span>
-</div>
-<div class="detail-first-materials">
-<div class="detail-materials-head">
-<h3>会社の考え方が見える資料</h3>
-<span>資料・発信から見る</span>
-</div>
-<div class="detail-materials-grid">
-<a class="detail-material-card" href="#" onclick="return false;">
-<span class="detail-material-type">採用資料</span>
-<b>組織づくりや働き方を見る</b>
-<p>採用・カルチャー・制度から、会社が大事にしていることを読む。</p>
-<span class="detail-material-link">資料を見る →</span>
-</a>
-<a class="detail-material-card" href="#" onclick="return false;">
-<span class="detail-material-type">公式ブログ</span>
-<b>事業の背景を見る</b>
-<p>プロダクトや事業の変化について、会社自身の言葉から見る。</p>
-<span class="detail-material-link">発信を見る →</span>
-</a>
-<a class="detail-material-card" href="#" onclick="return false;">
-<span class="detail-material-type">会社紹介</span>
-<b>目指す世界を見る</b>
-<p>ミッション、事業領域、これからの広がりをまとめて確認する。</p>
-<span class="detail-material-link">紹介を見る →</span>
-</a>
-</div>
-</div>
+<!-- removed: viewpoint chips and hero materials block per request -->
 </div>
 </div>
 </div>
@@ -3653,11 +3627,6 @@ body{overflow:hidden!important;background:#fff!important}
   &lt;div id=&quot;panel-focus&quot; class=&quot;tab-panel active&quot;&gt;
     &lt;div class=&quot;voice-wrap&quot; id=&quot;focus-wrap-main&quot; style=&quot;padding-top:18px&quot;&gt;
 
-      &lt;div class=&quot;co-highlights&quot; id=&quot;co-highlights&quot;&gt;
-        &lt;div class=&quot;co-highlights-label&quot;&gt;この会社を見るための6つの視点&lt;/div&gt;
-        &lt;div class=&quot;co-highlights-grid&quot; id=&quot;co-highlights-grid&quot;&gt;&lt;/div&gt;
-        &lt;p class=&quot;co-highlights-text&quot; id=&quot;co-highlights-text&quot;&gt;&lt;/p&gt;
-      &lt;/div&gt;
 
       &lt;div class=&quot;sec-heading&quot;&gt;基本情報・公式リンク&lt;/div&gt;
       &lt;div class=&quot;tl-company-section&quot;&gt;
@@ -3682,23 +3651,9 @@ body{overflow:hidden!important;background:#fff!important}
           &lt;div class=&quot;bar-chart&quot; id=&quot;fund-chart&quot;&gt;&lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-      &lt;div class=&quot;growth-read-grid&quot; id=&quot;growth-read-grid&quot; aria-label=&quot;成長推移の読み解き&quot;&gt;
-        &lt;div class=&quot;growth-read-card&quot;&gt;
-          &lt;div class=&quot;growth-read-label&quot;&gt;社員数の読み解き&lt;/div&gt;
-          &lt;div class=&quot;growth-read-text&quot; id=&quot;emp-read&quot;&gt;&lt;/div&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;growth-read-card&quot;&gt;
-          &lt;div class=&quot;growth-read-label&quot;&gt;資金調達の読み解き&lt;/div&gt;
-          &lt;div class=&quot;growth-read-text&quot; id=&quot;fund-read&quot;&gt;&lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
       &lt;div class=&quot;ref-section&quot;&gt;
-        &lt;button class=&quot;ref-accordion-trigger&quot; onclick=&quot;toggleRefAcc(this)&quot;&gt;
-          &lt;span class=&quot;ref-trigger-text&quot;&gt;データの出典を見る&lt;/span&gt;
-          &lt;span class=&quot;ref-acc-chevron&quot;&gt;▾&lt;/span&gt;
-        &lt;/button&gt;
-
-        &lt;div class=&quot;ref-accordion-body&quot; id=&quot;ref-accordion-body&quot;&gt;
+        &lt;div class=&quot;sec-heading&quot; style=&quot;margin-top:14px&quot;&gt;データの出典を見る&lt;/div&gt;
+        &lt;div class=&quot;ref-accordion-body open&quot; id=&quot;ref-accordion-body&quot;&gt;
         &lt;table class=&quot;ref-table&quot;&gt;
           &lt;thead&gt;&lt;tr&gt;&lt;th&gt;年&lt;/th&gt;&lt;th&gt;社員数&lt;/th&gt;&lt;th&gt;資金調達情報&lt;/th&gt;&lt;th&gt;投資家&lt;/th&gt;&lt;th&gt;ソース&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
           &lt;tbody id=&quot;ref-tbody&quot;&gt;&lt;/tbody&gt;
@@ -4316,37 +4271,9 @@ function hasVoiceData(c) {
 }
 
 function renderFocus(c) {
-  // まず見るところタブでは、長文の解説ではなく「最近の活動」をコンパクトに見せる。
+  // 調整方針：まず見るところタブの「最近の活動」は削除。
   const wrap = document.getElementById('focus-dynamic');
-  if (!wrap) return;
-
-  const picks = pickRecentActivityTopics(c, 5);
-  if (!picks.length) {
-    wrap.innerHTML = '';
-    return;
-  }
-
-  wrap.innerHTML = `
-    &lt;div class=&quot;focus-activity&quot; style=&quot;--co-color:${c.color||'var(--blue)'}&quot;&gt;
-      &lt;div class=&quot;sec-heading&quot; style=&quot;margin-top:14px&quot;&gt;最近の活動&lt;/div&gt;
-      &lt;div class=&quot;focus-activity-list&quot;&gt;
-        ${picks.map(t =&gt; {
-          const type = normalizeTopicType(t.type);
-          const ti = TYPE[type] || {label:type, cls:'tb-b', dot:'var(--teal)'};
-          return `&lt;div class=&quot;focus-activity-item&quot;&gt;
-            &lt;div class=&quot;focus-activity-year&quot;&gt;${t.year || ''}&lt;/div&gt;
-            &lt;div class=&quot;focus-activity-main&quot;&gt;
-              &lt;div class=&quot;focus-activity-meta&quot;&gt;
-                &lt;span class=&quot;tl-badge ${ti.cls}&quot;&gt;${ti.label}&lt;/span&gt;
-                ${t.speaker ? `&lt;span class=&quot;tl-speaker&quot;&gt;${escapeHtmlSafe(t.speaker)}&lt;/span&gt;` : ''}
-              &lt;/div&gt;
-              &lt;div class=&quot;focus-activity-title&quot;&gt;${escapeHtmlSafe(t.title)}&lt;/div&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;`;
-        }).join('')}
-      &lt;/div&gt;
-      &lt;div class=&quot;focus-activity-note&quot;&gt;詳細な背景・出典は「6つの視点で見る」で確認できます。&lt;/div&gt;
-    &lt;/div&gt;`;
+  if (wrap) wrap.innerHTML = '';
 }
 
 function renderVoicePanel(c) {
@@ -5950,7 +5877,7 @@ if (document.readyState === 'loading') {
   function materialLink(type, href, title, body){
     if(!href) return '';
     return `<a class="detail-material-card" href="${esc(href)}" target="_blank" rel="noopener">
-      <span class="detail-material-type">${esc(type)}</span><b>${esc(title)}</b><p>${esc(body)}</p><span class="detail-material-link">見る →</span>
+      <span class="detail-material-type">${esc(type)}</span><span class="detail-material-link">資料を見る →</span>
     </a>`;
   }
 
@@ -5979,9 +5906,7 @@ if (document.readyState === 'loading') {
     const materials = document.querySelector('.detail-materials-grid');
     if(materials){
       const html = [
-        materialLink('採用資料', links.recruit, '組織づくりや働き方を見る', '採用・カルチャー・制度から、会社が大事にしていることを読む。'),
-        materialLink('公式発信', links.news || links.hp, '事業の背景を見る', 'プロダクトや事業の変化について、会社自身の言葉から見る。'),
-        materialLink('会社紹介', links.culture || links.service_doc || links.service || links.hp, '目指す世界を見る', 'ミッション、事業領域、これからの広がりをまとめて確認する。')
+        materialLink('採用資料', links.recruit, '', '')
       ].filter(Boolean).join('');
       if(html) materials.innerHTML = html;
     }
