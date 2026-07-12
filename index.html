@@ -2223,7 +2223,87 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
   .v-src{max-width:100%;font-size:11.3px;}
 }
 
+
 .v-speaker{font-size:10px;color:var(--text-mute);font-family:var(--mono);margin-top:6px}
+
+/* 投資家・関係者の期待：ラウンド → VC名 → 個別ソース → コメント */
+.investor-expect-list{
+  display:grid;
+  gap:10px;
+}
+.investor-expect-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  padding:14px 15px;
+}
+.investor-expect-label{
+  display:inline-flex;
+  align-items:center;
+  max-width:100%;
+  padding:3px 10px;
+  border-radius:4px;
+  background:#1A5EC2;
+  color:#fff;
+  font-family:var(--mono);
+  font-size:10.5px;
+  font-weight:700;
+  line-height:1.5;
+  white-space:nowrap;
+}
+.investor-expect-name{
+  margin-top:10px;
+  font-size:13px;
+  font-weight:700;
+  color:var(--text);
+  line-height:1.6;
+}
+.investor-expect-sources{
+  display:flex;
+  flex-wrap:wrap;
+  gap:5px 10px;
+  margin-top:5px;
+}
+.investor-expect-source{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  max-width:100%;
+  color:var(--blue);
+  font-size:11.5px;
+  font-weight:700;
+  line-height:1.55;
+  text-decoration:none;
+}
+.investor-expect-source:hover{
+  color:#0F49A4;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+.investor-expect-source-label{
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.investor-expect-source-arrow{
+  flex:0 0 auto;
+  font-size:10px;
+  transform:translateY(-1px);
+}
+.investor-expect-divider{
+  margin:11px 0 9px;
+  border-top:1px solid var(--border-sub);
+}
+.investor-expect-comment{
+  font-size:13px;
+  color:var(--text-sub);
+  line-height:1.85;
+}
+@media(max-width:640px){
+  .investor-expect-card{padding:13px 12px;}
+  .investor-expect-label{white-space:normal;}
+  .investor-expect-source{font-size:11.2px;}
+}
+
 
 .tl-company-section{background:#fff;border-radius:var(--r);border:1px solid var(--border);overflow:hidden;margin-bottom:18px}
 .co-biz-desc{font-size:13px;color:var(--text-sub);line-height:1.8;padding:13px 16px 12px;border-bottom:1px solid var(--border-sub)}
@@ -4315,7 +4395,7 @@ const VOICE_SAMPLE = {
     { no:'04', title:'事業の展望とこれから目指す世界', body:`今後のSmartHRは、労務管理の効率化だけでなく、働く人と組織の状態を可視化し、より良い人事判断を支える基盤へ進化していく可能性がある。従業員データ、評価、配置、サーベイ、給与、人的資本開示がつながることで、人事部門だけでなく経営層や現場マネージャーも同じ情報をもとに意思決定できるようになる。会社が大きくなるほど、人と組織に関する情報は分断されやすい。SmartHRは、その分断をほどき、誰もが能力を発揮しやすい組織づくりを支えるインフラを目指している。`, sources:[{title:`参考モック：事業展望メモ`, url:`https://smarthr.example.com/future`}] },
   ],
   investors:[
-    { name:'Series E 投資家コメント（モック）', person:'グロース投資家・コメント要約', round:'Series E相当', txt:`「SmartHRは、人事労務という企業に必ず存在する業務を起点に、従業員データの基盤へと広がっている。導入社数、プロダクトの拡張性、法改正対応力、エンタープライズ領域への浸透を踏まえると、国内SaaSの中でも長期的に経営インフラ化する可能性を持つ会社だと見ている。」`, sources:[{title:`参考モック：投資家コメント`, url:`https://smarthr.example.com/investor-comment`}] },
+    { name:'Olivia Steedman（Teachers’ Venture Growth Executive Managing Director and Global Head）', round:'シリーズE', year:'2024年7月', txt:`「SmartHRは、人事労務という企業に必ず存在する業務を起点に、従業員データの基盤へと広がっている。導入社数、プロダクトの拡張性、法改正対応力、エンタープライズ領域への浸透を踏まえると、国内SaaSの中でも長期的に経営インフラ化する可能性を持つ会社だと見ている。」`, sources:[{title:`参考モック：投資家コメント`, url:`https://smarthr.example.com/investor-comment`}] },
   ],
 };
 
@@ -4433,7 +4513,21 @@ function renderVoicePanel(c) {
     &lt;/div&gt;`;
   };
   const vcText = (vc) =&gt; vc &amp;&amp; (vc.summary || vc.txt || vc.comment || &#x27;&#x27;) || &#x27;&#x27;;
-  const vcSpeaker = (vc) =&gt; [vc.person, vc.round].filter(Boolean).join(&#x27; · &#x27;);
+  const vcLabel = (vc) =&gt; [vc &amp;&amp; vc.round, vc &amp;&amp; vc.year]
+    .map(v=&gt;String(v || &#x27;&#x27;).trim())
+    .filter(Boolean)
+    .join(&#x27; / &#x27;);
+  const mkInvestorSources = (srcs) =&gt; {
+    const items = normalizeSourceItems(srcs);
+    if (!items.length) return &#x27;&#x27;;
+    return `&lt;div class=&quot;investor-expect-sources&quot;&gt;
+      ${items.map(s=&gt;`
+        &lt;a class=&quot;investor-expect-source&quot; href=&quot;${escapeHtmlSafe(s.url)}&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; title=&quot;${escapeHtmlSafe(s.url)}&quot;&gt;
+          &lt;span class=&quot;investor-expect-source-label&quot;&gt;${escapeHtmlSafe(sourceLabel(s))}&lt;/span&gt;
+          &lt;span class=&quot;investor-expect-source-arrow&quot;&gt;↗&lt;/span&gt;
+        &lt;/a&gt;`).join(&#x27;&#x27;)}
+    &lt;/div&gt;`;
+  };
 
   let html = &#x27;&#x27;;
   if (hasVoiceData(c)) {
@@ -4455,12 +4549,21 @@ function renderVoicePanel(c) {
       html += `
         &lt;div class=&quot;voice-chapter&quot;&gt;
           &lt;div class=&quot;voice-chapter-title&quot;&gt;投資家・関係者の期待&lt;/div&gt;
-          ${v.investors.map(vc=&gt;`
-            &lt;div class=&quot;v-card&quot;&gt;
-              &lt;div class=&quot;v-card-meta&quot;&gt;&lt;span class=&quot;v-badge&quot;&gt;${vc.name || &#x27;投資家・関係者&#x27;}&lt;/span&gt;&lt;/div&gt;
-              &lt;div class=&quot;v-card-body&quot;&gt;${vcText(vc)}${vcSpeaker(vc) ? `&lt;div class=&quot;v-speaker&quot;&gt;— ${vcSpeaker(vc)}&lt;/div&gt;` : &#x27;&#x27;}&lt;/div&gt;
-            &lt;/div&gt;`).join(&#x27;&#x27;)}
-          ${mkSources(v.investors.flatMap(vc=&gt;vc.sources||[]))}
+          &lt;div class=&quot;investor-expect-list&quot;&gt;
+            ${v.investors.slice(0, 3).map(vc=&gt;{
+              const label = vcLabel(vc);
+              const name = vc.name || vc.person || &#x27;投資家・関係者&#x27;;
+              const comment = escapeHtmlSafe(vcText(vc)).replace(/\r?\n/g, &#x27;&lt;br&gt;&#x27;);
+              return `
+                &lt;div class=&quot;investor-expect-card&quot;&gt;
+                  ${label ? `&lt;div class=&quot;investor-expect-label&quot;&gt;${escapeHtmlSafe(label)}&lt;/div&gt;` : &#x27;&#x27;}
+                  &lt;div class=&quot;investor-expect-name&quot;&gt;${escapeHtmlSafe(name)}&lt;/div&gt;
+                  ${mkInvestorSources(vc.sources || [])}
+                  &lt;div class=&quot;investor-expect-divider&quot;&gt;&lt;/div&gt;
+                  &lt;div class=&quot;investor-expect-comment&quot;&gt;${comment}&lt;/div&gt;
+                &lt;/div&gt;`;
+            }).join(&#x27;&#x27;)}
+          &lt;/div&gt;
         &lt;/div&gt;`;
     }
     html += `&lt;/div&gt;`;
