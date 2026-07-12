@@ -1990,7 +1990,9 @@ main{max-width:1280px;margin:0 auto;padding:28px 30px 76px}.section{margin-botto
 </div>
 </section>
 <div class="attached-detail-shell">
-<iframe class="attached-detail-frame" srcdoc="<!DOCTYPE html>
+<iframe class="attached-detail-frame" title="添付資料の詳細ページ"></iframe>
+<template id="attached-detail-template">
+<!DOCTYPE html>
 
 <html lang="ja" data-api-url="">
 <head>
@@ -5686,7 +5688,8 @@ if (document.readyState === 'loading') {
 </script>
 
 </body>
-</html>" title="添付資料の詳細ページ"></iframe>
+</html>
+</template>
 </div>
 </div>
 <footer class="footer"><strong>StartupFile</strong> · 知らない会社を、少し好きになる入口。</footer>
@@ -6015,7 +6018,8 @@ if (document.readyState === 'loading') {
   function patchFrameRoute(id, tab){
     const frame = document.querySelector('.attached-detail-frame');
     if(!frame || !id || frame.dataset.currentId === id + ':' + (tab || 'focus')) return;
-    let html = frame.getAttribute('srcdoc') || frame.srcdoc || '';
+    const tpl = document.getElementById('attached-detail-template');
+    let html = frame.srcdoc || frame.getAttribute('srcdoc') || (tpl ? tpl.innerHTML.trim() : '');
     if(!html) return;
     if(API_URL) html = html.replace(/data-api-url="[^"]*"/, `data-api-url="${API_URL.replace(/"/g, '"')}"`);
     html = html.replace(/await initDetail\('c0001',\s*'focus',\s*null\);/g, `await initDetail('${String(id).replace(/'/g, "\\'")}', '${String(tab || 'focus').replace(/'/g, "\\'")}', null);`);
